@@ -3,6 +3,8 @@ import cors from "cors";
 import locadorRoutes from "./src/routes/locadorRoutes.js";
 import adminRoutes from "./src/routes/adminRoutes.js";
 import hospedeRoutes from "./src/routes/hospedeRoutes.js";
+import casaRoutes from "./src/routes/casaRoutes.js";
+
 const app = express();
 
 app.use(cors());
@@ -11,6 +13,7 @@ app.use(express.json());
 app.use("/api", locadorRoutes);
 app.use("/api", adminRoutes);
 app.use("/api", hospedeRoutes);
+app.use("/api", casaRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hello World");

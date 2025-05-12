@@ -18,7 +18,7 @@ router.get("/locador", async (req, res) => {
 router.post("/locador", async (req, res) => {
   const { name, email, senha, cpf, endereco, cep, cidade, estado } = req.body;
   if (!email) {
-    return res.status(400).json({ error: "eerro ao encontrar email" });
+    return res.status(400).json({ error: "erro ao encontrar email" });
   }
   try {
     const newLocador = await prisma.locador.create({

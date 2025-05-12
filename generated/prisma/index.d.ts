@@ -24,15 +24,15 @@ export type Admin = $Result.DefaultSelection<Prisma.$AdminPayload>
  */
 export type Casa = $Result.DefaultSelection<Prisma.$CasaPayload>
 /**
- * Model Host
+ * Model Locador
  * 
  */
-export type Host = $Result.DefaultSelection<Prisma.$HostPayload>
+export type Locador = $Result.DefaultSelection<Prisma.$LocadorPayload>
 /**
- * Model Morador
+ * Model Hospede
  * 
  */
-export type Morador = $Result.DefaultSelection<Prisma.$MoradorPayload>
+export type Hospede = $Result.DefaultSelection<Prisma.$HospedePayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -180,24 +180,24 @@ export class PrismaClient<
   get casa(): Prisma.CasaDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.host`: Exposes CRUD operations for the **Host** model.
+   * `prisma.locador`: Exposes CRUD operations for the **Locador** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Hosts
-    * const hosts = await prisma.host.findMany()
+    * // Fetch zero or more Locadors
+    * const locadors = await prisma.locador.findMany()
     * ```
     */
-  get host(): Prisma.HostDelegate<ExtArgs, ClientOptions>;
+  get locador(): Prisma.LocadorDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.morador`: Exposes CRUD operations for the **Morador** model.
+   * `prisma.hospede`: Exposes CRUD operations for the **Hospede** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Moradors
-    * const moradors = await prisma.morador.findMany()
+    * // Fetch zero or more Hospedes
+    * const hospedes = await prisma.hospede.findMany()
     * ```
     */
-  get morador(): Prisma.MoradorDelegate<ExtArgs, ClientOptions>;
+  get hospede(): Prisma.HospedeDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -640,8 +640,8 @@ export namespace Prisma {
   export const ModelName: {
     Admin: 'Admin',
     Casa: 'Casa',
-    Host: 'Host',
-    Morador: 'Morador'
+    Locador: 'Locador',
+    Hospede: 'Hospede'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -660,7 +660,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "admin" | "casa" | "host" | "morador"
+      modelProps: "admin" | "casa" | "locador" | "hospede"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -812,151 +812,151 @@ export namespace Prisma {
           }
         }
       }
-      Host: {
-        payload: Prisma.$HostPayload<ExtArgs>
-        fields: Prisma.HostFieldRefs
+      Locador: {
+        payload: Prisma.$LocadorPayload<ExtArgs>
+        fields: Prisma.LocadorFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.HostFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$HostPayload> | null
+            args: Prisma.LocadorFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LocadorPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.HostFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$HostPayload>
+            args: Prisma.LocadorFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LocadorPayload>
           }
           findFirst: {
-            args: Prisma.HostFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$HostPayload> | null
+            args: Prisma.LocadorFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LocadorPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.HostFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$HostPayload>
+            args: Prisma.LocadorFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LocadorPayload>
           }
           findMany: {
-            args: Prisma.HostFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$HostPayload>[]
+            args: Prisma.LocadorFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LocadorPayload>[]
           }
           create: {
-            args: Prisma.HostCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$HostPayload>
+            args: Prisma.LocadorCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LocadorPayload>
           }
           createMany: {
-            args: Prisma.HostCreateManyArgs<ExtArgs>
+            args: Prisma.LocadorCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.HostCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$HostPayload>[]
+            args: Prisma.LocadorCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LocadorPayload>[]
           }
           delete: {
-            args: Prisma.HostDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$HostPayload>
+            args: Prisma.LocadorDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LocadorPayload>
           }
           update: {
-            args: Prisma.HostUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$HostPayload>
+            args: Prisma.LocadorUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LocadorPayload>
           }
           deleteMany: {
-            args: Prisma.HostDeleteManyArgs<ExtArgs>
+            args: Prisma.LocadorDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.HostUpdateManyArgs<ExtArgs>
+            args: Prisma.LocadorUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.HostUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$HostPayload>[]
+            args: Prisma.LocadorUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LocadorPayload>[]
           }
           upsert: {
-            args: Prisma.HostUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$HostPayload>
+            args: Prisma.LocadorUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LocadorPayload>
           }
           aggregate: {
-            args: Prisma.HostAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateHost>
+            args: Prisma.LocadorAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateLocador>
           }
           groupBy: {
-            args: Prisma.HostGroupByArgs<ExtArgs>
-            result: $Utils.Optional<HostGroupByOutputType>[]
+            args: Prisma.LocadorGroupByArgs<ExtArgs>
+            result: $Utils.Optional<LocadorGroupByOutputType>[]
           }
           count: {
-            args: Prisma.HostCountArgs<ExtArgs>
-            result: $Utils.Optional<HostCountAggregateOutputType> | number
+            args: Prisma.LocadorCountArgs<ExtArgs>
+            result: $Utils.Optional<LocadorCountAggregateOutputType> | number
           }
         }
       }
-      Morador: {
-        payload: Prisma.$MoradorPayload<ExtArgs>
-        fields: Prisma.MoradorFieldRefs
+      Hospede: {
+        payload: Prisma.$HospedePayload<ExtArgs>
+        fields: Prisma.HospedeFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.MoradorFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MoradorPayload> | null
+            args: Prisma.HospedeFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HospedePayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.MoradorFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MoradorPayload>
+            args: Prisma.HospedeFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HospedePayload>
           }
           findFirst: {
-            args: Prisma.MoradorFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MoradorPayload> | null
+            args: Prisma.HospedeFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HospedePayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.MoradorFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MoradorPayload>
+            args: Prisma.HospedeFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HospedePayload>
           }
           findMany: {
-            args: Prisma.MoradorFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MoradorPayload>[]
+            args: Prisma.HospedeFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HospedePayload>[]
           }
           create: {
-            args: Prisma.MoradorCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MoradorPayload>
+            args: Prisma.HospedeCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HospedePayload>
           }
           createMany: {
-            args: Prisma.MoradorCreateManyArgs<ExtArgs>
+            args: Prisma.HospedeCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.MoradorCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MoradorPayload>[]
+            args: Prisma.HospedeCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HospedePayload>[]
           }
           delete: {
-            args: Prisma.MoradorDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MoradorPayload>
+            args: Prisma.HospedeDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HospedePayload>
           }
           update: {
-            args: Prisma.MoradorUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MoradorPayload>
+            args: Prisma.HospedeUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HospedePayload>
           }
           deleteMany: {
-            args: Prisma.MoradorDeleteManyArgs<ExtArgs>
+            args: Prisma.HospedeDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.MoradorUpdateManyArgs<ExtArgs>
+            args: Prisma.HospedeUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.MoradorUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MoradorPayload>[]
+            args: Prisma.HospedeUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HospedePayload>[]
           }
           upsert: {
-            args: Prisma.MoradorUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MoradorPayload>
+            args: Prisma.HospedeUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HospedePayload>
           }
           aggregate: {
-            args: Prisma.MoradorAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateMorador>
+            args: Prisma.HospedeAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateHospede>
           }
           groupBy: {
-            args: Prisma.MoradorGroupByArgs<ExtArgs>
-            result: $Utils.Optional<MoradorGroupByOutputType>[]
+            args: Prisma.HospedeGroupByArgs<ExtArgs>
+            result: $Utils.Optional<HospedeGroupByOutputType>[]
           }
           count: {
-            args: Prisma.MoradorCountArgs<ExtArgs>
-            result: $Utils.Optional<MoradorCountAggregateOutputType> | number
+            args: Prisma.HospedeCountArgs<ExtArgs>
+            result: $Utils.Optional<HospedeCountAggregateOutputType> | number
           }
         }
       }
@@ -1046,8 +1046,8 @@ export namespace Prisma {
   export type GlobalOmitConfig = {
     admin?: AdminOmit
     casa?: CasaOmit
-    host?: HostOmit
-    morador?: MoradorOmit
+    locador?: LocadorOmit
+    hospede?: HospedeOmit
   }
 
   /* Types for Logging */
@@ -1136,6 +1136,36 @@ export namespace Prisma {
    * Count Types
    */
 
+
+  /**
+   * Count Type LocadorCountOutputType
+   */
+
+  export type LocadorCountOutputType = {
+    casas: number
+  }
+
+  export type LocadorCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    casas?: boolean | LocadorCountOutputTypeCountCasasArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * LocadorCountOutputType without action
+   */
+  export type LocadorCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LocadorCountOutputType
+     */
+    select?: LocadorCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * LocadorCountOutputType without action
+   */
+  export type LocadorCountOutputTypeCountCasasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CasaWhereInput
+  }
 
 
   /**
@@ -2158,37 +2188,49 @@ export namespace Prisma {
   export type CasaAvgAggregateOutputType = {
     id: number | null
     numero: number | null
-    qnt_tot: number | null
+    locadorId: number | null
   }
 
   export type CasaSumAggregateOutputType = {
     id: number | null
     numero: number | null
-    qnt_tot: number | null
+    locadorId: number | null
   }
 
   export type CasaMinAggregateOutputType = {
     id: number | null
     endereco: string | null
     numero: number | null
-    qnt_tot: number | null
+    cep: string | null
+    cidade: string | null
+    estado: string | null
     diretrizes: string | null
+    complemento: string | null
+    locadorId: number | null
   }
 
   export type CasaMaxAggregateOutputType = {
     id: number | null
     endereco: string | null
     numero: number | null
-    qnt_tot: number | null
+    cep: string | null
+    cidade: string | null
+    estado: string | null
     diretrizes: string | null
+    complemento: string | null
+    locadorId: number | null
   }
 
   export type CasaCountAggregateOutputType = {
     id: number
     endereco: number
     numero: number
-    qnt_tot: number
+    cep: number
+    cidade: number
+    estado: number
     diretrizes: number
+    complemento: number
+    locadorId: number
     _all: number
   }
 
@@ -2196,37 +2238,49 @@ export namespace Prisma {
   export type CasaAvgAggregateInputType = {
     id?: true
     numero?: true
-    qnt_tot?: true
+    locadorId?: true
   }
 
   export type CasaSumAggregateInputType = {
     id?: true
     numero?: true
-    qnt_tot?: true
+    locadorId?: true
   }
 
   export type CasaMinAggregateInputType = {
     id?: true
     endereco?: true
     numero?: true
-    qnt_tot?: true
+    cep?: true
+    cidade?: true
+    estado?: true
     diretrizes?: true
+    complemento?: true
+    locadorId?: true
   }
 
   export type CasaMaxAggregateInputType = {
     id?: true
     endereco?: true
     numero?: true
-    qnt_tot?: true
+    cep?: true
+    cidade?: true
+    estado?: true
     diretrizes?: true
+    complemento?: true
+    locadorId?: true
   }
 
   export type CasaCountAggregateInputType = {
     id?: true
     endereco?: true
     numero?: true
-    qnt_tot?: true
+    cep?: true
+    cidade?: true
+    estado?: true
     diretrizes?: true
+    complemento?: true
+    locadorId?: true
     _all?: true
   }
 
@@ -2320,8 +2374,12 @@ export namespace Prisma {
     id: number
     endereco: string
     numero: number
-    qnt_tot: number
+    cep: string | null
+    cidade: string | null
+    estado: string | null
     diretrizes: string
+    complemento: string | null
+    locadorId: number
     _count: CasaCountAggregateOutputType | null
     _avg: CasaAvgAggregateOutputType | null
     _sum: CasaSumAggregateOutputType | null
@@ -2347,45 +2405,79 @@ export namespace Prisma {
     id?: boolean
     endereco?: boolean
     numero?: boolean
-    qnt_tot?: boolean
+    cep?: boolean
+    cidade?: boolean
+    estado?: boolean
     diretrizes?: boolean
+    complemento?: boolean
+    locadorId?: boolean
+    locador?: boolean | LocadorDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["casa"]>
 
   export type CasaSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     endereco?: boolean
     numero?: boolean
-    qnt_tot?: boolean
+    cep?: boolean
+    cidade?: boolean
+    estado?: boolean
     diretrizes?: boolean
+    complemento?: boolean
+    locadorId?: boolean
+    locador?: boolean | LocadorDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["casa"]>
 
   export type CasaSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     endereco?: boolean
     numero?: boolean
-    qnt_tot?: boolean
+    cep?: boolean
+    cidade?: boolean
+    estado?: boolean
     diretrizes?: boolean
+    complemento?: boolean
+    locadorId?: boolean
+    locador?: boolean | LocadorDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["casa"]>
 
   export type CasaSelectScalar = {
     id?: boolean
     endereco?: boolean
     numero?: boolean
-    qnt_tot?: boolean
+    cep?: boolean
+    cidade?: boolean
+    estado?: boolean
     diretrizes?: boolean
+    complemento?: boolean
+    locadorId?: boolean
   }
 
-  export type CasaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "endereco" | "numero" | "qnt_tot" | "diretrizes", ExtArgs["result"]["casa"]>
+  export type CasaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "endereco" | "numero" | "cep" | "cidade" | "estado" | "diretrizes" | "complemento" | "locadorId", ExtArgs["result"]["casa"]>
+  export type CasaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    locador?: boolean | LocadorDefaultArgs<ExtArgs>
+  }
+  export type CasaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    locador?: boolean | LocadorDefaultArgs<ExtArgs>
+  }
+  export type CasaIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    locador?: boolean | LocadorDefaultArgs<ExtArgs>
+  }
 
   export type $CasaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Casa"
-    objects: {}
+    objects: {
+      locador: Prisma.$LocadorPayload<ExtArgs>
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       endereco: string
       numero: number
-      qnt_tot: number
+      cep: string | null
+      cidade: string | null
+      estado: string | null
       diretrizes: string
+      complemento: string | null
+      locadorId: number
     }, ExtArgs["result"]["casa"]>
     composites: {}
   }
@@ -2780,6 +2872,7 @@ export namespace Prisma {
    */
   export interface Prisma__CasaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    locador<T extends LocadorDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LocadorDefaultArgs<ExtArgs>>): Prisma__LocadorClient<$Result.GetResult<Prisma.$LocadorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2812,8 +2905,12 @@ export namespace Prisma {
     readonly id: FieldRef<"Casa", 'Int'>
     readonly endereco: FieldRef<"Casa", 'String'>
     readonly numero: FieldRef<"Casa", 'Int'>
-    readonly qnt_tot: FieldRef<"Casa", 'Int'>
+    readonly cep: FieldRef<"Casa", 'String'>
+    readonly cidade: FieldRef<"Casa", 'String'>
+    readonly estado: FieldRef<"Casa", 'String'>
     readonly diretrizes: FieldRef<"Casa", 'String'>
+    readonly complemento: FieldRef<"Casa", 'String'>
+    readonly locadorId: FieldRef<"Casa", 'Int'>
   }
     
 
@@ -2830,6 +2927,10 @@ export namespace Prisma {
      * Omit specific fields from the Casa
      */
     omit?: CasaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CasaInclude<ExtArgs> | null
     /**
      * Filter, which Casa to fetch.
      */
@@ -2849,6 +2950,10 @@ export namespace Prisma {
      */
     omit?: CasaOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CasaInclude<ExtArgs> | null
+    /**
      * Filter, which Casa to fetch.
      */
     where: CasaWhereUniqueInput
@@ -2866,6 +2971,10 @@ export namespace Prisma {
      * Omit specific fields from the Casa
      */
     omit?: CasaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CasaInclude<ExtArgs> | null
     /**
      * Filter, which Casa to fetch.
      */
@@ -2915,6 +3024,10 @@ export namespace Prisma {
      */
     omit?: CasaOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CasaInclude<ExtArgs> | null
+    /**
      * Filter, which Casa to fetch.
      */
     where?: CasaWhereInput
@@ -2963,6 +3076,10 @@ export namespace Prisma {
      */
     omit?: CasaOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CasaInclude<ExtArgs> | null
+    /**
      * Filter, which Casas to fetch.
      */
     where?: CasaWhereInput
@@ -3006,6 +3123,10 @@ export namespace Prisma {
      */
     omit?: CasaOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CasaInclude<ExtArgs> | null
+    /**
      * The data needed to create a Casa.
      */
     data: XOR<CasaCreateInput, CasaUncheckedCreateInput>
@@ -3037,6 +3158,10 @@ export namespace Prisma {
      * The data used to create many Casas.
      */
     data: CasaCreateManyInput | CasaCreateManyInput[]
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CasaIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -3051,6 +3176,10 @@ export namespace Prisma {
      * Omit specific fields from the Casa
      */
     omit?: CasaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CasaInclude<ExtArgs> | null
     /**
      * The data needed to update a Casa.
      */
@@ -3103,6 +3232,10 @@ export namespace Prisma {
      * Limit how many Casas to update.
      */
     limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CasaIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -3117,6 +3250,10 @@ export namespace Prisma {
      * Omit specific fields from the Casa
      */
     omit?: CasaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CasaInclude<ExtArgs> | null
     /**
      * The filter to search for the Casa to update in case it exists.
      */
@@ -3143,6 +3280,10 @@ export namespace Prisma {
      * Omit specific fields from the Casa
      */
     omit?: CasaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CasaInclude<ExtArgs> | null
     /**
      * Filter which Casa to delete.
      */
@@ -3175,249 +3316,296 @@ export namespace Prisma {
      * Omit specific fields from the Casa
      */
     omit?: CasaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CasaInclude<ExtArgs> | null
   }
 
 
   /**
-   * Model Host
+   * Model Locador
    */
 
-  export type AggregateHost = {
-    _count: HostCountAggregateOutputType | null
-    _avg: HostAvgAggregateOutputType | null
-    _sum: HostSumAggregateOutputType | null
-    _min: HostMinAggregateOutputType | null
-    _max: HostMaxAggregateOutputType | null
+  export type AggregateLocador = {
+    _count: LocadorCountAggregateOutputType | null
+    _avg: LocadorAvgAggregateOutputType | null
+    _sum: LocadorSumAggregateOutputType | null
+    _min: LocadorMinAggregateOutputType | null
+    _max: LocadorMaxAggregateOutputType | null
   }
 
-  export type HostAvgAggregateOutputType = {
+  export type LocadorAvgAggregateOutputType = {
     id: number | null
   }
 
-  export type HostSumAggregateOutputType = {
+  export type LocadorSumAggregateOutputType = {
     id: number | null
   }
 
-  export type HostMinAggregateOutputType = {
-    id: number | null
-    name: string | null
-    email: string | null
-    senha: string | null
-    cpf: string | null
-    endereco: string | null
-  }
-
-  export type HostMaxAggregateOutputType = {
+  export type LocadorMinAggregateOutputType = {
     id: number | null
     name: string | null
     email: string | null
     senha: string | null
     cpf: string | null
     endereco: string | null
+    cep: string | null
+    cidade: string | null
+    estado: string | null
   }
 
-  export type HostCountAggregateOutputType = {
+  export type LocadorMaxAggregateOutputType = {
+    id: number | null
+    name: string | null
+    email: string | null
+    senha: string | null
+    cpf: string | null
+    endereco: string | null
+    cep: string | null
+    cidade: string | null
+    estado: string | null
+  }
+
+  export type LocadorCountAggregateOutputType = {
     id: number
     name: number
     email: number
     senha: number
     cpf: number
     endereco: number
+    cep: number
+    cidade: number
+    estado: number
     _all: number
   }
 
 
-  export type HostAvgAggregateInputType = {
+  export type LocadorAvgAggregateInputType = {
     id?: true
   }
 
-  export type HostSumAggregateInputType = {
+  export type LocadorSumAggregateInputType = {
     id?: true
   }
 
-  export type HostMinAggregateInputType = {
+  export type LocadorMinAggregateInputType = {
     id?: true
     name?: true
     email?: true
     senha?: true
     cpf?: true
     endereco?: true
+    cep?: true
+    cidade?: true
+    estado?: true
   }
 
-  export type HostMaxAggregateInputType = {
+  export type LocadorMaxAggregateInputType = {
     id?: true
     name?: true
     email?: true
     senha?: true
     cpf?: true
     endereco?: true
+    cep?: true
+    cidade?: true
+    estado?: true
   }
 
-  export type HostCountAggregateInputType = {
+  export type LocadorCountAggregateInputType = {
     id?: true
     name?: true
     email?: true
     senha?: true
     cpf?: true
     endereco?: true
+    cep?: true
+    cidade?: true
+    estado?: true
     _all?: true
   }
 
-  export type HostAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type LocadorAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Host to aggregate.
+     * Filter which Locador to aggregate.
      */
-    where?: HostWhereInput
+    where?: LocadorWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Hosts to fetch.
+     * Determine the order of Locadors to fetch.
      */
-    orderBy?: HostOrderByWithRelationInput | HostOrderByWithRelationInput[]
+    orderBy?: LocadorOrderByWithRelationInput | LocadorOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: HostWhereUniqueInput
+    cursor?: LocadorWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Hosts from the position of the cursor.
+     * Take `±n` Locadors from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Hosts.
+     * Skip the first `n` Locadors.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Hosts
+     * Count returned Locadors
     **/
-    _count?: true | HostCountAggregateInputType
+    _count?: true | LocadorCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: HostAvgAggregateInputType
+    _avg?: LocadorAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: HostSumAggregateInputType
+    _sum?: LocadorSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: HostMinAggregateInputType
+    _min?: LocadorMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: HostMaxAggregateInputType
+    _max?: LocadorMaxAggregateInputType
   }
 
-  export type GetHostAggregateType<T extends HostAggregateArgs> = {
-        [P in keyof T & keyof AggregateHost]: P extends '_count' | 'count'
+  export type GetLocadorAggregateType<T extends LocadorAggregateArgs> = {
+        [P in keyof T & keyof AggregateLocador]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateHost[P]>
-      : GetScalarType<T[P], AggregateHost[P]>
+        : GetScalarType<T[P], AggregateLocador[P]>
+      : GetScalarType<T[P], AggregateLocador[P]>
   }
 
 
 
 
-  export type HostGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: HostWhereInput
-    orderBy?: HostOrderByWithAggregationInput | HostOrderByWithAggregationInput[]
-    by: HostScalarFieldEnum[] | HostScalarFieldEnum
-    having?: HostScalarWhereWithAggregatesInput
+  export type LocadorGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LocadorWhereInput
+    orderBy?: LocadorOrderByWithAggregationInput | LocadorOrderByWithAggregationInput[]
+    by: LocadorScalarFieldEnum[] | LocadorScalarFieldEnum
+    having?: LocadorScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: HostCountAggregateInputType | true
-    _avg?: HostAvgAggregateInputType
-    _sum?: HostSumAggregateInputType
-    _min?: HostMinAggregateInputType
-    _max?: HostMaxAggregateInputType
+    _count?: LocadorCountAggregateInputType | true
+    _avg?: LocadorAvgAggregateInputType
+    _sum?: LocadorSumAggregateInputType
+    _min?: LocadorMinAggregateInputType
+    _max?: LocadorMaxAggregateInputType
   }
 
-  export type HostGroupByOutputType = {
+  export type LocadorGroupByOutputType = {
     id: number
     name: string
     email: string
     senha: string
     cpf: string
     endereco: string
-    _count: HostCountAggregateOutputType | null
-    _avg: HostAvgAggregateOutputType | null
-    _sum: HostSumAggregateOutputType | null
-    _min: HostMinAggregateOutputType | null
-    _max: HostMaxAggregateOutputType | null
+    cep: string | null
+    cidade: string | null
+    estado: string | null
+    _count: LocadorCountAggregateOutputType | null
+    _avg: LocadorAvgAggregateOutputType | null
+    _sum: LocadorSumAggregateOutputType | null
+    _min: LocadorMinAggregateOutputType | null
+    _max: LocadorMaxAggregateOutputType | null
   }
 
-  type GetHostGroupByPayload<T extends HostGroupByArgs> = Prisma.PrismaPromise<
+  type GetLocadorGroupByPayload<T extends LocadorGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<HostGroupByOutputType, T['by']> &
+      PickEnumerable<LocadorGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof HostGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof LocadorGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], HostGroupByOutputType[P]>
-            : GetScalarType<T[P], HostGroupByOutputType[P]>
+              : GetScalarType<T[P], LocadorGroupByOutputType[P]>
+            : GetScalarType<T[P], LocadorGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type HostSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type LocadorSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
     email?: boolean
     senha?: boolean
     cpf?: boolean
     endereco?: boolean
-  }, ExtArgs["result"]["host"]>
+    cep?: boolean
+    cidade?: boolean
+    estado?: boolean
+    casas?: boolean | Locador$casasArgs<ExtArgs>
+    _count?: boolean | LocadorCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["locador"]>
 
-  export type HostSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type LocadorSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
     email?: boolean
     senha?: boolean
     cpf?: boolean
     endereco?: boolean
-  }, ExtArgs["result"]["host"]>
+    cep?: boolean
+    cidade?: boolean
+    estado?: boolean
+  }, ExtArgs["result"]["locador"]>
 
-  export type HostSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type LocadorSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
     email?: boolean
     senha?: boolean
     cpf?: boolean
     endereco?: boolean
-  }, ExtArgs["result"]["host"]>
+    cep?: boolean
+    cidade?: boolean
+    estado?: boolean
+  }, ExtArgs["result"]["locador"]>
 
-  export type HostSelectScalar = {
+  export type LocadorSelectScalar = {
     id?: boolean
     name?: boolean
     email?: boolean
     senha?: boolean
     cpf?: boolean
     endereco?: boolean
+    cep?: boolean
+    cidade?: boolean
+    estado?: boolean
   }
 
-  export type HostOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "senha" | "cpf" | "endereco", ExtArgs["result"]["host"]>
+  export type LocadorOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "senha" | "cpf" | "endereco" | "cep" | "cidade" | "estado", ExtArgs["result"]["locador"]>
+  export type LocadorInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    casas?: boolean | Locador$casasArgs<ExtArgs>
+    _count?: boolean | LocadorCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type LocadorIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type LocadorIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
-  export type $HostPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Host"
-    objects: {}
+  export type $LocadorPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Locador"
+    objects: {
+      casas: Prisma.$CasaPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       name: string
@@ -3425,136 +3613,139 @@ export namespace Prisma {
       senha: string
       cpf: string
       endereco: string
-    }, ExtArgs["result"]["host"]>
+      cep: string | null
+      cidade: string | null
+      estado: string | null
+    }, ExtArgs["result"]["locador"]>
     composites: {}
   }
 
-  type HostGetPayload<S extends boolean | null | undefined | HostDefaultArgs> = $Result.GetResult<Prisma.$HostPayload, S>
+  type LocadorGetPayload<S extends boolean | null | undefined | LocadorDefaultArgs> = $Result.GetResult<Prisma.$LocadorPayload, S>
 
-  type HostCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<HostFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: HostCountAggregateInputType | true
+  type LocadorCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<LocadorFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: LocadorCountAggregateInputType | true
     }
 
-  export interface HostDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Host'], meta: { name: 'Host' } }
+  export interface LocadorDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Locador'], meta: { name: 'Locador' } }
     /**
-     * Find zero or one Host that matches the filter.
-     * @param {HostFindUniqueArgs} args - Arguments to find a Host
+     * Find zero or one Locador that matches the filter.
+     * @param {LocadorFindUniqueArgs} args - Arguments to find a Locador
      * @example
-     * // Get one Host
-     * const host = await prisma.host.findUnique({
+     * // Get one Locador
+     * const locador = await prisma.locador.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends HostFindUniqueArgs>(args: SelectSubset<T, HostFindUniqueArgs<ExtArgs>>): Prisma__HostClient<$Result.GetResult<Prisma.$HostPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends LocadorFindUniqueArgs>(args: SelectSubset<T, LocadorFindUniqueArgs<ExtArgs>>): Prisma__LocadorClient<$Result.GetResult<Prisma.$LocadorPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Host that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Locador that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {HostFindUniqueOrThrowArgs} args - Arguments to find a Host
+     * @param {LocadorFindUniqueOrThrowArgs} args - Arguments to find a Locador
      * @example
-     * // Get one Host
-     * const host = await prisma.host.findUniqueOrThrow({
+     * // Get one Locador
+     * const locador = await prisma.locador.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends HostFindUniqueOrThrowArgs>(args: SelectSubset<T, HostFindUniqueOrThrowArgs<ExtArgs>>): Prisma__HostClient<$Result.GetResult<Prisma.$HostPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends LocadorFindUniqueOrThrowArgs>(args: SelectSubset<T, LocadorFindUniqueOrThrowArgs<ExtArgs>>): Prisma__LocadorClient<$Result.GetResult<Prisma.$LocadorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Host that matches the filter.
+     * Find the first Locador that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {HostFindFirstArgs} args - Arguments to find a Host
+     * @param {LocadorFindFirstArgs} args - Arguments to find a Locador
      * @example
-     * // Get one Host
-     * const host = await prisma.host.findFirst({
+     * // Get one Locador
+     * const locador = await prisma.locador.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends HostFindFirstArgs>(args?: SelectSubset<T, HostFindFirstArgs<ExtArgs>>): Prisma__HostClient<$Result.GetResult<Prisma.$HostPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends LocadorFindFirstArgs>(args?: SelectSubset<T, LocadorFindFirstArgs<ExtArgs>>): Prisma__LocadorClient<$Result.GetResult<Prisma.$LocadorPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Host that matches the filter or
+     * Find the first Locador that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {HostFindFirstOrThrowArgs} args - Arguments to find a Host
+     * @param {LocadorFindFirstOrThrowArgs} args - Arguments to find a Locador
      * @example
-     * // Get one Host
-     * const host = await prisma.host.findFirstOrThrow({
+     * // Get one Locador
+     * const locador = await prisma.locador.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends HostFindFirstOrThrowArgs>(args?: SelectSubset<T, HostFindFirstOrThrowArgs<ExtArgs>>): Prisma__HostClient<$Result.GetResult<Prisma.$HostPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends LocadorFindFirstOrThrowArgs>(args?: SelectSubset<T, LocadorFindFirstOrThrowArgs<ExtArgs>>): Prisma__LocadorClient<$Result.GetResult<Prisma.$LocadorPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Hosts that matches the filter.
+     * Find zero or more Locadors that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {HostFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {LocadorFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Hosts
-     * const hosts = await prisma.host.findMany()
+     * // Get all Locadors
+     * const locadors = await prisma.locador.findMany()
      * 
-     * // Get first 10 Hosts
-     * const hosts = await prisma.host.findMany({ take: 10 })
+     * // Get first 10 Locadors
+     * const locadors = await prisma.locador.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const hostWithIdOnly = await prisma.host.findMany({ select: { id: true } })
+     * const locadorWithIdOnly = await prisma.locador.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends HostFindManyArgs>(args?: SelectSubset<T, HostFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HostPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends LocadorFindManyArgs>(args?: SelectSubset<T, LocadorFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LocadorPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Host.
-     * @param {HostCreateArgs} args - Arguments to create a Host.
+     * Create a Locador.
+     * @param {LocadorCreateArgs} args - Arguments to create a Locador.
      * @example
-     * // Create one Host
-     * const Host = await prisma.host.create({
+     * // Create one Locador
+     * const Locador = await prisma.locador.create({
      *   data: {
-     *     // ... data to create a Host
+     *     // ... data to create a Locador
      *   }
      * })
      * 
      */
-    create<T extends HostCreateArgs>(args: SelectSubset<T, HostCreateArgs<ExtArgs>>): Prisma__HostClient<$Result.GetResult<Prisma.$HostPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends LocadorCreateArgs>(args: SelectSubset<T, LocadorCreateArgs<ExtArgs>>): Prisma__LocadorClient<$Result.GetResult<Prisma.$LocadorPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Hosts.
-     * @param {HostCreateManyArgs} args - Arguments to create many Hosts.
+     * Create many Locadors.
+     * @param {LocadorCreateManyArgs} args - Arguments to create many Locadors.
      * @example
-     * // Create many Hosts
-     * const host = await prisma.host.createMany({
+     * // Create many Locadors
+     * const locador = await prisma.locador.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends HostCreateManyArgs>(args?: SelectSubset<T, HostCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends LocadorCreateManyArgs>(args?: SelectSubset<T, LocadorCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many Hosts and returns the data saved in the database.
-     * @param {HostCreateManyAndReturnArgs} args - Arguments to create many Hosts.
+     * Create many Locadors and returns the data saved in the database.
+     * @param {LocadorCreateManyAndReturnArgs} args - Arguments to create many Locadors.
      * @example
-     * // Create many Hosts
-     * const host = await prisma.host.createManyAndReturn({
+     * // Create many Locadors
+     * const locador = await prisma.locador.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many Hosts and only return the `id`
-     * const hostWithIdOnly = await prisma.host.createManyAndReturn({
+     * // Create many Locadors and only return the `id`
+     * const locadorWithIdOnly = await prisma.locador.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -3564,28 +3755,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends HostCreateManyAndReturnArgs>(args?: SelectSubset<T, HostCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HostPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends LocadorCreateManyAndReturnArgs>(args?: SelectSubset<T, LocadorCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LocadorPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a Host.
-     * @param {HostDeleteArgs} args - Arguments to delete one Host.
+     * Delete a Locador.
+     * @param {LocadorDeleteArgs} args - Arguments to delete one Locador.
      * @example
-     * // Delete one Host
-     * const Host = await prisma.host.delete({
+     * // Delete one Locador
+     * const Locador = await prisma.locador.delete({
      *   where: {
-     *     // ... filter to delete one Host
+     *     // ... filter to delete one Locador
      *   }
      * })
      * 
      */
-    delete<T extends HostDeleteArgs>(args: SelectSubset<T, HostDeleteArgs<ExtArgs>>): Prisma__HostClient<$Result.GetResult<Prisma.$HostPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends LocadorDeleteArgs>(args: SelectSubset<T, LocadorDeleteArgs<ExtArgs>>): Prisma__LocadorClient<$Result.GetResult<Prisma.$LocadorPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Host.
-     * @param {HostUpdateArgs} args - Arguments to update one Host.
+     * Update one Locador.
+     * @param {LocadorUpdateArgs} args - Arguments to update one Locador.
      * @example
-     * // Update one Host
-     * const host = await prisma.host.update({
+     * // Update one Locador
+     * const locador = await prisma.locador.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -3595,30 +3786,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends HostUpdateArgs>(args: SelectSubset<T, HostUpdateArgs<ExtArgs>>): Prisma__HostClient<$Result.GetResult<Prisma.$HostPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends LocadorUpdateArgs>(args: SelectSubset<T, LocadorUpdateArgs<ExtArgs>>): Prisma__LocadorClient<$Result.GetResult<Prisma.$LocadorPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Hosts.
-     * @param {HostDeleteManyArgs} args - Arguments to filter Hosts to delete.
+     * Delete zero or more Locadors.
+     * @param {LocadorDeleteManyArgs} args - Arguments to filter Locadors to delete.
      * @example
-     * // Delete a few Hosts
-     * const { count } = await prisma.host.deleteMany({
+     * // Delete a few Locadors
+     * const { count } = await prisma.locador.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends HostDeleteManyArgs>(args?: SelectSubset<T, HostDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends LocadorDeleteManyArgs>(args?: SelectSubset<T, LocadorDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Hosts.
+     * Update zero or more Locadors.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {HostUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {LocadorUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Hosts
-     * const host = await prisma.host.updateMany({
+     * // Update many Locadors
+     * const locador = await prisma.locador.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -3628,14 +3819,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends HostUpdateManyArgs>(args: SelectSubset<T, HostUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends LocadorUpdateManyArgs>(args: SelectSubset<T, LocadorUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Hosts and returns the data updated in the database.
-     * @param {HostUpdateManyAndReturnArgs} args - Arguments to update many Hosts.
+     * Update zero or more Locadors and returns the data updated in the database.
+     * @param {LocadorUpdateManyAndReturnArgs} args - Arguments to update many Locadors.
      * @example
-     * // Update many Hosts
-     * const host = await prisma.host.updateManyAndReturn({
+     * // Update many Locadors
+     * const locador = await prisma.locador.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -3644,8 +3835,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Hosts and only return the `id`
-     * const hostWithIdOnly = await prisma.host.updateManyAndReturn({
+     * // Update zero or more Locadors and only return the `id`
+     * const locadorWithIdOnly = await prisma.locador.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -3658,56 +3849,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends HostUpdateManyAndReturnArgs>(args: SelectSubset<T, HostUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HostPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends LocadorUpdateManyAndReturnArgs>(args: SelectSubset<T, LocadorUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LocadorPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one Host.
-     * @param {HostUpsertArgs} args - Arguments to update or create a Host.
+     * Create or update one Locador.
+     * @param {LocadorUpsertArgs} args - Arguments to update or create a Locador.
      * @example
-     * // Update or create a Host
-     * const host = await prisma.host.upsert({
+     * // Update or create a Locador
+     * const locador = await prisma.locador.upsert({
      *   create: {
-     *     // ... data to create a Host
+     *     // ... data to create a Locador
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Host we want to update
+     *     // ... the filter for the Locador we want to update
      *   }
      * })
      */
-    upsert<T extends HostUpsertArgs>(args: SelectSubset<T, HostUpsertArgs<ExtArgs>>): Prisma__HostClient<$Result.GetResult<Prisma.$HostPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends LocadorUpsertArgs>(args: SelectSubset<T, LocadorUpsertArgs<ExtArgs>>): Prisma__LocadorClient<$Result.GetResult<Prisma.$LocadorPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Hosts.
+     * Count the number of Locadors.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {HostCountArgs} args - Arguments to filter Hosts to count.
+     * @param {LocadorCountArgs} args - Arguments to filter Locadors to count.
      * @example
-     * // Count the number of Hosts
-     * const count = await prisma.host.count({
+     * // Count the number of Locadors
+     * const count = await prisma.locador.count({
      *   where: {
-     *     // ... the filter for the Hosts we want to count
+     *     // ... the filter for the Locadors we want to count
      *   }
      * })
     **/
-    count<T extends HostCountArgs>(
-      args?: Subset<T, HostCountArgs>,
+    count<T extends LocadorCountArgs>(
+      args?: Subset<T, LocadorCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], HostCountAggregateOutputType>
+          : GetScalarType<T['select'], LocadorCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Host.
+     * Allows you to perform aggregations operations on a Locador.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {HostAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {LocadorAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -3727,13 +3918,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends HostAggregateArgs>(args: Subset<T, HostAggregateArgs>): Prisma.PrismaPromise<GetHostAggregateType<T>>
+    aggregate<T extends LocadorAggregateArgs>(args: Subset<T, LocadorAggregateArgs>): Prisma.PrismaPromise<GetLocadorAggregateType<T>>
 
     /**
-     * Group by Host.
+     * Group by Locador.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {HostGroupByArgs} args - Group by arguments.
+     * @param {LocadorGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -3748,14 +3939,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends HostGroupByArgs,
+      T extends LocadorGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: HostGroupByArgs['orderBy'] }
-        : { orderBy?: HostGroupByArgs['orderBy'] },
+        ? { orderBy: LocadorGroupByArgs['orderBy'] }
+        : { orderBy?: LocadorGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -3804,21 +3995,22 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, HostGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetHostGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, LocadorGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLocadorGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Host model
+   * Fields of the Locador model
    */
-  readonly fields: HostFieldRefs;
+  readonly fields: LocadorFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Host.
+   * The delegate class that acts as a "Promise-like" for Locador.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__HostClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__LocadorClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    casas<T extends Locador$casasArgs<ExtArgs> = {}>(args?: Subset<T, Locador$casasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CasaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3845,629 +4037,729 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Host model
+   * Fields of the Locador model
    */
-  interface HostFieldRefs {
-    readonly id: FieldRef<"Host", 'Int'>
-    readonly name: FieldRef<"Host", 'String'>
-    readonly email: FieldRef<"Host", 'String'>
-    readonly senha: FieldRef<"Host", 'String'>
-    readonly cpf: FieldRef<"Host", 'String'>
-    readonly endereco: FieldRef<"Host", 'String'>
+  interface LocadorFieldRefs {
+    readonly id: FieldRef<"Locador", 'Int'>
+    readonly name: FieldRef<"Locador", 'String'>
+    readonly email: FieldRef<"Locador", 'String'>
+    readonly senha: FieldRef<"Locador", 'String'>
+    readonly cpf: FieldRef<"Locador", 'String'>
+    readonly endereco: FieldRef<"Locador", 'String'>
+    readonly cep: FieldRef<"Locador", 'String'>
+    readonly cidade: FieldRef<"Locador", 'String'>
+    readonly estado: FieldRef<"Locador", 'String'>
   }
     
 
   // Custom InputTypes
   /**
-   * Host findUnique
+   * Locador findUnique
    */
-  export type HostFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type LocadorFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Host
+     * Select specific fields to fetch from the Locador
      */
-    select?: HostSelect<ExtArgs> | null
+    select?: LocadorSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Host
+     * Omit specific fields from the Locador
      */
-    omit?: HostOmit<ExtArgs> | null
+    omit?: LocadorOmit<ExtArgs> | null
     /**
-     * Filter, which Host to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where: HostWhereUniqueInput
+    include?: LocadorInclude<ExtArgs> | null
+    /**
+     * Filter, which Locador to fetch.
+     */
+    where: LocadorWhereUniqueInput
   }
 
   /**
-   * Host findUniqueOrThrow
+   * Locador findUniqueOrThrow
    */
-  export type HostFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type LocadorFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Host
+     * Select specific fields to fetch from the Locador
      */
-    select?: HostSelect<ExtArgs> | null
+    select?: LocadorSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Host
+     * Omit specific fields from the Locador
      */
-    omit?: HostOmit<ExtArgs> | null
+    omit?: LocadorOmit<ExtArgs> | null
     /**
-     * Filter, which Host to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where: HostWhereUniqueInput
+    include?: LocadorInclude<ExtArgs> | null
+    /**
+     * Filter, which Locador to fetch.
+     */
+    where: LocadorWhereUniqueInput
   }
 
   /**
-   * Host findFirst
+   * Locador findFirst
    */
-  export type HostFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type LocadorFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Host
+     * Select specific fields to fetch from the Locador
      */
-    select?: HostSelect<ExtArgs> | null
+    select?: LocadorSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Host
+     * Omit specific fields from the Locador
      */
-    omit?: HostOmit<ExtArgs> | null
+    omit?: LocadorOmit<ExtArgs> | null
     /**
-     * Filter, which Host to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where?: HostWhereInput
+    include?: LocadorInclude<ExtArgs> | null
+    /**
+     * Filter, which Locador to fetch.
+     */
+    where?: LocadorWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Hosts to fetch.
+     * Determine the order of Locadors to fetch.
      */
-    orderBy?: HostOrderByWithRelationInput | HostOrderByWithRelationInput[]
+    orderBy?: LocadorOrderByWithRelationInput | LocadorOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Hosts.
+     * Sets the position for searching for Locadors.
      */
-    cursor?: HostWhereUniqueInput
+    cursor?: LocadorWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Hosts from the position of the cursor.
+     * Take `±n` Locadors from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Hosts.
+     * Skip the first `n` Locadors.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Hosts.
+     * Filter by unique combinations of Locadors.
      */
-    distinct?: HostScalarFieldEnum | HostScalarFieldEnum[]
+    distinct?: LocadorScalarFieldEnum | LocadorScalarFieldEnum[]
   }
 
   /**
-   * Host findFirstOrThrow
+   * Locador findFirstOrThrow
    */
-  export type HostFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type LocadorFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Host
+     * Select specific fields to fetch from the Locador
      */
-    select?: HostSelect<ExtArgs> | null
+    select?: LocadorSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Host
+     * Omit specific fields from the Locador
      */
-    omit?: HostOmit<ExtArgs> | null
+    omit?: LocadorOmit<ExtArgs> | null
     /**
-     * Filter, which Host to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where?: HostWhereInput
+    include?: LocadorInclude<ExtArgs> | null
+    /**
+     * Filter, which Locador to fetch.
+     */
+    where?: LocadorWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Hosts to fetch.
+     * Determine the order of Locadors to fetch.
      */
-    orderBy?: HostOrderByWithRelationInput | HostOrderByWithRelationInput[]
+    orderBy?: LocadorOrderByWithRelationInput | LocadorOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Hosts.
+     * Sets the position for searching for Locadors.
      */
-    cursor?: HostWhereUniqueInput
+    cursor?: LocadorWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Hosts from the position of the cursor.
+     * Take `±n` Locadors from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Hosts.
+     * Skip the first `n` Locadors.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Hosts.
+     * Filter by unique combinations of Locadors.
      */
-    distinct?: HostScalarFieldEnum | HostScalarFieldEnum[]
+    distinct?: LocadorScalarFieldEnum | LocadorScalarFieldEnum[]
   }
 
   /**
-   * Host findMany
+   * Locador findMany
    */
-  export type HostFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type LocadorFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Host
+     * Select specific fields to fetch from the Locador
      */
-    select?: HostSelect<ExtArgs> | null
+    select?: LocadorSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Host
+     * Omit specific fields from the Locador
      */
-    omit?: HostOmit<ExtArgs> | null
+    omit?: LocadorOmit<ExtArgs> | null
     /**
-     * Filter, which Hosts to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where?: HostWhereInput
+    include?: LocadorInclude<ExtArgs> | null
+    /**
+     * Filter, which Locadors to fetch.
+     */
+    where?: LocadorWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Hosts to fetch.
+     * Determine the order of Locadors to fetch.
      */
-    orderBy?: HostOrderByWithRelationInput | HostOrderByWithRelationInput[]
+    orderBy?: LocadorOrderByWithRelationInput | LocadorOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Hosts.
+     * Sets the position for listing Locadors.
      */
-    cursor?: HostWhereUniqueInput
+    cursor?: LocadorWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Hosts from the position of the cursor.
+     * Take `±n` Locadors from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Hosts.
+     * Skip the first `n` Locadors.
      */
     skip?: number
-    distinct?: HostScalarFieldEnum | HostScalarFieldEnum[]
+    distinct?: LocadorScalarFieldEnum | LocadorScalarFieldEnum[]
   }
 
   /**
-   * Host create
+   * Locador create
    */
-  export type HostCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type LocadorCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Host
+     * Select specific fields to fetch from the Locador
      */
-    select?: HostSelect<ExtArgs> | null
+    select?: LocadorSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Host
+     * Omit specific fields from the Locador
      */
-    omit?: HostOmit<ExtArgs> | null
+    omit?: LocadorOmit<ExtArgs> | null
     /**
-     * The data needed to create a Host.
+     * Choose, which related nodes to fetch as well
      */
-    data: XOR<HostCreateInput, HostUncheckedCreateInput>
+    include?: LocadorInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Locador.
+     */
+    data: XOR<LocadorCreateInput, LocadorUncheckedCreateInput>
   }
 
   /**
-   * Host createMany
+   * Locador createMany
    */
-  export type HostCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type LocadorCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Hosts.
+     * The data used to create many Locadors.
      */
-    data: HostCreateManyInput | HostCreateManyInput[]
+    data: LocadorCreateManyInput | LocadorCreateManyInput[]
   }
 
   /**
-   * Host createManyAndReturn
+   * Locador createManyAndReturn
    */
-  export type HostCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type LocadorCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Host
+     * Select specific fields to fetch from the Locador
      */
-    select?: HostSelectCreateManyAndReturn<ExtArgs> | null
+    select?: LocadorSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Host
+     * Omit specific fields from the Locador
      */
-    omit?: HostOmit<ExtArgs> | null
+    omit?: LocadorOmit<ExtArgs> | null
     /**
-     * The data used to create many Hosts.
+     * The data used to create many Locadors.
      */
-    data: HostCreateManyInput | HostCreateManyInput[]
+    data: LocadorCreateManyInput | LocadorCreateManyInput[]
   }
 
   /**
-   * Host update
+   * Locador update
    */
-  export type HostUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type LocadorUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Host
+     * Select specific fields to fetch from the Locador
      */
-    select?: HostSelect<ExtArgs> | null
+    select?: LocadorSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Host
+     * Omit specific fields from the Locador
      */
-    omit?: HostOmit<ExtArgs> | null
+    omit?: LocadorOmit<ExtArgs> | null
     /**
-     * The data needed to update a Host.
+     * Choose, which related nodes to fetch as well
      */
-    data: XOR<HostUpdateInput, HostUncheckedUpdateInput>
+    include?: LocadorInclude<ExtArgs> | null
     /**
-     * Choose, which Host to update.
+     * The data needed to update a Locador.
      */
-    where: HostWhereUniqueInput
+    data: XOR<LocadorUpdateInput, LocadorUncheckedUpdateInput>
+    /**
+     * Choose, which Locador to update.
+     */
+    where: LocadorWhereUniqueInput
   }
 
   /**
-   * Host updateMany
+   * Locador updateMany
    */
-  export type HostUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type LocadorUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Hosts.
+     * The data used to update Locadors.
      */
-    data: XOR<HostUpdateManyMutationInput, HostUncheckedUpdateManyInput>
+    data: XOR<LocadorUpdateManyMutationInput, LocadorUncheckedUpdateManyInput>
     /**
-     * Filter which Hosts to update
+     * Filter which Locadors to update
      */
-    where?: HostWhereInput
+    where?: LocadorWhereInput
     /**
-     * Limit how many Hosts to update.
+     * Limit how many Locadors to update.
      */
     limit?: number
   }
 
   /**
-   * Host updateManyAndReturn
+   * Locador updateManyAndReturn
    */
-  export type HostUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type LocadorUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Host
+     * Select specific fields to fetch from the Locador
      */
-    select?: HostSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: LocadorSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Host
+     * Omit specific fields from the Locador
      */
-    omit?: HostOmit<ExtArgs> | null
+    omit?: LocadorOmit<ExtArgs> | null
     /**
-     * The data used to update Hosts.
+     * The data used to update Locadors.
      */
-    data: XOR<HostUpdateManyMutationInput, HostUncheckedUpdateManyInput>
+    data: XOR<LocadorUpdateManyMutationInput, LocadorUncheckedUpdateManyInput>
     /**
-     * Filter which Hosts to update
+     * Filter which Locadors to update
      */
-    where?: HostWhereInput
+    where?: LocadorWhereInput
     /**
-     * Limit how many Hosts to update.
+     * Limit how many Locadors to update.
      */
     limit?: number
   }
 
   /**
-   * Host upsert
+   * Locador upsert
    */
-  export type HostUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type LocadorUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Host
+     * Select specific fields to fetch from the Locador
      */
-    select?: HostSelect<ExtArgs> | null
+    select?: LocadorSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Host
+     * Omit specific fields from the Locador
      */
-    omit?: HostOmit<ExtArgs> | null
+    omit?: LocadorOmit<ExtArgs> | null
     /**
-     * The filter to search for the Host to update in case it exists.
+     * Choose, which related nodes to fetch as well
      */
-    where: HostWhereUniqueInput
+    include?: LocadorInclude<ExtArgs> | null
     /**
-     * In case the Host found by the `where` argument doesn't exist, create a new Host with this data.
+     * The filter to search for the Locador to update in case it exists.
      */
-    create: XOR<HostCreateInput, HostUncheckedCreateInput>
+    where: LocadorWhereUniqueInput
     /**
-     * In case the Host was found with the provided `where` argument, update it with this data.
+     * In case the Locador found by the `where` argument doesn't exist, create a new Locador with this data.
      */
-    update: XOR<HostUpdateInput, HostUncheckedUpdateInput>
+    create: XOR<LocadorCreateInput, LocadorUncheckedCreateInput>
+    /**
+     * In case the Locador was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<LocadorUpdateInput, LocadorUncheckedUpdateInput>
   }
 
   /**
-   * Host delete
+   * Locador delete
    */
-  export type HostDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type LocadorDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Host
+     * Select specific fields to fetch from the Locador
      */
-    select?: HostSelect<ExtArgs> | null
+    select?: LocadorSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Host
+     * Omit specific fields from the Locador
      */
-    omit?: HostOmit<ExtArgs> | null
+    omit?: LocadorOmit<ExtArgs> | null
     /**
-     * Filter which Host to delete.
+     * Choose, which related nodes to fetch as well
      */
-    where: HostWhereUniqueInput
+    include?: LocadorInclude<ExtArgs> | null
+    /**
+     * Filter which Locador to delete.
+     */
+    where: LocadorWhereUniqueInput
   }
 
   /**
-   * Host deleteMany
+   * Locador deleteMany
    */
-  export type HostDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type LocadorDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Hosts to delete
+     * Filter which Locadors to delete
      */
-    where?: HostWhereInput
+    where?: LocadorWhereInput
     /**
-     * Limit how many Hosts to delete.
+     * Limit how many Locadors to delete.
      */
     limit?: number
   }
 
   /**
-   * Host without action
+   * Locador.casas
    */
-  export type HostDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Locador$casasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Host
+     * Select specific fields to fetch from the Casa
      */
-    select?: HostSelect<ExtArgs> | null
+    select?: CasaSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Host
+     * Omit specific fields from the Casa
      */
-    omit?: HostOmit<ExtArgs> | null
+    omit?: CasaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CasaInclude<ExtArgs> | null
+    where?: CasaWhereInput
+    orderBy?: CasaOrderByWithRelationInput | CasaOrderByWithRelationInput[]
+    cursor?: CasaWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CasaScalarFieldEnum | CasaScalarFieldEnum[]
+  }
+
+  /**
+   * Locador without action
+   */
+  export type LocadorDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Locador
+     */
+    select?: LocadorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Locador
+     */
+    omit?: LocadorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LocadorInclude<ExtArgs> | null
   }
 
 
   /**
-   * Model Morador
+   * Model Hospede
    */
 
-  export type AggregateMorador = {
-    _count: MoradorCountAggregateOutputType | null
-    _avg: MoradorAvgAggregateOutputType | null
-    _sum: MoradorSumAggregateOutputType | null
-    _min: MoradorMinAggregateOutputType | null
-    _max: MoradorMaxAggregateOutputType | null
+  export type AggregateHospede = {
+    _count: HospedeCountAggregateOutputType | null
+    _avg: HospedeAvgAggregateOutputType | null
+    _sum: HospedeSumAggregateOutputType | null
+    _min: HospedeMinAggregateOutputType | null
+    _max: HospedeMaxAggregateOutputType | null
   }
 
-  export type MoradorAvgAggregateOutputType = {
+  export type HospedeAvgAggregateOutputType = {
     id: number | null
   }
 
-  export type MoradorSumAggregateOutputType = {
+  export type HospedeSumAggregateOutputType = {
     id: number | null
   }
 
-  export type MoradorMinAggregateOutputType = {
+  export type HospedeMinAggregateOutputType = {
     id: number | null
     name: string | null
     email: string | null
     senha: string | null
     cpf: string | null
-    endereco: string | null
+    cep: string | null
+    cidade: string | null
+    estado: string | null
     matricula: string | null
+    universidade: string | null
   }
 
-  export type MoradorMaxAggregateOutputType = {
+  export type HospedeMaxAggregateOutputType = {
     id: number | null
     name: string | null
     email: string | null
     senha: string | null
     cpf: string | null
-    endereco: string | null
+    cep: string | null
+    cidade: string | null
+    estado: string | null
     matricula: string | null
+    universidade: string | null
   }
 
-  export type MoradorCountAggregateOutputType = {
+  export type HospedeCountAggregateOutputType = {
     id: number
     name: number
     email: number
     senha: number
     cpf: number
-    endereco: number
+    cep: number
+    cidade: number
+    estado: number
     matricula: number
+    universidade: number
     _all: number
   }
 
 
-  export type MoradorAvgAggregateInputType = {
+  export type HospedeAvgAggregateInputType = {
     id?: true
   }
 
-  export type MoradorSumAggregateInputType = {
+  export type HospedeSumAggregateInputType = {
     id?: true
   }
 
-  export type MoradorMinAggregateInputType = {
+  export type HospedeMinAggregateInputType = {
     id?: true
     name?: true
     email?: true
     senha?: true
     cpf?: true
-    endereco?: true
+    cep?: true
+    cidade?: true
+    estado?: true
     matricula?: true
+    universidade?: true
   }
 
-  export type MoradorMaxAggregateInputType = {
+  export type HospedeMaxAggregateInputType = {
     id?: true
     name?: true
     email?: true
     senha?: true
     cpf?: true
-    endereco?: true
+    cep?: true
+    cidade?: true
+    estado?: true
     matricula?: true
+    universidade?: true
   }
 
-  export type MoradorCountAggregateInputType = {
+  export type HospedeCountAggregateInputType = {
     id?: true
     name?: true
     email?: true
     senha?: true
     cpf?: true
-    endereco?: true
+    cep?: true
+    cidade?: true
+    estado?: true
     matricula?: true
+    universidade?: true
     _all?: true
   }
 
-  export type MoradorAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type HospedeAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Morador to aggregate.
+     * Filter which Hospede to aggregate.
      */
-    where?: MoradorWhereInput
+    where?: HospedeWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Moradors to fetch.
+     * Determine the order of Hospedes to fetch.
      */
-    orderBy?: MoradorOrderByWithRelationInput | MoradorOrderByWithRelationInput[]
+    orderBy?: HospedeOrderByWithRelationInput | HospedeOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: MoradorWhereUniqueInput
+    cursor?: HospedeWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Moradors from the position of the cursor.
+     * Take `±n` Hospedes from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Moradors.
+     * Skip the first `n` Hospedes.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Moradors
+     * Count returned Hospedes
     **/
-    _count?: true | MoradorCountAggregateInputType
+    _count?: true | HospedeCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: MoradorAvgAggregateInputType
+    _avg?: HospedeAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: MoradorSumAggregateInputType
+    _sum?: HospedeSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: MoradorMinAggregateInputType
+    _min?: HospedeMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: MoradorMaxAggregateInputType
+    _max?: HospedeMaxAggregateInputType
   }
 
-  export type GetMoradorAggregateType<T extends MoradorAggregateArgs> = {
-        [P in keyof T & keyof AggregateMorador]: P extends '_count' | 'count'
+  export type GetHospedeAggregateType<T extends HospedeAggregateArgs> = {
+        [P in keyof T & keyof AggregateHospede]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateMorador[P]>
-      : GetScalarType<T[P], AggregateMorador[P]>
+        : GetScalarType<T[P], AggregateHospede[P]>
+      : GetScalarType<T[P], AggregateHospede[P]>
   }
 
 
 
 
-  export type MoradorGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: MoradorWhereInput
-    orderBy?: MoradorOrderByWithAggregationInput | MoradorOrderByWithAggregationInput[]
-    by: MoradorScalarFieldEnum[] | MoradorScalarFieldEnum
-    having?: MoradorScalarWhereWithAggregatesInput
+  export type HospedeGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: HospedeWhereInput
+    orderBy?: HospedeOrderByWithAggregationInput | HospedeOrderByWithAggregationInput[]
+    by: HospedeScalarFieldEnum[] | HospedeScalarFieldEnum
+    having?: HospedeScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: MoradorCountAggregateInputType | true
-    _avg?: MoradorAvgAggregateInputType
-    _sum?: MoradorSumAggregateInputType
-    _min?: MoradorMinAggregateInputType
-    _max?: MoradorMaxAggregateInputType
+    _count?: HospedeCountAggregateInputType | true
+    _avg?: HospedeAvgAggregateInputType
+    _sum?: HospedeSumAggregateInputType
+    _min?: HospedeMinAggregateInputType
+    _max?: HospedeMaxAggregateInputType
   }
 
-  export type MoradorGroupByOutputType = {
+  export type HospedeGroupByOutputType = {
     id: number
     name: string
     email: string
     senha: string
     cpf: string
-    endereco: string
+    cep: string | null
+    cidade: string | null
+    estado: string | null
     matricula: string
-    _count: MoradorCountAggregateOutputType | null
-    _avg: MoradorAvgAggregateOutputType | null
-    _sum: MoradorSumAggregateOutputType | null
-    _min: MoradorMinAggregateOutputType | null
-    _max: MoradorMaxAggregateOutputType | null
+    universidade: string | null
+    _count: HospedeCountAggregateOutputType | null
+    _avg: HospedeAvgAggregateOutputType | null
+    _sum: HospedeSumAggregateOutputType | null
+    _min: HospedeMinAggregateOutputType | null
+    _max: HospedeMaxAggregateOutputType | null
   }
 
-  type GetMoradorGroupByPayload<T extends MoradorGroupByArgs> = Prisma.PrismaPromise<
+  type GetHospedeGroupByPayload<T extends HospedeGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<MoradorGroupByOutputType, T['by']> &
+      PickEnumerable<HospedeGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof MoradorGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof HospedeGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], MoradorGroupByOutputType[P]>
-            : GetScalarType<T[P], MoradorGroupByOutputType[P]>
+              : GetScalarType<T[P], HospedeGroupByOutputType[P]>
+            : GetScalarType<T[P], HospedeGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type MoradorSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type HospedeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
     email?: boolean
     senha?: boolean
     cpf?: boolean
-    endereco?: boolean
+    cep?: boolean
+    cidade?: boolean
+    estado?: boolean
     matricula?: boolean
-  }, ExtArgs["result"]["morador"]>
+    universidade?: boolean
+  }, ExtArgs["result"]["hospede"]>
 
-  export type MoradorSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type HospedeSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
     email?: boolean
     senha?: boolean
     cpf?: boolean
-    endereco?: boolean
+    cep?: boolean
+    cidade?: boolean
+    estado?: boolean
     matricula?: boolean
-  }, ExtArgs["result"]["morador"]>
+    universidade?: boolean
+  }, ExtArgs["result"]["hospede"]>
 
-  export type MoradorSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type HospedeSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
     email?: boolean
     senha?: boolean
     cpf?: boolean
-    endereco?: boolean
+    cep?: boolean
+    cidade?: boolean
+    estado?: boolean
     matricula?: boolean
-  }, ExtArgs["result"]["morador"]>
+    universidade?: boolean
+  }, ExtArgs["result"]["hospede"]>
 
-  export type MoradorSelectScalar = {
+  export type HospedeSelectScalar = {
     id?: boolean
     name?: boolean
     email?: boolean
     senha?: boolean
     cpf?: boolean
-    endereco?: boolean
+    cep?: boolean
+    cidade?: boolean
+    estado?: boolean
     matricula?: boolean
+    universidade?: boolean
   }
 
-  export type MoradorOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "senha" | "cpf" | "endereco" | "matricula", ExtArgs["result"]["morador"]>
+  export type HospedeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "senha" | "cpf" | "cep" | "cidade" | "estado" | "matricula" | "universidade", ExtArgs["result"]["hospede"]>
 
-  export type $MoradorPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Morador"
+  export type $HospedePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Hospede"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -4475,138 +4767,141 @@ export namespace Prisma {
       email: string
       senha: string
       cpf: string
-      endereco: string
+      cep: string | null
+      cidade: string | null
+      estado: string | null
       matricula: string
-    }, ExtArgs["result"]["morador"]>
+      universidade: string | null
+    }, ExtArgs["result"]["hospede"]>
     composites: {}
   }
 
-  type MoradorGetPayload<S extends boolean | null | undefined | MoradorDefaultArgs> = $Result.GetResult<Prisma.$MoradorPayload, S>
+  type HospedeGetPayload<S extends boolean | null | undefined | HospedeDefaultArgs> = $Result.GetResult<Prisma.$HospedePayload, S>
 
-  type MoradorCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<MoradorFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: MoradorCountAggregateInputType | true
+  type HospedeCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<HospedeFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: HospedeCountAggregateInputType | true
     }
 
-  export interface MoradorDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Morador'], meta: { name: 'Morador' } }
+  export interface HospedeDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Hospede'], meta: { name: 'Hospede' } }
     /**
-     * Find zero or one Morador that matches the filter.
-     * @param {MoradorFindUniqueArgs} args - Arguments to find a Morador
+     * Find zero or one Hospede that matches the filter.
+     * @param {HospedeFindUniqueArgs} args - Arguments to find a Hospede
      * @example
-     * // Get one Morador
-     * const morador = await prisma.morador.findUnique({
+     * // Get one Hospede
+     * const hospede = await prisma.hospede.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends MoradorFindUniqueArgs>(args: SelectSubset<T, MoradorFindUniqueArgs<ExtArgs>>): Prisma__MoradorClient<$Result.GetResult<Prisma.$MoradorPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends HospedeFindUniqueArgs>(args: SelectSubset<T, HospedeFindUniqueArgs<ExtArgs>>): Prisma__HospedeClient<$Result.GetResult<Prisma.$HospedePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Morador that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Hospede that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {MoradorFindUniqueOrThrowArgs} args - Arguments to find a Morador
+     * @param {HospedeFindUniqueOrThrowArgs} args - Arguments to find a Hospede
      * @example
-     * // Get one Morador
-     * const morador = await prisma.morador.findUniqueOrThrow({
+     * // Get one Hospede
+     * const hospede = await prisma.hospede.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends MoradorFindUniqueOrThrowArgs>(args: SelectSubset<T, MoradorFindUniqueOrThrowArgs<ExtArgs>>): Prisma__MoradorClient<$Result.GetResult<Prisma.$MoradorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends HospedeFindUniqueOrThrowArgs>(args: SelectSubset<T, HospedeFindUniqueOrThrowArgs<ExtArgs>>): Prisma__HospedeClient<$Result.GetResult<Prisma.$HospedePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Morador that matches the filter.
+     * Find the first Hospede that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {MoradorFindFirstArgs} args - Arguments to find a Morador
+     * @param {HospedeFindFirstArgs} args - Arguments to find a Hospede
      * @example
-     * // Get one Morador
-     * const morador = await prisma.morador.findFirst({
+     * // Get one Hospede
+     * const hospede = await prisma.hospede.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends MoradorFindFirstArgs>(args?: SelectSubset<T, MoradorFindFirstArgs<ExtArgs>>): Prisma__MoradorClient<$Result.GetResult<Prisma.$MoradorPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends HospedeFindFirstArgs>(args?: SelectSubset<T, HospedeFindFirstArgs<ExtArgs>>): Prisma__HospedeClient<$Result.GetResult<Prisma.$HospedePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Morador that matches the filter or
+     * Find the first Hospede that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {MoradorFindFirstOrThrowArgs} args - Arguments to find a Morador
+     * @param {HospedeFindFirstOrThrowArgs} args - Arguments to find a Hospede
      * @example
-     * // Get one Morador
-     * const morador = await prisma.morador.findFirstOrThrow({
+     * // Get one Hospede
+     * const hospede = await prisma.hospede.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends MoradorFindFirstOrThrowArgs>(args?: SelectSubset<T, MoradorFindFirstOrThrowArgs<ExtArgs>>): Prisma__MoradorClient<$Result.GetResult<Prisma.$MoradorPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends HospedeFindFirstOrThrowArgs>(args?: SelectSubset<T, HospedeFindFirstOrThrowArgs<ExtArgs>>): Prisma__HospedeClient<$Result.GetResult<Prisma.$HospedePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Moradors that matches the filter.
+     * Find zero or more Hospedes that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {MoradorFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {HospedeFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Moradors
-     * const moradors = await prisma.morador.findMany()
+     * // Get all Hospedes
+     * const hospedes = await prisma.hospede.findMany()
      * 
-     * // Get first 10 Moradors
-     * const moradors = await prisma.morador.findMany({ take: 10 })
+     * // Get first 10 Hospedes
+     * const hospedes = await prisma.hospede.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const moradorWithIdOnly = await prisma.morador.findMany({ select: { id: true } })
+     * const hospedeWithIdOnly = await prisma.hospede.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends MoradorFindManyArgs>(args?: SelectSubset<T, MoradorFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MoradorPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends HospedeFindManyArgs>(args?: SelectSubset<T, HospedeFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HospedePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Morador.
-     * @param {MoradorCreateArgs} args - Arguments to create a Morador.
+     * Create a Hospede.
+     * @param {HospedeCreateArgs} args - Arguments to create a Hospede.
      * @example
-     * // Create one Morador
-     * const Morador = await prisma.morador.create({
+     * // Create one Hospede
+     * const Hospede = await prisma.hospede.create({
      *   data: {
-     *     // ... data to create a Morador
+     *     // ... data to create a Hospede
      *   }
      * })
      * 
      */
-    create<T extends MoradorCreateArgs>(args: SelectSubset<T, MoradorCreateArgs<ExtArgs>>): Prisma__MoradorClient<$Result.GetResult<Prisma.$MoradorPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends HospedeCreateArgs>(args: SelectSubset<T, HospedeCreateArgs<ExtArgs>>): Prisma__HospedeClient<$Result.GetResult<Prisma.$HospedePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Moradors.
-     * @param {MoradorCreateManyArgs} args - Arguments to create many Moradors.
+     * Create many Hospedes.
+     * @param {HospedeCreateManyArgs} args - Arguments to create many Hospedes.
      * @example
-     * // Create many Moradors
-     * const morador = await prisma.morador.createMany({
+     * // Create many Hospedes
+     * const hospede = await prisma.hospede.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends MoradorCreateManyArgs>(args?: SelectSubset<T, MoradorCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends HospedeCreateManyArgs>(args?: SelectSubset<T, HospedeCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many Moradors and returns the data saved in the database.
-     * @param {MoradorCreateManyAndReturnArgs} args - Arguments to create many Moradors.
+     * Create many Hospedes and returns the data saved in the database.
+     * @param {HospedeCreateManyAndReturnArgs} args - Arguments to create many Hospedes.
      * @example
-     * // Create many Moradors
-     * const morador = await prisma.morador.createManyAndReturn({
+     * // Create many Hospedes
+     * const hospede = await prisma.hospede.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many Moradors and only return the `id`
-     * const moradorWithIdOnly = await prisma.morador.createManyAndReturn({
+     * // Create many Hospedes and only return the `id`
+     * const hospedeWithIdOnly = await prisma.hospede.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -4616,28 +4911,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends MoradorCreateManyAndReturnArgs>(args?: SelectSubset<T, MoradorCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MoradorPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends HospedeCreateManyAndReturnArgs>(args?: SelectSubset<T, HospedeCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HospedePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a Morador.
-     * @param {MoradorDeleteArgs} args - Arguments to delete one Morador.
+     * Delete a Hospede.
+     * @param {HospedeDeleteArgs} args - Arguments to delete one Hospede.
      * @example
-     * // Delete one Morador
-     * const Morador = await prisma.morador.delete({
+     * // Delete one Hospede
+     * const Hospede = await prisma.hospede.delete({
      *   where: {
-     *     // ... filter to delete one Morador
+     *     // ... filter to delete one Hospede
      *   }
      * })
      * 
      */
-    delete<T extends MoradorDeleteArgs>(args: SelectSubset<T, MoradorDeleteArgs<ExtArgs>>): Prisma__MoradorClient<$Result.GetResult<Prisma.$MoradorPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends HospedeDeleteArgs>(args: SelectSubset<T, HospedeDeleteArgs<ExtArgs>>): Prisma__HospedeClient<$Result.GetResult<Prisma.$HospedePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Morador.
-     * @param {MoradorUpdateArgs} args - Arguments to update one Morador.
+     * Update one Hospede.
+     * @param {HospedeUpdateArgs} args - Arguments to update one Hospede.
      * @example
-     * // Update one Morador
-     * const morador = await prisma.morador.update({
+     * // Update one Hospede
+     * const hospede = await prisma.hospede.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -4647,30 +4942,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends MoradorUpdateArgs>(args: SelectSubset<T, MoradorUpdateArgs<ExtArgs>>): Prisma__MoradorClient<$Result.GetResult<Prisma.$MoradorPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends HospedeUpdateArgs>(args: SelectSubset<T, HospedeUpdateArgs<ExtArgs>>): Prisma__HospedeClient<$Result.GetResult<Prisma.$HospedePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Moradors.
-     * @param {MoradorDeleteManyArgs} args - Arguments to filter Moradors to delete.
+     * Delete zero or more Hospedes.
+     * @param {HospedeDeleteManyArgs} args - Arguments to filter Hospedes to delete.
      * @example
-     * // Delete a few Moradors
-     * const { count } = await prisma.morador.deleteMany({
+     * // Delete a few Hospedes
+     * const { count } = await prisma.hospede.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends MoradorDeleteManyArgs>(args?: SelectSubset<T, MoradorDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends HospedeDeleteManyArgs>(args?: SelectSubset<T, HospedeDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Moradors.
+     * Update zero or more Hospedes.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {MoradorUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {HospedeUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Moradors
-     * const morador = await prisma.morador.updateMany({
+     * // Update many Hospedes
+     * const hospede = await prisma.hospede.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -4680,14 +4975,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends MoradorUpdateManyArgs>(args: SelectSubset<T, MoradorUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends HospedeUpdateManyArgs>(args: SelectSubset<T, HospedeUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Moradors and returns the data updated in the database.
-     * @param {MoradorUpdateManyAndReturnArgs} args - Arguments to update many Moradors.
+     * Update zero or more Hospedes and returns the data updated in the database.
+     * @param {HospedeUpdateManyAndReturnArgs} args - Arguments to update many Hospedes.
      * @example
-     * // Update many Moradors
-     * const morador = await prisma.morador.updateManyAndReturn({
+     * // Update many Hospedes
+     * const hospede = await prisma.hospede.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -4696,8 +4991,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Moradors and only return the `id`
-     * const moradorWithIdOnly = await prisma.morador.updateManyAndReturn({
+     * // Update zero or more Hospedes and only return the `id`
+     * const hospedeWithIdOnly = await prisma.hospede.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -4710,56 +5005,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends MoradorUpdateManyAndReturnArgs>(args: SelectSubset<T, MoradorUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MoradorPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends HospedeUpdateManyAndReturnArgs>(args: SelectSubset<T, HospedeUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HospedePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one Morador.
-     * @param {MoradorUpsertArgs} args - Arguments to update or create a Morador.
+     * Create or update one Hospede.
+     * @param {HospedeUpsertArgs} args - Arguments to update or create a Hospede.
      * @example
-     * // Update or create a Morador
-     * const morador = await prisma.morador.upsert({
+     * // Update or create a Hospede
+     * const hospede = await prisma.hospede.upsert({
      *   create: {
-     *     // ... data to create a Morador
+     *     // ... data to create a Hospede
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Morador we want to update
+     *     // ... the filter for the Hospede we want to update
      *   }
      * })
      */
-    upsert<T extends MoradorUpsertArgs>(args: SelectSubset<T, MoradorUpsertArgs<ExtArgs>>): Prisma__MoradorClient<$Result.GetResult<Prisma.$MoradorPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends HospedeUpsertArgs>(args: SelectSubset<T, HospedeUpsertArgs<ExtArgs>>): Prisma__HospedeClient<$Result.GetResult<Prisma.$HospedePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Moradors.
+     * Count the number of Hospedes.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {MoradorCountArgs} args - Arguments to filter Moradors to count.
+     * @param {HospedeCountArgs} args - Arguments to filter Hospedes to count.
      * @example
-     * // Count the number of Moradors
-     * const count = await prisma.morador.count({
+     * // Count the number of Hospedes
+     * const count = await prisma.hospede.count({
      *   where: {
-     *     // ... the filter for the Moradors we want to count
+     *     // ... the filter for the Hospedes we want to count
      *   }
      * })
     **/
-    count<T extends MoradorCountArgs>(
-      args?: Subset<T, MoradorCountArgs>,
+    count<T extends HospedeCountArgs>(
+      args?: Subset<T, HospedeCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], MoradorCountAggregateOutputType>
+          : GetScalarType<T['select'], HospedeCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Morador.
+     * Allows you to perform aggregations operations on a Hospede.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {MoradorAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {HospedeAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -4779,13 +5074,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends MoradorAggregateArgs>(args: Subset<T, MoradorAggregateArgs>): Prisma.PrismaPromise<GetMoradorAggregateType<T>>
+    aggregate<T extends HospedeAggregateArgs>(args: Subset<T, HospedeAggregateArgs>): Prisma.PrismaPromise<GetHospedeAggregateType<T>>
 
     /**
-     * Group by Morador.
+     * Group by Hospede.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {MoradorGroupByArgs} args - Group by arguments.
+     * @param {HospedeGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -4800,14 +5095,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends MoradorGroupByArgs,
+      T extends HospedeGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: MoradorGroupByArgs['orderBy'] }
-        : { orderBy?: MoradorGroupByArgs['orderBy'] },
+        ? { orderBy: HospedeGroupByArgs['orderBy'] }
+        : { orderBy?: HospedeGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -4856,20 +5151,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, MoradorGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMoradorGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, HospedeGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetHospedeGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Morador model
+   * Fields of the Hospede model
    */
-  readonly fields: MoradorFieldRefs;
+  readonly fields: HospedeFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Morador.
+   * The delegate class that acts as a "Promise-like" for Hospede.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__MoradorClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__HospedeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -4897,377 +5192,380 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Morador model
+   * Fields of the Hospede model
    */
-  interface MoradorFieldRefs {
-    readonly id: FieldRef<"Morador", 'Int'>
-    readonly name: FieldRef<"Morador", 'String'>
-    readonly email: FieldRef<"Morador", 'String'>
-    readonly senha: FieldRef<"Morador", 'String'>
-    readonly cpf: FieldRef<"Morador", 'String'>
-    readonly endereco: FieldRef<"Morador", 'String'>
-    readonly matricula: FieldRef<"Morador", 'String'>
+  interface HospedeFieldRefs {
+    readonly id: FieldRef<"Hospede", 'Int'>
+    readonly name: FieldRef<"Hospede", 'String'>
+    readonly email: FieldRef<"Hospede", 'String'>
+    readonly senha: FieldRef<"Hospede", 'String'>
+    readonly cpf: FieldRef<"Hospede", 'String'>
+    readonly cep: FieldRef<"Hospede", 'String'>
+    readonly cidade: FieldRef<"Hospede", 'String'>
+    readonly estado: FieldRef<"Hospede", 'String'>
+    readonly matricula: FieldRef<"Hospede", 'String'>
+    readonly universidade: FieldRef<"Hospede", 'String'>
   }
     
 
   // Custom InputTypes
   /**
-   * Morador findUnique
+   * Hospede findUnique
    */
-  export type MoradorFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type HospedeFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Morador
+     * Select specific fields to fetch from the Hospede
      */
-    select?: MoradorSelect<ExtArgs> | null
+    select?: HospedeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Morador
+     * Omit specific fields from the Hospede
      */
-    omit?: MoradorOmit<ExtArgs> | null
+    omit?: HospedeOmit<ExtArgs> | null
     /**
-     * Filter, which Morador to fetch.
+     * Filter, which Hospede to fetch.
      */
-    where: MoradorWhereUniqueInput
+    where: HospedeWhereUniqueInput
   }
 
   /**
-   * Morador findUniqueOrThrow
+   * Hospede findUniqueOrThrow
    */
-  export type MoradorFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type HospedeFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Morador
+     * Select specific fields to fetch from the Hospede
      */
-    select?: MoradorSelect<ExtArgs> | null
+    select?: HospedeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Morador
+     * Omit specific fields from the Hospede
      */
-    omit?: MoradorOmit<ExtArgs> | null
+    omit?: HospedeOmit<ExtArgs> | null
     /**
-     * Filter, which Morador to fetch.
+     * Filter, which Hospede to fetch.
      */
-    where: MoradorWhereUniqueInput
+    where: HospedeWhereUniqueInput
   }
 
   /**
-   * Morador findFirst
+   * Hospede findFirst
    */
-  export type MoradorFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type HospedeFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Morador
+     * Select specific fields to fetch from the Hospede
      */
-    select?: MoradorSelect<ExtArgs> | null
+    select?: HospedeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Morador
+     * Omit specific fields from the Hospede
      */
-    omit?: MoradorOmit<ExtArgs> | null
+    omit?: HospedeOmit<ExtArgs> | null
     /**
-     * Filter, which Morador to fetch.
+     * Filter, which Hospede to fetch.
      */
-    where?: MoradorWhereInput
+    where?: HospedeWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Moradors to fetch.
+     * Determine the order of Hospedes to fetch.
      */
-    orderBy?: MoradorOrderByWithRelationInput | MoradorOrderByWithRelationInput[]
+    orderBy?: HospedeOrderByWithRelationInput | HospedeOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Moradors.
+     * Sets the position for searching for Hospedes.
      */
-    cursor?: MoradorWhereUniqueInput
+    cursor?: HospedeWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Moradors from the position of the cursor.
+     * Take `±n` Hospedes from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Moradors.
+     * Skip the first `n` Hospedes.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Moradors.
+     * Filter by unique combinations of Hospedes.
      */
-    distinct?: MoradorScalarFieldEnum | MoradorScalarFieldEnum[]
+    distinct?: HospedeScalarFieldEnum | HospedeScalarFieldEnum[]
   }
 
   /**
-   * Morador findFirstOrThrow
+   * Hospede findFirstOrThrow
    */
-  export type MoradorFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type HospedeFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Morador
+     * Select specific fields to fetch from the Hospede
      */
-    select?: MoradorSelect<ExtArgs> | null
+    select?: HospedeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Morador
+     * Omit specific fields from the Hospede
      */
-    omit?: MoradorOmit<ExtArgs> | null
+    omit?: HospedeOmit<ExtArgs> | null
     /**
-     * Filter, which Morador to fetch.
+     * Filter, which Hospede to fetch.
      */
-    where?: MoradorWhereInput
+    where?: HospedeWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Moradors to fetch.
+     * Determine the order of Hospedes to fetch.
      */
-    orderBy?: MoradorOrderByWithRelationInput | MoradorOrderByWithRelationInput[]
+    orderBy?: HospedeOrderByWithRelationInput | HospedeOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Moradors.
+     * Sets the position for searching for Hospedes.
      */
-    cursor?: MoradorWhereUniqueInput
+    cursor?: HospedeWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Moradors from the position of the cursor.
+     * Take `±n` Hospedes from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Moradors.
+     * Skip the first `n` Hospedes.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Moradors.
+     * Filter by unique combinations of Hospedes.
      */
-    distinct?: MoradorScalarFieldEnum | MoradorScalarFieldEnum[]
+    distinct?: HospedeScalarFieldEnum | HospedeScalarFieldEnum[]
   }
 
   /**
-   * Morador findMany
+   * Hospede findMany
    */
-  export type MoradorFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type HospedeFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Morador
+     * Select specific fields to fetch from the Hospede
      */
-    select?: MoradorSelect<ExtArgs> | null
+    select?: HospedeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Morador
+     * Omit specific fields from the Hospede
      */
-    omit?: MoradorOmit<ExtArgs> | null
+    omit?: HospedeOmit<ExtArgs> | null
     /**
-     * Filter, which Moradors to fetch.
+     * Filter, which Hospedes to fetch.
      */
-    where?: MoradorWhereInput
+    where?: HospedeWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Moradors to fetch.
+     * Determine the order of Hospedes to fetch.
      */
-    orderBy?: MoradorOrderByWithRelationInput | MoradorOrderByWithRelationInput[]
+    orderBy?: HospedeOrderByWithRelationInput | HospedeOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Moradors.
+     * Sets the position for listing Hospedes.
      */
-    cursor?: MoradorWhereUniqueInput
+    cursor?: HospedeWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Moradors from the position of the cursor.
+     * Take `±n` Hospedes from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Moradors.
+     * Skip the first `n` Hospedes.
      */
     skip?: number
-    distinct?: MoradorScalarFieldEnum | MoradorScalarFieldEnum[]
+    distinct?: HospedeScalarFieldEnum | HospedeScalarFieldEnum[]
   }
 
   /**
-   * Morador create
+   * Hospede create
    */
-  export type MoradorCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type HospedeCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Morador
+     * Select specific fields to fetch from the Hospede
      */
-    select?: MoradorSelect<ExtArgs> | null
+    select?: HospedeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Morador
+     * Omit specific fields from the Hospede
      */
-    omit?: MoradorOmit<ExtArgs> | null
+    omit?: HospedeOmit<ExtArgs> | null
     /**
-     * The data needed to create a Morador.
+     * The data needed to create a Hospede.
      */
-    data: XOR<MoradorCreateInput, MoradorUncheckedCreateInput>
+    data: XOR<HospedeCreateInput, HospedeUncheckedCreateInput>
   }
 
   /**
-   * Morador createMany
+   * Hospede createMany
    */
-  export type MoradorCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type HospedeCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Moradors.
+     * The data used to create many Hospedes.
      */
-    data: MoradorCreateManyInput | MoradorCreateManyInput[]
+    data: HospedeCreateManyInput | HospedeCreateManyInput[]
   }
 
   /**
-   * Morador createManyAndReturn
+   * Hospede createManyAndReturn
    */
-  export type MoradorCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type HospedeCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Morador
+     * Select specific fields to fetch from the Hospede
      */
-    select?: MoradorSelectCreateManyAndReturn<ExtArgs> | null
+    select?: HospedeSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Morador
+     * Omit specific fields from the Hospede
      */
-    omit?: MoradorOmit<ExtArgs> | null
+    omit?: HospedeOmit<ExtArgs> | null
     /**
-     * The data used to create many Moradors.
+     * The data used to create many Hospedes.
      */
-    data: MoradorCreateManyInput | MoradorCreateManyInput[]
+    data: HospedeCreateManyInput | HospedeCreateManyInput[]
   }
 
   /**
-   * Morador update
+   * Hospede update
    */
-  export type MoradorUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type HospedeUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Morador
+     * Select specific fields to fetch from the Hospede
      */
-    select?: MoradorSelect<ExtArgs> | null
+    select?: HospedeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Morador
+     * Omit specific fields from the Hospede
      */
-    omit?: MoradorOmit<ExtArgs> | null
+    omit?: HospedeOmit<ExtArgs> | null
     /**
-     * The data needed to update a Morador.
+     * The data needed to update a Hospede.
      */
-    data: XOR<MoradorUpdateInput, MoradorUncheckedUpdateInput>
+    data: XOR<HospedeUpdateInput, HospedeUncheckedUpdateInput>
     /**
-     * Choose, which Morador to update.
+     * Choose, which Hospede to update.
      */
-    where: MoradorWhereUniqueInput
+    where: HospedeWhereUniqueInput
   }
 
   /**
-   * Morador updateMany
+   * Hospede updateMany
    */
-  export type MoradorUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type HospedeUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Moradors.
+     * The data used to update Hospedes.
      */
-    data: XOR<MoradorUpdateManyMutationInput, MoradorUncheckedUpdateManyInput>
+    data: XOR<HospedeUpdateManyMutationInput, HospedeUncheckedUpdateManyInput>
     /**
-     * Filter which Moradors to update
+     * Filter which Hospedes to update
      */
-    where?: MoradorWhereInput
+    where?: HospedeWhereInput
     /**
-     * Limit how many Moradors to update.
+     * Limit how many Hospedes to update.
      */
     limit?: number
   }
 
   /**
-   * Morador updateManyAndReturn
+   * Hospede updateManyAndReturn
    */
-  export type MoradorUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type HospedeUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Morador
+     * Select specific fields to fetch from the Hospede
      */
-    select?: MoradorSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: HospedeSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Morador
+     * Omit specific fields from the Hospede
      */
-    omit?: MoradorOmit<ExtArgs> | null
+    omit?: HospedeOmit<ExtArgs> | null
     /**
-     * The data used to update Moradors.
+     * The data used to update Hospedes.
      */
-    data: XOR<MoradorUpdateManyMutationInput, MoradorUncheckedUpdateManyInput>
+    data: XOR<HospedeUpdateManyMutationInput, HospedeUncheckedUpdateManyInput>
     /**
-     * Filter which Moradors to update
+     * Filter which Hospedes to update
      */
-    where?: MoradorWhereInput
+    where?: HospedeWhereInput
     /**
-     * Limit how many Moradors to update.
+     * Limit how many Hospedes to update.
      */
     limit?: number
   }
 
   /**
-   * Morador upsert
+   * Hospede upsert
    */
-  export type MoradorUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type HospedeUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Morador
+     * Select specific fields to fetch from the Hospede
      */
-    select?: MoradorSelect<ExtArgs> | null
+    select?: HospedeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Morador
+     * Omit specific fields from the Hospede
      */
-    omit?: MoradorOmit<ExtArgs> | null
+    omit?: HospedeOmit<ExtArgs> | null
     /**
-     * The filter to search for the Morador to update in case it exists.
+     * The filter to search for the Hospede to update in case it exists.
      */
-    where: MoradorWhereUniqueInput
+    where: HospedeWhereUniqueInput
     /**
-     * In case the Morador found by the `where` argument doesn't exist, create a new Morador with this data.
+     * In case the Hospede found by the `where` argument doesn't exist, create a new Hospede with this data.
      */
-    create: XOR<MoradorCreateInput, MoradorUncheckedCreateInput>
+    create: XOR<HospedeCreateInput, HospedeUncheckedCreateInput>
     /**
-     * In case the Morador was found with the provided `where` argument, update it with this data.
+     * In case the Hospede was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<MoradorUpdateInput, MoradorUncheckedUpdateInput>
+    update: XOR<HospedeUpdateInput, HospedeUncheckedUpdateInput>
   }
 
   /**
-   * Morador delete
+   * Hospede delete
    */
-  export type MoradorDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type HospedeDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Morador
+     * Select specific fields to fetch from the Hospede
      */
-    select?: MoradorSelect<ExtArgs> | null
+    select?: HospedeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Morador
+     * Omit specific fields from the Hospede
      */
-    omit?: MoradorOmit<ExtArgs> | null
+    omit?: HospedeOmit<ExtArgs> | null
     /**
-     * Filter which Morador to delete.
+     * Filter which Hospede to delete.
      */
-    where: MoradorWhereUniqueInput
+    where: HospedeWhereUniqueInput
   }
 
   /**
-   * Morador deleteMany
+   * Hospede deleteMany
    */
-  export type MoradorDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type HospedeDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Moradors to delete
+     * Filter which Hospedes to delete
      */
-    where?: MoradorWhereInput
+    where?: HospedeWhereInput
     /**
-     * Limit how many Moradors to delete.
+     * Limit how many Hospedes to delete.
      */
     limit?: number
   }
 
   /**
-   * Morador without action
+   * Hospede without action
    */
-  export type MoradorDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type HospedeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Morador
+     * Select specific fields to fetch from the Hospede
      */
-    select?: MoradorSelect<ExtArgs> | null
+    select?: HospedeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Morador
+     * Omit specific fields from the Hospede
      */
-    omit?: MoradorOmit<ExtArgs> | null
+    omit?: HospedeOmit<ExtArgs> | null
   }
 
 
@@ -5295,36 +5593,46 @@ export namespace Prisma {
     id: 'id',
     endereco: 'endereco',
     numero: 'numero',
-    qnt_tot: 'qnt_tot',
-    diretrizes: 'diretrizes'
+    cep: 'cep',
+    cidade: 'cidade',
+    estado: 'estado',
+    diretrizes: 'diretrizes',
+    complemento: 'complemento',
+    locadorId: 'locadorId'
   };
 
   export type CasaScalarFieldEnum = (typeof CasaScalarFieldEnum)[keyof typeof CasaScalarFieldEnum]
 
 
-  export const HostScalarFieldEnum: {
-    id: 'id',
-    name: 'name',
-    email: 'email',
-    senha: 'senha',
-    cpf: 'cpf',
-    endereco: 'endereco'
-  };
-
-  export type HostScalarFieldEnum = (typeof HostScalarFieldEnum)[keyof typeof HostScalarFieldEnum]
-
-
-  export const MoradorScalarFieldEnum: {
+  export const LocadorScalarFieldEnum: {
     id: 'id',
     name: 'name',
     email: 'email',
     senha: 'senha',
     cpf: 'cpf',
     endereco: 'endereco',
-    matricula: 'matricula'
+    cep: 'cep',
+    cidade: 'cidade',
+    estado: 'estado'
   };
 
-  export type MoradorScalarFieldEnum = (typeof MoradorScalarFieldEnum)[keyof typeof MoradorScalarFieldEnum]
+  export type LocadorScalarFieldEnum = (typeof LocadorScalarFieldEnum)[keyof typeof LocadorScalarFieldEnum]
+
+
+  export const HospedeScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    email: 'email',
+    senha: 'senha',
+    cpf: 'cpf',
+    cep: 'cep',
+    cidade: 'cidade',
+    estado: 'estado',
+    matricula: 'matricula',
+    universidade: 'universidade'
+  };
+
+  export type HospedeScalarFieldEnum = (typeof HospedeScalarFieldEnum)[keyof typeof HospedeScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -5333,6 +5641,14 @@ export namespace Prisma {
   };
 
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+  export const NullsOrder: {
+    first: 'first',
+    last: 'last'
+  };
+
+  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
   /**
@@ -5415,16 +5731,26 @@ export namespace Prisma {
     id?: IntFilter<"Casa"> | number
     endereco?: StringFilter<"Casa"> | string
     numero?: IntFilter<"Casa"> | number
-    qnt_tot?: IntFilter<"Casa"> | number
+    cep?: StringNullableFilter<"Casa"> | string | null
+    cidade?: StringNullableFilter<"Casa"> | string | null
+    estado?: StringNullableFilter<"Casa"> | string | null
     diretrizes?: StringFilter<"Casa"> | string
+    complemento?: StringNullableFilter<"Casa"> | string | null
+    locadorId?: IntFilter<"Casa"> | number
+    locador?: XOR<LocadorScalarRelationFilter, LocadorWhereInput>
   }
 
   export type CasaOrderByWithRelationInput = {
     id?: SortOrder
     endereco?: SortOrder
     numero?: SortOrder
-    qnt_tot?: SortOrder
+    cep?: SortOrderInput | SortOrder
+    cidade?: SortOrderInput | SortOrder
+    estado?: SortOrderInput | SortOrder
     diretrizes?: SortOrder
+    complemento?: SortOrderInput | SortOrder
+    locadorId?: SortOrder
+    locador?: LocadorOrderByWithRelationInput
   }
 
   export type CasaWhereUniqueInput = Prisma.AtLeast<{
@@ -5434,16 +5760,25 @@ export namespace Prisma {
     NOT?: CasaWhereInput | CasaWhereInput[]
     endereco?: StringFilter<"Casa"> | string
     numero?: IntFilter<"Casa"> | number
-    qnt_tot?: IntFilter<"Casa"> | number
+    cep?: StringNullableFilter<"Casa"> | string | null
+    cidade?: StringNullableFilter<"Casa"> | string | null
+    estado?: StringNullableFilter<"Casa"> | string | null
     diretrizes?: StringFilter<"Casa"> | string
+    complemento?: StringNullableFilter<"Casa"> | string | null
+    locadorId?: IntFilter<"Casa"> | number
+    locador?: XOR<LocadorScalarRelationFilter, LocadorWhereInput>
   }, "id">
 
   export type CasaOrderByWithAggregationInput = {
     id?: SortOrder
     endereco?: SortOrder
     numero?: SortOrder
-    qnt_tot?: SortOrder
+    cep?: SortOrderInput | SortOrder
+    cidade?: SortOrderInput | SortOrder
+    estado?: SortOrderInput | SortOrder
     diretrizes?: SortOrder
+    complemento?: SortOrderInput | SortOrder
+    locadorId?: SortOrder
     _count?: CasaCountOrderByAggregateInput
     _avg?: CasaAvgOrderByAggregateInput
     _max?: CasaMaxOrderByAggregateInput
@@ -5458,131 +5793,168 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"Casa"> | number
     endereco?: StringWithAggregatesFilter<"Casa"> | string
     numero?: IntWithAggregatesFilter<"Casa"> | number
-    qnt_tot?: IntWithAggregatesFilter<"Casa"> | number
+    cep?: StringNullableWithAggregatesFilter<"Casa"> | string | null
+    cidade?: StringNullableWithAggregatesFilter<"Casa"> | string | null
+    estado?: StringNullableWithAggregatesFilter<"Casa"> | string | null
     diretrizes?: StringWithAggregatesFilter<"Casa"> | string
+    complemento?: StringNullableWithAggregatesFilter<"Casa"> | string | null
+    locadorId?: IntWithAggregatesFilter<"Casa"> | number
   }
 
-  export type HostWhereInput = {
-    AND?: HostWhereInput | HostWhereInput[]
-    OR?: HostWhereInput[]
-    NOT?: HostWhereInput | HostWhereInput[]
-    id?: IntFilter<"Host"> | number
-    name?: StringFilter<"Host"> | string
-    email?: StringFilter<"Host"> | string
-    senha?: StringFilter<"Host"> | string
-    cpf?: StringFilter<"Host"> | string
-    endereco?: StringFilter<"Host"> | string
+  export type LocadorWhereInput = {
+    AND?: LocadorWhereInput | LocadorWhereInput[]
+    OR?: LocadorWhereInput[]
+    NOT?: LocadorWhereInput | LocadorWhereInput[]
+    id?: IntFilter<"Locador"> | number
+    name?: StringFilter<"Locador"> | string
+    email?: StringFilter<"Locador"> | string
+    senha?: StringFilter<"Locador"> | string
+    cpf?: StringFilter<"Locador"> | string
+    endereco?: StringFilter<"Locador"> | string
+    cep?: StringNullableFilter<"Locador"> | string | null
+    cidade?: StringNullableFilter<"Locador"> | string | null
+    estado?: StringNullableFilter<"Locador"> | string | null
+    casas?: CasaListRelationFilter
   }
 
-  export type HostOrderByWithRelationInput = {
+  export type LocadorOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
     email?: SortOrder
     senha?: SortOrder
     cpf?: SortOrder
     endereco?: SortOrder
+    cep?: SortOrderInput | SortOrder
+    cidade?: SortOrderInput | SortOrder
+    estado?: SortOrderInput | SortOrder
+    casas?: CasaOrderByRelationAggregateInput
   }
 
-  export type HostWhereUniqueInput = Prisma.AtLeast<{
+  export type LocadorWhereUniqueInput = Prisma.AtLeast<{
     id?: number
     email?: string
     cpf?: string
-    AND?: HostWhereInput | HostWhereInput[]
-    OR?: HostWhereInput[]
-    NOT?: HostWhereInput | HostWhereInput[]
-    name?: StringFilter<"Host"> | string
-    senha?: StringFilter<"Host"> | string
-    endereco?: StringFilter<"Host"> | string
+    AND?: LocadorWhereInput | LocadorWhereInput[]
+    OR?: LocadorWhereInput[]
+    NOT?: LocadorWhereInput | LocadorWhereInput[]
+    name?: StringFilter<"Locador"> | string
+    senha?: StringFilter<"Locador"> | string
+    endereco?: StringFilter<"Locador"> | string
+    cep?: StringNullableFilter<"Locador"> | string | null
+    cidade?: StringNullableFilter<"Locador"> | string | null
+    estado?: StringNullableFilter<"Locador"> | string | null
+    casas?: CasaListRelationFilter
   }, "id" | "email" | "cpf">
 
-  export type HostOrderByWithAggregationInput = {
+  export type LocadorOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
     email?: SortOrder
     senha?: SortOrder
     cpf?: SortOrder
     endereco?: SortOrder
-    _count?: HostCountOrderByAggregateInput
-    _avg?: HostAvgOrderByAggregateInput
-    _max?: HostMaxOrderByAggregateInput
-    _min?: HostMinOrderByAggregateInput
-    _sum?: HostSumOrderByAggregateInput
+    cep?: SortOrderInput | SortOrder
+    cidade?: SortOrderInput | SortOrder
+    estado?: SortOrderInput | SortOrder
+    _count?: LocadorCountOrderByAggregateInput
+    _avg?: LocadorAvgOrderByAggregateInput
+    _max?: LocadorMaxOrderByAggregateInput
+    _min?: LocadorMinOrderByAggregateInput
+    _sum?: LocadorSumOrderByAggregateInput
   }
 
-  export type HostScalarWhereWithAggregatesInput = {
-    AND?: HostScalarWhereWithAggregatesInput | HostScalarWhereWithAggregatesInput[]
-    OR?: HostScalarWhereWithAggregatesInput[]
-    NOT?: HostScalarWhereWithAggregatesInput | HostScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"Host"> | number
-    name?: StringWithAggregatesFilter<"Host"> | string
-    email?: StringWithAggregatesFilter<"Host"> | string
-    senha?: StringWithAggregatesFilter<"Host"> | string
-    cpf?: StringWithAggregatesFilter<"Host"> | string
-    endereco?: StringWithAggregatesFilter<"Host"> | string
+  export type LocadorScalarWhereWithAggregatesInput = {
+    AND?: LocadorScalarWhereWithAggregatesInput | LocadorScalarWhereWithAggregatesInput[]
+    OR?: LocadorScalarWhereWithAggregatesInput[]
+    NOT?: LocadorScalarWhereWithAggregatesInput | LocadorScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Locador"> | number
+    name?: StringWithAggregatesFilter<"Locador"> | string
+    email?: StringWithAggregatesFilter<"Locador"> | string
+    senha?: StringWithAggregatesFilter<"Locador"> | string
+    cpf?: StringWithAggregatesFilter<"Locador"> | string
+    endereco?: StringWithAggregatesFilter<"Locador"> | string
+    cep?: StringNullableWithAggregatesFilter<"Locador"> | string | null
+    cidade?: StringNullableWithAggregatesFilter<"Locador"> | string | null
+    estado?: StringNullableWithAggregatesFilter<"Locador"> | string | null
   }
 
-  export type MoradorWhereInput = {
-    AND?: MoradorWhereInput | MoradorWhereInput[]
-    OR?: MoradorWhereInput[]
-    NOT?: MoradorWhereInput | MoradorWhereInput[]
-    id?: IntFilter<"Morador"> | number
-    name?: StringFilter<"Morador"> | string
-    email?: StringFilter<"Morador"> | string
-    senha?: StringFilter<"Morador"> | string
-    cpf?: StringFilter<"Morador"> | string
-    endereco?: StringFilter<"Morador"> | string
-    matricula?: StringFilter<"Morador"> | string
+  export type HospedeWhereInput = {
+    AND?: HospedeWhereInput | HospedeWhereInput[]
+    OR?: HospedeWhereInput[]
+    NOT?: HospedeWhereInput | HospedeWhereInput[]
+    id?: IntFilter<"Hospede"> | number
+    name?: StringFilter<"Hospede"> | string
+    email?: StringFilter<"Hospede"> | string
+    senha?: StringFilter<"Hospede"> | string
+    cpf?: StringFilter<"Hospede"> | string
+    cep?: StringNullableFilter<"Hospede"> | string | null
+    cidade?: StringNullableFilter<"Hospede"> | string | null
+    estado?: StringNullableFilter<"Hospede"> | string | null
+    matricula?: StringFilter<"Hospede"> | string
+    universidade?: StringNullableFilter<"Hospede"> | string | null
   }
 
-  export type MoradorOrderByWithRelationInput = {
+  export type HospedeOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
     email?: SortOrder
     senha?: SortOrder
     cpf?: SortOrder
-    endereco?: SortOrder
+    cep?: SortOrderInput | SortOrder
+    cidade?: SortOrderInput | SortOrder
+    estado?: SortOrderInput | SortOrder
     matricula?: SortOrder
+    universidade?: SortOrderInput | SortOrder
   }
 
-  export type MoradorWhereUniqueInput = Prisma.AtLeast<{
+  export type HospedeWhereUniqueInput = Prisma.AtLeast<{
     id?: number
     email?: string
     cpf?: string
     matricula?: string
-    AND?: MoradorWhereInput | MoradorWhereInput[]
-    OR?: MoradorWhereInput[]
-    NOT?: MoradorWhereInput | MoradorWhereInput[]
-    name?: StringFilter<"Morador"> | string
-    senha?: StringFilter<"Morador"> | string
-    endereco?: StringFilter<"Morador"> | string
+    AND?: HospedeWhereInput | HospedeWhereInput[]
+    OR?: HospedeWhereInput[]
+    NOT?: HospedeWhereInput | HospedeWhereInput[]
+    name?: StringFilter<"Hospede"> | string
+    senha?: StringFilter<"Hospede"> | string
+    cep?: StringNullableFilter<"Hospede"> | string | null
+    cidade?: StringNullableFilter<"Hospede"> | string | null
+    estado?: StringNullableFilter<"Hospede"> | string | null
+    universidade?: StringNullableFilter<"Hospede"> | string | null
   }, "id" | "email" | "cpf" | "matricula">
 
-  export type MoradorOrderByWithAggregationInput = {
+  export type HospedeOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
     email?: SortOrder
     senha?: SortOrder
     cpf?: SortOrder
-    endereco?: SortOrder
+    cep?: SortOrderInput | SortOrder
+    cidade?: SortOrderInput | SortOrder
+    estado?: SortOrderInput | SortOrder
     matricula?: SortOrder
-    _count?: MoradorCountOrderByAggregateInput
-    _avg?: MoradorAvgOrderByAggregateInput
-    _max?: MoradorMaxOrderByAggregateInput
-    _min?: MoradorMinOrderByAggregateInput
-    _sum?: MoradorSumOrderByAggregateInput
+    universidade?: SortOrderInput | SortOrder
+    _count?: HospedeCountOrderByAggregateInput
+    _avg?: HospedeAvgOrderByAggregateInput
+    _max?: HospedeMaxOrderByAggregateInput
+    _min?: HospedeMinOrderByAggregateInput
+    _sum?: HospedeSumOrderByAggregateInput
   }
 
-  export type MoradorScalarWhereWithAggregatesInput = {
-    AND?: MoradorScalarWhereWithAggregatesInput | MoradorScalarWhereWithAggregatesInput[]
-    OR?: MoradorScalarWhereWithAggregatesInput[]
-    NOT?: MoradorScalarWhereWithAggregatesInput | MoradorScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"Morador"> | number
-    name?: StringWithAggregatesFilter<"Morador"> | string
-    email?: StringWithAggregatesFilter<"Morador"> | string
-    senha?: StringWithAggregatesFilter<"Morador"> | string
-    cpf?: StringWithAggregatesFilter<"Morador"> | string
-    endereco?: StringWithAggregatesFilter<"Morador"> | string
-    matricula?: StringWithAggregatesFilter<"Morador"> | string
+  export type HospedeScalarWhereWithAggregatesInput = {
+    AND?: HospedeScalarWhereWithAggregatesInput | HospedeScalarWhereWithAggregatesInput[]
+    OR?: HospedeScalarWhereWithAggregatesInput[]
+    NOT?: HospedeScalarWhereWithAggregatesInput | HospedeScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Hospede"> | number
+    name?: StringWithAggregatesFilter<"Hospede"> | string
+    email?: StringWithAggregatesFilter<"Hospede"> | string
+    senha?: StringWithAggregatesFilter<"Hospede"> | string
+    cpf?: StringWithAggregatesFilter<"Hospede"> | string
+    cep?: StringNullableWithAggregatesFilter<"Hospede"> | string | null
+    cidade?: StringNullableWithAggregatesFilter<"Hospede"> | string | null
+    estado?: StringNullableWithAggregatesFilter<"Hospede"> | string | null
+    matricula?: StringWithAggregatesFilter<"Hospede"> | string
+    universidade?: StringNullableWithAggregatesFilter<"Hospede"> | string | null
   }
 
   export type AdminCreateInput = {
@@ -5627,181 +5999,254 @@ export namespace Prisma {
   export type CasaCreateInput = {
     endereco: string
     numero: number
-    qnt_tot: number
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
     diretrizes: string
+    complemento?: string | null
+    locador: LocadorCreateNestedOneWithoutCasasInput
   }
 
   export type CasaUncheckedCreateInput = {
     id?: number
     endereco: string
     numero: number
-    qnt_tot: number
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
     diretrizes: string
+    complemento?: string | null
+    locadorId: number
   }
 
   export type CasaUpdateInput = {
     endereco?: StringFieldUpdateOperationsInput | string
     numero?: IntFieldUpdateOperationsInput | number
-    qnt_tot?: IntFieldUpdateOperationsInput | number
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
     diretrizes?: StringFieldUpdateOperationsInput | string
+    complemento?: NullableStringFieldUpdateOperationsInput | string | null
+    locador?: LocadorUpdateOneRequiredWithoutCasasNestedInput
   }
 
   export type CasaUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     endereco?: StringFieldUpdateOperationsInput | string
     numero?: IntFieldUpdateOperationsInput | number
-    qnt_tot?: IntFieldUpdateOperationsInput | number
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
     diretrizes?: StringFieldUpdateOperationsInput | string
+    complemento?: NullableStringFieldUpdateOperationsInput | string | null
+    locadorId?: IntFieldUpdateOperationsInput | number
   }
 
   export type CasaCreateManyInput = {
     id?: number
     endereco: string
     numero: number
-    qnt_tot: number
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
     diretrizes: string
+    complemento?: string | null
+    locadorId: number
   }
 
   export type CasaUpdateManyMutationInput = {
     endereco?: StringFieldUpdateOperationsInput | string
     numero?: IntFieldUpdateOperationsInput | number
-    qnt_tot?: IntFieldUpdateOperationsInput | number
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
     diretrizes?: StringFieldUpdateOperationsInput | string
+    complemento?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type CasaUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     endereco?: StringFieldUpdateOperationsInput | string
     numero?: IntFieldUpdateOperationsInput | number
-    qnt_tot?: IntFieldUpdateOperationsInput | number
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
     diretrizes?: StringFieldUpdateOperationsInput | string
+    complemento?: NullableStringFieldUpdateOperationsInput | string | null
+    locadorId?: IntFieldUpdateOperationsInput | number
   }
 
-  export type HostCreateInput = {
+  export type LocadorCreateInput = {
     name: string
     email: string
     senha: string
     cpf: string
     endereco: string
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
+    casas?: CasaCreateNestedManyWithoutLocadorInput
   }
 
-  export type HostUncheckedCreateInput = {
+  export type LocadorUncheckedCreateInput = {
     id?: number
     name: string
     email: string
     senha: string
     cpf: string
     endereco: string
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
+    casas?: CasaUncheckedCreateNestedManyWithoutLocadorInput
   }
 
-  export type HostUpdateInput = {
+  export type LocadorUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     senha?: StringFieldUpdateOperationsInput | string
     cpf?: StringFieldUpdateOperationsInput | string
     endereco?: StringFieldUpdateOperationsInput | string
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
+    casas?: CasaUpdateManyWithoutLocadorNestedInput
   }
 
-  export type HostUncheckedUpdateInput = {
+  export type LocadorUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     senha?: StringFieldUpdateOperationsInput | string
     cpf?: StringFieldUpdateOperationsInput | string
     endereco?: StringFieldUpdateOperationsInput | string
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
+    casas?: CasaUncheckedUpdateManyWithoutLocadorNestedInput
   }
 
-  export type HostCreateManyInput = {
+  export type LocadorCreateManyInput = {
     id?: number
     name: string
     email: string
     senha: string
     cpf: string
     endereco: string
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
   }
 
-  export type HostUpdateManyMutationInput = {
+  export type LocadorUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     senha?: StringFieldUpdateOperationsInput | string
     cpf?: StringFieldUpdateOperationsInput | string
     endereco?: StringFieldUpdateOperationsInput | string
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type HostUncheckedUpdateManyInput = {
+  export type LocadorUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     senha?: StringFieldUpdateOperationsInput | string
     cpf?: StringFieldUpdateOperationsInput | string
     endereco?: StringFieldUpdateOperationsInput | string
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type MoradorCreateInput = {
+  export type HospedeCreateInput = {
     name: string
     email: string
     senha: string
     cpf: string
-    endereco: string
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
     matricula: string
+    universidade?: string | null
   }
 
-  export type MoradorUncheckedCreateInput = {
+  export type HospedeUncheckedCreateInput = {
     id?: number
     name: string
     email: string
     senha: string
     cpf: string
-    endereco: string
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
     matricula: string
+    universidade?: string | null
   }
 
-  export type MoradorUpdateInput = {
+  export type HospedeUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     senha?: StringFieldUpdateOperationsInput | string
     cpf?: StringFieldUpdateOperationsInput | string
-    endereco?: StringFieldUpdateOperationsInput | string
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
     matricula?: StringFieldUpdateOperationsInput | string
+    universidade?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type MoradorUncheckedUpdateInput = {
+  export type HospedeUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     senha?: StringFieldUpdateOperationsInput | string
     cpf?: StringFieldUpdateOperationsInput | string
-    endereco?: StringFieldUpdateOperationsInput | string
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
     matricula?: StringFieldUpdateOperationsInput | string
+    universidade?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type MoradorCreateManyInput = {
+  export type HospedeCreateManyInput = {
     id?: number
     name: string
     email: string
     senha: string
     cpf: string
-    endereco: string
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
     matricula: string
+    universidade?: string | null
   }
 
-  export type MoradorUpdateManyMutationInput = {
+  export type HospedeUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     senha?: StringFieldUpdateOperationsInput | string
     cpf?: StringFieldUpdateOperationsInput | string
-    endereco?: StringFieldUpdateOperationsInput | string
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
     matricula?: StringFieldUpdateOperationsInput | string
+    universidade?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type MoradorUncheckedUpdateManyInput = {
+  export type HospedeUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     senha?: StringFieldUpdateOperationsInput | string
     cpf?: StringFieldUpdateOperationsInput | string
-    endereco?: StringFieldUpdateOperationsInput | string
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
     matricula?: StringFieldUpdateOperationsInput | string
+    universidade?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -5888,112 +6333,193 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type LocadorScalarRelationFilter = {
+    is?: LocadorWhereInput
+    isNot?: LocadorWhereInput
+  }
+
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
   export type CasaCountOrderByAggregateInput = {
     id?: SortOrder
     endereco?: SortOrder
     numero?: SortOrder
-    qnt_tot?: SortOrder
+    cep?: SortOrder
+    cidade?: SortOrder
+    estado?: SortOrder
     diretrizes?: SortOrder
+    complemento?: SortOrder
+    locadorId?: SortOrder
   }
 
   export type CasaAvgOrderByAggregateInput = {
     id?: SortOrder
     numero?: SortOrder
-    qnt_tot?: SortOrder
+    locadorId?: SortOrder
   }
 
   export type CasaMaxOrderByAggregateInput = {
     id?: SortOrder
     endereco?: SortOrder
     numero?: SortOrder
-    qnt_tot?: SortOrder
+    cep?: SortOrder
+    cidade?: SortOrder
+    estado?: SortOrder
     diretrizes?: SortOrder
+    complemento?: SortOrder
+    locadorId?: SortOrder
   }
 
   export type CasaMinOrderByAggregateInput = {
     id?: SortOrder
     endereco?: SortOrder
     numero?: SortOrder
-    qnt_tot?: SortOrder
+    cep?: SortOrder
+    cidade?: SortOrder
+    estado?: SortOrder
     diretrizes?: SortOrder
+    complemento?: SortOrder
+    locadorId?: SortOrder
   }
 
   export type CasaSumOrderByAggregateInput = {
     id?: SortOrder
     numero?: SortOrder
-    qnt_tot?: SortOrder
+    locadorId?: SortOrder
   }
 
-  export type HostCountOrderByAggregateInput = {
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type CasaListRelationFilter = {
+    every?: CasaWhereInput
+    some?: CasaWhereInput
+    none?: CasaWhereInput
+  }
+
+  export type CasaOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type LocadorCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     email?: SortOrder
     senha?: SortOrder
     cpf?: SortOrder
     endereco?: SortOrder
+    cep?: SortOrder
+    cidade?: SortOrder
+    estado?: SortOrder
   }
 
-  export type HostAvgOrderByAggregateInput = {
+  export type LocadorAvgOrderByAggregateInput = {
     id?: SortOrder
   }
 
-  export type HostMaxOrderByAggregateInput = {
-    id?: SortOrder
-    name?: SortOrder
-    email?: SortOrder
-    senha?: SortOrder
-    cpf?: SortOrder
-    endereco?: SortOrder
-  }
-
-  export type HostMinOrderByAggregateInput = {
+  export type LocadorMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     email?: SortOrder
     senha?: SortOrder
     cpf?: SortOrder
     endereco?: SortOrder
+    cep?: SortOrder
+    cidade?: SortOrder
+    estado?: SortOrder
   }
 
-  export type HostSumOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
-  export type MoradorCountOrderByAggregateInput = {
+  export type LocadorMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     email?: SortOrder
     senha?: SortOrder
     cpf?: SortOrder
     endereco?: SortOrder
+    cep?: SortOrder
+    cidade?: SortOrder
+    estado?: SortOrder
+  }
+
+  export type LocadorSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type HospedeCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    email?: SortOrder
+    senha?: SortOrder
+    cpf?: SortOrder
+    cep?: SortOrder
+    cidade?: SortOrder
+    estado?: SortOrder
     matricula?: SortOrder
+    universidade?: SortOrder
   }
 
-  export type MoradorAvgOrderByAggregateInput = {
+  export type HospedeAvgOrderByAggregateInput = {
     id?: SortOrder
   }
 
-  export type MoradorMaxOrderByAggregateInput = {
-    id?: SortOrder
-    name?: SortOrder
-    email?: SortOrder
-    senha?: SortOrder
-    cpf?: SortOrder
-    endereco?: SortOrder
-    matricula?: SortOrder
-  }
-
-  export type MoradorMinOrderByAggregateInput = {
+  export type HospedeMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     email?: SortOrder
     senha?: SortOrder
     cpf?: SortOrder
-    endereco?: SortOrder
+    cep?: SortOrder
+    cidade?: SortOrder
+    estado?: SortOrder
     matricula?: SortOrder
+    universidade?: SortOrder
   }
 
-  export type MoradorSumOrderByAggregateInput = {
+  export type HospedeMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    email?: SortOrder
+    senha?: SortOrder
+    cpf?: SortOrder
+    cep?: SortOrder
+    cidade?: SortOrder
+    estado?: SortOrder
+    matricula?: SortOrder
+    universidade?: SortOrder
+  }
+
+  export type HospedeSumOrderByAggregateInput = {
     id?: SortOrder
   }
 
@@ -6007,6 +6533,66 @@ export namespace Prisma {
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type LocadorCreateNestedOneWithoutCasasInput = {
+    create?: XOR<LocadorCreateWithoutCasasInput, LocadorUncheckedCreateWithoutCasasInput>
+    connectOrCreate?: LocadorCreateOrConnectWithoutCasasInput
+    connect?: LocadorWhereUniqueInput
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+  }
+
+  export type LocadorUpdateOneRequiredWithoutCasasNestedInput = {
+    create?: XOR<LocadorCreateWithoutCasasInput, LocadorUncheckedCreateWithoutCasasInput>
+    connectOrCreate?: LocadorCreateOrConnectWithoutCasasInput
+    upsert?: LocadorUpsertWithoutCasasInput
+    connect?: LocadorWhereUniqueInput
+    update?: XOR<XOR<LocadorUpdateToOneWithWhereWithoutCasasInput, LocadorUpdateWithoutCasasInput>, LocadorUncheckedUpdateWithoutCasasInput>
+  }
+
+  export type CasaCreateNestedManyWithoutLocadorInput = {
+    create?: XOR<CasaCreateWithoutLocadorInput, CasaUncheckedCreateWithoutLocadorInput> | CasaCreateWithoutLocadorInput[] | CasaUncheckedCreateWithoutLocadorInput[]
+    connectOrCreate?: CasaCreateOrConnectWithoutLocadorInput | CasaCreateOrConnectWithoutLocadorInput[]
+    createMany?: CasaCreateManyLocadorInputEnvelope
+    connect?: CasaWhereUniqueInput | CasaWhereUniqueInput[]
+  }
+
+  export type CasaUncheckedCreateNestedManyWithoutLocadorInput = {
+    create?: XOR<CasaCreateWithoutLocadorInput, CasaUncheckedCreateWithoutLocadorInput> | CasaCreateWithoutLocadorInput[] | CasaUncheckedCreateWithoutLocadorInput[]
+    connectOrCreate?: CasaCreateOrConnectWithoutLocadorInput | CasaCreateOrConnectWithoutLocadorInput[]
+    createMany?: CasaCreateManyLocadorInputEnvelope
+    connect?: CasaWhereUniqueInput | CasaWhereUniqueInput[]
+  }
+
+  export type CasaUpdateManyWithoutLocadorNestedInput = {
+    create?: XOR<CasaCreateWithoutLocadorInput, CasaUncheckedCreateWithoutLocadorInput> | CasaCreateWithoutLocadorInput[] | CasaUncheckedCreateWithoutLocadorInput[]
+    connectOrCreate?: CasaCreateOrConnectWithoutLocadorInput | CasaCreateOrConnectWithoutLocadorInput[]
+    upsert?: CasaUpsertWithWhereUniqueWithoutLocadorInput | CasaUpsertWithWhereUniqueWithoutLocadorInput[]
+    createMany?: CasaCreateManyLocadorInputEnvelope
+    set?: CasaWhereUniqueInput | CasaWhereUniqueInput[]
+    disconnect?: CasaWhereUniqueInput | CasaWhereUniqueInput[]
+    delete?: CasaWhereUniqueInput | CasaWhereUniqueInput[]
+    connect?: CasaWhereUniqueInput | CasaWhereUniqueInput[]
+    update?: CasaUpdateWithWhereUniqueWithoutLocadorInput | CasaUpdateWithWhereUniqueWithoutLocadorInput[]
+    updateMany?: CasaUpdateManyWithWhereWithoutLocadorInput | CasaUpdateManyWithWhereWithoutLocadorInput[]
+    deleteMany?: CasaScalarWhereInput | CasaScalarWhereInput[]
+  }
+
+  export type CasaUncheckedUpdateManyWithoutLocadorNestedInput = {
+    create?: XOR<CasaCreateWithoutLocadorInput, CasaUncheckedCreateWithoutLocadorInput> | CasaCreateWithoutLocadorInput[] | CasaUncheckedCreateWithoutLocadorInput[]
+    connectOrCreate?: CasaCreateOrConnectWithoutLocadorInput | CasaCreateOrConnectWithoutLocadorInput[]
+    upsert?: CasaUpsertWithWhereUniqueWithoutLocadorInput | CasaUpsertWithWhereUniqueWithoutLocadorInput[]
+    createMany?: CasaCreateManyLocadorInputEnvelope
+    set?: CasaWhereUniqueInput | CasaWhereUniqueInput[]
+    disconnect?: CasaWhereUniqueInput | CasaWhereUniqueInput[]
+    delete?: CasaWhereUniqueInput | CasaWhereUniqueInput[]
+    connect?: CasaWhereUniqueInput | CasaWhereUniqueInput[]
+    update?: CasaUpdateWithWhereUniqueWithoutLocadorInput | CasaUpdateWithWhereUniqueWithoutLocadorInput[]
+    updateMany?: CasaUpdateManyWithWhereWithoutLocadorInput | CasaUpdateManyWithWhereWithoutLocadorInput[]
+    deleteMany?: CasaScalarWhereInput | CasaScalarWhereInput[]
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -6076,6 +6662,214 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type LocadorCreateWithoutCasasInput = {
+    name: string
+    email: string
+    senha: string
+    cpf: string
+    endereco: string
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
+  }
+
+  export type LocadorUncheckedCreateWithoutCasasInput = {
+    id?: number
+    name: string
+    email: string
+    senha: string
+    cpf: string
+    endereco: string
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
+  }
+
+  export type LocadorCreateOrConnectWithoutCasasInput = {
+    where: LocadorWhereUniqueInput
+    create: XOR<LocadorCreateWithoutCasasInput, LocadorUncheckedCreateWithoutCasasInput>
+  }
+
+  export type LocadorUpsertWithoutCasasInput = {
+    update: XOR<LocadorUpdateWithoutCasasInput, LocadorUncheckedUpdateWithoutCasasInput>
+    create: XOR<LocadorCreateWithoutCasasInput, LocadorUncheckedCreateWithoutCasasInput>
+    where?: LocadorWhereInput
+  }
+
+  export type LocadorUpdateToOneWithWhereWithoutCasasInput = {
+    where?: LocadorWhereInput
+    data: XOR<LocadorUpdateWithoutCasasInput, LocadorUncheckedUpdateWithoutCasasInput>
+  }
+
+  export type LocadorUpdateWithoutCasasInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
+    cpf?: StringFieldUpdateOperationsInput | string
+    endereco?: StringFieldUpdateOperationsInput | string
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type LocadorUncheckedUpdateWithoutCasasInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
+    cpf?: StringFieldUpdateOperationsInput | string
+    endereco?: StringFieldUpdateOperationsInput | string
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type CasaCreateWithoutLocadorInput = {
+    endereco: string
+    numero: number
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
+    diretrizes: string
+    complemento?: string | null
+  }
+
+  export type CasaUncheckedCreateWithoutLocadorInput = {
+    id?: number
+    endereco: string
+    numero: number
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
+    diretrizes: string
+    complemento?: string | null
+  }
+
+  export type CasaCreateOrConnectWithoutLocadorInput = {
+    where: CasaWhereUniqueInput
+    create: XOR<CasaCreateWithoutLocadorInput, CasaUncheckedCreateWithoutLocadorInput>
+  }
+
+  export type CasaCreateManyLocadorInputEnvelope = {
+    data: CasaCreateManyLocadorInput | CasaCreateManyLocadorInput[]
+  }
+
+  export type CasaUpsertWithWhereUniqueWithoutLocadorInput = {
+    where: CasaWhereUniqueInput
+    update: XOR<CasaUpdateWithoutLocadorInput, CasaUncheckedUpdateWithoutLocadorInput>
+    create: XOR<CasaCreateWithoutLocadorInput, CasaUncheckedCreateWithoutLocadorInput>
+  }
+
+  export type CasaUpdateWithWhereUniqueWithoutLocadorInput = {
+    where: CasaWhereUniqueInput
+    data: XOR<CasaUpdateWithoutLocadorInput, CasaUncheckedUpdateWithoutLocadorInput>
+  }
+
+  export type CasaUpdateManyWithWhereWithoutLocadorInput = {
+    where: CasaScalarWhereInput
+    data: XOR<CasaUpdateManyMutationInput, CasaUncheckedUpdateManyWithoutLocadorInput>
+  }
+
+  export type CasaScalarWhereInput = {
+    AND?: CasaScalarWhereInput | CasaScalarWhereInput[]
+    OR?: CasaScalarWhereInput[]
+    NOT?: CasaScalarWhereInput | CasaScalarWhereInput[]
+    id?: IntFilter<"Casa"> | number
+    endereco?: StringFilter<"Casa"> | string
+    numero?: IntFilter<"Casa"> | number
+    cep?: StringNullableFilter<"Casa"> | string | null
+    cidade?: StringNullableFilter<"Casa"> | string | null
+    estado?: StringNullableFilter<"Casa"> | string | null
+    diretrizes?: StringFilter<"Casa"> | string
+    complemento?: StringNullableFilter<"Casa"> | string | null
+    locadorId?: IntFilter<"Casa"> | number
+  }
+
+  export type CasaCreateManyLocadorInput = {
+    id?: number
+    endereco: string
+    numero: number
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
+    diretrizes: string
+    complemento?: string | null
+  }
+
+  export type CasaUpdateWithoutLocadorInput = {
+    endereco?: StringFieldUpdateOperationsInput | string
+    numero?: IntFieldUpdateOperationsInput | number
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
+    diretrizes?: StringFieldUpdateOperationsInput | string
+    complemento?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type CasaUncheckedUpdateWithoutLocadorInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    endereco?: StringFieldUpdateOperationsInput | string
+    numero?: IntFieldUpdateOperationsInput | number
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
+    diretrizes?: StringFieldUpdateOperationsInput | string
+    complemento?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type CasaUncheckedUpdateManyWithoutLocadorInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    endereco?: StringFieldUpdateOperationsInput | string
+    numero?: IntFieldUpdateOperationsInput | number
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
+    diretrizes?: StringFieldUpdateOperationsInput | string
+    complemento?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
 

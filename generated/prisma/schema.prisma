@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
   output   = "../generated/prisma"
@@ -21,28 +15,46 @@ model Admin {
 }
 
 model Casa {
-  id         Int    @id @default(autoincrement())
-  endereco   String
-  numero     Int
-  qnt_tot    Int
-  diretrizes String
+  id          Int     @id @default(autoincrement())
+  endereco    String
+  numero      Int
+  cep         String?
+  cidade      String?
+  estado      String?
+  diretrizes  String
+  complemento String?
+  locadorId   Int
+
+  locador Locador @relation(fields: [locadorId], references: [id])
+
+  @@map("casas")
 }
 
-model Host {
-  id       Int    @id @default(autoincrement())
+model Locador {
+  id       Int     @id @default(autoincrement())
   name     String
-  email    String @unique
+  email    String  @unique
   senha    String
-  cpf      String @unique
+  cpf      String  @unique
   endereco String
+  cep      String?
+  cidade   String?
+  estado   String?
+
+  casas Casa[]
+
+  @@map("locadores")
 }
 
-model Morador {
-  id        Int    @id @default(autoincrement())
-  name      String
-  email     String @unique
-  senha     String
-  cpf       String @unique
-  endereco  String
-  matricula String @unique
+model Hospede {
+  id           Int     @id @default(autoincrement())
+  name         String
+  email        String  @unique
+  senha        String
+  cpf          String  @unique
+  cep          String?
+  cidade       String?
+  estado       String?
+  matricula    String  @unique
+  universidade String?
 }

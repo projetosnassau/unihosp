@@ -127,27 +127,37 @@ exports.Prisma.CasaScalarFieldEnum = {
   id: 'id',
   endereco: 'endereco',
   numero: 'numero',
-  qnt_tot: 'qnt_tot',
-  diretrizes: 'diretrizes'
+  cep: 'cep',
+  cidade: 'cidade',
+  estado: 'estado',
+  diretrizes: 'diretrizes',
+  complemento: 'complemento',
+  locadorId: 'locadorId'
 };
 
-exports.Prisma.HostScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  email: 'email',
-  senha: 'senha',
-  cpf: 'cpf',
-  endereco: 'endereco'
-};
-
-exports.Prisma.MoradorScalarFieldEnum = {
+exports.Prisma.LocadorScalarFieldEnum = {
   id: 'id',
   name: 'name',
   email: 'email',
   senha: 'senha',
   cpf: 'cpf',
   endereco: 'endereco',
-  matricula: 'matricula'
+  cep: 'cep',
+  cidade: 'cidade',
+  estado: 'estado'
+};
+
+exports.Prisma.HospedeScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  email: 'email',
+  senha: 'senha',
+  cpf: 'cpf',
+  cep: 'cep',
+  cidade: 'cidade',
+  estado: 'estado',
+  matricula: 'matricula',
+  universidade: 'universidade'
 };
 
 exports.Prisma.SortOrder = {
@@ -155,12 +165,17 @@ exports.Prisma.SortOrder = {
   desc: 'desc'
 };
 
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
+};
+
 
 exports.Prisma.ModelName = {
   Admin: 'Admin',
   Casa: 'Casa',
-  Host: 'Host',
-  Morador: 'Morador'
+  Locador: 'Locador',
+  Hospede: 'Hospede'
 };
 
 /**

@@ -1,19 +1,28 @@
 import express from "express";
 import { PrismaClient } from "../../generated/prisma/index.js";
+import {
+  authenticateToken,
+  authorizeRole,
+} from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
 const prisma = new PrismaClient();
 
-router.get("/admin", async (req, res) => {
-  try {
-    const admin = await prisma.admin.findMany();
-    res.json(admin);
-  } catch (error) {
-    console.error("Erro ao buscar o admin", error);
-    res.status(500).json({ error: "erro ao buscar o admin" });
+router.get(
+  "/admin",
+  authenticateToken,
+  authorizeRole("admin"),
+  async (req, res) => {
+    try {
+      const admin = await prisma.admin.findMany();
+      res.json(admin);
+    } catch (error) {
+      console.error("Erro ao buscar o admin", error);
+      res.status(500).json({ error: "erro ao buscar o admin" });
+    }
   }
-});
+);
 
 router.post("/admin", async (req, res) => {
   const { name, email, senha } = req.body;

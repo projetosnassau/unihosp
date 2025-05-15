@@ -1,11 +1,17 @@
 import express from "express";
 import { PrismaClient } from "../../generated/prisma/index.js";
+import bcrypt from "bcryptjs";
+import {
+  authenticateToken,
+  authorizeRole,
+} from "../middleware/authMiddleware.js";
+
 
 const router = express.Router();
 
 const prisma = new PrismaClient();
 
-router.get("/locador", async (req, res) => {
+router.get("/locador", authenticateToken, authorizeRole, async (req, res) => {
   try {
     const locador = await prisma.locador.findMany();
     res.json(locador);
@@ -21,11 +27,13 @@ router.post("/locador", async (req, res) => {
     return res.status(400).json({ error: "erro ao encontrar email" });
   }
   try {
+    const senhaHash = await bcrypt.hash(senha, 10)
+
     const newLocador = await prisma.locador.create({
       data: {
         name,
         email,
-        senha,
+        senha: senhaHash,
         cpf,
         endereco,
         cep,

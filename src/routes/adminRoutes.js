@@ -1,5 +1,6 @@
 import express from "express";
 import { PrismaClient } from "../../generated/prisma/index.js";
+import bcrypt from "bcryptjs";
 import {
   authenticateToken,
   authorizeRole,
@@ -30,11 +31,13 @@ router.post("/admin", async (req, res) => {
     return res.status(400).json({ error: "erro ao encontrar email" });
   }
   try {
+    const senhaHash = await bcrypt.hash(senha, 10);
+
     const newAdmin = await prisma.admin.create({
       data: {
         name,
         email,
-        senha,
+        senha: senhaHash
       },
     });
 

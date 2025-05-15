@@ -1,11 +1,16 @@
 import express from "express";
 import { PrismaClient } from "../../generated/prisma/index.js";
+import bcrypt from "bcryptjs";
+import {
+  authenticateToken,
+  authorizeRole,
+} from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
 const prisma = new PrismaClient();
 
-router.get("/hospede", async (req, res) => {
+router.get("/hospede", authenticateToken, authorizeRole, async (req, res) => {
   try {
     const hospede = await prisma.hospede.findMany();
     res.json(hospede);
@@ -31,11 +36,12 @@ router.post("/hospede", async (req, res) => {
     return res.status(400).json({ error: "erro ao encontrar email" });
   }
   try {
+    const senhaHash = await bcrypt.hash(senha, 10);
     const newHospede = await prisma.hospede.create({
       data: {
         name,
         email,
-        senha,
+        senha: senhaHash,
         cpf,
         cep,
         cidade,

@@ -66,4 +66,79 @@ router.post("/hospede", async (req, res) => {
     });
   }
 });
+
+router.put("/hospede/:id", async (req, res) => {
+  const { id } = req.params;
+  const {
+    name,
+    email,
+    senha,
+    cpf,
+    cep,
+    cidade,
+    estado,
+    matricula,
+    universidade,
+  } = req.body;
+
+  try {
+    const hospedeExistente = await prisma.hospede.findUnique({
+      where: { id: parseInt(id) },
+    });
+
+    if (!hospedeExistente) {
+      return res.status(404).json({ error: "Hóspede não encontrado" });
+    }
+
+    let senhaHash;
+    if (senha) {
+      senhaHash = await bcrypt.hash(senha, 10);
+    }
+
+    const hospedeAtualizado = await prisma.hospede.update({
+      where: { id: parseInt(id) },
+      data: {
+        name,
+        email,
+        senha: senhaHash || hospedeExistente.senha,
+        cpf,
+        cep,
+        cidade,
+        estado,
+        matricula,
+        universidade,
+      },
+    });
+
+    return res.status(200).json(hospedeAtualizado);
+  } catch (error) {
+    console.error("Erro ao atualizar hóspede: ", error);
+    return res.status(500).json({ error: "Erro ao atualizar hóspede" });
+  }
+});
+
+router.delete("/hospede/:id", async (req, res) => {
+  const { id } = req.params;
+
+  try{
+    const hospedeExistente = await prisma.hospede.findUnique({
+      where: {id: parseInt(id) },
+    });
+    
+    if(!hospedeExistente){
+    return res.status(404).json({error: "Hóspede não encontrado" });
+  }
+
+  await prisma.hospede.delete({
+    where: {id: parseInt(id) },
+  });
+
+  res.status(200).json({ message: "Hóspede excluído com sucesso"});
+} catch (error){
+  console.error("Erro ao excluir hóspede:", error);
+  res.status(500).json({ error: "Erro ao excluir hóspede" });
+}
+});
+
+
 export default router;

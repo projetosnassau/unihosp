@@ -58,4 +58,76 @@ router.post("/locador", async (req, res) => {
     });
   }
 });
+
+router.put("/locador/:id", async (req, res) => {
+const { id } = req.params;
+const{
+  name,
+  email,
+  senha,
+  cpf,
+  endereco,
+  cep,
+  cidade,
+  estado,
+} = req.body;
+
+try{
+  const locadorExistente = await prisma.locador.findUnique({
+    where: { id: parseInt(id) },
+  });
+
+  if(!locadorExistente) {
+    return res.status(404).json({ error: "Locador não encontrado"});
+  }
+
+  let senhaHash;
+  if (senha) {
+    senhaHash = await bcrypt.hash(senha, 10);
+  }
+
+  const locadorAtualizado = await prisma.locador.update({
+    where: { id: parseInt(id )},
+    data: {
+      name,
+      email,
+      senha: senhaHash || locadorExistente.senha,
+      cpf,
+      endereco,
+      cep,
+      cidade,
+      estado,
+    },
+  });
+return res.status(200).json(locadorAtualizado);
+} catch (error) {
+  console.error("Erro ao atualizar locador: ", error);
+  return res.status(500).json({ error: "Erro ao atualizar locador" });
+}
+});
+
+router.delete("/locador/:id", async (req, res) => {
+  const { id } = req.params;
+
+  try{
+    const locadorExistente = await prisma.locador.findUnique({
+      where: { id: parseInt(id) },
+    });
+
+    if(!locadorExistente) {
+      return res.status(404).json({ error: "Locador não encontrado"});
+    }
+
+  await prisma.locador.delete({
+    where: { id: parseInt(id)},
+  });
+  
+  res.status(200).json({ message: "Locador excluído com sucesso"});
+} catch (error){
+  console.error("Erro ao excluir locador:", error);
+  res.status(500).json({ error: "Erro ao excluir locador" });
+}
+});
+
+
 export default router;

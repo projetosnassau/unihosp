@@ -4,14 +4,12 @@ import locadorRoutes from "./src/routes/locadorRoutes.js";
 import adminRoutes from "./src/routes/adminRoutes.js";
 import hospedeRoutes from "./src/routes/hospedeRoutes.js";
 import casaRoutes from "./src/routes/casaRoutes.js";
-import authRoutes from "./src/routes/authRoutes.js";
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-app.use("/api", authRoutes);
 app.use("/api", locadorRoutes);
 app.use("/api", adminRoutes);
 app.use("/api", hospedeRoutes);

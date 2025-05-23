@@ -1,0 +1,81 @@
+.heroSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 40px;
+  min-height: calc(100vh - 80px);
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.textContainer {
+  flex: 1;
+  max-width: 50%;
+  padding-right: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mainHeading {
+  font-size: 4em;
+  font-weight: bold;
+  color: #333;
+  line-height: 1.1;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.subHeading {
+  font-size: 1.5em;
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.imageContainer {
+  flex: 1;
+  max-width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heroImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    flex-direction: column;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    min-height: auto;
+  }
+
+  .textContainer {
+    max-width: 100%;
+    padding-right: 0;
+    order: 2;
+    align-items: center;
+  }
+
+  .mainHeading {
+    font-size: 2.5em;
+  }
+
+  .subHeading {
+    font-size: 1.2em;
+  }
+
+  .imageContainer {
+    max-width: 80%;
+    margin-bottom: 30px;
+    order: 1;
+  }
+}

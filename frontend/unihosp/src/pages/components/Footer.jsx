@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Footer.module.css";
 
 function Footer() {
-  const currentYear = new Date().getFullYear(); // Pega o ano atual dinamicamente
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className={styles.footer}>
@@ -14,7 +14,6 @@ function Footer() {
           </a>
         </div>
         <div className={styles.socialLinks}>
-          {/* Substitua '#' pelos seus links reais e considere usar ícones */}
           <a
             href="#"
             target="_blank"

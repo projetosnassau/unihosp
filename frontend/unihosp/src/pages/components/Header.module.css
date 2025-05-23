@@ -1,0 +1,57 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.title {
+  margin: 0;
+  font-size: 2em;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.listContainer {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.list {
+  margin-left: 30px;
+  font-size: 1em;
+  color: #333;
+  cursor: pointer;
+}
+
+.listLogin {
+  margin-left: 40px;
+}
+
+.listLogin a {
+  display: inline-block;
+  background-color: #000;
+  color: #fff;
+  padding: 10px 22px;
+  font-size: 1em;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.listLogin a:hover {
+  background-color: #333;
+}

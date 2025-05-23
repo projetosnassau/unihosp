@@ -2,6 +2,21 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  margin: 0; /* Opcional: Um reset básico de margem e padding pode ser útil */
-  padding: 0; /* Opcional: Mas tenha cuidado, pois pode afetar estilos padrão que você espera */
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: "Josefin Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }

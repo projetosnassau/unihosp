@@ -2,6 +2,7 @@ import express from "express";
 import { PrismaClient } from "../../generated/prisma/index.js";
 import bcrypt from "bcryptjs";
 import dotenv from "dotenv";
+import jwt from "jsonwebtoken";
 import {
   autenticarToken,
   autorizarTipos,

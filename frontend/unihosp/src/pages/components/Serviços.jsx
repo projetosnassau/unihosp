@@ -16,10 +16,7 @@ function Serviços() {
       <h2 className={styles.sectionTitle}>SERVIÇOS</h2>
       <div className={styles.servicesGrid}>
         {services.map((service) => (
-          <div key={service.id} className={styles.serviceItem}>
-            {/* No futuro, você pode adicionar conteúdo aqui dentro, como ícone e nome do serviço */}
-            {/* Ex: <span>{service.name}</span> */}
-          </div>
+          <div key={service.id} className={styles.serviceItem}></div>
         ))}
       </div>
     </section>

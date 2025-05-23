@@ -1,0 +1,7 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0; /* Opcional: Um reset básico de margem e padding pode ser útil */
+  padding: 0; /* Opcional: Mas tenha cuidado, pois pode afetar estilos padrão que você espera */
+}

@@ -1,0 +1,64 @@
+/* Header.module.css - Ajustado conforme a imagem */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff; /* Fundo branco */
+  /* Padding: 20px no topo/baixo, 40px nas laterais. Ajuste conforme necessário. */
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between; /* "UniHosp" na esquerda, container da lista na direita */
+  align-items: center; /* Alinha verticalmente os itens ao centro */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08); /* Sombra sutil, um pouco mais suave */
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.title {
+  margin: 0; /* Remove margens padrão */
+  font-size: 2em; /* Tamanho maior para "UniHosp", como na imagem */
+  font-weight: bold; /* Título em negrito */
+  color: #2c3e50; /* Um tom de preto/azul escuro, parece mais suave que #000 */
+}
+
+.listContainer {
+  list-style: none; /* Remove marcadores da lista (bolinhas) */
+  padding: 0;
+  margin: 0;
+  display: flex; /* Coloca os <li> em linha */
+  align-items: center; /* Alinha os <li> verticalmente */
+}
+
+/* Estilo para os links de navegação: Home, Sobre, Serviços, Contato */
+.list {
+  margin-left: 30px; /* Espaçamento entre os itens da lista de navegação */
+  font-size: 1em; /* Tamanho padrão para os links, como na imagem */
+  color: #333; /* Cor escura para os links */
+  cursor: pointer; /* Indica que são clicáveis */
+  /* Se os itens da lista forem links <a>, aplique estilos de link aqui ou no <a> interno */
+  /* Ex: text-decoration: none; */
+}
+
+/* Estilo para o contêiner <li> do botão de Login */
+.listLogin {
+  margin-left: 40px; /* Espaçamento maior antes do botão de Login, para destacá-lo */
+}
+
+/* Estilo para o link <a> do botão de Login */
+.listLogin a {
+  display: inline-block; /* Permite padding e outras propriedades de bloco */
+  background-color: #000; /* Fundo preto, como na imagem */
+  color: #fff; /* Texto branco */
+  padding: 10px 22px; /* Padding interno para dar tamanho ao botão (altura 10px, largura 22px) */
+  font-size: 1em; /* Tamanho da fonte igual aos outros links de navegação */
+  font-weight: 600; /* Negrito (600 é um bom valor para semi-bold/bold) */
+  text-decoration: none; /* Remove sublinhado do link */
+  border-radius: 6px; /* Bordas arredondadas, como na imagem */
+  transition: background-color 0.2s ease-in-out; /* Transição suave para hover */
+}
+
+.listLogin a:hover {
+  background-color: #333; /* Cor de fundo mais clara no hover para feedback */
+}

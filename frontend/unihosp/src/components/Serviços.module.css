@@ -1,0 +1,90 @@
+/* ServicesSection.module.css */
+
+.servicesSection {
+  /* Espaçamento generoso no topo para separar da seção Sobre e na base */
+  padding-top: 80px; /* Ajuste para o espaçamento desejado da seção Sobre */
+  padding-bottom: 80px;
+  padding-left: 40px; /* Consistente com o padding de outras seções */
+  padding-right: 40px; /* Consistente com o padding de outras seções */
+  background-color: #fff; /* Ou a cor de fundo desejada */
+  box-sizing: border-box;
+}
+
+.sectionTitle {
+  font-size: 2.8em; /* Tamanho grande para o título da seção */
+  font-weight: bold;
+  color: #333;
+  text-align: center; /* Centraliza o título "SERVIÇOS" */
+  margin-bottom: 60px; /* Espaço abaixo do título antes do grid de serviços */
+}
+
+.servicesGrid {
+  display: grid;
+  /* ALTERAÇÃO AQUI: De 'repeat(auto-fit, minmax(200px, 1fr))' para 'repeat(3, 1fr)' */
+  grid-template-columns: repeat(
+    3,
+    1fr
+  ); /* Garante 3 colunas de larguras iguais */
+  gap: 30px; /* Espaçamento entre as caixas de serviço */
+}
+
+.serviceItem {
+  background-color: #e0e0e0; /* Cor cinza do placeholder, como na imagem */
+  height: 200px; /* Altura fixa para os placeholders. Ajuste conforme necessário. */
+  border-radius: 4px; /* Pequeno arredondamento nos cantos, opcional */
+  display: flex; /* Para centralizar conteúdo futuro */
+  align-items: center; /* Para centralizar conteúdo futuro */
+  justify-content: center; /* Para centralizar conteúdo futuro */
+}
+
+/* Adaptações para telas médias e menores */
+@media (max-width: 992px) {
+  /* Telas de tablet e menores */
+  .servicesGrid {
+    /* MANTIDO: Em tablets, o auto-fit pode ser mais adequado para 2 colunas.
+       Se quiser manter 3 colunas aqui e elas couberem, remova esta regra
+       ou ajuste para repeat(3, 1fr) se o design permitir.
+       Com minmax(220px, 1fr), provavelmente resultará em 2 colunas se 3 não couberem bem.
+    */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  /* Telas de tablet (retrato) e celulares grandes */
+  .servicesSection {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .sectionTitle {
+    font-size: 2.2em;
+    margin-bottom: 40px;
+  }
+
+  .servicesGrid {
+    /* MANTIDO: Em telas menores, auto-fit geralmente resultará em 1 ou 2 colunas,
+       o que é bom para a usabilidade.
+       Com minmax(200px, 1fr), provavelmente resultará em 1 ou 2 colunas.
+    */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px; /* Reduz o espaçamento em telas menores */
+  }
+
+  .serviceItem {
+    height: 180px; /* Altura ligeiramente menor em telas menores */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Celulares menores */
+  /* .servicesGrid {
+     Se quiser forçar 1 coluna em celulares muito pequenos:
+     grid-template-columns: 1fr;
+  } */
+  .serviceItem {
+    height: 160px;
+  }
+}

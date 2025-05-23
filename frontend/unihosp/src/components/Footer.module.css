@@ -1,0 +1,87 @@
+/* Footer.module.css */
+
+.footer {
+  background-color: #282c34; /* Um cinza escuro moderno. Pode ser #222, #333, etc. */
+  color: #e0e0e0; /* Cor de texto clara para bom contraste */
+  padding: 50px 30px; /* Espaçamento interno vertical e horizontal */
+  /* A seção ServicesSection já tem padding-bottom, então não é necessário margin-top aqui,
+     a menos que queira um espaçamento adicional específico do footer. */
+}
+
+.footerContent {
+  max-width: 900px; /* Largura máxima para o conteúdo do rodapé */
+  margin: 0 auto; /* Centraliza o conteúdo na página */
+  text-align: center; /* Centraliza todo o texto e elementos inline */
+}
+
+.siteName {
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #ffffff; /* Branco para o nome do site, para destaque */
+  margin-bottom: 15px;
+}
+
+.contactInfo {
+  margin-bottom: 15px;
+  font-size: 1em;
+}
+
+.emailLink {
+  color: #61dafb; /* Uma cor azul clara para o link de email, se destacando */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.emailLink:hover {
+  color: #82eaff; /* Cor mais clara no hover */
+  text-decoration: underline;
+}
+
+.socialLinks {
+  margin-bottom: 25px;
+}
+
+.socialLink {
+  color: #e0e0e0; /* Cor padrão dos links sociais */
+  text-decoration: none;
+  margin: 0 12px; /* Espaçamento entre os links sociais */
+  font-size: 0.95em;
+  transition: color 0.3s ease;
+}
+
+.socialLink:hover {
+  color: #ffffff; /* Branco no hover para destaque */
+}
+
+.copyright {
+  font-size: 0.9em;
+  color: #b0b0b0; /* Um cinza um pouco mais claro para o copyright */
+  margin-top: 20px; /* Espaçamento acima do texto de copyright */
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px 20px;
+  }
+
+  .siteName {
+    font-size: 1.4em;
+  }
+
+  .contactInfo,
+  .emailLink,
+  .socialLink {
+    font-size: 0.9em;
+  }
+
+  .copyright {
+    font-size: 0.8em;
+  }
+
+  .socialLink {
+    margin: 0 8px; /* Menor espaçamento entre links sociais em telas pequenas */
+    display: inline-block; /* Garante que fiquem em linha e aceitem margin */
+    margin-bottom: 8px; /* Adiciona um pouco de margem inferior se eles quebrarem linha */
+  }
+}

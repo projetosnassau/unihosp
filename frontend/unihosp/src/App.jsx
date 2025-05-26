@@ -9,6 +9,9 @@ import { useAuth } from "./context/AuthContext";
 
 import LandingPage from "./pages/LandingPage";
 import AdminPage from "./pages/AdminPage";
+import HospedeDashboard from "./pages/HospedeDashboard";
+import BuscarCasasPage from "./pages/hospede/BuscarCasasPage";
+import EditarPerfilHospedePage from "./pages/hospede/EditarPerfilHospedePage";
 
 const SobrePage = () => (
   <div style={{ padding: "100px 20px", textAlign: "center" }}>
@@ -54,11 +57,10 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<LandingPage />} />
-
         <Route path="/sobre" element={<SobrePage />} />
         <Route path="/servicos" element={<ServicosPage />} />
         <Route path="/contato" element={<ContatoPage />} />
-
+        <Route path="/buscar-casas" element={<BuscarCasasPage />} />
         <Route
           path="/admin"
           element={
@@ -67,7 +69,32 @@ function App() {
             </ProtectedRoute>
           }
         />
-
+        <Route
+          path="/hospede/dashboard"
+          element={
+            <ProtectedRoute allowedTypes={["hospede"]}>
+              <HospedeDashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/hospede/perfil/editar" // NOVA ROTA
+          element={
+            <ProtectedRoute allowedTypes={["hospede"]}>
+              <EditarPerfilHospedePage />
+            </ProtectedRoute>
+          }
+        />
+        {/* 
+        <Route
+          path="/locador/dashboard"
+          element={
+            <ProtectedRoute allowedTypes={["locador"]}>
+              <LocadorDashboard />
+            </ProtectedRoute>
+          }
+        />
+        */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>

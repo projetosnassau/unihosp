@@ -3,62 +3,105 @@ generator client {
   output   = "../generated/prisma"
 }
 
-
-
 datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
-
 model Admin {
-  id           Int @id @default(autoincrement())
-  name         String?
-  email        String @unique
-  senha        String
+  id    Int     @id @default(autoincrement())
+  name  String?
+  email String  @unique
+  senha String
 }
-
 
 model Casa {
-  id          Int      @id @default(autoincrement())
-  endereco    String
-  numero      Int
-  cep         String? 
-  cidade      String? 
-  estado      String?
-  diretrizes  String
-  complemento String?
-  locadorId   Int
-
-  locador     Locador  @relation(fields: [locadorId], references: [id])
-
-  @@map("casas") 
-}
-model Locador {
-  id          Int      @id @default(autoincrement())
-  name        String
-  email       String   @unique
-  senha       String  
-  cpf         String   @unique
-  endereco    String   
-  cep         String? 
-  cidade      String? 
-  estado      String?
-
-  casas       Casa[]
-
-  @@map("locadores") 
-}
-
-model Hospede{
-  id           Int     @id @default(autoincrement())
-  name         String
-  email        String  @unique
-  senha        String
-  cpf          String  @unique
-  cep          String? 
-  cidade       String?     
+  id           Int      @id @default(autoincrement())
+  endereco     String
+  numero       Int
+  cep          String?
+  cidade       String?
   estado       String?
-  matricula    String  @unique
-  universidade String? 
+  diretrizes   String
+  complemento  String?
+  locadorId    Int
+  locador      Locador  @relation(fields: [locadorId], references: [id], onDelete: Cascade)
+
+  reservas     Reserva[] 
+  favoritos    Favorito[] 
+
+  @@map("casas")
+}
+
+model Locador {
+  id         Int      @id @default(autoincrement())
+  name       String
+  email      String   @unique
+  senha      String
+  cpf        String   @unique
+  endereco   String
+  cep        String?
+  cidade     String?
+  estado     String?
+  casas      Casa[]
+  reservas   Reserva[] 
+
+  @@map("locadores")
+}
+
+model Hospede {
+  id            Int      @id @default(autoincrement())
+  name          String
+  email         String   @unique
+  senha         String
+  cpf           String   @unique
+  cep           String?
+  cidade        String?
+  estado        String?
+  matricula     String   @unique
+  universidade  String?
+
+  reservas      Reserva[]  
+  favoritos     Favorito[] 
+}
+
+
+model Reserva {
+  id              Int      @id @default(autoincrement())
+  dataCheckIn     DateTime
+  dataCheckOut    DateTime
+  status          String   
+  numeroHospedes  Int?
+  valorTotal      Float?   
+  observacoes     String?  
+
+  hospedeId       Int
+  hospede         Hospede  @relation(fields: [hospedeId], references: [id], onDelete: Cascade)
+
+  casaId          Int
+  casa            Casa     @relation(fields: [casaId], references: [id], onDelete: Cascade)
+
+  locadorId       Int      
+  locador         Locador  @relation(fields: [locadorId], references: [id], onDelete: Cascade)
+
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@map("reservas")
+}
+
+model Favorito {
+  id          Int      @id @default(autoincrement())
+
+  hospedeId   Int
+  hospede     Hospede  @relation(fields: [hospedeId], references: [id], onDelete: Cascade)
+
+  casaId      Int
+  casa        Casa     @relation(fields: [casaId], references: [id], onDelete: Cascade)
+
+  createdAt   DateTime @default(now())
+
+  @@unique([hospedeId, casaId], name: "hospede_casa_favorito_unique") 
+  @@map("favoritos")
 }

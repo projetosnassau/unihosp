@@ -33,6 +33,16 @@ export type Locador = $Result.DefaultSelection<Prisma.$LocadorPayload>
  * 
  */
 export type Hospede = $Result.DefaultSelection<Prisma.$HospedePayload>
+/**
+ * Model Reserva
+ * 
+ */
+export type Reserva = $Result.DefaultSelection<Prisma.$ReservaPayload>
+/**
+ * Model Favorito
+ * 
+ */
+export type Favorito = $Result.DefaultSelection<Prisma.$FavoritoPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -198,6 +208,26 @@ export class PrismaClient<
     * ```
     */
   get hospede(): Prisma.HospedeDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.reserva`: Exposes CRUD operations for the **Reserva** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Reservas
+    * const reservas = await prisma.reserva.findMany()
+    * ```
+    */
+  get reserva(): Prisma.ReservaDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.favorito`: Exposes CRUD operations for the **Favorito** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Favoritos
+    * const favoritos = await prisma.favorito.findMany()
+    * ```
+    */
+  get favorito(): Prisma.FavoritoDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -641,7 +671,9 @@ export namespace Prisma {
     Admin: 'Admin',
     Casa: 'Casa',
     Locador: 'Locador',
-    Hospede: 'Hospede'
+    Hospede: 'Hospede',
+    Reserva: 'Reserva',
+    Favorito: 'Favorito'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -660,7 +692,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "admin" | "casa" | "locador" | "hospede"
+      modelProps: "admin" | "casa" | "locador" | "hospede" | "reserva" | "favorito"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -960,6 +992,154 @@ export namespace Prisma {
           }
         }
       }
+      Reserva: {
+        payload: Prisma.$ReservaPayload<ExtArgs>
+        fields: Prisma.ReservaFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ReservaFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReservaPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ReservaFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReservaPayload>
+          }
+          findFirst: {
+            args: Prisma.ReservaFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReservaPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ReservaFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReservaPayload>
+          }
+          findMany: {
+            args: Prisma.ReservaFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReservaPayload>[]
+          }
+          create: {
+            args: Prisma.ReservaCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReservaPayload>
+          }
+          createMany: {
+            args: Prisma.ReservaCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ReservaCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReservaPayload>[]
+          }
+          delete: {
+            args: Prisma.ReservaDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReservaPayload>
+          }
+          update: {
+            args: Prisma.ReservaUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReservaPayload>
+          }
+          deleteMany: {
+            args: Prisma.ReservaDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ReservaUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ReservaUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReservaPayload>[]
+          }
+          upsert: {
+            args: Prisma.ReservaUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReservaPayload>
+          }
+          aggregate: {
+            args: Prisma.ReservaAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateReserva>
+          }
+          groupBy: {
+            args: Prisma.ReservaGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ReservaGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ReservaCountArgs<ExtArgs>
+            result: $Utils.Optional<ReservaCountAggregateOutputType> | number
+          }
+        }
+      }
+      Favorito: {
+        payload: Prisma.$FavoritoPayload<ExtArgs>
+        fields: Prisma.FavoritoFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.FavoritoFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FavoritoPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.FavoritoFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FavoritoPayload>
+          }
+          findFirst: {
+            args: Prisma.FavoritoFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FavoritoPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.FavoritoFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FavoritoPayload>
+          }
+          findMany: {
+            args: Prisma.FavoritoFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FavoritoPayload>[]
+          }
+          create: {
+            args: Prisma.FavoritoCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FavoritoPayload>
+          }
+          createMany: {
+            args: Prisma.FavoritoCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.FavoritoCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FavoritoPayload>[]
+          }
+          delete: {
+            args: Prisma.FavoritoDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FavoritoPayload>
+          }
+          update: {
+            args: Prisma.FavoritoUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FavoritoPayload>
+          }
+          deleteMany: {
+            args: Prisma.FavoritoDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.FavoritoUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.FavoritoUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FavoritoPayload>[]
+          }
+          upsert: {
+            args: Prisma.FavoritoUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FavoritoPayload>
+          }
+          aggregate: {
+            args: Prisma.FavoritoAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateFavorito>
+          }
+          groupBy: {
+            args: Prisma.FavoritoGroupByArgs<ExtArgs>
+            result: $Utils.Optional<FavoritoGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.FavoritoCountArgs<ExtArgs>
+            result: $Utils.Optional<FavoritoCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1048,6 +1228,8 @@ export namespace Prisma {
     casa?: CasaOmit
     locador?: LocadorOmit
     hospede?: HospedeOmit
+    reserva?: ReservaOmit
+    favorito?: FavoritoOmit
   }
 
   /* Types for Logging */
@@ -1138,15 +1320,57 @@ export namespace Prisma {
 
 
   /**
+   * Count Type CasaCountOutputType
+   */
+
+  export type CasaCountOutputType = {
+    reservas: number
+    favoritos: number
+  }
+
+  export type CasaCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    reservas?: boolean | CasaCountOutputTypeCountReservasArgs
+    favoritos?: boolean | CasaCountOutputTypeCountFavoritosArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * CasaCountOutputType without action
+   */
+  export type CasaCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CasaCountOutputType
+     */
+    select?: CasaCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * CasaCountOutputType without action
+   */
+  export type CasaCountOutputTypeCountReservasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ReservaWhereInput
+  }
+
+  /**
+   * CasaCountOutputType without action
+   */
+  export type CasaCountOutputTypeCountFavoritosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FavoritoWhereInput
+  }
+
+
+  /**
    * Count Type LocadorCountOutputType
    */
 
   export type LocadorCountOutputType = {
     casas: number
+    reservas: number
   }
 
   export type LocadorCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     casas?: boolean | LocadorCountOutputTypeCountCasasArgs
+    reservas?: boolean | LocadorCountOutputTypeCountReservasArgs
   }
 
   // Custom InputTypes
@@ -1165,6 +1389,53 @@ export namespace Prisma {
    */
   export type LocadorCountOutputTypeCountCasasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: CasaWhereInput
+  }
+
+  /**
+   * LocadorCountOutputType without action
+   */
+  export type LocadorCountOutputTypeCountReservasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ReservaWhereInput
+  }
+
+
+  /**
+   * Count Type HospedeCountOutputType
+   */
+
+  export type HospedeCountOutputType = {
+    reservas: number
+    favoritos: number
+  }
+
+  export type HospedeCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    reservas?: boolean | HospedeCountOutputTypeCountReservasArgs
+    favoritos?: boolean | HospedeCountOutputTypeCountFavoritosArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * HospedeCountOutputType without action
+   */
+  export type HospedeCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HospedeCountOutputType
+     */
+    select?: HospedeCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * HospedeCountOutputType without action
+   */
+  export type HospedeCountOutputTypeCountReservasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ReservaWhereInput
+  }
+
+  /**
+   * HospedeCountOutputType without action
+   */
+  export type HospedeCountOutputTypeCountFavoritosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FavoritoWhereInput
   }
 
 
@@ -2425,6 +2696,9 @@ export namespace Prisma {
     complemento?: boolean
     locadorId?: boolean
     locador?: boolean | LocadorDefaultArgs<ExtArgs>
+    reservas?: boolean | Casa$reservasArgs<ExtArgs>
+    favoritos?: boolean | Casa$favoritosArgs<ExtArgs>
+    _count?: boolean | CasaCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["casa"]>
 
   export type CasaSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -2468,6 +2742,9 @@ export namespace Prisma {
   export type CasaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "endereco" | "numero" | "cep" | "cidade" | "estado" | "diretrizes" | "complemento" | "locadorId", ExtArgs["result"]["casa"]>
   export type CasaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     locador?: boolean | LocadorDefaultArgs<ExtArgs>
+    reservas?: boolean | Casa$reservasArgs<ExtArgs>
+    favoritos?: boolean | Casa$favoritosArgs<ExtArgs>
+    _count?: boolean | CasaCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type CasaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     locador?: boolean | LocadorDefaultArgs<ExtArgs>
@@ -2480,6 +2757,8 @@ export namespace Prisma {
     name: "Casa"
     objects: {
       locador: Prisma.$LocadorPayload<ExtArgs>
+      reservas: Prisma.$ReservaPayload<ExtArgs>[]
+      favoritos: Prisma.$FavoritoPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -2886,6 +3165,8 @@ export namespace Prisma {
   export interface Prisma__CasaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     locador<T extends LocadorDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LocadorDefaultArgs<ExtArgs>>): Prisma__LocadorClient<$Result.GetResult<Prisma.$LocadorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    reservas<T extends Casa$reservasArgs<ExtArgs> = {}>(args?: Subset<T, Casa$reservasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReservaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    favoritos<T extends Casa$favoritosArgs<ExtArgs> = {}>(args?: Subset<T, Casa$favoritosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FavoritoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3318,6 +3599,54 @@ export namespace Prisma {
   }
 
   /**
+   * Casa.reservas
+   */
+  export type Casa$reservasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reserva
+     */
+    select?: ReservaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reserva
+     */
+    omit?: ReservaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReservaInclude<ExtArgs> | null
+    where?: ReservaWhereInput
+    orderBy?: ReservaOrderByWithRelationInput | ReservaOrderByWithRelationInput[]
+    cursor?: ReservaWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ReservaScalarFieldEnum | ReservaScalarFieldEnum[]
+  }
+
+  /**
+   * Casa.favoritos
+   */
+  export type Casa$favoritosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Favorito
+     */
+    select?: FavoritoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Favorito
+     */
+    omit?: FavoritoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoritoInclude<ExtArgs> | null
+    where?: FavoritoWhereInput
+    orderBy?: FavoritoOrderByWithRelationInput | FavoritoOrderByWithRelationInput[]
+    cursor?: FavoritoWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: FavoritoScalarFieldEnum | FavoritoScalarFieldEnum[]
+  }
+
+  /**
    * Casa without action
    */
   export type CasaDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3567,6 +3896,7 @@ export namespace Prisma {
     cidade?: boolean
     estado?: boolean
     casas?: boolean | Locador$casasArgs<ExtArgs>
+    reservas?: boolean | Locador$reservasArgs<ExtArgs>
     _count?: boolean | LocadorCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["locador"]>
 
@@ -3609,6 +3939,7 @@ export namespace Prisma {
   export type LocadorOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "senha" | "cpf" | "endereco" | "cep" | "cidade" | "estado", ExtArgs["result"]["locador"]>
   export type LocadorInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     casas?: boolean | Locador$casasArgs<ExtArgs>
+    reservas?: boolean | Locador$reservasArgs<ExtArgs>
     _count?: boolean | LocadorCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type LocadorIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -3618,6 +3949,7 @@ export namespace Prisma {
     name: "Locador"
     objects: {
       casas: Prisma.$CasaPayload<ExtArgs>[]
+      reservas: Prisma.$ReservaPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -4024,6 +4356,7 @@ export namespace Prisma {
   export interface Prisma__LocadorClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     casas<T extends Locador$casasArgs<ExtArgs> = {}>(args?: Subset<T, Locador$casasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CasaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    reservas<T extends Locador$reservasArgs<ExtArgs> = {}>(args?: Subset<T, Locador$reservasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReservaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4472,6 +4805,30 @@ export namespace Prisma {
   }
 
   /**
+   * Locador.reservas
+   */
+  export type Locador$reservasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reserva
+     */
+    select?: ReservaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reserva
+     */
+    omit?: ReservaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReservaInclude<ExtArgs> | null
+    where?: ReservaWhereInput
+    orderBy?: ReservaOrderByWithRelationInput | ReservaOrderByWithRelationInput[]
+    cursor?: ReservaWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ReservaScalarFieldEnum | ReservaScalarFieldEnum[]
+  }
+
+  /**
    * Locador without action
    */
   export type LocadorDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4728,6 +5085,9 @@ export namespace Prisma {
     estado?: boolean
     matricula?: boolean
     universidade?: boolean
+    reservas?: boolean | Hospede$reservasArgs<ExtArgs>
+    favoritos?: boolean | Hospede$favoritosArgs<ExtArgs>
+    _count?: boolean | HospedeCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["hospede"]>
 
   export type HospedeSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -4770,10 +5130,20 @@ export namespace Prisma {
   }
 
   export type HospedeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "senha" | "cpf" | "cep" | "cidade" | "estado" | "matricula" | "universidade", ExtArgs["result"]["hospede"]>
+  export type HospedeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    reservas?: boolean | Hospede$reservasArgs<ExtArgs>
+    favoritos?: boolean | Hospede$favoritosArgs<ExtArgs>
+    _count?: boolean | HospedeCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type HospedeIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type HospedeIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
   export type $HospedePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Hospede"
-    objects: {}
+    objects: {
+      reservas: Prisma.$ReservaPayload<ExtArgs>[]
+      favoritos: Prisma.$FavoritoPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       name: string
@@ -5179,6 +5549,8 @@ export namespace Prisma {
    */
   export interface Prisma__HospedeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    reservas<T extends Hospede$reservasArgs<ExtArgs> = {}>(args?: Subset<T, Hospede$reservasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReservaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    favoritos<T extends Hospede$favoritosArgs<ExtArgs> = {}>(args?: Subset<T, Hospede$favoritosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FavoritoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5235,6 +5607,10 @@ export namespace Prisma {
      */
     omit?: HospedeOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HospedeInclude<ExtArgs> | null
+    /**
      * Filter, which Hospede to fetch.
      */
     where: HospedeWhereUniqueInput
@@ -5253,6 +5629,10 @@ export namespace Prisma {
      */
     omit?: HospedeOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HospedeInclude<ExtArgs> | null
+    /**
      * Filter, which Hospede to fetch.
      */
     where: HospedeWhereUniqueInput
@@ -5270,6 +5650,10 @@ export namespace Prisma {
      * Omit specific fields from the Hospede
      */
     omit?: HospedeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HospedeInclude<ExtArgs> | null
     /**
      * Filter, which Hospede to fetch.
      */
@@ -5319,6 +5703,10 @@ export namespace Prisma {
      */
     omit?: HospedeOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HospedeInclude<ExtArgs> | null
+    /**
      * Filter, which Hospede to fetch.
      */
     where?: HospedeWhereInput
@@ -5367,6 +5755,10 @@ export namespace Prisma {
      */
     omit?: HospedeOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HospedeInclude<ExtArgs> | null
+    /**
      * Filter, which Hospedes to fetch.
      */
     where?: HospedeWhereInput
@@ -5409,6 +5801,10 @@ export namespace Prisma {
      * Omit specific fields from the Hospede
      */
     omit?: HospedeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HospedeInclude<ExtArgs> | null
     /**
      * The data needed to create a Hospede.
      */
@@ -5455,6 +5851,10 @@ export namespace Prisma {
      * Omit specific fields from the Hospede
      */
     omit?: HospedeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HospedeInclude<ExtArgs> | null
     /**
      * The data needed to update a Hospede.
      */
@@ -5522,6 +5922,10 @@ export namespace Prisma {
      */
     omit?: HospedeOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HospedeInclude<ExtArgs> | null
+    /**
      * The filter to search for the Hospede to update in case it exists.
      */
     where: HospedeWhereUniqueInput
@@ -5548,6 +5952,10 @@ export namespace Prisma {
      */
     omit?: HospedeOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HospedeInclude<ExtArgs> | null
+    /**
      * Filter which Hospede to delete.
      */
     where: HospedeWhereUniqueInput
@@ -5568,6 +5976,54 @@ export namespace Prisma {
   }
 
   /**
+   * Hospede.reservas
+   */
+  export type Hospede$reservasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reserva
+     */
+    select?: ReservaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reserva
+     */
+    omit?: ReservaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReservaInclude<ExtArgs> | null
+    where?: ReservaWhereInput
+    orderBy?: ReservaOrderByWithRelationInput | ReservaOrderByWithRelationInput[]
+    cursor?: ReservaWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ReservaScalarFieldEnum | ReservaScalarFieldEnum[]
+  }
+
+  /**
+   * Hospede.favoritos
+   */
+  export type Hospede$favoritosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Favorito
+     */
+    select?: FavoritoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Favorito
+     */
+    omit?: FavoritoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoritoInclude<ExtArgs> | null
+    where?: FavoritoWhereInput
+    orderBy?: FavoritoOrderByWithRelationInput | FavoritoOrderByWithRelationInput[]
+    cursor?: FavoritoWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: FavoritoScalarFieldEnum | FavoritoScalarFieldEnum[]
+  }
+
+  /**
    * Hospede without action
    */
   export type HospedeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5579,6 +6035,2320 @@ export namespace Prisma {
      * Omit specific fields from the Hospede
      */
     omit?: HospedeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HospedeInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Reserva
+   */
+
+  export type AggregateReserva = {
+    _count: ReservaCountAggregateOutputType | null
+    _avg: ReservaAvgAggregateOutputType | null
+    _sum: ReservaSumAggregateOutputType | null
+    _min: ReservaMinAggregateOutputType | null
+    _max: ReservaMaxAggregateOutputType | null
+  }
+
+  export type ReservaAvgAggregateOutputType = {
+    id: number | null
+    numeroHospedes: number | null
+    valorTotal: number | null
+    hospedeId: number | null
+    casaId: number | null
+    locadorId: number | null
+  }
+
+  export type ReservaSumAggregateOutputType = {
+    id: number | null
+    numeroHospedes: number | null
+    valorTotal: number | null
+    hospedeId: number | null
+    casaId: number | null
+    locadorId: number | null
+  }
+
+  export type ReservaMinAggregateOutputType = {
+    id: number | null
+    dataCheckIn: Date | null
+    dataCheckOut: Date | null
+    status: string | null
+    numeroHospedes: number | null
+    valorTotal: number | null
+    observacoes: string | null
+    hospedeId: number | null
+    casaId: number | null
+    locadorId: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ReservaMaxAggregateOutputType = {
+    id: number | null
+    dataCheckIn: Date | null
+    dataCheckOut: Date | null
+    status: string | null
+    numeroHospedes: number | null
+    valorTotal: number | null
+    observacoes: string | null
+    hospedeId: number | null
+    casaId: number | null
+    locadorId: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ReservaCountAggregateOutputType = {
+    id: number
+    dataCheckIn: number
+    dataCheckOut: number
+    status: number
+    numeroHospedes: number
+    valorTotal: number
+    observacoes: number
+    hospedeId: number
+    casaId: number
+    locadorId: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type ReservaAvgAggregateInputType = {
+    id?: true
+    numeroHospedes?: true
+    valorTotal?: true
+    hospedeId?: true
+    casaId?: true
+    locadorId?: true
+  }
+
+  export type ReservaSumAggregateInputType = {
+    id?: true
+    numeroHospedes?: true
+    valorTotal?: true
+    hospedeId?: true
+    casaId?: true
+    locadorId?: true
+  }
+
+  export type ReservaMinAggregateInputType = {
+    id?: true
+    dataCheckIn?: true
+    dataCheckOut?: true
+    status?: true
+    numeroHospedes?: true
+    valorTotal?: true
+    observacoes?: true
+    hospedeId?: true
+    casaId?: true
+    locadorId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ReservaMaxAggregateInputType = {
+    id?: true
+    dataCheckIn?: true
+    dataCheckOut?: true
+    status?: true
+    numeroHospedes?: true
+    valorTotal?: true
+    observacoes?: true
+    hospedeId?: true
+    casaId?: true
+    locadorId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ReservaCountAggregateInputType = {
+    id?: true
+    dataCheckIn?: true
+    dataCheckOut?: true
+    status?: true
+    numeroHospedes?: true
+    valorTotal?: true
+    observacoes?: true
+    hospedeId?: true
+    casaId?: true
+    locadorId?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type ReservaAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Reserva to aggregate.
+     */
+    where?: ReservaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Reservas to fetch.
+     */
+    orderBy?: ReservaOrderByWithRelationInput | ReservaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ReservaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Reservas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Reservas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Reservas
+    **/
+    _count?: true | ReservaCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ReservaAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ReservaSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ReservaMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ReservaMaxAggregateInputType
+  }
+
+  export type GetReservaAggregateType<T extends ReservaAggregateArgs> = {
+        [P in keyof T & keyof AggregateReserva]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateReserva[P]>
+      : GetScalarType<T[P], AggregateReserva[P]>
+  }
+
+
+
+
+  export type ReservaGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ReservaWhereInput
+    orderBy?: ReservaOrderByWithAggregationInput | ReservaOrderByWithAggregationInput[]
+    by: ReservaScalarFieldEnum[] | ReservaScalarFieldEnum
+    having?: ReservaScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ReservaCountAggregateInputType | true
+    _avg?: ReservaAvgAggregateInputType
+    _sum?: ReservaSumAggregateInputType
+    _min?: ReservaMinAggregateInputType
+    _max?: ReservaMaxAggregateInputType
+  }
+
+  export type ReservaGroupByOutputType = {
+    id: number
+    dataCheckIn: Date
+    dataCheckOut: Date
+    status: string
+    numeroHospedes: number | null
+    valorTotal: number | null
+    observacoes: string | null
+    hospedeId: number
+    casaId: number
+    locadorId: number
+    createdAt: Date
+    updatedAt: Date
+    _count: ReservaCountAggregateOutputType | null
+    _avg: ReservaAvgAggregateOutputType | null
+    _sum: ReservaSumAggregateOutputType | null
+    _min: ReservaMinAggregateOutputType | null
+    _max: ReservaMaxAggregateOutputType | null
+  }
+
+  type GetReservaGroupByPayload<T extends ReservaGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ReservaGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ReservaGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ReservaGroupByOutputType[P]>
+            : GetScalarType<T[P], ReservaGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ReservaSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    dataCheckIn?: boolean
+    dataCheckOut?: boolean
+    status?: boolean
+    numeroHospedes?: boolean
+    valorTotal?: boolean
+    observacoes?: boolean
+    hospedeId?: boolean
+    casaId?: boolean
+    locadorId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    hospede?: boolean | HospedeDefaultArgs<ExtArgs>
+    casa?: boolean | CasaDefaultArgs<ExtArgs>
+    locador?: boolean | LocadorDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["reserva"]>
+
+  export type ReservaSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    dataCheckIn?: boolean
+    dataCheckOut?: boolean
+    status?: boolean
+    numeroHospedes?: boolean
+    valorTotal?: boolean
+    observacoes?: boolean
+    hospedeId?: boolean
+    casaId?: boolean
+    locadorId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    hospede?: boolean | HospedeDefaultArgs<ExtArgs>
+    casa?: boolean | CasaDefaultArgs<ExtArgs>
+    locador?: boolean | LocadorDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["reserva"]>
+
+  export type ReservaSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    dataCheckIn?: boolean
+    dataCheckOut?: boolean
+    status?: boolean
+    numeroHospedes?: boolean
+    valorTotal?: boolean
+    observacoes?: boolean
+    hospedeId?: boolean
+    casaId?: boolean
+    locadorId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    hospede?: boolean | HospedeDefaultArgs<ExtArgs>
+    casa?: boolean | CasaDefaultArgs<ExtArgs>
+    locador?: boolean | LocadorDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["reserva"]>
+
+  export type ReservaSelectScalar = {
+    id?: boolean
+    dataCheckIn?: boolean
+    dataCheckOut?: boolean
+    status?: boolean
+    numeroHospedes?: boolean
+    valorTotal?: boolean
+    observacoes?: boolean
+    hospedeId?: boolean
+    casaId?: boolean
+    locadorId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type ReservaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "dataCheckIn" | "dataCheckOut" | "status" | "numeroHospedes" | "valorTotal" | "observacoes" | "hospedeId" | "casaId" | "locadorId" | "createdAt" | "updatedAt", ExtArgs["result"]["reserva"]>
+  export type ReservaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    hospede?: boolean | HospedeDefaultArgs<ExtArgs>
+    casa?: boolean | CasaDefaultArgs<ExtArgs>
+    locador?: boolean | LocadorDefaultArgs<ExtArgs>
+  }
+  export type ReservaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    hospede?: boolean | HospedeDefaultArgs<ExtArgs>
+    casa?: boolean | CasaDefaultArgs<ExtArgs>
+    locador?: boolean | LocadorDefaultArgs<ExtArgs>
+  }
+  export type ReservaIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    hospede?: boolean | HospedeDefaultArgs<ExtArgs>
+    casa?: boolean | CasaDefaultArgs<ExtArgs>
+    locador?: boolean | LocadorDefaultArgs<ExtArgs>
+  }
+
+  export type $ReservaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Reserva"
+    objects: {
+      hospede: Prisma.$HospedePayload<ExtArgs>
+      casa: Prisma.$CasaPayload<ExtArgs>
+      locador: Prisma.$LocadorPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      dataCheckIn: Date
+      dataCheckOut: Date
+      status: string
+      numeroHospedes: number | null
+      valorTotal: number | null
+      observacoes: string | null
+      hospedeId: number
+      casaId: number
+      locadorId: number
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["reserva"]>
+    composites: {}
+  }
+
+  type ReservaGetPayload<S extends boolean | null | undefined | ReservaDefaultArgs> = $Result.GetResult<Prisma.$ReservaPayload, S>
+
+  type ReservaCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ReservaFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ReservaCountAggregateInputType | true
+    }
+
+  export interface ReservaDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Reserva'], meta: { name: 'Reserva' } }
+    /**
+     * Find zero or one Reserva that matches the filter.
+     * @param {ReservaFindUniqueArgs} args - Arguments to find a Reserva
+     * @example
+     * // Get one Reserva
+     * const reserva = await prisma.reserva.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ReservaFindUniqueArgs>(args: SelectSubset<T, ReservaFindUniqueArgs<ExtArgs>>): Prisma__ReservaClient<$Result.GetResult<Prisma.$ReservaPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Reserva that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ReservaFindUniqueOrThrowArgs} args - Arguments to find a Reserva
+     * @example
+     * // Get one Reserva
+     * const reserva = await prisma.reserva.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ReservaFindUniqueOrThrowArgs>(args: SelectSubset<T, ReservaFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ReservaClient<$Result.GetResult<Prisma.$ReservaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Reserva that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReservaFindFirstArgs} args - Arguments to find a Reserva
+     * @example
+     * // Get one Reserva
+     * const reserva = await prisma.reserva.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ReservaFindFirstArgs>(args?: SelectSubset<T, ReservaFindFirstArgs<ExtArgs>>): Prisma__ReservaClient<$Result.GetResult<Prisma.$ReservaPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Reserva that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReservaFindFirstOrThrowArgs} args - Arguments to find a Reserva
+     * @example
+     * // Get one Reserva
+     * const reserva = await prisma.reserva.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ReservaFindFirstOrThrowArgs>(args?: SelectSubset<T, ReservaFindFirstOrThrowArgs<ExtArgs>>): Prisma__ReservaClient<$Result.GetResult<Prisma.$ReservaPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Reservas that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReservaFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Reservas
+     * const reservas = await prisma.reserva.findMany()
+     * 
+     * // Get first 10 Reservas
+     * const reservas = await prisma.reserva.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const reservaWithIdOnly = await prisma.reserva.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ReservaFindManyArgs>(args?: SelectSubset<T, ReservaFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReservaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Reserva.
+     * @param {ReservaCreateArgs} args - Arguments to create a Reserva.
+     * @example
+     * // Create one Reserva
+     * const Reserva = await prisma.reserva.create({
+     *   data: {
+     *     // ... data to create a Reserva
+     *   }
+     * })
+     * 
+     */
+    create<T extends ReservaCreateArgs>(args: SelectSubset<T, ReservaCreateArgs<ExtArgs>>): Prisma__ReservaClient<$Result.GetResult<Prisma.$ReservaPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Reservas.
+     * @param {ReservaCreateManyArgs} args - Arguments to create many Reservas.
+     * @example
+     * // Create many Reservas
+     * const reserva = await prisma.reserva.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ReservaCreateManyArgs>(args?: SelectSubset<T, ReservaCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Reservas and returns the data saved in the database.
+     * @param {ReservaCreateManyAndReturnArgs} args - Arguments to create many Reservas.
+     * @example
+     * // Create many Reservas
+     * const reserva = await prisma.reserva.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Reservas and only return the `id`
+     * const reservaWithIdOnly = await prisma.reserva.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ReservaCreateManyAndReturnArgs>(args?: SelectSubset<T, ReservaCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReservaPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Reserva.
+     * @param {ReservaDeleteArgs} args - Arguments to delete one Reserva.
+     * @example
+     * // Delete one Reserva
+     * const Reserva = await prisma.reserva.delete({
+     *   where: {
+     *     // ... filter to delete one Reserva
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ReservaDeleteArgs>(args: SelectSubset<T, ReservaDeleteArgs<ExtArgs>>): Prisma__ReservaClient<$Result.GetResult<Prisma.$ReservaPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Reserva.
+     * @param {ReservaUpdateArgs} args - Arguments to update one Reserva.
+     * @example
+     * // Update one Reserva
+     * const reserva = await prisma.reserva.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ReservaUpdateArgs>(args: SelectSubset<T, ReservaUpdateArgs<ExtArgs>>): Prisma__ReservaClient<$Result.GetResult<Prisma.$ReservaPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Reservas.
+     * @param {ReservaDeleteManyArgs} args - Arguments to filter Reservas to delete.
+     * @example
+     * // Delete a few Reservas
+     * const { count } = await prisma.reserva.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ReservaDeleteManyArgs>(args?: SelectSubset<T, ReservaDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Reservas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReservaUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Reservas
+     * const reserva = await prisma.reserva.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ReservaUpdateManyArgs>(args: SelectSubset<T, ReservaUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Reservas and returns the data updated in the database.
+     * @param {ReservaUpdateManyAndReturnArgs} args - Arguments to update many Reservas.
+     * @example
+     * // Update many Reservas
+     * const reserva = await prisma.reserva.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Reservas and only return the `id`
+     * const reservaWithIdOnly = await prisma.reserva.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ReservaUpdateManyAndReturnArgs>(args: SelectSubset<T, ReservaUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReservaPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Reserva.
+     * @param {ReservaUpsertArgs} args - Arguments to update or create a Reserva.
+     * @example
+     * // Update or create a Reserva
+     * const reserva = await prisma.reserva.upsert({
+     *   create: {
+     *     // ... data to create a Reserva
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Reserva we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ReservaUpsertArgs>(args: SelectSubset<T, ReservaUpsertArgs<ExtArgs>>): Prisma__ReservaClient<$Result.GetResult<Prisma.$ReservaPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Reservas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReservaCountArgs} args - Arguments to filter Reservas to count.
+     * @example
+     * // Count the number of Reservas
+     * const count = await prisma.reserva.count({
+     *   where: {
+     *     // ... the filter for the Reservas we want to count
+     *   }
+     * })
+    **/
+    count<T extends ReservaCountArgs>(
+      args?: Subset<T, ReservaCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ReservaCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Reserva.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReservaAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ReservaAggregateArgs>(args: Subset<T, ReservaAggregateArgs>): Prisma.PrismaPromise<GetReservaAggregateType<T>>
+
+    /**
+     * Group by Reserva.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReservaGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ReservaGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ReservaGroupByArgs['orderBy'] }
+        : { orderBy?: ReservaGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ReservaGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetReservaGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Reserva model
+   */
+  readonly fields: ReservaFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Reserva.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ReservaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    hospede<T extends HospedeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, HospedeDefaultArgs<ExtArgs>>): Prisma__HospedeClient<$Result.GetResult<Prisma.$HospedePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    casa<T extends CasaDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CasaDefaultArgs<ExtArgs>>): Prisma__CasaClient<$Result.GetResult<Prisma.$CasaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    locador<T extends LocadorDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LocadorDefaultArgs<ExtArgs>>): Prisma__LocadorClient<$Result.GetResult<Prisma.$LocadorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Reserva model
+   */
+  interface ReservaFieldRefs {
+    readonly id: FieldRef<"Reserva", 'Int'>
+    readonly dataCheckIn: FieldRef<"Reserva", 'DateTime'>
+    readonly dataCheckOut: FieldRef<"Reserva", 'DateTime'>
+    readonly status: FieldRef<"Reserva", 'String'>
+    readonly numeroHospedes: FieldRef<"Reserva", 'Int'>
+    readonly valorTotal: FieldRef<"Reserva", 'Float'>
+    readonly observacoes: FieldRef<"Reserva", 'String'>
+    readonly hospedeId: FieldRef<"Reserva", 'Int'>
+    readonly casaId: FieldRef<"Reserva", 'Int'>
+    readonly locadorId: FieldRef<"Reserva", 'Int'>
+    readonly createdAt: FieldRef<"Reserva", 'DateTime'>
+    readonly updatedAt: FieldRef<"Reserva", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Reserva findUnique
+   */
+  export type ReservaFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reserva
+     */
+    select?: ReservaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reserva
+     */
+    omit?: ReservaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReservaInclude<ExtArgs> | null
+    /**
+     * Filter, which Reserva to fetch.
+     */
+    where: ReservaWhereUniqueInput
+  }
+
+  /**
+   * Reserva findUniqueOrThrow
+   */
+  export type ReservaFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reserva
+     */
+    select?: ReservaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reserva
+     */
+    omit?: ReservaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReservaInclude<ExtArgs> | null
+    /**
+     * Filter, which Reserva to fetch.
+     */
+    where: ReservaWhereUniqueInput
+  }
+
+  /**
+   * Reserva findFirst
+   */
+  export type ReservaFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reserva
+     */
+    select?: ReservaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reserva
+     */
+    omit?: ReservaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReservaInclude<ExtArgs> | null
+    /**
+     * Filter, which Reserva to fetch.
+     */
+    where?: ReservaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Reservas to fetch.
+     */
+    orderBy?: ReservaOrderByWithRelationInput | ReservaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Reservas.
+     */
+    cursor?: ReservaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Reservas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Reservas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Reservas.
+     */
+    distinct?: ReservaScalarFieldEnum | ReservaScalarFieldEnum[]
+  }
+
+  /**
+   * Reserva findFirstOrThrow
+   */
+  export type ReservaFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reserva
+     */
+    select?: ReservaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reserva
+     */
+    omit?: ReservaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReservaInclude<ExtArgs> | null
+    /**
+     * Filter, which Reserva to fetch.
+     */
+    where?: ReservaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Reservas to fetch.
+     */
+    orderBy?: ReservaOrderByWithRelationInput | ReservaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Reservas.
+     */
+    cursor?: ReservaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Reservas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Reservas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Reservas.
+     */
+    distinct?: ReservaScalarFieldEnum | ReservaScalarFieldEnum[]
+  }
+
+  /**
+   * Reserva findMany
+   */
+  export type ReservaFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reserva
+     */
+    select?: ReservaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reserva
+     */
+    omit?: ReservaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReservaInclude<ExtArgs> | null
+    /**
+     * Filter, which Reservas to fetch.
+     */
+    where?: ReservaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Reservas to fetch.
+     */
+    orderBy?: ReservaOrderByWithRelationInput | ReservaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Reservas.
+     */
+    cursor?: ReservaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Reservas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Reservas.
+     */
+    skip?: number
+    distinct?: ReservaScalarFieldEnum | ReservaScalarFieldEnum[]
+  }
+
+  /**
+   * Reserva create
+   */
+  export type ReservaCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reserva
+     */
+    select?: ReservaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reserva
+     */
+    omit?: ReservaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReservaInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Reserva.
+     */
+    data: XOR<ReservaCreateInput, ReservaUncheckedCreateInput>
+  }
+
+  /**
+   * Reserva createMany
+   */
+  export type ReservaCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Reservas.
+     */
+    data: ReservaCreateManyInput | ReservaCreateManyInput[]
+  }
+
+  /**
+   * Reserva createManyAndReturn
+   */
+  export type ReservaCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reserva
+     */
+    select?: ReservaSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reserva
+     */
+    omit?: ReservaOmit<ExtArgs> | null
+    /**
+     * The data used to create many Reservas.
+     */
+    data: ReservaCreateManyInput | ReservaCreateManyInput[]
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReservaIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Reserva update
+   */
+  export type ReservaUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reserva
+     */
+    select?: ReservaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reserva
+     */
+    omit?: ReservaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReservaInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Reserva.
+     */
+    data: XOR<ReservaUpdateInput, ReservaUncheckedUpdateInput>
+    /**
+     * Choose, which Reserva to update.
+     */
+    where: ReservaWhereUniqueInput
+  }
+
+  /**
+   * Reserva updateMany
+   */
+  export type ReservaUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Reservas.
+     */
+    data: XOR<ReservaUpdateManyMutationInput, ReservaUncheckedUpdateManyInput>
+    /**
+     * Filter which Reservas to update
+     */
+    where?: ReservaWhereInput
+    /**
+     * Limit how many Reservas to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Reserva updateManyAndReturn
+   */
+  export type ReservaUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reserva
+     */
+    select?: ReservaSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reserva
+     */
+    omit?: ReservaOmit<ExtArgs> | null
+    /**
+     * The data used to update Reservas.
+     */
+    data: XOR<ReservaUpdateManyMutationInput, ReservaUncheckedUpdateManyInput>
+    /**
+     * Filter which Reservas to update
+     */
+    where?: ReservaWhereInput
+    /**
+     * Limit how many Reservas to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReservaIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Reserva upsert
+   */
+  export type ReservaUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reserva
+     */
+    select?: ReservaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reserva
+     */
+    omit?: ReservaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReservaInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Reserva to update in case it exists.
+     */
+    where: ReservaWhereUniqueInput
+    /**
+     * In case the Reserva found by the `where` argument doesn't exist, create a new Reserva with this data.
+     */
+    create: XOR<ReservaCreateInput, ReservaUncheckedCreateInput>
+    /**
+     * In case the Reserva was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ReservaUpdateInput, ReservaUncheckedUpdateInput>
+  }
+
+  /**
+   * Reserva delete
+   */
+  export type ReservaDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reserva
+     */
+    select?: ReservaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reserva
+     */
+    omit?: ReservaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReservaInclude<ExtArgs> | null
+    /**
+     * Filter which Reserva to delete.
+     */
+    where: ReservaWhereUniqueInput
+  }
+
+  /**
+   * Reserva deleteMany
+   */
+  export type ReservaDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Reservas to delete
+     */
+    where?: ReservaWhereInput
+    /**
+     * Limit how many Reservas to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Reserva without action
+   */
+  export type ReservaDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reserva
+     */
+    select?: ReservaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reserva
+     */
+    omit?: ReservaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReservaInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Favorito
+   */
+
+  export type AggregateFavorito = {
+    _count: FavoritoCountAggregateOutputType | null
+    _avg: FavoritoAvgAggregateOutputType | null
+    _sum: FavoritoSumAggregateOutputType | null
+    _min: FavoritoMinAggregateOutputType | null
+    _max: FavoritoMaxAggregateOutputType | null
+  }
+
+  export type FavoritoAvgAggregateOutputType = {
+    id: number | null
+    hospedeId: number | null
+    casaId: number | null
+  }
+
+  export type FavoritoSumAggregateOutputType = {
+    id: number | null
+    hospedeId: number | null
+    casaId: number | null
+  }
+
+  export type FavoritoMinAggregateOutputType = {
+    id: number | null
+    hospedeId: number | null
+    casaId: number | null
+    createdAt: Date | null
+  }
+
+  export type FavoritoMaxAggregateOutputType = {
+    id: number | null
+    hospedeId: number | null
+    casaId: number | null
+    createdAt: Date | null
+  }
+
+  export type FavoritoCountAggregateOutputType = {
+    id: number
+    hospedeId: number
+    casaId: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type FavoritoAvgAggregateInputType = {
+    id?: true
+    hospedeId?: true
+    casaId?: true
+  }
+
+  export type FavoritoSumAggregateInputType = {
+    id?: true
+    hospedeId?: true
+    casaId?: true
+  }
+
+  export type FavoritoMinAggregateInputType = {
+    id?: true
+    hospedeId?: true
+    casaId?: true
+    createdAt?: true
+  }
+
+  export type FavoritoMaxAggregateInputType = {
+    id?: true
+    hospedeId?: true
+    casaId?: true
+    createdAt?: true
+  }
+
+  export type FavoritoCountAggregateInputType = {
+    id?: true
+    hospedeId?: true
+    casaId?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type FavoritoAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Favorito to aggregate.
+     */
+    where?: FavoritoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Favoritos to fetch.
+     */
+    orderBy?: FavoritoOrderByWithRelationInput | FavoritoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: FavoritoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Favoritos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Favoritos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Favoritos
+    **/
+    _count?: true | FavoritoCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: FavoritoAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: FavoritoSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: FavoritoMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: FavoritoMaxAggregateInputType
+  }
+
+  export type GetFavoritoAggregateType<T extends FavoritoAggregateArgs> = {
+        [P in keyof T & keyof AggregateFavorito]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateFavorito[P]>
+      : GetScalarType<T[P], AggregateFavorito[P]>
+  }
+
+
+
+
+  export type FavoritoGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FavoritoWhereInput
+    orderBy?: FavoritoOrderByWithAggregationInput | FavoritoOrderByWithAggregationInput[]
+    by: FavoritoScalarFieldEnum[] | FavoritoScalarFieldEnum
+    having?: FavoritoScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: FavoritoCountAggregateInputType | true
+    _avg?: FavoritoAvgAggregateInputType
+    _sum?: FavoritoSumAggregateInputType
+    _min?: FavoritoMinAggregateInputType
+    _max?: FavoritoMaxAggregateInputType
+  }
+
+  export type FavoritoGroupByOutputType = {
+    id: number
+    hospedeId: number
+    casaId: number
+    createdAt: Date
+    _count: FavoritoCountAggregateOutputType | null
+    _avg: FavoritoAvgAggregateOutputType | null
+    _sum: FavoritoSumAggregateOutputType | null
+    _min: FavoritoMinAggregateOutputType | null
+    _max: FavoritoMaxAggregateOutputType | null
+  }
+
+  type GetFavoritoGroupByPayload<T extends FavoritoGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<FavoritoGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof FavoritoGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], FavoritoGroupByOutputType[P]>
+            : GetScalarType<T[P], FavoritoGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type FavoritoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    hospedeId?: boolean
+    casaId?: boolean
+    createdAt?: boolean
+    hospede?: boolean | HospedeDefaultArgs<ExtArgs>
+    casa?: boolean | CasaDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["favorito"]>
+
+  export type FavoritoSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    hospedeId?: boolean
+    casaId?: boolean
+    createdAt?: boolean
+    hospede?: boolean | HospedeDefaultArgs<ExtArgs>
+    casa?: boolean | CasaDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["favorito"]>
+
+  export type FavoritoSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    hospedeId?: boolean
+    casaId?: boolean
+    createdAt?: boolean
+    hospede?: boolean | HospedeDefaultArgs<ExtArgs>
+    casa?: boolean | CasaDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["favorito"]>
+
+  export type FavoritoSelectScalar = {
+    id?: boolean
+    hospedeId?: boolean
+    casaId?: boolean
+    createdAt?: boolean
+  }
+
+  export type FavoritoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "hospedeId" | "casaId" | "createdAt", ExtArgs["result"]["favorito"]>
+  export type FavoritoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    hospede?: boolean | HospedeDefaultArgs<ExtArgs>
+    casa?: boolean | CasaDefaultArgs<ExtArgs>
+  }
+  export type FavoritoIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    hospede?: boolean | HospedeDefaultArgs<ExtArgs>
+    casa?: boolean | CasaDefaultArgs<ExtArgs>
+  }
+  export type FavoritoIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    hospede?: boolean | HospedeDefaultArgs<ExtArgs>
+    casa?: boolean | CasaDefaultArgs<ExtArgs>
+  }
+
+  export type $FavoritoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Favorito"
+    objects: {
+      hospede: Prisma.$HospedePayload<ExtArgs>
+      casa: Prisma.$CasaPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      hospedeId: number
+      casaId: number
+      createdAt: Date
+    }, ExtArgs["result"]["favorito"]>
+    composites: {}
+  }
+
+  type FavoritoGetPayload<S extends boolean | null | undefined | FavoritoDefaultArgs> = $Result.GetResult<Prisma.$FavoritoPayload, S>
+
+  type FavoritoCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<FavoritoFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: FavoritoCountAggregateInputType | true
+    }
+
+  export interface FavoritoDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Favorito'], meta: { name: 'Favorito' } }
+    /**
+     * Find zero or one Favorito that matches the filter.
+     * @param {FavoritoFindUniqueArgs} args - Arguments to find a Favorito
+     * @example
+     * // Get one Favorito
+     * const favorito = await prisma.favorito.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends FavoritoFindUniqueArgs>(args: SelectSubset<T, FavoritoFindUniqueArgs<ExtArgs>>): Prisma__FavoritoClient<$Result.GetResult<Prisma.$FavoritoPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Favorito that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {FavoritoFindUniqueOrThrowArgs} args - Arguments to find a Favorito
+     * @example
+     * // Get one Favorito
+     * const favorito = await prisma.favorito.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends FavoritoFindUniqueOrThrowArgs>(args: SelectSubset<T, FavoritoFindUniqueOrThrowArgs<ExtArgs>>): Prisma__FavoritoClient<$Result.GetResult<Prisma.$FavoritoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Favorito that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FavoritoFindFirstArgs} args - Arguments to find a Favorito
+     * @example
+     * // Get one Favorito
+     * const favorito = await prisma.favorito.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends FavoritoFindFirstArgs>(args?: SelectSubset<T, FavoritoFindFirstArgs<ExtArgs>>): Prisma__FavoritoClient<$Result.GetResult<Prisma.$FavoritoPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Favorito that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FavoritoFindFirstOrThrowArgs} args - Arguments to find a Favorito
+     * @example
+     * // Get one Favorito
+     * const favorito = await prisma.favorito.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends FavoritoFindFirstOrThrowArgs>(args?: SelectSubset<T, FavoritoFindFirstOrThrowArgs<ExtArgs>>): Prisma__FavoritoClient<$Result.GetResult<Prisma.$FavoritoPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Favoritos that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FavoritoFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Favoritos
+     * const favoritos = await prisma.favorito.findMany()
+     * 
+     * // Get first 10 Favoritos
+     * const favoritos = await prisma.favorito.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const favoritoWithIdOnly = await prisma.favorito.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends FavoritoFindManyArgs>(args?: SelectSubset<T, FavoritoFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FavoritoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Favorito.
+     * @param {FavoritoCreateArgs} args - Arguments to create a Favorito.
+     * @example
+     * // Create one Favorito
+     * const Favorito = await prisma.favorito.create({
+     *   data: {
+     *     // ... data to create a Favorito
+     *   }
+     * })
+     * 
+     */
+    create<T extends FavoritoCreateArgs>(args: SelectSubset<T, FavoritoCreateArgs<ExtArgs>>): Prisma__FavoritoClient<$Result.GetResult<Prisma.$FavoritoPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Favoritos.
+     * @param {FavoritoCreateManyArgs} args - Arguments to create many Favoritos.
+     * @example
+     * // Create many Favoritos
+     * const favorito = await prisma.favorito.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends FavoritoCreateManyArgs>(args?: SelectSubset<T, FavoritoCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Favoritos and returns the data saved in the database.
+     * @param {FavoritoCreateManyAndReturnArgs} args - Arguments to create many Favoritos.
+     * @example
+     * // Create many Favoritos
+     * const favorito = await prisma.favorito.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Favoritos and only return the `id`
+     * const favoritoWithIdOnly = await prisma.favorito.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends FavoritoCreateManyAndReturnArgs>(args?: SelectSubset<T, FavoritoCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FavoritoPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Favorito.
+     * @param {FavoritoDeleteArgs} args - Arguments to delete one Favorito.
+     * @example
+     * // Delete one Favorito
+     * const Favorito = await prisma.favorito.delete({
+     *   where: {
+     *     // ... filter to delete one Favorito
+     *   }
+     * })
+     * 
+     */
+    delete<T extends FavoritoDeleteArgs>(args: SelectSubset<T, FavoritoDeleteArgs<ExtArgs>>): Prisma__FavoritoClient<$Result.GetResult<Prisma.$FavoritoPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Favorito.
+     * @param {FavoritoUpdateArgs} args - Arguments to update one Favorito.
+     * @example
+     * // Update one Favorito
+     * const favorito = await prisma.favorito.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends FavoritoUpdateArgs>(args: SelectSubset<T, FavoritoUpdateArgs<ExtArgs>>): Prisma__FavoritoClient<$Result.GetResult<Prisma.$FavoritoPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Favoritos.
+     * @param {FavoritoDeleteManyArgs} args - Arguments to filter Favoritos to delete.
+     * @example
+     * // Delete a few Favoritos
+     * const { count } = await prisma.favorito.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends FavoritoDeleteManyArgs>(args?: SelectSubset<T, FavoritoDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Favoritos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FavoritoUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Favoritos
+     * const favorito = await prisma.favorito.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends FavoritoUpdateManyArgs>(args: SelectSubset<T, FavoritoUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Favoritos and returns the data updated in the database.
+     * @param {FavoritoUpdateManyAndReturnArgs} args - Arguments to update many Favoritos.
+     * @example
+     * // Update many Favoritos
+     * const favorito = await prisma.favorito.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Favoritos and only return the `id`
+     * const favoritoWithIdOnly = await prisma.favorito.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends FavoritoUpdateManyAndReturnArgs>(args: SelectSubset<T, FavoritoUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FavoritoPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Favorito.
+     * @param {FavoritoUpsertArgs} args - Arguments to update or create a Favorito.
+     * @example
+     * // Update or create a Favorito
+     * const favorito = await prisma.favorito.upsert({
+     *   create: {
+     *     // ... data to create a Favorito
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Favorito we want to update
+     *   }
+     * })
+     */
+    upsert<T extends FavoritoUpsertArgs>(args: SelectSubset<T, FavoritoUpsertArgs<ExtArgs>>): Prisma__FavoritoClient<$Result.GetResult<Prisma.$FavoritoPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Favoritos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FavoritoCountArgs} args - Arguments to filter Favoritos to count.
+     * @example
+     * // Count the number of Favoritos
+     * const count = await prisma.favorito.count({
+     *   where: {
+     *     // ... the filter for the Favoritos we want to count
+     *   }
+     * })
+    **/
+    count<T extends FavoritoCountArgs>(
+      args?: Subset<T, FavoritoCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], FavoritoCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Favorito.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FavoritoAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends FavoritoAggregateArgs>(args: Subset<T, FavoritoAggregateArgs>): Prisma.PrismaPromise<GetFavoritoAggregateType<T>>
+
+    /**
+     * Group by Favorito.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FavoritoGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends FavoritoGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: FavoritoGroupByArgs['orderBy'] }
+        : { orderBy?: FavoritoGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, FavoritoGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFavoritoGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Favorito model
+   */
+  readonly fields: FavoritoFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Favorito.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__FavoritoClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    hospede<T extends HospedeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, HospedeDefaultArgs<ExtArgs>>): Prisma__HospedeClient<$Result.GetResult<Prisma.$HospedePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    casa<T extends CasaDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CasaDefaultArgs<ExtArgs>>): Prisma__CasaClient<$Result.GetResult<Prisma.$CasaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Favorito model
+   */
+  interface FavoritoFieldRefs {
+    readonly id: FieldRef<"Favorito", 'Int'>
+    readonly hospedeId: FieldRef<"Favorito", 'Int'>
+    readonly casaId: FieldRef<"Favorito", 'Int'>
+    readonly createdAt: FieldRef<"Favorito", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Favorito findUnique
+   */
+  export type FavoritoFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Favorito
+     */
+    select?: FavoritoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Favorito
+     */
+    omit?: FavoritoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoritoInclude<ExtArgs> | null
+    /**
+     * Filter, which Favorito to fetch.
+     */
+    where: FavoritoWhereUniqueInput
+  }
+
+  /**
+   * Favorito findUniqueOrThrow
+   */
+  export type FavoritoFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Favorito
+     */
+    select?: FavoritoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Favorito
+     */
+    omit?: FavoritoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoritoInclude<ExtArgs> | null
+    /**
+     * Filter, which Favorito to fetch.
+     */
+    where: FavoritoWhereUniqueInput
+  }
+
+  /**
+   * Favorito findFirst
+   */
+  export type FavoritoFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Favorito
+     */
+    select?: FavoritoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Favorito
+     */
+    omit?: FavoritoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoritoInclude<ExtArgs> | null
+    /**
+     * Filter, which Favorito to fetch.
+     */
+    where?: FavoritoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Favoritos to fetch.
+     */
+    orderBy?: FavoritoOrderByWithRelationInput | FavoritoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Favoritos.
+     */
+    cursor?: FavoritoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Favoritos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Favoritos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Favoritos.
+     */
+    distinct?: FavoritoScalarFieldEnum | FavoritoScalarFieldEnum[]
+  }
+
+  /**
+   * Favorito findFirstOrThrow
+   */
+  export type FavoritoFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Favorito
+     */
+    select?: FavoritoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Favorito
+     */
+    omit?: FavoritoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoritoInclude<ExtArgs> | null
+    /**
+     * Filter, which Favorito to fetch.
+     */
+    where?: FavoritoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Favoritos to fetch.
+     */
+    orderBy?: FavoritoOrderByWithRelationInput | FavoritoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Favoritos.
+     */
+    cursor?: FavoritoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Favoritos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Favoritos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Favoritos.
+     */
+    distinct?: FavoritoScalarFieldEnum | FavoritoScalarFieldEnum[]
+  }
+
+  /**
+   * Favorito findMany
+   */
+  export type FavoritoFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Favorito
+     */
+    select?: FavoritoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Favorito
+     */
+    omit?: FavoritoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoritoInclude<ExtArgs> | null
+    /**
+     * Filter, which Favoritos to fetch.
+     */
+    where?: FavoritoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Favoritos to fetch.
+     */
+    orderBy?: FavoritoOrderByWithRelationInput | FavoritoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Favoritos.
+     */
+    cursor?: FavoritoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Favoritos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Favoritos.
+     */
+    skip?: number
+    distinct?: FavoritoScalarFieldEnum | FavoritoScalarFieldEnum[]
+  }
+
+  /**
+   * Favorito create
+   */
+  export type FavoritoCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Favorito
+     */
+    select?: FavoritoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Favorito
+     */
+    omit?: FavoritoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoritoInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Favorito.
+     */
+    data: XOR<FavoritoCreateInput, FavoritoUncheckedCreateInput>
+  }
+
+  /**
+   * Favorito createMany
+   */
+  export type FavoritoCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Favoritos.
+     */
+    data: FavoritoCreateManyInput | FavoritoCreateManyInput[]
+  }
+
+  /**
+   * Favorito createManyAndReturn
+   */
+  export type FavoritoCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Favorito
+     */
+    select?: FavoritoSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Favorito
+     */
+    omit?: FavoritoOmit<ExtArgs> | null
+    /**
+     * The data used to create many Favoritos.
+     */
+    data: FavoritoCreateManyInput | FavoritoCreateManyInput[]
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoritoIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Favorito update
+   */
+  export type FavoritoUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Favorito
+     */
+    select?: FavoritoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Favorito
+     */
+    omit?: FavoritoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoritoInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Favorito.
+     */
+    data: XOR<FavoritoUpdateInput, FavoritoUncheckedUpdateInput>
+    /**
+     * Choose, which Favorito to update.
+     */
+    where: FavoritoWhereUniqueInput
+  }
+
+  /**
+   * Favorito updateMany
+   */
+  export type FavoritoUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Favoritos.
+     */
+    data: XOR<FavoritoUpdateManyMutationInput, FavoritoUncheckedUpdateManyInput>
+    /**
+     * Filter which Favoritos to update
+     */
+    where?: FavoritoWhereInput
+    /**
+     * Limit how many Favoritos to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Favorito updateManyAndReturn
+   */
+  export type FavoritoUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Favorito
+     */
+    select?: FavoritoSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Favorito
+     */
+    omit?: FavoritoOmit<ExtArgs> | null
+    /**
+     * The data used to update Favoritos.
+     */
+    data: XOR<FavoritoUpdateManyMutationInput, FavoritoUncheckedUpdateManyInput>
+    /**
+     * Filter which Favoritos to update
+     */
+    where?: FavoritoWhereInput
+    /**
+     * Limit how many Favoritos to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoritoIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Favorito upsert
+   */
+  export type FavoritoUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Favorito
+     */
+    select?: FavoritoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Favorito
+     */
+    omit?: FavoritoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoritoInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Favorito to update in case it exists.
+     */
+    where: FavoritoWhereUniqueInput
+    /**
+     * In case the Favorito found by the `where` argument doesn't exist, create a new Favorito with this data.
+     */
+    create: XOR<FavoritoCreateInput, FavoritoUncheckedCreateInput>
+    /**
+     * In case the Favorito was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<FavoritoUpdateInput, FavoritoUncheckedUpdateInput>
+  }
+
+  /**
+   * Favorito delete
+   */
+  export type FavoritoDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Favorito
+     */
+    select?: FavoritoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Favorito
+     */
+    omit?: FavoritoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoritoInclude<ExtArgs> | null
+    /**
+     * Filter which Favorito to delete.
+     */
+    where: FavoritoWhereUniqueInput
+  }
+
+  /**
+   * Favorito deleteMany
+   */
+  export type FavoritoDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Favoritos to delete
+     */
+    where?: FavoritoWhereInput
+    /**
+     * Limit how many Favoritos to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Favorito without action
+   */
+  export type FavoritoDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Favorito
+     */
+    select?: FavoritoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Favorito
+     */
+    omit?: FavoritoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FavoritoInclude<ExtArgs> | null
   }
 
 
@@ -5649,6 +8419,34 @@ export namespace Prisma {
   export type HospedeScalarFieldEnum = (typeof HospedeScalarFieldEnum)[keyof typeof HospedeScalarFieldEnum]
 
 
+  export const ReservaScalarFieldEnum: {
+    id: 'id',
+    dataCheckIn: 'dataCheckIn',
+    dataCheckOut: 'dataCheckOut',
+    status: 'status',
+    numeroHospedes: 'numeroHospedes',
+    valorTotal: 'valorTotal',
+    observacoes: 'observacoes',
+    hospedeId: 'hospedeId',
+    casaId: 'casaId',
+    locadorId: 'locadorId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type ReservaScalarFieldEnum = (typeof ReservaScalarFieldEnum)[keyof typeof ReservaScalarFieldEnum]
+
+
+  export const FavoritoScalarFieldEnum: {
+    id: 'id',
+    hospedeId: 'hospedeId',
+    casaId: 'casaId',
+    createdAt: 'createdAt'
+  };
+
+  export type FavoritoScalarFieldEnum = (typeof FavoritoScalarFieldEnum)[keyof typeof FavoritoScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -5681,6 +8479,13 @@ export namespace Prisma {
    * Reference to a field of type 'String'
    */
   export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String'>
+    
+
+
+  /**
+   * Reference to a field of type 'DateTime'
+   */
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
     
 
 
@@ -5757,6 +8562,8 @@ export namespace Prisma {
     complemento?: StringNullableFilter<"Casa"> | string | null
     locadorId?: IntFilter<"Casa"> | number
     locador?: XOR<LocadorScalarRelationFilter, LocadorWhereInput>
+    reservas?: ReservaListRelationFilter
+    favoritos?: FavoritoListRelationFilter
   }
 
   export type CasaOrderByWithRelationInput = {
@@ -5770,6 +8577,8 @@ export namespace Prisma {
     complemento?: SortOrderInput | SortOrder
     locadorId?: SortOrder
     locador?: LocadorOrderByWithRelationInput
+    reservas?: ReservaOrderByRelationAggregateInput
+    favoritos?: FavoritoOrderByRelationAggregateInput
   }
 
   export type CasaWhereUniqueInput = Prisma.AtLeast<{
@@ -5786,6 +8595,8 @@ export namespace Prisma {
     complemento?: StringNullableFilter<"Casa"> | string | null
     locadorId?: IntFilter<"Casa"> | number
     locador?: XOR<LocadorScalarRelationFilter, LocadorWhereInput>
+    reservas?: ReservaListRelationFilter
+    favoritos?: FavoritoListRelationFilter
   }, "id">
 
   export type CasaOrderByWithAggregationInput = {
@@ -5834,6 +8645,7 @@ export namespace Prisma {
     cidade?: StringNullableFilter<"Locador"> | string | null
     estado?: StringNullableFilter<"Locador"> | string | null
     casas?: CasaListRelationFilter
+    reservas?: ReservaListRelationFilter
   }
 
   export type LocadorOrderByWithRelationInput = {
@@ -5847,6 +8659,7 @@ export namespace Prisma {
     cidade?: SortOrderInput | SortOrder
     estado?: SortOrderInput | SortOrder
     casas?: CasaOrderByRelationAggregateInput
+    reservas?: ReservaOrderByRelationAggregateInput
   }
 
   export type LocadorWhereUniqueInput = Prisma.AtLeast<{
@@ -5863,6 +8676,7 @@ export namespace Prisma {
     cidade?: StringNullableFilter<"Locador"> | string | null
     estado?: StringNullableFilter<"Locador"> | string | null
     casas?: CasaListRelationFilter
+    reservas?: ReservaListRelationFilter
   }, "id" | "email" | "cpf">
 
   export type LocadorOrderByWithAggregationInput = {
@@ -5911,6 +8725,8 @@ export namespace Prisma {
     estado?: StringNullableFilter<"Hospede"> | string | null
     matricula?: StringFilter<"Hospede"> | string
     universidade?: StringNullableFilter<"Hospede"> | string | null
+    reservas?: ReservaListRelationFilter
+    favoritos?: FavoritoListRelationFilter
   }
 
   export type HospedeOrderByWithRelationInput = {
@@ -5924,6 +8740,8 @@ export namespace Prisma {
     estado?: SortOrderInput | SortOrder
     matricula?: SortOrder
     universidade?: SortOrderInput | SortOrder
+    reservas?: ReservaOrderByRelationAggregateInput
+    favoritos?: FavoritoOrderByRelationAggregateInput
   }
 
   export type HospedeWhereUniqueInput = Prisma.AtLeast<{
@@ -5940,6 +8758,8 @@ export namespace Prisma {
     cidade?: StringNullableFilter<"Hospede"> | string | null
     estado?: StringNullableFilter<"Hospede"> | string | null
     universidade?: StringNullableFilter<"Hospede"> | string | null
+    reservas?: ReservaListRelationFilter
+    favoritos?: FavoritoListRelationFilter
   }, "id" | "email" | "cpf" | "matricula">
 
   export type HospedeOrderByWithAggregationInput = {
@@ -5974,6 +8794,160 @@ export namespace Prisma {
     estado?: StringNullableWithAggregatesFilter<"Hospede"> | string | null
     matricula?: StringWithAggregatesFilter<"Hospede"> | string
     universidade?: StringNullableWithAggregatesFilter<"Hospede"> | string | null
+  }
+
+  export type ReservaWhereInput = {
+    AND?: ReservaWhereInput | ReservaWhereInput[]
+    OR?: ReservaWhereInput[]
+    NOT?: ReservaWhereInput | ReservaWhereInput[]
+    id?: IntFilter<"Reserva"> | number
+    dataCheckIn?: DateTimeFilter<"Reserva"> | Date | string
+    dataCheckOut?: DateTimeFilter<"Reserva"> | Date | string
+    status?: StringFilter<"Reserva"> | string
+    numeroHospedes?: IntNullableFilter<"Reserva"> | number | null
+    valorTotal?: FloatNullableFilter<"Reserva"> | number | null
+    observacoes?: StringNullableFilter<"Reserva"> | string | null
+    hospedeId?: IntFilter<"Reserva"> | number
+    casaId?: IntFilter<"Reserva"> | number
+    locadorId?: IntFilter<"Reserva"> | number
+    createdAt?: DateTimeFilter<"Reserva"> | Date | string
+    updatedAt?: DateTimeFilter<"Reserva"> | Date | string
+    hospede?: XOR<HospedeScalarRelationFilter, HospedeWhereInput>
+    casa?: XOR<CasaScalarRelationFilter, CasaWhereInput>
+    locador?: XOR<LocadorScalarRelationFilter, LocadorWhereInput>
+  }
+
+  export type ReservaOrderByWithRelationInput = {
+    id?: SortOrder
+    dataCheckIn?: SortOrder
+    dataCheckOut?: SortOrder
+    status?: SortOrder
+    numeroHospedes?: SortOrderInput | SortOrder
+    valorTotal?: SortOrderInput | SortOrder
+    observacoes?: SortOrderInput | SortOrder
+    hospedeId?: SortOrder
+    casaId?: SortOrder
+    locadorId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    hospede?: HospedeOrderByWithRelationInput
+    casa?: CasaOrderByWithRelationInput
+    locador?: LocadorOrderByWithRelationInput
+  }
+
+  export type ReservaWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: ReservaWhereInput | ReservaWhereInput[]
+    OR?: ReservaWhereInput[]
+    NOT?: ReservaWhereInput | ReservaWhereInput[]
+    dataCheckIn?: DateTimeFilter<"Reserva"> | Date | string
+    dataCheckOut?: DateTimeFilter<"Reserva"> | Date | string
+    status?: StringFilter<"Reserva"> | string
+    numeroHospedes?: IntNullableFilter<"Reserva"> | number | null
+    valorTotal?: FloatNullableFilter<"Reserva"> | number | null
+    observacoes?: StringNullableFilter<"Reserva"> | string | null
+    hospedeId?: IntFilter<"Reserva"> | number
+    casaId?: IntFilter<"Reserva"> | number
+    locadorId?: IntFilter<"Reserva"> | number
+    createdAt?: DateTimeFilter<"Reserva"> | Date | string
+    updatedAt?: DateTimeFilter<"Reserva"> | Date | string
+    hospede?: XOR<HospedeScalarRelationFilter, HospedeWhereInput>
+    casa?: XOR<CasaScalarRelationFilter, CasaWhereInput>
+    locador?: XOR<LocadorScalarRelationFilter, LocadorWhereInput>
+  }, "id">
+
+  export type ReservaOrderByWithAggregationInput = {
+    id?: SortOrder
+    dataCheckIn?: SortOrder
+    dataCheckOut?: SortOrder
+    status?: SortOrder
+    numeroHospedes?: SortOrderInput | SortOrder
+    valorTotal?: SortOrderInput | SortOrder
+    observacoes?: SortOrderInput | SortOrder
+    hospedeId?: SortOrder
+    casaId?: SortOrder
+    locadorId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: ReservaCountOrderByAggregateInput
+    _avg?: ReservaAvgOrderByAggregateInput
+    _max?: ReservaMaxOrderByAggregateInput
+    _min?: ReservaMinOrderByAggregateInput
+    _sum?: ReservaSumOrderByAggregateInput
+  }
+
+  export type ReservaScalarWhereWithAggregatesInput = {
+    AND?: ReservaScalarWhereWithAggregatesInput | ReservaScalarWhereWithAggregatesInput[]
+    OR?: ReservaScalarWhereWithAggregatesInput[]
+    NOT?: ReservaScalarWhereWithAggregatesInput | ReservaScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Reserva"> | number
+    dataCheckIn?: DateTimeWithAggregatesFilter<"Reserva"> | Date | string
+    dataCheckOut?: DateTimeWithAggregatesFilter<"Reserva"> | Date | string
+    status?: StringWithAggregatesFilter<"Reserva"> | string
+    numeroHospedes?: IntNullableWithAggregatesFilter<"Reserva"> | number | null
+    valorTotal?: FloatNullableWithAggregatesFilter<"Reserva"> | number | null
+    observacoes?: StringNullableWithAggregatesFilter<"Reserva"> | string | null
+    hospedeId?: IntWithAggregatesFilter<"Reserva"> | number
+    casaId?: IntWithAggregatesFilter<"Reserva"> | number
+    locadorId?: IntWithAggregatesFilter<"Reserva"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"Reserva"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Reserva"> | Date | string
+  }
+
+  export type FavoritoWhereInput = {
+    AND?: FavoritoWhereInput | FavoritoWhereInput[]
+    OR?: FavoritoWhereInput[]
+    NOT?: FavoritoWhereInput | FavoritoWhereInput[]
+    id?: IntFilter<"Favorito"> | number
+    hospedeId?: IntFilter<"Favorito"> | number
+    casaId?: IntFilter<"Favorito"> | number
+    createdAt?: DateTimeFilter<"Favorito"> | Date | string
+    hospede?: XOR<HospedeScalarRelationFilter, HospedeWhereInput>
+    casa?: XOR<CasaScalarRelationFilter, CasaWhereInput>
+  }
+
+  export type FavoritoOrderByWithRelationInput = {
+    id?: SortOrder
+    hospedeId?: SortOrder
+    casaId?: SortOrder
+    createdAt?: SortOrder
+    hospede?: HospedeOrderByWithRelationInput
+    casa?: CasaOrderByWithRelationInput
+  }
+
+  export type FavoritoWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    hospede_casa_favorito_unique?: FavoritoHospede_casa_favorito_uniqueCompoundUniqueInput
+    AND?: FavoritoWhereInput | FavoritoWhereInput[]
+    OR?: FavoritoWhereInput[]
+    NOT?: FavoritoWhereInput | FavoritoWhereInput[]
+    hospedeId?: IntFilter<"Favorito"> | number
+    casaId?: IntFilter<"Favorito"> | number
+    createdAt?: DateTimeFilter<"Favorito"> | Date | string
+    hospede?: XOR<HospedeScalarRelationFilter, HospedeWhereInput>
+    casa?: XOR<CasaScalarRelationFilter, CasaWhereInput>
+  }, "id" | "hospede_casa_favorito_unique">
+
+  export type FavoritoOrderByWithAggregationInput = {
+    id?: SortOrder
+    hospedeId?: SortOrder
+    casaId?: SortOrder
+    createdAt?: SortOrder
+    _count?: FavoritoCountOrderByAggregateInput
+    _avg?: FavoritoAvgOrderByAggregateInput
+    _max?: FavoritoMaxOrderByAggregateInput
+    _min?: FavoritoMinOrderByAggregateInput
+    _sum?: FavoritoSumOrderByAggregateInput
+  }
+
+  export type FavoritoScalarWhereWithAggregatesInput = {
+    AND?: FavoritoScalarWhereWithAggregatesInput | FavoritoScalarWhereWithAggregatesInput[]
+    OR?: FavoritoScalarWhereWithAggregatesInput[]
+    NOT?: FavoritoScalarWhereWithAggregatesInput | FavoritoScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Favorito"> | number
+    hospedeId?: IntWithAggregatesFilter<"Favorito"> | number
+    casaId?: IntWithAggregatesFilter<"Favorito"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"Favorito"> | Date | string
   }
 
   export type AdminCreateInput = {
@@ -6031,6 +9005,8 @@ export namespace Prisma {
     diretrizes: string
     complemento?: string | null
     locador: LocadorCreateNestedOneWithoutCasasInput
+    reservas?: ReservaCreateNestedManyWithoutCasaInput
+    favoritos?: FavoritoCreateNestedManyWithoutCasaInput
   }
 
   export type CasaUncheckedCreateInput = {
@@ -6043,6 +9019,8 @@ export namespace Prisma {
     diretrizes: string
     complemento?: string | null
     locadorId: number
+    reservas?: ReservaUncheckedCreateNestedManyWithoutCasaInput
+    favoritos?: FavoritoUncheckedCreateNestedManyWithoutCasaInput
   }
 
   export type CasaUpdateInput = {
@@ -6054,6 +9032,8 @@ export namespace Prisma {
     diretrizes?: StringFieldUpdateOperationsInput | string
     complemento?: NullableStringFieldUpdateOperationsInput | string | null
     locador?: LocadorUpdateOneRequiredWithoutCasasNestedInput
+    reservas?: ReservaUpdateManyWithoutCasaNestedInput
+    favoritos?: FavoritoUpdateManyWithoutCasaNestedInput
   }
 
   export type CasaUncheckedUpdateInput = {
@@ -6066,6 +9046,8 @@ export namespace Prisma {
     diretrizes?: StringFieldUpdateOperationsInput | string
     complemento?: NullableStringFieldUpdateOperationsInput | string | null
     locadorId?: IntFieldUpdateOperationsInput | number
+    reservas?: ReservaUncheckedUpdateManyWithoutCasaNestedInput
+    favoritos?: FavoritoUncheckedUpdateManyWithoutCasaNestedInput
   }
 
   export type CasaCreateManyInput = {
@@ -6112,6 +9094,7 @@ export namespace Prisma {
     cidade?: string | null
     estado?: string | null
     casas?: CasaCreateNestedManyWithoutLocadorInput
+    reservas?: ReservaCreateNestedManyWithoutLocadorInput
   }
 
   export type LocadorUncheckedCreateInput = {
@@ -6125,6 +9108,7 @@ export namespace Prisma {
     cidade?: string | null
     estado?: string | null
     casas?: CasaUncheckedCreateNestedManyWithoutLocadorInput
+    reservas?: ReservaUncheckedCreateNestedManyWithoutLocadorInput
   }
 
   export type LocadorUpdateInput = {
@@ -6137,6 +9121,7 @@ export namespace Prisma {
     cidade?: NullableStringFieldUpdateOperationsInput | string | null
     estado?: NullableStringFieldUpdateOperationsInput | string | null
     casas?: CasaUpdateManyWithoutLocadorNestedInput
+    reservas?: ReservaUpdateManyWithoutLocadorNestedInput
   }
 
   export type LocadorUncheckedUpdateInput = {
@@ -6150,6 +9135,7 @@ export namespace Prisma {
     cidade?: NullableStringFieldUpdateOperationsInput | string | null
     estado?: NullableStringFieldUpdateOperationsInput | string | null
     casas?: CasaUncheckedUpdateManyWithoutLocadorNestedInput
+    reservas?: ReservaUncheckedUpdateManyWithoutLocadorNestedInput
   }
 
   export type LocadorCreateManyInput = {
@@ -6197,6 +9183,8 @@ export namespace Prisma {
     estado?: string | null
     matricula: string
     universidade?: string | null
+    reservas?: ReservaCreateNestedManyWithoutHospedeInput
+    favoritos?: FavoritoCreateNestedManyWithoutHospedeInput
   }
 
   export type HospedeUncheckedCreateInput = {
@@ -6210,6 +9198,8 @@ export namespace Prisma {
     estado?: string | null
     matricula: string
     universidade?: string | null
+    reservas?: ReservaUncheckedCreateNestedManyWithoutHospedeInput
+    favoritos?: FavoritoUncheckedCreateNestedManyWithoutHospedeInput
   }
 
   export type HospedeUpdateInput = {
@@ -6222,6 +9212,8 @@ export namespace Prisma {
     estado?: NullableStringFieldUpdateOperationsInput | string | null
     matricula?: StringFieldUpdateOperationsInput | string
     universidade?: NullableStringFieldUpdateOperationsInput | string | null
+    reservas?: ReservaUpdateManyWithoutHospedeNestedInput
+    favoritos?: FavoritoUpdateManyWithoutHospedeNestedInput
   }
 
   export type HospedeUncheckedUpdateInput = {
@@ -6235,6 +9227,8 @@ export namespace Prisma {
     estado?: NullableStringFieldUpdateOperationsInput | string | null
     matricula?: StringFieldUpdateOperationsInput | string
     universidade?: NullableStringFieldUpdateOperationsInput | string | null
+    reservas?: ReservaUncheckedUpdateManyWithoutHospedeNestedInput
+    favoritos?: FavoritoUncheckedUpdateManyWithoutHospedeNestedInput
   }
 
   export type HospedeCreateManyInput = {
@@ -6273,6 +9267,149 @@ export namespace Prisma {
     estado?: NullableStringFieldUpdateOperationsInput | string | null
     matricula?: StringFieldUpdateOperationsInput | string
     universidade?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ReservaCreateInput = {
+    dataCheckIn: Date | string
+    dataCheckOut: Date | string
+    status: string
+    numeroHospedes?: number | null
+    valorTotal?: number | null
+    observacoes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    hospede: HospedeCreateNestedOneWithoutReservasInput
+    casa: CasaCreateNestedOneWithoutReservasInput
+    locador: LocadorCreateNestedOneWithoutReservasInput
+  }
+
+  export type ReservaUncheckedCreateInput = {
+    id?: number
+    dataCheckIn: Date | string
+    dataCheckOut: Date | string
+    status: string
+    numeroHospedes?: number | null
+    valorTotal?: number | null
+    observacoes?: string | null
+    hospedeId: number
+    casaId: number
+    locadorId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ReservaUpdateInput = {
+    dataCheckIn?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataCheckOut?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
+    numeroHospedes?: NullableIntFieldUpdateOperationsInput | number | null
+    valorTotal?: NullableFloatFieldUpdateOperationsInput | number | null
+    observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    hospede?: HospedeUpdateOneRequiredWithoutReservasNestedInput
+    casa?: CasaUpdateOneRequiredWithoutReservasNestedInput
+    locador?: LocadorUpdateOneRequiredWithoutReservasNestedInput
+  }
+
+  export type ReservaUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    dataCheckIn?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataCheckOut?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
+    numeroHospedes?: NullableIntFieldUpdateOperationsInput | number | null
+    valorTotal?: NullableFloatFieldUpdateOperationsInput | number | null
+    observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    hospedeId?: IntFieldUpdateOperationsInput | number
+    casaId?: IntFieldUpdateOperationsInput | number
+    locadorId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ReservaCreateManyInput = {
+    id?: number
+    dataCheckIn: Date | string
+    dataCheckOut: Date | string
+    status: string
+    numeroHospedes?: number | null
+    valorTotal?: number | null
+    observacoes?: string | null
+    hospedeId: number
+    casaId: number
+    locadorId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ReservaUpdateManyMutationInput = {
+    dataCheckIn?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataCheckOut?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
+    numeroHospedes?: NullableIntFieldUpdateOperationsInput | number | null
+    valorTotal?: NullableFloatFieldUpdateOperationsInput | number | null
+    observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ReservaUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    dataCheckIn?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataCheckOut?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
+    numeroHospedes?: NullableIntFieldUpdateOperationsInput | number | null
+    valorTotal?: NullableFloatFieldUpdateOperationsInput | number | null
+    observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    hospedeId?: IntFieldUpdateOperationsInput | number
+    casaId?: IntFieldUpdateOperationsInput | number
+    locadorId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FavoritoCreateInput = {
+    createdAt?: Date | string
+    hospede: HospedeCreateNestedOneWithoutFavoritosInput
+    casa: CasaCreateNestedOneWithoutFavoritosInput
+  }
+
+  export type FavoritoUncheckedCreateInput = {
+    id?: number
+    hospedeId: number
+    casaId: number
+    createdAt?: Date | string
+  }
+
+  export type FavoritoUpdateInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    hospede?: HospedeUpdateOneRequiredWithoutFavoritosNestedInput
+    casa?: CasaUpdateOneRequiredWithoutFavoritosNestedInput
+  }
+
+  export type FavoritoUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    hospedeId?: IntFieldUpdateOperationsInput | number
+    casaId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FavoritoCreateManyInput = {
+    id?: number
+    hospedeId: number
+    casaId: number
+    createdAt?: Date | string
+  }
+
+  export type FavoritoUpdateManyMutationInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FavoritoUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    hospedeId?: IntFieldUpdateOperationsInput | number
+    casaId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -6401,6 +9538,26 @@ export namespace Prisma {
   export type LocadorScalarRelationFilter = {
     is?: LocadorWhereInput
     isNot?: LocadorWhereInput
+  }
+
+  export type ReservaListRelationFilter = {
+    every?: ReservaWhereInput
+    some?: ReservaWhereInput
+    none?: ReservaWhereInput
+  }
+
+  export type FavoritoListRelationFilter = {
+    every?: FavoritoWhereInput
+    some?: FavoritoWhereInput
+    none?: FavoritoWhereInput
+  }
+
+  export type ReservaOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type FavoritoOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type CasaCountOrderByAggregateInput = {
@@ -6552,6 +9709,196 @@ export namespace Prisma {
     id?: SortOrder
   }
 
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type FloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type HospedeScalarRelationFilter = {
+    is?: HospedeWhereInput
+    isNot?: HospedeWhereInput
+  }
+
+  export type CasaScalarRelationFilter = {
+    is?: CasaWhereInput
+    isNot?: CasaWhereInput
+  }
+
+  export type ReservaCountOrderByAggregateInput = {
+    id?: SortOrder
+    dataCheckIn?: SortOrder
+    dataCheckOut?: SortOrder
+    status?: SortOrder
+    numeroHospedes?: SortOrder
+    valorTotal?: SortOrder
+    observacoes?: SortOrder
+    hospedeId?: SortOrder
+    casaId?: SortOrder
+    locadorId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ReservaAvgOrderByAggregateInput = {
+    id?: SortOrder
+    numeroHospedes?: SortOrder
+    valorTotal?: SortOrder
+    hospedeId?: SortOrder
+    casaId?: SortOrder
+    locadorId?: SortOrder
+  }
+
+  export type ReservaMaxOrderByAggregateInput = {
+    id?: SortOrder
+    dataCheckIn?: SortOrder
+    dataCheckOut?: SortOrder
+    status?: SortOrder
+    numeroHospedes?: SortOrder
+    valorTotal?: SortOrder
+    observacoes?: SortOrder
+    hospedeId?: SortOrder
+    casaId?: SortOrder
+    locadorId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ReservaMinOrderByAggregateInput = {
+    id?: SortOrder
+    dataCheckIn?: SortOrder
+    dataCheckOut?: SortOrder
+    status?: SortOrder
+    numeroHospedes?: SortOrder
+    valorTotal?: SortOrder
+    observacoes?: SortOrder
+    hospedeId?: SortOrder
+    casaId?: SortOrder
+    locadorId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ReservaSumOrderByAggregateInput = {
+    id?: SortOrder
+    numeroHospedes?: SortOrder
+    valorTotal?: SortOrder
+    hospedeId?: SortOrder
+    casaId?: SortOrder
+    locadorId?: SortOrder
+  }
+
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
+  }
+
+  export type FavoritoHospede_casa_favorito_uniqueCompoundUniqueInput = {
+    hospedeId: number
+    casaId: number
+  }
+
+  export type FavoritoCountOrderByAggregateInput = {
+    id?: SortOrder
+    hospedeId?: SortOrder
+    casaId?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type FavoritoAvgOrderByAggregateInput = {
+    id?: SortOrder
+    hospedeId?: SortOrder
+    casaId?: SortOrder
+  }
+
+  export type FavoritoMaxOrderByAggregateInput = {
+    id?: SortOrder
+    hospedeId?: SortOrder
+    casaId?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type FavoritoMinOrderByAggregateInput = {
+    id?: SortOrder
+    hospedeId?: SortOrder
+    casaId?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type FavoritoSumOrderByAggregateInput = {
+    id?: SortOrder
+    hospedeId?: SortOrder
+    casaId?: SortOrder
+  }
+
   export type NullableStringFieldUpdateOperationsInput = {
     set?: string | null
   }
@@ -6574,12 +9921,96 @@ export namespace Prisma {
     connect?: LocadorWhereUniqueInput
   }
 
+  export type ReservaCreateNestedManyWithoutCasaInput = {
+    create?: XOR<ReservaCreateWithoutCasaInput, ReservaUncheckedCreateWithoutCasaInput> | ReservaCreateWithoutCasaInput[] | ReservaUncheckedCreateWithoutCasaInput[]
+    connectOrCreate?: ReservaCreateOrConnectWithoutCasaInput | ReservaCreateOrConnectWithoutCasaInput[]
+    createMany?: ReservaCreateManyCasaInputEnvelope
+    connect?: ReservaWhereUniqueInput | ReservaWhereUniqueInput[]
+  }
+
+  export type FavoritoCreateNestedManyWithoutCasaInput = {
+    create?: XOR<FavoritoCreateWithoutCasaInput, FavoritoUncheckedCreateWithoutCasaInput> | FavoritoCreateWithoutCasaInput[] | FavoritoUncheckedCreateWithoutCasaInput[]
+    connectOrCreate?: FavoritoCreateOrConnectWithoutCasaInput | FavoritoCreateOrConnectWithoutCasaInput[]
+    createMany?: FavoritoCreateManyCasaInputEnvelope
+    connect?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+  }
+
+  export type ReservaUncheckedCreateNestedManyWithoutCasaInput = {
+    create?: XOR<ReservaCreateWithoutCasaInput, ReservaUncheckedCreateWithoutCasaInput> | ReservaCreateWithoutCasaInput[] | ReservaUncheckedCreateWithoutCasaInput[]
+    connectOrCreate?: ReservaCreateOrConnectWithoutCasaInput | ReservaCreateOrConnectWithoutCasaInput[]
+    createMany?: ReservaCreateManyCasaInputEnvelope
+    connect?: ReservaWhereUniqueInput | ReservaWhereUniqueInput[]
+  }
+
+  export type FavoritoUncheckedCreateNestedManyWithoutCasaInput = {
+    create?: XOR<FavoritoCreateWithoutCasaInput, FavoritoUncheckedCreateWithoutCasaInput> | FavoritoCreateWithoutCasaInput[] | FavoritoUncheckedCreateWithoutCasaInput[]
+    connectOrCreate?: FavoritoCreateOrConnectWithoutCasaInput | FavoritoCreateOrConnectWithoutCasaInput[]
+    createMany?: FavoritoCreateManyCasaInputEnvelope
+    connect?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+  }
+
   export type LocadorUpdateOneRequiredWithoutCasasNestedInput = {
     create?: XOR<LocadorCreateWithoutCasasInput, LocadorUncheckedCreateWithoutCasasInput>
     connectOrCreate?: LocadorCreateOrConnectWithoutCasasInput
     upsert?: LocadorUpsertWithoutCasasInput
     connect?: LocadorWhereUniqueInput
     update?: XOR<XOR<LocadorUpdateToOneWithWhereWithoutCasasInput, LocadorUpdateWithoutCasasInput>, LocadorUncheckedUpdateWithoutCasasInput>
+  }
+
+  export type ReservaUpdateManyWithoutCasaNestedInput = {
+    create?: XOR<ReservaCreateWithoutCasaInput, ReservaUncheckedCreateWithoutCasaInput> | ReservaCreateWithoutCasaInput[] | ReservaUncheckedCreateWithoutCasaInput[]
+    connectOrCreate?: ReservaCreateOrConnectWithoutCasaInput | ReservaCreateOrConnectWithoutCasaInput[]
+    upsert?: ReservaUpsertWithWhereUniqueWithoutCasaInput | ReservaUpsertWithWhereUniqueWithoutCasaInput[]
+    createMany?: ReservaCreateManyCasaInputEnvelope
+    set?: ReservaWhereUniqueInput | ReservaWhereUniqueInput[]
+    disconnect?: ReservaWhereUniqueInput | ReservaWhereUniqueInput[]
+    delete?: ReservaWhereUniqueInput | ReservaWhereUniqueInput[]
+    connect?: ReservaWhereUniqueInput | ReservaWhereUniqueInput[]
+    update?: ReservaUpdateWithWhereUniqueWithoutCasaInput | ReservaUpdateWithWhereUniqueWithoutCasaInput[]
+    updateMany?: ReservaUpdateManyWithWhereWithoutCasaInput | ReservaUpdateManyWithWhereWithoutCasaInput[]
+    deleteMany?: ReservaScalarWhereInput | ReservaScalarWhereInput[]
+  }
+
+  export type FavoritoUpdateManyWithoutCasaNestedInput = {
+    create?: XOR<FavoritoCreateWithoutCasaInput, FavoritoUncheckedCreateWithoutCasaInput> | FavoritoCreateWithoutCasaInput[] | FavoritoUncheckedCreateWithoutCasaInput[]
+    connectOrCreate?: FavoritoCreateOrConnectWithoutCasaInput | FavoritoCreateOrConnectWithoutCasaInput[]
+    upsert?: FavoritoUpsertWithWhereUniqueWithoutCasaInput | FavoritoUpsertWithWhereUniqueWithoutCasaInput[]
+    createMany?: FavoritoCreateManyCasaInputEnvelope
+    set?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+    disconnect?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+    delete?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+    connect?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+    update?: FavoritoUpdateWithWhereUniqueWithoutCasaInput | FavoritoUpdateWithWhereUniqueWithoutCasaInput[]
+    updateMany?: FavoritoUpdateManyWithWhereWithoutCasaInput | FavoritoUpdateManyWithWhereWithoutCasaInput[]
+    deleteMany?: FavoritoScalarWhereInput | FavoritoScalarWhereInput[]
+  }
+
+  export type ReservaUncheckedUpdateManyWithoutCasaNestedInput = {
+    create?: XOR<ReservaCreateWithoutCasaInput, ReservaUncheckedCreateWithoutCasaInput> | ReservaCreateWithoutCasaInput[] | ReservaUncheckedCreateWithoutCasaInput[]
+    connectOrCreate?: ReservaCreateOrConnectWithoutCasaInput | ReservaCreateOrConnectWithoutCasaInput[]
+    upsert?: ReservaUpsertWithWhereUniqueWithoutCasaInput | ReservaUpsertWithWhereUniqueWithoutCasaInput[]
+    createMany?: ReservaCreateManyCasaInputEnvelope
+    set?: ReservaWhereUniqueInput | ReservaWhereUniqueInput[]
+    disconnect?: ReservaWhereUniqueInput | ReservaWhereUniqueInput[]
+    delete?: ReservaWhereUniqueInput | ReservaWhereUniqueInput[]
+    connect?: ReservaWhereUniqueInput | ReservaWhereUniqueInput[]
+    update?: ReservaUpdateWithWhereUniqueWithoutCasaInput | ReservaUpdateWithWhereUniqueWithoutCasaInput[]
+    updateMany?: ReservaUpdateManyWithWhereWithoutCasaInput | ReservaUpdateManyWithWhereWithoutCasaInput[]
+    deleteMany?: ReservaScalarWhereInput | ReservaScalarWhereInput[]
+  }
+
+  export type FavoritoUncheckedUpdateManyWithoutCasaNestedInput = {
+    create?: XOR<FavoritoCreateWithoutCasaInput, FavoritoUncheckedCreateWithoutCasaInput> | FavoritoCreateWithoutCasaInput[] | FavoritoUncheckedCreateWithoutCasaInput[]
+    connectOrCreate?: FavoritoCreateOrConnectWithoutCasaInput | FavoritoCreateOrConnectWithoutCasaInput[]
+    upsert?: FavoritoUpsertWithWhereUniqueWithoutCasaInput | FavoritoUpsertWithWhereUniqueWithoutCasaInput[]
+    createMany?: FavoritoCreateManyCasaInputEnvelope
+    set?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+    disconnect?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+    delete?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+    connect?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+    update?: FavoritoUpdateWithWhereUniqueWithoutCasaInput | FavoritoUpdateWithWhereUniqueWithoutCasaInput[]
+    updateMany?: FavoritoUpdateManyWithWhereWithoutCasaInput | FavoritoUpdateManyWithWhereWithoutCasaInput[]
+    deleteMany?: FavoritoScalarWhereInput | FavoritoScalarWhereInput[]
   }
 
   export type CasaCreateNestedManyWithoutLocadorInput = {
@@ -6589,11 +10020,25 @@ export namespace Prisma {
     connect?: CasaWhereUniqueInput | CasaWhereUniqueInput[]
   }
 
+  export type ReservaCreateNestedManyWithoutLocadorInput = {
+    create?: XOR<ReservaCreateWithoutLocadorInput, ReservaUncheckedCreateWithoutLocadorInput> | ReservaCreateWithoutLocadorInput[] | ReservaUncheckedCreateWithoutLocadorInput[]
+    connectOrCreate?: ReservaCreateOrConnectWithoutLocadorInput | ReservaCreateOrConnectWithoutLocadorInput[]
+    createMany?: ReservaCreateManyLocadorInputEnvelope
+    connect?: ReservaWhereUniqueInput | ReservaWhereUniqueInput[]
+  }
+
   export type CasaUncheckedCreateNestedManyWithoutLocadorInput = {
     create?: XOR<CasaCreateWithoutLocadorInput, CasaUncheckedCreateWithoutLocadorInput> | CasaCreateWithoutLocadorInput[] | CasaUncheckedCreateWithoutLocadorInput[]
     connectOrCreate?: CasaCreateOrConnectWithoutLocadorInput | CasaCreateOrConnectWithoutLocadorInput[]
     createMany?: CasaCreateManyLocadorInputEnvelope
     connect?: CasaWhereUniqueInput | CasaWhereUniqueInput[]
+  }
+
+  export type ReservaUncheckedCreateNestedManyWithoutLocadorInput = {
+    create?: XOR<ReservaCreateWithoutLocadorInput, ReservaUncheckedCreateWithoutLocadorInput> | ReservaCreateWithoutLocadorInput[] | ReservaUncheckedCreateWithoutLocadorInput[]
+    connectOrCreate?: ReservaCreateOrConnectWithoutLocadorInput | ReservaCreateOrConnectWithoutLocadorInput[]
+    createMany?: ReservaCreateManyLocadorInputEnvelope
+    connect?: ReservaWhereUniqueInput | ReservaWhereUniqueInput[]
   }
 
   export type CasaUpdateManyWithoutLocadorNestedInput = {
@@ -6610,6 +10055,20 @@ export namespace Prisma {
     deleteMany?: CasaScalarWhereInput | CasaScalarWhereInput[]
   }
 
+  export type ReservaUpdateManyWithoutLocadorNestedInput = {
+    create?: XOR<ReservaCreateWithoutLocadorInput, ReservaUncheckedCreateWithoutLocadorInput> | ReservaCreateWithoutLocadorInput[] | ReservaUncheckedCreateWithoutLocadorInput[]
+    connectOrCreate?: ReservaCreateOrConnectWithoutLocadorInput | ReservaCreateOrConnectWithoutLocadorInput[]
+    upsert?: ReservaUpsertWithWhereUniqueWithoutLocadorInput | ReservaUpsertWithWhereUniqueWithoutLocadorInput[]
+    createMany?: ReservaCreateManyLocadorInputEnvelope
+    set?: ReservaWhereUniqueInput | ReservaWhereUniqueInput[]
+    disconnect?: ReservaWhereUniqueInput | ReservaWhereUniqueInput[]
+    delete?: ReservaWhereUniqueInput | ReservaWhereUniqueInput[]
+    connect?: ReservaWhereUniqueInput | ReservaWhereUniqueInput[]
+    update?: ReservaUpdateWithWhereUniqueWithoutLocadorInput | ReservaUpdateWithWhereUniqueWithoutLocadorInput[]
+    updateMany?: ReservaUpdateManyWithWhereWithoutLocadorInput | ReservaUpdateManyWithWhereWithoutLocadorInput[]
+    deleteMany?: ReservaScalarWhereInput | ReservaScalarWhereInput[]
+  }
+
   export type CasaUncheckedUpdateManyWithoutLocadorNestedInput = {
     create?: XOR<CasaCreateWithoutLocadorInput, CasaUncheckedCreateWithoutLocadorInput> | CasaCreateWithoutLocadorInput[] | CasaUncheckedCreateWithoutLocadorInput[]
     connectOrCreate?: CasaCreateOrConnectWithoutLocadorInput | CasaCreateOrConnectWithoutLocadorInput[]
@@ -6622,6 +10081,194 @@ export namespace Prisma {
     update?: CasaUpdateWithWhereUniqueWithoutLocadorInput | CasaUpdateWithWhereUniqueWithoutLocadorInput[]
     updateMany?: CasaUpdateManyWithWhereWithoutLocadorInput | CasaUpdateManyWithWhereWithoutLocadorInput[]
     deleteMany?: CasaScalarWhereInput | CasaScalarWhereInput[]
+  }
+
+  export type ReservaUncheckedUpdateManyWithoutLocadorNestedInput = {
+    create?: XOR<ReservaCreateWithoutLocadorInput, ReservaUncheckedCreateWithoutLocadorInput> | ReservaCreateWithoutLocadorInput[] | ReservaUncheckedCreateWithoutLocadorInput[]
+    connectOrCreate?: ReservaCreateOrConnectWithoutLocadorInput | ReservaCreateOrConnectWithoutLocadorInput[]
+    upsert?: ReservaUpsertWithWhereUniqueWithoutLocadorInput | ReservaUpsertWithWhereUniqueWithoutLocadorInput[]
+    createMany?: ReservaCreateManyLocadorInputEnvelope
+    set?: ReservaWhereUniqueInput | ReservaWhereUniqueInput[]
+    disconnect?: ReservaWhereUniqueInput | ReservaWhereUniqueInput[]
+    delete?: ReservaWhereUniqueInput | ReservaWhereUniqueInput[]
+    connect?: ReservaWhereUniqueInput | ReservaWhereUniqueInput[]
+    update?: ReservaUpdateWithWhereUniqueWithoutLocadorInput | ReservaUpdateWithWhereUniqueWithoutLocadorInput[]
+    updateMany?: ReservaUpdateManyWithWhereWithoutLocadorInput | ReservaUpdateManyWithWhereWithoutLocadorInput[]
+    deleteMany?: ReservaScalarWhereInput | ReservaScalarWhereInput[]
+  }
+
+  export type ReservaCreateNestedManyWithoutHospedeInput = {
+    create?: XOR<ReservaCreateWithoutHospedeInput, ReservaUncheckedCreateWithoutHospedeInput> | ReservaCreateWithoutHospedeInput[] | ReservaUncheckedCreateWithoutHospedeInput[]
+    connectOrCreate?: ReservaCreateOrConnectWithoutHospedeInput | ReservaCreateOrConnectWithoutHospedeInput[]
+    createMany?: ReservaCreateManyHospedeInputEnvelope
+    connect?: ReservaWhereUniqueInput | ReservaWhereUniqueInput[]
+  }
+
+  export type FavoritoCreateNestedManyWithoutHospedeInput = {
+    create?: XOR<FavoritoCreateWithoutHospedeInput, FavoritoUncheckedCreateWithoutHospedeInput> | FavoritoCreateWithoutHospedeInput[] | FavoritoUncheckedCreateWithoutHospedeInput[]
+    connectOrCreate?: FavoritoCreateOrConnectWithoutHospedeInput | FavoritoCreateOrConnectWithoutHospedeInput[]
+    createMany?: FavoritoCreateManyHospedeInputEnvelope
+    connect?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+  }
+
+  export type ReservaUncheckedCreateNestedManyWithoutHospedeInput = {
+    create?: XOR<ReservaCreateWithoutHospedeInput, ReservaUncheckedCreateWithoutHospedeInput> | ReservaCreateWithoutHospedeInput[] | ReservaUncheckedCreateWithoutHospedeInput[]
+    connectOrCreate?: ReservaCreateOrConnectWithoutHospedeInput | ReservaCreateOrConnectWithoutHospedeInput[]
+    createMany?: ReservaCreateManyHospedeInputEnvelope
+    connect?: ReservaWhereUniqueInput | ReservaWhereUniqueInput[]
+  }
+
+  export type FavoritoUncheckedCreateNestedManyWithoutHospedeInput = {
+    create?: XOR<FavoritoCreateWithoutHospedeInput, FavoritoUncheckedCreateWithoutHospedeInput> | FavoritoCreateWithoutHospedeInput[] | FavoritoUncheckedCreateWithoutHospedeInput[]
+    connectOrCreate?: FavoritoCreateOrConnectWithoutHospedeInput | FavoritoCreateOrConnectWithoutHospedeInput[]
+    createMany?: FavoritoCreateManyHospedeInputEnvelope
+    connect?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+  }
+
+  export type ReservaUpdateManyWithoutHospedeNestedInput = {
+    create?: XOR<ReservaCreateWithoutHospedeInput, ReservaUncheckedCreateWithoutHospedeInput> | ReservaCreateWithoutHospedeInput[] | ReservaUncheckedCreateWithoutHospedeInput[]
+    connectOrCreate?: ReservaCreateOrConnectWithoutHospedeInput | ReservaCreateOrConnectWithoutHospedeInput[]
+    upsert?: ReservaUpsertWithWhereUniqueWithoutHospedeInput | ReservaUpsertWithWhereUniqueWithoutHospedeInput[]
+    createMany?: ReservaCreateManyHospedeInputEnvelope
+    set?: ReservaWhereUniqueInput | ReservaWhereUniqueInput[]
+    disconnect?: ReservaWhereUniqueInput | ReservaWhereUniqueInput[]
+    delete?: ReservaWhereUniqueInput | ReservaWhereUniqueInput[]
+    connect?: ReservaWhereUniqueInput | ReservaWhereUniqueInput[]
+    update?: ReservaUpdateWithWhereUniqueWithoutHospedeInput | ReservaUpdateWithWhereUniqueWithoutHospedeInput[]
+    updateMany?: ReservaUpdateManyWithWhereWithoutHospedeInput | ReservaUpdateManyWithWhereWithoutHospedeInput[]
+    deleteMany?: ReservaScalarWhereInput | ReservaScalarWhereInput[]
+  }
+
+  export type FavoritoUpdateManyWithoutHospedeNestedInput = {
+    create?: XOR<FavoritoCreateWithoutHospedeInput, FavoritoUncheckedCreateWithoutHospedeInput> | FavoritoCreateWithoutHospedeInput[] | FavoritoUncheckedCreateWithoutHospedeInput[]
+    connectOrCreate?: FavoritoCreateOrConnectWithoutHospedeInput | FavoritoCreateOrConnectWithoutHospedeInput[]
+    upsert?: FavoritoUpsertWithWhereUniqueWithoutHospedeInput | FavoritoUpsertWithWhereUniqueWithoutHospedeInput[]
+    createMany?: FavoritoCreateManyHospedeInputEnvelope
+    set?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+    disconnect?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+    delete?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+    connect?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+    update?: FavoritoUpdateWithWhereUniqueWithoutHospedeInput | FavoritoUpdateWithWhereUniqueWithoutHospedeInput[]
+    updateMany?: FavoritoUpdateManyWithWhereWithoutHospedeInput | FavoritoUpdateManyWithWhereWithoutHospedeInput[]
+    deleteMany?: FavoritoScalarWhereInput | FavoritoScalarWhereInput[]
+  }
+
+  export type ReservaUncheckedUpdateManyWithoutHospedeNestedInput = {
+    create?: XOR<ReservaCreateWithoutHospedeInput, ReservaUncheckedCreateWithoutHospedeInput> | ReservaCreateWithoutHospedeInput[] | ReservaUncheckedCreateWithoutHospedeInput[]
+    connectOrCreate?: ReservaCreateOrConnectWithoutHospedeInput | ReservaCreateOrConnectWithoutHospedeInput[]
+    upsert?: ReservaUpsertWithWhereUniqueWithoutHospedeInput | ReservaUpsertWithWhereUniqueWithoutHospedeInput[]
+    createMany?: ReservaCreateManyHospedeInputEnvelope
+    set?: ReservaWhereUniqueInput | ReservaWhereUniqueInput[]
+    disconnect?: ReservaWhereUniqueInput | ReservaWhereUniqueInput[]
+    delete?: ReservaWhereUniqueInput | ReservaWhereUniqueInput[]
+    connect?: ReservaWhereUniqueInput | ReservaWhereUniqueInput[]
+    update?: ReservaUpdateWithWhereUniqueWithoutHospedeInput | ReservaUpdateWithWhereUniqueWithoutHospedeInput[]
+    updateMany?: ReservaUpdateManyWithWhereWithoutHospedeInput | ReservaUpdateManyWithWhereWithoutHospedeInput[]
+    deleteMany?: ReservaScalarWhereInput | ReservaScalarWhereInput[]
+  }
+
+  export type FavoritoUncheckedUpdateManyWithoutHospedeNestedInput = {
+    create?: XOR<FavoritoCreateWithoutHospedeInput, FavoritoUncheckedCreateWithoutHospedeInput> | FavoritoCreateWithoutHospedeInput[] | FavoritoUncheckedCreateWithoutHospedeInput[]
+    connectOrCreate?: FavoritoCreateOrConnectWithoutHospedeInput | FavoritoCreateOrConnectWithoutHospedeInput[]
+    upsert?: FavoritoUpsertWithWhereUniqueWithoutHospedeInput | FavoritoUpsertWithWhereUniqueWithoutHospedeInput[]
+    createMany?: FavoritoCreateManyHospedeInputEnvelope
+    set?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+    disconnect?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+    delete?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+    connect?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+    update?: FavoritoUpdateWithWhereUniqueWithoutHospedeInput | FavoritoUpdateWithWhereUniqueWithoutHospedeInput[]
+    updateMany?: FavoritoUpdateManyWithWhereWithoutHospedeInput | FavoritoUpdateManyWithWhereWithoutHospedeInput[]
+    deleteMany?: FavoritoScalarWhereInput | FavoritoScalarWhereInput[]
+  }
+
+  export type HospedeCreateNestedOneWithoutReservasInput = {
+    create?: XOR<HospedeCreateWithoutReservasInput, HospedeUncheckedCreateWithoutReservasInput>
+    connectOrCreate?: HospedeCreateOrConnectWithoutReservasInput
+    connect?: HospedeWhereUniqueInput
+  }
+
+  export type CasaCreateNestedOneWithoutReservasInput = {
+    create?: XOR<CasaCreateWithoutReservasInput, CasaUncheckedCreateWithoutReservasInput>
+    connectOrCreate?: CasaCreateOrConnectWithoutReservasInput
+    connect?: CasaWhereUniqueInput
+  }
+
+  export type LocadorCreateNestedOneWithoutReservasInput = {
+    create?: XOR<LocadorCreateWithoutReservasInput, LocadorUncheckedCreateWithoutReservasInput>
+    connectOrCreate?: LocadorCreateOrConnectWithoutReservasInput
+    connect?: LocadorWhereUniqueInput
+  }
+
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
+  }
+
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type NullableFloatFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type HospedeUpdateOneRequiredWithoutReservasNestedInput = {
+    create?: XOR<HospedeCreateWithoutReservasInput, HospedeUncheckedCreateWithoutReservasInput>
+    connectOrCreate?: HospedeCreateOrConnectWithoutReservasInput
+    upsert?: HospedeUpsertWithoutReservasInput
+    connect?: HospedeWhereUniqueInput
+    update?: XOR<XOR<HospedeUpdateToOneWithWhereWithoutReservasInput, HospedeUpdateWithoutReservasInput>, HospedeUncheckedUpdateWithoutReservasInput>
+  }
+
+  export type CasaUpdateOneRequiredWithoutReservasNestedInput = {
+    create?: XOR<CasaCreateWithoutReservasInput, CasaUncheckedCreateWithoutReservasInput>
+    connectOrCreate?: CasaCreateOrConnectWithoutReservasInput
+    upsert?: CasaUpsertWithoutReservasInput
+    connect?: CasaWhereUniqueInput
+    update?: XOR<XOR<CasaUpdateToOneWithWhereWithoutReservasInput, CasaUpdateWithoutReservasInput>, CasaUncheckedUpdateWithoutReservasInput>
+  }
+
+  export type LocadorUpdateOneRequiredWithoutReservasNestedInput = {
+    create?: XOR<LocadorCreateWithoutReservasInput, LocadorUncheckedCreateWithoutReservasInput>
+    connectOrCreate?: LocadorCreateOrConnectWithoutReservasInput
+    upsert?: LocadorUpsertWithoutReservasInput
+    connect?: LocadorWhereUniqueInput
+    update?: XOR<XOR<LocadorUpdateToOneWithWhereWithoutReservasInput, LocadorUpdateWithoutReservasInput>, LocadorUncheckedUpdateWithoutReservasInput>
+  }
+
+  export type HospedeCreateNestedOneWithoutFavoritosInput = {
+    create?: XOR<HospedeCreateWithoutFavoritosInput, HospedeUncheckedCreateWithoutFavoritosInput>
+    connectOrCreate?: HospedeCreateOrConnectWithoutFavoritosInput
+    connect?: HospedeWhereUniqueInput
+  }
+
+  export type CasaCreateNestedOneWithoutFavoritosInput = {
+    create?: XOR<CasaCreateWithoutFavoritosInput, CasaUncheckedCreateWithoutFavoritosInput>
+    connectOrCreate?: CasaCreateOrConnectWithoutFavoritosInput
+    connect?: CasaWhereUniqueInput
+  }
+
+  export type HospedeUpdateOneRequiredWithoutFavoritosNestedInput = {
+    create?: XOR<HospedeCreateWithoutFavoritosInput, HospedeUncheckedCreateWithoutFavoritosInput>
+    connectOrCreate?: HospedeCreateOrConnectWithoutFavoritosInput
+    upsert?: HospedeUpsertWithoutFavoritosInput
+    connect?: HospedeWhereUniqueInput
+    update?: XOR<XOR<HospedeUpdateToOneWithWhereWithoutFavoritosInput, HospedeUpdateWithoutFavoritosInput>, HospedeUncheckedUpdateWithoutFavoritosInput>
+  }
+
+  export type CasaUpdateOneRequiredWithoutFavoritosNestedInput = {
+    create?: XOR<CasaCreateWithoutFavoritosInput, CasaUncheckedCreateWithoutFavoritosInput>
+    connectOrCreate?: CasaCreateOrConnectWithoutFavoritosInput
+    upsert?: CasaUpsertWithoutFavoritosInput
+    connect?: CasaWhereUniqueInput
+    update?: XOR<XOR<CasaUpdateToOneWithWhereWithoutFavoritosInput, CasaUpdateWithoutFavoritosInput>, CasaUncheckedUpdateWithoutFavoritosInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -6735,6 +10382,74 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
+  }
+
   export type LocadorCreateWithoutCasasInput = {
     name: string
     email: string
@@ -6744,6 +10459,7 @@ export namespace Prisma {
     cep?: string | null
     cidade?: string | null
     estado?: string | null
+    reservas?: ReservaCreateNestedManyWithoutLocadorInput
   }
 
   export type LocadorUncheckedCreateWithoutCasasInput = {
@@ -6756,11 +10472,68 @@ export namespace Prisma {
     cep?: string | null
     cidade?: string | null
     estado?: string | null
+    reservas?: ReservaUncheckedCreateNestedManyWithoutLocadorInput
   }
 
   export type LocadorCreateOrConnectWithoutCasasInput = {
     where: LocadorWhereUniqueInput
     create: XOR<LocadorCreateWithoutCasasInput, LocadorUncheckedCreateWithoutCasasInput>
+  }
+
+  export type ReservaCreateWithoutCasaInput = {
+    dataCheckIn: Date | string
+    dataCheckOut: Date | string
+    status: string
+    numeroHospedes?: number | null
+    valorTotal?: number | null
+    observacoes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    hospede: HospedeCreateNestedOneWithoutReservasInput
+    locador: LocadorCreateNestedOneWithoutReservasInput
+  }
+
+  export type ReservaUncheckedCreateWithoutCasaInput = {
+    id?: number
+    dataCheckIn: Date | string
+    dataCheckOut: Date | string
+    status: string
+    numeroHospedes?: number | null
+    valorTotal?: number | null
+    observacoes?: string | null
+    hospedeId: number
+    locadorId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ReservaCreateOrConnectWithoutCasaInput = {
+    where: ReservaWhereUniqueInput
+    create: XOR<ReservaCreateWithoutCasaInput, ReservaUncheckedCreateWithoutCasaInput>
+  }
+
+  export type ReservaCreateManyCasaInputEnvelope = {
+    data: ReservaCreateManyCasaInput | ReservaCreateManyCasaInput[]
+  }
+
+  export type FavoritoCreateWithoutCasaInput = {
+    createdAt?: Date | string
+    hospede: HospedeCreateNestedOneWithoutFavoritosInput
+  }
+
+  export type FavoritoUncheckedCreateWithoutCasaInput = {
+    id?: number
+    hospedeId: number
+    createdAt?: Date | string
+  }
+
+  export type FavoritoCreateOrConnectWithoutCasaInput = {
+    where: FavoritoWhereUniqueInput
+    create: XOR<FavoritoCreateWithoutCasaInput, FavoritoUncheckedCreateWithoutCasaInput>
+  }
+
+  export type FavoritoCreateManyCasaInputEnvelope = {
+    data: FavoritoCreateManyCasaInput | FavoritoCreateManyCasaInput[]
   }
 
   export type LocadorUpsertWithoutCasasInput = {
@@ -6783,6 +10556,7 @@ export namespace Prisma {
     cep?: NullableStringFieldUpdateOperationsInput | string | null
     cidade?: NullableStringFieldUpdateOperationsInput | string | null
     estado?: NullableStringFieldUpdateOperationsInput | string | null
+    reservas?: ReservaUpdateManyWithoutLocadorNestedInput
   }
 
   export type LocadorUncheckedUpdateWithoutCasasInput = {
@@ -6795,6 +10569,67 @@ export namespace Prisma {
     cep?: NullableStringFieldUpdateOperationsInput | string | null
     cidade?: NullableStringFieldUpdateOperationsInput | string | null
     estado?: NullableStringFieldUpdateOperationsInput | string | null
+    reservas?: ReservaUncheckedUpdateManyWithoutLocadorNestedInput
+  }
+
+  export type ReservaUpsertWithWhereUniqueWithoutCasaInput = {
+    where: ReservaWhereUniqueInput
+    update: XOR<ReservaUpdateWithoutCasaInput, ReservaUncheckedUpdateWithoutCasaInput>
+    create: XOR<ReservaCreateWithoutCasaInput, ReservaUncheckedCreateWithoutCasaInput>
+  }
+
+  export type ReservaUpdateWithWhereUniqueWithoutCasaInput = {
+    where: ReservaWhereUniqueInput
+    data: XOR<ReservaUpdateWithoutCasaInput, ReservaUncheckedUpdateWithoutCasaInput>
+  }
+
+  export type ReservaUpdateManyWithWhereWithoutCasaInput = {
+    where: ReservaScalarWhereInput
+    data: XOR<ReservaUpdateManyMutationInput, ReservaUncheckedUpdateManyWithoutCasaInput>
+  }
+
+  export type ReservaScalarWhereInput = {
+    AND?: ReservaScalarWhereInput | ReservaScalarWhereInput[]
+    OR?: ReservaScalarWhereInput[]
+    NOT?: ReservaScalarWhereInput | ReservaScalarWhereInput[]
+    id?: IntFilter<"Reserva"> | number
+    dataCheckIn?: DateTimeFilter<"Reserva"> | Date | string
+    dataCheckOut?: DateTimeFilter<"Reserva"> | Date | string
+    status?: StringFilter<"Reserva"> | string
+    numeroHospedes?: IntNullableFilter<"Reserva"> | number | null
+    valorTotal?: FloatNullableFilter<"Reserva"> | number | null
+    observacoes?: StringNullableFilter<"Reserva"> | string | null
+    hospedeId?: IntFilter<"Reserva"> | number
+    casaId?: IntFilter<"Reserva"> | number
+    locadorId?: IntFilter<"Reserva"> | number
+    createdAt?: DateTimeFilter<"Reserva"> | Date | string
+    updatedAt?: DateTimeFilter<"Reserva"> | Date | string
+  }
+
+  export type FavoritoUpsertWithWhereUniqueWithoutCasaInput = {
+    where: FavoritoWhereUniqueInput
+    update: XOR<FavoritoUpdateWithoutCasaInput, FavoritoUncheckedUpdateWithoutCasaInput>
+    create: XOR<FavoritoCreateWithoutCasaInput, FavoritoUncheckedCreateWithoutCasaInput>
+  }
+
+  export type FavoritoUpdateWithWhereUniqueWithoutCasaInput = {
+    where: FavoritoWhereUniqueInput
+    data: XOR<FavoritoUpdateWithoutCasaInput, FavoritoUncheckedUpdateWithoutCasaInput>
+  }
+
+  export type FavoritoUpdateManyWithWhereWithoutCasaInput = {
+    where: FavoritoScalarWhereInput
+    data: XOR<FavoritoUpdateManyMutationInput, FavoritoUncheckedUpdateManyWithoutCasaInput>
+  }
+
+  export type FavoritoScalarWhereInput = {
+    AND?: FavoritoScalarWhereInput | FavoritoScalarWhereInput[]
+    OR?: FavoritoScalarWhereInput[]
+    NOT?: FavoritoScalarWhereInput | FavoritoScalarWhereInput[]
+    id?: IntFilter<"Favorito"> | number
+    hospedeId?: IntFilter<"Favorito"> | number
+    casaId?: IntFilter<"Favorito"> | number
+    createdAt?: DateTimeFilter<"Favorito"> | Date | string
   }
 
   export type CasaCreateWithoutLocadorInput = {
@@ -6805,6 +10640,8 @@ export namespace Prisma {
     estado?: string | null
     diretrizes: string
     complemento?: string | null
+    reservas?: ReservaCreateNestedManyWithoutCasaInput
+    favoritos?: FavoritoCreateNestedManyWithoutCasaInput
   }
 
   export type CasaUncheckedCreateWithoutLocadorInput = {
@@ -6816,6 +10653,8 @@ export namespace Prisma {
     estado?: string | null
     diretrizes: string
     complemento?: string | null
+    reservas?: ReservaUncheckedCreateNestedManyWithoutCasaInput
+    favoritos?: FavoritoUncheckedCreateNestedManyWithoutCasaInput
   }
 
   export type CasaCreateOrConnectWithoutLocadorInput = {
@@ -6825,6 +10664,42 @@ export namespace Prisma {
 
   export type CasaCreateManyLocadorInputEnvelope = {
     data: CasaCreateManyLocadorInput | CasaCreateManyLocadorInput[]
+  }
+
+  export type ReservaCreateWithoutLocadorInput = {
+    dataCheckIn: Date | string
+    dataCheckOut: Date | string
+    status: string
+    numeroHospedes?: number | null
+    valorTotal?: number | null
+    observacoes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    hospede: HospedeCreateNestedOneWithoutReservasInput
+    casa: CasaCreateNestedOneWithoutReservasInput
+  }
+
+  export type ReservaUncheckedCreateWithoutLocadorInput = {
+    id?: number
+    dataCheckIn: Date | string
+    dataCheckOut: Date | string
+    status: string
+    numeroHospedes?: number | null
+    valorTotal?: number | null
+    observacoes?: string | null
+    hospedeId: number
+    casaId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ReservaCreateOrConnectWithoutLocadorInput = {
+    where: ReservaWhereUniqueInput
+    create: XOR<ReservaCreateWithoutLocadorInput, ReservaUncheckedCreateWithoutLocadorInput>
+  }
+
+  export type ReservaCreateManyLocadorInputEnvelope = {
+    data: ReservaCreateManyLocadorInput | ReservaCreateManyLocadorInput[]
   }
 
   export type CasaUpsertWithWhereUniqueWithoutLocadorInput = {
@@ -6858,6 +10733,526 @@ export namespace Prisma {
     locadorId?: IntFilter<"Casa"> | number
   }
 
+  export type ReservaUpsertWithWhereUniqueWithoutLocadorInput = {
+    where: ReservaWhereUniqueInput
+    update: XOR<ReservaUpdateWithoutLocadorInput, ReservaUncheckedUpdateWithoutLocadorInput>
+    create: XOR<ReservaCreateWithoutLocadorInput, ReservaUncheckedCreateWithoutLocadorInput>
+  }
+
+  export type ReservaUpdateWithWhereUniqueWithoutLocadorInput = {
+    where: ReservaWhereUniqueInput
+    data: XOR<ReservaUpdateWithoutLocadorInput, ReservaUncheckedUpdateWithoutLocadorInput>
+  }
+
+  export type ReservaUpdateManyWithWhereWithoutLocadorInput = {
+    where: ReservaScalarWhereInput
+    data: XOR<ReservaUpdateManyMutationInput, ReservaUncheckedUpdateManyWithoutLocadorInput>
+  }
+
+  export type ReservaCreateWithoutHospedeInput = {
+    dataCheckIn: Date | string
+    dataCheckOut: Date | string
+    status: string
+    numeroHospedes?: number | null
+    valorTotal?: number | null
+    observacoes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    casa: CasaCreateNestedOneWithoutReservasInput
+    locador: LocadorCreateNestedOneWithoutReservasInput
+  }
+
+  export type ReservaUncheckedCreateWithoutHospedeInput = {
+    id?: number
+    dataCheckIn: Date | string
+    dataCheckOut: Date | string
+    status: string
+    numeroHospedes?: number | null
+    valorTotal?: number | null
+    observacoes?: string | null
+    casaId: number
+    locadorId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ReservaCreateOrConnectWithoutHospedeInput = {
+    where: ReservaWhereUniqueInput
+    create: XOR<ReservaCreateWithoutHospedeInput, ReservaUncheckedCreateWithoutHospedeInput>
+  }
+
+  export type ReservaCreateManyHospedeInputEnvelope = {
+    data: ReservaCreateManyHospedeInput | ReservaCreateManyHospedeInput[]
+  }
+
+  export type FavoritoCreateWithoutHospedeInput = {
+    createdAt?: Date | string
+    casa: CasaCreateNestedOneWithoutFavoritosInput
+  }
+
+  export type FavoritoUncheckedCreateWithoutHospedeInput = {
+    id?: number
+    casaId: number
+    createdAt?: Date | string
+  }
+
+  export type FavoritoCreateOrConnectWithoutHospedeInput = {
+    where: FavoritoWhereUniqueInput
+    create: XOR<FavoritoCreateWithoutHospedeInput, FavoritoUncheckedCreateWithoutHospedeInput>
+  }
+
+  export type FavoritoCreateManyHospedeInputEnvelope = {
+    data: FavoritoCreateManyHospedeInput | FavoritoCreateManyHospedeInput[]
+  }
+
+  export type ReservaUpsertWithWhereUniqueWithoutHospedeInput = {
+    where: ReservaWhereUniqueInput
+    update: XOR<ReservaUpdateWithoutHospedeInput, ReservaUncheckedUpdateWithoutHospedeInput>
+    create: XOR<ReservaCreateWithoutHospedeInput, ReservaUncheckedCreateWithoutHospedeInput>
+  }
+
+  export type ReservaUpdateWithWhereUniqueWithoutHospedeInput = {
+    where: ReservaWhereUniqueInput
+    data: XOR<ReservaUpdateWithoutHospedeInput, ReservaUncheckedUpdateWithoutHospedeInput>
+  }
+
+  export type ReservaUpdateManyWithWhereWithoutHospedeInput = {
+    where: ReservaScalarWhereInput
+    data: XOR<ReservaUpdateManyMutationInput, ReservaUncheckedUpdateManyWithoutHospedeInput>
+  }
+
+  export type FavoritoUpsertWithWhereUniqueWithoutHospedeInput = {
+    where: FavoritoWhereUniqueInput
+    update: XOR<FavoritoUpdateWithoutHospedeInput, FavoritoUncheckedUpdateWithoutHospedeInput>
+    create: XOR<FavoritoCreateWithoutHospedeInput, FavoritoUncheckedCreateWithoutHospedeInput>
+  }
+
+  export type FavoritoUpdateWithWhereUniqueWithoutHospedeInput = {
+    where: FavoritoWhereUniqueInput
+    data: XOR<FavoritoUpdateWithoutHospedeInput, FavoritoUncheckedUpdateWithoutHospedeInput>
+  }
+
+  export type FavoritoUpdateManyWithWhereWithoutHospedeInput = {
+    where: FavoritoScalarWhereInput
+    data: XOR<FavoritoUpdateManyMutationInput, FavoritoUncheckedUpdateManyWithoutHospedeInput>
+  }
+
+  export type HospedeCreateWithoutReservasInput = {
+    name: string
+    email: string
+    senha: string
+    cpf: string
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
+    matricula: string
+    universidade?: string | null
+    favoritos?: FavoritoCreateNestedManyWithoutHospedeInput
+  }
+
+  export type HospedeUncheckedCreateWithoutReservasInput = {
+    id?: number
+    name: string
+    email: string
+    senha: string
+    cpf: string
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
+    matricula: string
+    universidade?: string | null
+    favoritos?: FavoritoUncheckedCreateNestedManyWithoutHospedeInput
+  }
+
+  export type HospedeCreateOrConnectWithoutReservasInput = {
+    where: HospedeWhereUniqueInput
+    create: XOR<HospedeCreateWithoutReservasInput, HospedeUncheckedCreateWithoutReservasInput>
+  }
+
+  export type CasaCreateWithoutReservasInput = {
+    endereco: string
+    numero: number
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
+    diretrizes: string
+    complemento?: string | null
+    locador: LocadorCreateNestedOneWithoutCasasInput
+    favoritos?: FavoritoCreateNestedManyWithoutCasaInput
+  }
+
+  export type CasaUncheckedCreateWithoutReservasInput = {
+    id?: number
+    endereco: string
+    numero: number
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
+    diretrizes: string
+    complemento?: string | null
+    locadorId: number
+    favoritos?: FavoritoUncheckedCreateNestedManyWithoutCasaInput
+  }
+
+  export type CasaCreateOrConnectWithoutReservasInput = {
+    where: CasaWhereUniqueInput
+    create: XOR<CasaCreateWithoutReservasInput, CasaUncheckedCreateWithoutReservasInput>
+  }
+
+  export type LocadorCreateWithoutReservasInput = {
+    name: string
+    email: string
+    senha: string
+    cpf: string
+    endereco: string
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
+    casas?: CasaCreateNestedManyWithoutLocadorInput
+  }
+
+  export type LocadorUncheckedCreateWithoutReservasInput = {
+    id?: number
+    name: string
+    email: string
+    senha: string
+    cpf: string
+    endereco: string
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
+    casas?: CasaUncheckedCreateNestedManyWithoutLocadorInput
+  }
+
+  export type LocadorCreateOrConnectWithoutReservasInput = {
+    where: LocadorWhereUniqueInput
+    create: XOR<LocadorCreateWithoutReservasInput, LocadorUncheckedCreateWithoutReservasInput>
+  }
+
+  export type HospedeUpsertWithoutReservasInput = {
+    update: XOR<HospedeUpdateWithoutReservasInput, HospedeUncheckedUpdateWithoutReservasInput>
+    create: XOR<HospedeCreateWithoutReservasInput, HospedeUncheckedCreateWithoutReservasInput>
+    where?: HospedeWhereInput
+  }
+
+  export type HospedeUpdateToOneWithWhereWithoutReservasInput = {
+    where?: HospedeWhereInput
+    data: XOR<HospedeUpdateWithoutReservasInput, HospedeUncheckedUpdateWithoutReservasInput>
+  }
+
+  export type HospedeUpdateWithoutReservasInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
+    cpf?: StringFieldUpdateOperationsInput | string
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
+    matricula?: StringFieldUpdateOperationsInput | string
+    universidade?: NullableStringFieldUpdateOperationsInput | string | null
+    favoritos?: FavoritoUpdateManyWithoutHospedeNestedInput
+  }
+
+  export type HospedeUncheckedUpdateWithoutReservasInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
+    cpf?: StringFieldUpdateOperationsInput | string
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
+    matricula?: StringFieldUpdateOperationsInput | string
+    universidade?: NullableStringFieldUpdateOperationsInput | string | null
+    favoritos?: FavoritoUncheckedUpdateManyWithoutHospedeNestedInput
+  }
+
+  export type CasaUpsertWithoutReservasInput = {
+    update: XOR<CasaUpdateWithoutReservasInput, CasaUncheckedUpdateWithoutReservasInput>
+    create: XOR<CasaCreateWithoutReservasInput, CasaUncheckedCreateWithoutReservasInput>
+    where?: CasaWhereInput
+  }
+
+  export type CasaUpdateToOneWithWhereWithoutReservasInput = {
+    where?: CasaWhereInput
+    data: XOR<CasaUpdateWithoutReservasInput, CasaUncheckedUpdateWithoutReservasInput>
+  }
+
+  export type CasaUpdateWithoutReservasInput = {
+    endereco?: StringFieldUpdateOperationsInput | string
+    numero?: IntFieldUpdateOperationsInput | number
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
+    diretrizes?: StringFieldUpdateOperationsInput | string
+    complemento?: NullableStringFieldUpdateOperationsInput | string | null
+    locador?: LocadorUpdateOneRequiredWithoutCasasNestedInput
+    favoritos?: FavoritoUpdateManyWithoutCasaNestedInput
+  }
+
+  export type CasaUncheckedUpdateWithoutReservasInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    endereco?: StringFieldUpdateOperationsInput | string
+    numero?: IntFieldUpdateOperationsInput | number
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
+    diretrizes?: StringFieldUpdateOperationsInput | string
+    complemento?: NullableStringFieldUpdateOperationsInput | string | null
+    locadorId?: IntFieldUpdateOperationsInput | number
+    favoritos?: FavoritoUncheckedUpdateManyWithoutCasaNestedInput
+  }
+
+  export type LocadorUpsertWithoutReservasInput = {
+    update: XOR<LocadorUpdateWithoutReservasInput, LocadorUncheckedUpdateWithoutReservasInput>
+    create: XOR<LocadorCreateWithoutReservasInput, LocadorUncheckedCreateWithoutReservasInput>
+    where?: LocadorWhereInput
+  }
+
+  export type LocadorUpdateToOneWithWhereWithoutReservasInput = {
+    where?: LocadorWhereInput
+    data: XOR<LocadorUpdateWithoutReservasInput, LocadorUncheckedUpdateWithoutReservasInput>
+  }
+
+  export type LocadorUpdateWithoutReservasInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
+    cpf?: StringFieldUpdateOperationsInput | string
+    endereco?: StringFieldUpdateOperationsInput | string
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
+    casas?: CasaUpdateManyWithoutLocadorNestedInput
+  }
+
+  export type LocadorUncheckedUpdateWithoutReservasInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
+    cpf?: StringFieldUpdateOperationsInput | string
+    endereco?: StringFieldUpdateOperationsInput | string
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
+    casas?: CasaUncheckedUpdateManyWithoutLocadorNestedInput
+  }
+
+  export type HospedeCreateWithoutFavoritosInput = {
+    name: string
+    email: string
+    senha: string
+    cpf: string
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
+    matricula: string
+    universidade?: string | null
+    reservas?: ReservaCreateNestedManyWithoutHospedeInput
+  }
+
+  export type HospedeUncheckedCreateWithoutFavoritosInput = {
+    id?: number
+    name: string
+    email: string
+    senha: string
+    cpf: string
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
+    matricula: string
+    universidade?: string | null
+    reservas?: ReservaUncheckedCreateNestedManyWithoutHospedeInput
+  }
+
+  export type HospedeCreateOrConnectWithoutFavoritosInput = {
+    where: HospedeWhereUniqueInput
+    create: XOR<HospedeCreateWithoutFavoritosInput, HospedeUncheckedCreateWithoutFavoritosInput>
+  }
+
+  export type CasaCreateWithoutFavoritosInput = {
+    endereco: string
+    numero: number
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
+    diretrizes: string
+    complemento?: string | null
+    locador: LocadorCreateNestedOneWithoutCasasInput
+    reservas?: ReservaCreateNestedManyWithoutCasaInput
+  }
+
+  export type CasaUncheckedCreateWithoutFavoritosInput = {
+    id?: number
+    endereco: string
+    numero: number
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
+    diretrizes: string
+    complemento?: string | null
+    locadorId: number
+    reservas?: ReservaUncheckedCreateNestedManyWithoutCasaInput
+  }
+
+  export type CasaCreateOrConnectWithoutFavoritosInput = {
+    where: CasaWhereUniqueInput
+    create: XOR<CasaCreateWithoutFavoritosInput, CasaUncheckedCreateWithoutFavoritosInput>
+  }
+
+  export type HospedeUpsertWithoutFavoritosInput = {
+    update: XOR<HospedeUpdateWithoutFavoritosInput, HospedeUncheckedUpdateWithoutFavoritosInput>
+    create: XOR<HospedeCreateWithoutFavoritosInput, HospedeUncheckedCreateWithoutFavoritosInput>
+    where?: HospedeWhereInput
+  }
+
+  export type HospedeUpdateToOneWithWhereWithoutFavoritosInput = {
+    where?: HospedeWhereInput
+    data: XOR<HospedeUpdateWithoutFavoritosInput, HospedeUncheckedUpdateWithoutFavoritosInput>
+  }
+
+  export type HospedeUpdateWithoutFavoritosInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
+    cpf?: StringFieldUpdateOperationsInput | string
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
+    matricula?: StringFieldUpdateOperationsInput | string
+    universidade?: NullableStringFieldUpdateOperationsInput | string | null
+    reservas?: ReservaUpdateManyWithoutHospedeNestedInput
+  }
+
+  export type HospedeUncheckedUpdateWithoutFavoritosInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
+    cpf?: StringFieldUpdateOperationsInput | string
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
+    matricula?: StringFieldUpdateOperationsInput | string
+    universidade?: NullableStringFieldUpdateOperationsInput | string | null
+    reservas?: ReservaUncheckedUpdateManyWithoutHospedeNestedInput
+  }
+
+  export type CasaUpsertWithoutFavoritosInput = {
+    update: XOR<CasaUpdateWithoutFavoritosInput, CasaUncheckedUpdateWithoutFavoritosInput>
+    create: XOR<CasaCreateWithoutFavoritosInput, CasaUncheckedCreateWithoutFavoritosInput>
+    where?: CasaWhereInput
+  }
+
+  export type CasaUpdateToOneWithWhereWithoutFavoritosInput = {
+    where?: CasaWhereInput
+    data: XOR<CasaUpdateWithoutFavoritosInput, CasaUncheckedUpdateWithoutFavoritosInput>
+  }
+
+  export type CasaUpdateWithoutFavoritosInput = {
+    endereco?: StringFieldUpdateOperationsInput | string
+    numero?: IntFieldUpdateOperationsInput | number
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
+    diretrizes?: StringFieldUpdateOperationsInput | string
+    complemento?: NullableStringFieldUpdateOperationsInput | string | null
+    locador?: LocadorUpdateOneRequiredWithoutCasasNestedInput
+    reservas?: ReservaUpdateManyWithoutCasaNestedInput
+  }
+
+  export type CasaUncheckedUpdateWithoutFavoritosInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    endereco?: StringFieldUpdateOperationsInput | string
+    numero?: IntFieldUpdateOperationsInput | number
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
+    diretrizes?: StringFieldUpdateOperationsInput | string
+    complemento?: NullableStringFieldUpdateOperationsInput | string | null
+    locadorId?: IntFieldUpdateOperationsInput | number
+    reservas?: ReservaUncheckedUpdateManyWithoutCasaNestedInput
+  }
+
+  export type ReservaCreateManyCasaInput = {
+    id?: number
+    dataCheckIn: Date | string
+    dataCheckOut: Date | string
+    status: string
+    numeroHospedes?: number | null
+    valorTotal?: number | null
+    observacoes?: string | null
+    hospedeId: number
+    locadorId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type FavoritoCreateManyCasaInput = {
+    id?: number
+    hospedeId: number
+    createdAt?: Date | string
+  }
+
+  export type ReservaUpdateWithoutCasaInput = {
+    dataCheckIn?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataCheckOut?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
+    numeroHospedes?: NullableIntFieldUpdateOperationsInput | number | null
+    valorTotal?: NullableFloatFieldUpdateOperationsInput | number | null
+    observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    hospede?: HospedeUpdateOneRequiredWithoutReservasNestedInput
+    locador?: LocadorUpdateOneRequiredWithoutReservasNestedInput
+  }
+
+  export type ReservaUncheckedUpdateWithoutCasaInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    dataCheckIn?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataCheckOut?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
+    numeroHospedes?: NullableIntFieldUpdateOperationsInput | number | null
+    valorTotal?: NullableFloatFieldUpdateOperationsInput | number | null
+    observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    hospedeId?: IntFieldUpdateOperationsInput | number
+    locadorId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ReservaUncheckedUpdateManyWithoutCasaInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    dataCheckIn?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataCheckOut?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
+    numeroHospedes?: NullableIntFieldUpdateOperationsInput | number | null
+    valorTotal?: NullableFloatFieldUpdateOperationsInput | number | null
+    observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    hospedeId?: IntFieldUpdateOperationsInput | number
+    locadorId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FavoritoUpdateWithoutCasaInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    hospede?: HospedeUpdateOneRequiredWithoutFavoritosNestedInput
+  }
+
+  export type FavoritoUncheckedUpdateWithoutCasaInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    hospedeId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FavoritoUncheckedUpdateManyWithoutCasaInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    hospedeId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type CasaCreateManyLocadorInput = {
     id?: number
     endereco: string
@@ -6869,6 +11264,20 @@ export namespace Prisma {
     complemento?: string | null
   }
 
+  export type ReservaCreateManyLocadorInput = {
+    id?: number
+    dataCheckIn: Date | string
+    dataCheckOut: Date | string
+    status: string
+    numeroHospedes?: number | null
+    valorTotal?: number | null
+    observacoes?: string | null
+    hospedeId: number
+    casaId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
   export type CasaUpdateWithoutLocadorInput = {
     endereco?: StringFieldUpdateOperationsInput | string
     numero?: IntFieldUpdateOperationsInput | number
@@ -6877,6 +11286,8 @@ export namespace Prisma {
     estado?: NullableStringFieldUpdateOperationsInput | string | null
     diretrizes?: StringFieldUpdateOperationsInput | string
     complemento?: NullableStringFieldUpdateOperationsInput | string | null
+    reservas?: ReservaUpdateManyWithoutCasaNestedInput
+    favoritos?: FavoritoUpdateManyWithoutCasaNestedInput
   }
 
   export type CasaUncheckedUpdateWithoutLocadorInput = {
@@ -6888,6 +11299,8 @@ export namespace Prisma {
     estado?: NullableStringFieldUpdateOperationsInput | string | null
     diretrizes?: StringFieldUpdateOperationsInput | string
     complemento?: NullableStringFieldUpdateOperationsInput | string | null
+    reservas?: ReservaUncheckedUpdateManyWithoutCasaNestedInput
+    favoritos?: FavoritoUncheckedUpdateManyWithoutCasaNestedInput
   }
 
   export type CasaUncheckedUpdateManyWithoutLocadorInput = {
@@ -6899,6 +11312,125 @@ export namespace Prisma {
     estado?: NullableStringFieldUpdateOperationsInput | string | null
     diretrizes?: StringFieldUpdateOperationsInput | string
     complemento?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ReservaUpdateWithoutLocadorInput = {
+    dataCheckIn?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataCheckOut?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
+    numeroHospedes?: NullableIntFieldUpdateOperationsInput | number | null
+    valorTotal?: NullableFloatFieldUpdateOperationsInput | number | null
+    observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    hospede?: HospedeUpdateOneRequiredWithoutReservasNestedInput
+    casa?: CasaUpdateOneRequiredWithoutReservasNestedInput
+  }
+
+  export type ReservaUncheckedUpdateWithoutLocadorInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    dataCheckIn?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataCheckOut?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
+    numeroHospedes?: NullableIntFieldUpdateOperationsInput | number | null
+    valorTotal?: NullableFloatFieldUpdateOperationsInput | number | null
+    observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    hospedeId?: IntFieldUpdateOperationsInput | number
+    casaId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ReservaUncheckedUpdateManyWithoutLocadorInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    dataCheckIn?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataCheckOut?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
+    numeroHospedes?: NullableIntFieldUpdateOperationsInput | number | null
+    valorTotal?: NullableFloatFieldUpdateOperationsInput | number | null
+    observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    hospedeId?: IntFieldUpdateOperationsInput | number
+    casaId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ReservaCreateManyHospedeInput = {
+    id?: number
+    dataCheckIn: Date | string
+    dataCheckOut: Date | string
+    status: string
+    numeroHospedes?: number | null
+    valorTotal?: number | null
+    observacoes?: string | null
+    casaId: number
+    locadorId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type FavoritoCreateManyHospedeInput = {
+    id?: number
+    casaId: number
+    createdAt?: Date | string
+  }
+
+  export type ReservaUpdateWithoutHospedeInput = {
+    dataCheckIn?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataCheckOut?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
+    numeroHospedes?: NullableIntFieldUpdateOperationsInput | number | null
+    valorTotal?: NullableFloatFieldUpdateOperationsInput | number | null
+    observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    casa?: CasaUpdateOneRequiredWithoutReservasNestedInput
+    locador?: LocadorUpdateOneRequiredWithoutReservasNestedInput
+  }
+
+  export type ReservaUncheckedUpdateWithoutHospedeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    dataCheckIn?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataCheckOut?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
+    numeroHospedes?: NullableIntFieldUpdateOperationsInput | number | null
+    valorTotal?: NullableFloatFieldUpdateOperationsInput | number | null
+    observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    casaId?: IntFieldUpdateOperationsInput | number
+    locadorId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ReservaUncheckedUpdateManyWithoutHospedeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    dataCheckIn?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataCheckOut?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
+    numeroHospedes?: NullableIntFieldUpdateOperationsInput | number | null
+    valorTotal?: NullableFloatFieldUpdateOperationsInput | number | null
+    observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    casaId?: IntFieldUpdateOperationsInput | number
+    locadorId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FavoritoUpdateWithoutHospedeInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    casa?: CasaUpdateOneRequiredWithoutFavoritosNestedInput
+  }
+
+  export type FavoritoUncheckedUpdateWithoutHospedeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    casaId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FavoritoUncheckedUpdateManyWithoutHospedeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    casaId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 

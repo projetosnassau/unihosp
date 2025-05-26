@@ -161,6 +161,28 @@ exports.Prisma.HospedeScalarFieldEnum = {
   universidade: 'universidade'
 };
 
+exports.Prisma.ReservaScalarFieldEnum = {
+  id: 'id',
+  dataCheckIn: 'dataCheckIn',
+  dataCheckOut: 'dataCheckOut',
+  status: 'status',
+  numeroHospedes: 'numeroHospedes',
+  valorTotal: 'valorTotal',
+  observacoes: 'observacoes',
+  hospedeId: 'hospedeId',
+  casaId: 'casaId',
+  locadorId: 'locadorId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.FavoritoScalarFieldEnum = {
+  id: 'id',
+  hospedeId: 'hospedeId',
+  casaId: 'casaId',
+  createdAt: 'createdAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -176,7 +198,9 @@ exports.Prisma.ModelName = {
   Admin: 'Admin',
   Casa: 'Casa',
   Locador: 'Locador',
-  Hospede: 'Hospede'
+  Hospede: 'Hospede',
+  Reserva: 'Reserva',
+  Favorito: 'Favorito'
 };
 
 /**

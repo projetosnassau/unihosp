@@ -65,7 +65,7 @@ function RegisterHospedeModal({ isOpen, onClose, onSwitchToLogin }) {
     }
 
     try {
-      const response = await fetch("http://localhost:4000/api/hospede", {
+      const response = await fetch("http://localhost:5000/api/hospede", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

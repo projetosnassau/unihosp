@@ -38,9 +38,6 @@ function LoginModal({ isOpen, onClose, onSwitchToRegister }) {
       const result = await loginAction(email, senha, loginUserType);
 
       if (result.success) {
-        console.log(
-          `Login como ${result.userType} bem-sucedido via AuthContext.`
-        );
         setEmail("");
         setSenha("");
         onClose();
@@ -48,9 +45,9 @@ function LoginModal({ isOpen, onClose, onSwitchToRegister }) {
         if (result.userType === "admin") {
           navigate("/admin");
         } else if (result.userType === "hospede") {
-          alert("Login de Hóspede realizado! Dashboard em breve.");
+          navigate("/hospede/dashboard");
         } else if (result.userType === "locador") {
-          alert("Login de Locador realizado! Dashboard em breve.");
+          navigate("/locador/dashboard");
         }
       }
     } catch (err) {

@@ -125,7 +125,26 @@ function Header() {
                   </a>
                 </li>
               )}
-
+              {userType === "hospede" && (
+                <li className={styles.list}>
+                  <a
+                    href="/hospede/dashboard"
+                    onClick={(e) => navigateToPath(e, "/hospede/dashboard")}
+                  >
+                    Meu Painel
+                  </a>
+                </li>
+              )}
+              {userType === "locador" && (
+                <li className={styles.list}>
+                  <a
+                    href="/locador/dashboard"
+                    onClick={(e) => navigateToPath(e, "/locador/dashboard")}
+                  >
+                    Meu Painel
+                  </a>
+                </li>
+              )}
               <li className={styles.listLogin}>
                 <a
                   href="#"

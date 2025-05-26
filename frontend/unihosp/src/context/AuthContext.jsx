@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
+import { jwtDecode } from "jwt-decode";
 
 const AuthContext = createContext(null);
 
@@ -6,11 +7,28 @@ export const useAuth = () => {
   return useContext(AuthContext);
 };
 
+const getUserIdFromToken = (token) => {
+  if (!token) return null;
+  try {
+    const decoded = jwtDecode(token);
+    return decoded.id;
+  } catch (error) {
+    console.error("Erro ao decodificar token:", error);
+    return null;
+  }
+};
+
 export const AuthProvider = ({ children }) => {
-  const [authState, setAuthState] = useState({
-    token: localStorage.getItem("token") || null,
-    userType: localStorage.getItem("userType") || null,
-    isAuthenticated: !!localStorage.getItem("token"),
+  const [authState, setAuthState] = useState(() => {
+    const token = localStorage.getItem("token");
+    const userType = localStorage.getItem("userType");
+    const userId = token ? getUserIdFromToken(token) : null;
+    return {
+      token,
+      userType,
+      userId,
+      isAuthenticated: !!token,
+    };
   });
   const [authLoading, setAuthLoading] = useState(false);
 
@@ -18,11 +36,8 @@ export const AuthProvider = ({ children }) => {
     const handleStorageChange = () => {
       const token = localStorage.getItem("token");
       const userType = localStorage.getItem("userType");
-      setAuthState({
-        token: token,
-        userType: userType,
-        isAuthenticated: !!token,
-      });
+      const userId = token ? getUserIdFromToken(token) : null;
+      setAuthState({ token, userType, userId, isAuthenticated: !!token });
     };
 
     window.addEventListener("storage", handleStorageChange);
@@ -36,13 +51,13 @@ export const AuthProvider = ({ children }) => {
     let loginEndpoint = "";
     switch (loginUserType) {
       case "hospede":
-        loginEndpoint = "http://localhost:4000/api/login/hospede";
+        loginEndpoint = "http://localhost:5000/api/login/hospede";
         break;
       case "locador":
-        loginEndpoint = "http://localhost:4000/api/locador/login";
+        loginEndpoint = "http://localhost:5000/api/locador/login";
         break;
       case "admin":
-        loginEndpoint = "http://localhost:4000/api/login/admin";
+        loginEndpoint = "http://localhost:5000/api/login/admin";
         break;
       default:
         setAuthLoading(false);
@@ -64,14 +79,17 @@ export const AuthProvider = ({ children }) => {
       if (data.token) {
         localStorage.setItem("token", data.token);
         localStorage.setItem("userType", loginUserType);
+        const userId = getUserIdFromToken(data.token);
+        if (userId) localStorage.setItem("userId", userId.toString());
 
         setAuthState({
           token: data.token,
           userType: loginUserType,
+          userId: userId,
           isAuthenticated: true,
         });
         setAuthLoading(false);
-        return { success: true, userType: loginUserType };
+        return { success: true, userType: loginUserType, userId: userId };
       } else {
         throw new Error("Token não retornado pelo servidor.");
       }
@@ -85,10 +103,11 @@ export const AuthProvider = ({ children }) => {
   const logoutAction = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("userType");
-
+    localStorage.removeItem("userId");
     setAuthState({
       token: null,
       userType: null,
+      userId: null,
       isAuthenticated: false,
     });
   };

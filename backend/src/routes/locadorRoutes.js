@@ -33,15 +33,28 @@ router.get(
   autenticarToken,
   autorizarTipos("locador", "admin"),
   async (req, res) => {
+    const { id } = req.params;
+    const usuarioLogado = req.usuario;
+
+    if (usuarioLogado.tipo === "locador" && usuarioLogado.id !== parseInt(id)) {
+      return res
+        .status(403)
+        .json({ error: "Acesso negado ao perfil de outro locador." });
+    }
+
     try {
       const locador = await prisma.locador.findUnique({
-        where: { id: parseInt(req.params.id) },
+        where: { id: parseInt(id) },
+        include: {
+          casas: true,
+        },
       });
       if (!locador) {
         return res.status(404).json({ error: "Locador não encontrado" });
       }
       res.json(locador);
     } catch (error) {
+      console.error("Erro ao buscar locador por ID:", error);
       res.status(500).json({ error: "Erro ao buscar locador" });
     }
   }

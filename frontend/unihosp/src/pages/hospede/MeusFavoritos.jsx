@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-empty */
 import React, { useState, useEffect, useCallback } from "react";
 import { useAuth } from "../../context/AuthContext";
 import styles from "../HospedeDashboard.module.css";
@@ -20,7 +22,7 @@ function MeusFavoritos() {
     setError("");
     try {
       const response = await fetch(
-        `http://localhost:5000/api/hospede/favoritos`,
+        `http://localhost:5000/api/hospede/favoritos`, // Certifique-se que a porta está correta
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -58,19 +60,15 @@ function MeusFavoritos() {
       alert("Erro de autenticação.");
       return;
     }
-    console.log(`Tentando remover favorito da casa ID: ${casaId}`);
     try {
       const response = await fetch(
-        `http://localhost:5000/api/favoritos/${casaId}`,
+        `http://localhost:5000/api/favoritos/${casaId}`, // Certifique-se que a porta está correta
         {
           method: "DELETE",
           headers: { Authorization: `Bearer ${token}` },
         }
       );
       const responseText = await response.text();
-      console.log(
-        `MeusFavoritos: handleRemoverFavorito - Status: ${response.status}, Resposta: ${responseText}`
-      );
       if (!response.ok) {
         let errData = { error: `Erro HTTP ${response.status}` };
         try {
@@ -79,7 +77,7 @@ function MeusFavoritos() {
         throw new Error(errData.error || "Falha ao remover favorito.");
       }
       alert("Casa removida dos favoritos!");
-      fetchFavoritos(); // Re-busca para atualizar a lista
+      fetchFavoritos();
     } catch (err) {
       console.error("MeusFavoritos: handleRemoverFavorito - Falha:", err);
       alert(`Erro ao remover favorito: ${err.message}`);
@@ -97,32 +95,45 @@ function MeusFavoritos() {
       ) : (
         <div className={styles.favoritosGrid}>
           {favoritos.map((favorito) => (
-            <div key={favorito.id} className={styles.favoritoCard}>
-              <img
-                src={`https://placehold.co/300x180/A8D5E2/333?text=${encodeURIComponent(
-                  favorito.casa?.endereco || "Casa Favorita"
-                )}`}
-                alt={favorito.casa?.endereco || "Casa Favorita"}
-                className={styles.favoritoImagem}
-              />
-              <div className={styles.favoritoInfo}>
-                <h4>
-                  {favorito.casa?.endereco || "N/A"},{" "}
+            // Usaremos a classe .casaCard para um visual similar, mas com conteúdo diferente
+            <div key={favorito.id} className={styles.casaCard}>
+              <div className={styles.casaImagePlaceholder}>
+                <img
+                  src={`https://placehold.co/300x180/A8D5E2/333?text=${encodeURIComponent(
+                    favorito.casa?.endereco?.substring(0, 15) || "Casa Favorita"
+                  )}`}
+                  alt={favorito.casa?.endereco || "Casa Favorita"}
+                  className={styles.favoritoImagem} // Pode usar a mesma classe ou uma nova
+                />
+              </div>
+              <div className={styles.casaInfo}>
+                {" "}
+                {/* Reutilizando .casaInfo */}
+                <h3>
+                  {favorito.casa?.endereco || "Endereço Indisponível"},{" "}
                   {favorito.casa?.numero || ""}
-                </h4>
-                <p>
-                  {favorito.casa?.cidade || "N/A"}
+                </h3>
+                <p className={styles.cidadeEstado}>
+                  {favorito.casa?.cidade || "Cidade Indisponível"}
                   {favorito.casa?.estado ? `, ${favorito.casa.estado}` : ""}
                 </p>
+                {/* Não mostrar check-in/out, locador, status para favoritos */}
                 <div className={styles.favoritoActions}>
+                  {" "}
+                  {/* Usando .favoritoActions */}
                   <button
-                    className={styles.actionButtonSmall}
-                    onClick={() => navigate(`/casas/${favorito.casaId}`)} // Assumindo rota de detalhes da casa
+                    className={styles.detailsButton} // Reutilizando .detailsButton
+                    onClick={() =>
+                      alert(
+                        `Navegar para detalhes da casa ID: ${favorito.casaId}`
+                      )
+                    }
+                    // onClick={() => navigate(`/casas/${favorito.casaId}`)} // Futuramente
                   >
                     Ver Detalhes
                   </button>
                   <button
-                    className={styles.actionButtonDeleteSmall}
+                    className={styles.actionButtonDeleteSmall} // Botão menor para remover
                     onClick={() => handleRemoverFavorito(favorito.casaId)}
                   >
                     Remover

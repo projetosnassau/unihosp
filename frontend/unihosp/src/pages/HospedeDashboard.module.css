@@ -201,15 +201,15 @@
   padding: 0;
   margin: 0;
   display: grid;
-  gap: 25px; /* Aumentar o espaço entre os cards */
+  gap: 25px;
 }
 
 .reservaCard {
-  background-color: #ffffff;
+  background-color: #fdfdfd;
   padding: 20px 25px;
-  border-radius: 10px; /* Bordas mais arredondadas */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07); /* Sombra mais suave */
-  border-left: 5px solid #3498db; /* Borda azul padrão */
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+  border-left: 5px solid #bdc3c7;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .reservaCard:hover {
@@ -217,66 +217,64 @@
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilos condicionais para a borda baseados no status */
 .reservaStatusPENDENTE {
-  border-left-color: #f39c12;
+  border-left-color: #f39c12 !important;
 }
 .reservaStatusCONFIRMADA {
-  border-left-color: #2ecc71;
-}
-.reservaStatusCANCELADAPELOHOSPEDE,
-.reservaStatusCANCELADAPELOLOCADOR,
-.reservaStatusREJEITADA {
-  border-left-color: #e74c3c;
+  border-left-color: #2ecc71 !important;
 }
 .reservaStatusCONCLUIDA {
-  border-left-color: #95a5a6;
+  border-left-color: #95a5a6 !important;
+}
+.reservaStatusREJEITADA,
+.reservaStatusCANCELADAPELOHOSPEDE,
+.reservaStatusCANCELADAPELOLOCADOR {
+  border-left-color: #e74c3c !important;
 }
 
 .reservaCard h4 {
   margin-top: 0;
   margin-bottom: 12px;
   color: #2c3e50;
-  font-size: 1.25em;
+  font-size: 1.2em;
   font-weight: 600;
 }
-
 .reservaCard p {
   font-size: 0.95em;
   margin-bottom: 8px;
   color: #525f6f;
   line-height: 1.6;
 }
-
 .reservaCard p strong {
   font-weight: 600;
   color: #34495e;
 }
 
 .status {
-  padding: 4px 10px;
-  border-radius: 15px; /* Mais arredondado para parecer uma tag */
+  padding: 5px 12px;
+  border-radius: 15px;
   font-weight: 600;
   font-size: 0.8em;
+  background-color: #95a5a6;
   color: white;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  display: inline-block;
 }
 
-/* Cores de fundo para os status */
 .statusPENDENTE {
   background-color: #f39c12;
 }
 .statusCONFIRMADA {
   background-color: #2ecc71;
 }
-.statusCANCELADAPELOHOSPEDE,
-.statusCANCELADAPELOLOCADOR,
-.statusREJEITADA {
-  background-color: #e74c3c;
-}
 .statusCONCLUIDA {
   background-color: #95a5a6;
+}
+.statusREJEITADA,
+.statusCANCELADAPELOHOSPEDE,
+.statusCANCELADAPELOLOCADOR {
+  background-color: #e74c3c;
 }
 
 .reservaActions {
@@ -285,7 +283,7 @@
   border-top: 1px dashed #e0e6ed;
   display: flex;
   gap: 10px;
-  flex-wrap: wrap; /* Para botões quebrarem linha em telas pequenas */
+  flex-wrap: wrap;
 }
 
 .actionButtonSecondary,
@@ -307,11 +305,11 @@
 }
 
 .actionButtonSecondary {
-  background-color: #3498db;
+  background-color: #5dade2;
   color: white;
 }
 .actionButtonSecondary:hover {
-  background-color: #2980b9;
+  background-color: #3498db;
 }
 
 .actionButtonDelete {
@@ -328,10 +326,7 @@
 
 .favoritosGrid {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(280px, 1fr)
-  ); /* Cards um pouco menores */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 25px;
 }
 
@@ -343,6 +338,7 @@
   display: flex;
   flex-direction: column;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid #f0f0f0;
 }
 
 .favoritoCard:hover {
@@ -355,30 +351,30 @@
   height: 170px;
   object-fit: cover;
   display: block;
-  background-color: #e0e0e0; /* Cor de fundo para o placeholder da imagem */
+  background-color: #e9ecef;
 }
 
 .favoritoInfo {
-  padding: 18px;
+  padding: 20px;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
 }
 
-.favoritoInfo h4 {
+.favoritoInfo h3 {
   margin-top: 0;
-  margin-bottom: 6px;
-  font-size: 1.1em;
+  margin-bottom: 8px;
+  font-size: 1.25em;
   color: #2c3e50;
   font-weight: 600;
   line-height: 1.3;
 }
 
 .favoritoInfo p {
-  font-size: 0.9em;
-  color: #7f8c8d;
-  margin-bottom: 15px;
-  flex-grow: 1; /* Empurra actions para baixo */
+  font-size: 0.95em;
+  color: #525f6f;
+  margin-bottom: 18px;
+  flex-grow: 1;
 }
 
 .favoritoActions {
@@ -386,14 +382,14 @@
   justify-content: space-between;
   align-items: center;
   margin-top: auto;
-  padding-top: 10px;
+  padding-top: 12px;
   border-top: 1px solid #f0f0f0;
 }
 
 .actionButtonSmall,
 .actionButtonDeleteSmall {
-  padding: 7px 14px;
-  font-size: 0.85em;
+  padding: 8px 15px;
+  font-size: 0.9em;
   border-radius: 5px;
   border: none;
   cursor: pointer;
@@ -402,7 +398,6 @@
   transition: background-color 0.2s ease, transform 0.1s ease;
   letter-spacing: 0.2px;
 }
-
 .actionButtonSmall {
   background-color: #3498db;
   color: white;
@@ -419,4 +414,29 @@
 .actionButtonDeleteSmall:hover {
   background-color: #c0392b;
   transform: translateY(-1px);
+}
+
+.actionButtonArchive {
+  padding: 9px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 500;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  background-color: #7f8c8d;
+  color: white;
+}
+.actionButtonArchive:hover {
+  background-color: #6c7a7d;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.actionButtonArchive:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+  color: #7f8c8d;
 }

@@ -12,6 +12,7 @@ import AdminPage from "./pages/AdminPage";
 import HospedeDashboard from "./pages/HospedeDashboard";
 import BuscarCasasPage from "./pages/hospede/BuscarCasasPage";
 import EditarPerfilHospedePage from "./pages/hospede/EditarPerfilHospedePage";
+import LocadorDashboard from "./pages/LocadorDashboard";
 
 const SobrePage = () => (
   <div style={{ padding: "100px 20px", textAlign: "center" }}>
@@ -85,7 +86,6 @@ function App() {
             </ProtectedRoute>
           }
         />
-        {/* 
         <Route
           path="/locador/dashboard"
           element={
@@ -94,7 +94,6 @@ function App() {
             </ProtectedRoute>
           }
         />
-        */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>

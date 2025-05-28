@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import styles from "./HospedeDashboard.module.css";
@@ -6,10 +6,12 @@ import ProfileSummary from "./hospede/ProfileSummary";
 import DashboardHeader from "./hospede/DashboardHeader";
 import MinhasReservas from "./hospede/MinhasReservas";
 import MeusFavoritos from "./hospede/MeusFavoritos";
+import HistoricoReservasHospede from "./hospede/HistoricoReservasHospede";
 
 function HospedeDashboard() {
   const { userType, isAuthenticated } = useAuth();
   const navigate = useNavigate();
+  const [view, setView] = useState("ativas");
 
   useEffect(() => {
     if (isAuthenticated && userType !== "hospede") {
@@ -29,7 +31,7 @@ function HospedeDashboard() {
       <DashboardHeader />
       <div className={styles.dashboardContent}>
         <ProfileSummary />
-
+        {}
         <section className={styles.dashboardSection}>
           <h3>Encontre sua Próxima Acomodação</h3>
           <p>
@@ -45,9 +47,37 @@ function HospedeDashboard() {
         </section>
 
         <section className={styles.dashboardSection}>
-          <h3>Minhas Reservas</h3>
+          <div className={styles.sectionHeaderWithToggle}>
+            <h3>Minhas Reservas</h3>
+            <div>
+              <button
+                onClick={() => setView("ativas")}
+                className={
+                  view === "ativas"
+                    ? styles.toggleButtonActive
+                    : styles.toggleButton
+                }
+              >
+                Ativas
+              </button>
+              <button
+                onClick={() => setView("historico")}
+                className={
+                  view === "historico"
+                    ? styles.toggleButtonActive
+                    : styles.toggleButton
+                }
+              >
+                Histórico
+              </button>
+            </div>
+          </div>
           {isAuthenticated && userType === "hospede" ? (
-            <MinhasReservas />
+            view === "ativas" ? (
+              <MinhasReservas />
+            ) : (
+              <HistoricoReservasHospede />
+            )
           ) : (
             <p>
               Você precisa estar logado como hóspede para ver suas reservas.
@@ -80,5 +110,4 @@ function HospedeDashboard() {
     </div>
   );
 }
-
 export default HospedeDashboard;

@@ -11,13 +11,13 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use("/api", reservaRoutes);
+app.use("/api", favoritoRoutes);
 
 app.use("/api", locadorRoutes);
 app.use("/api", adminRoutes);
 app.use("/api", hospedeRoutes);
 app.use("/api", casaRoutes);
-app.use("/api", reservaRoutes);
-app.use("/api", favoritoRoutes);
 
 app.get("/", (req, res) => {
   console.log("BACKEND SERVER.JS LOG: Rota / foi acessada"); // LOG AQUI

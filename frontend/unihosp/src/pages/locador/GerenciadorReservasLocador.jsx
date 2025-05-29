@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { useAuth } from "../../context/AuthContext"; // Ajuste o caminho se necessário
-import styles from "../LocadorDashboard.module.css"; // Ajuste o caminho se necessário
+import { useAuth } from "../../context/AuthContext";
+import styles from "../LocadorDashboard.module.css";
 import { useNavigate } from "react-router-dom";
 
 function GerenciadorReservasLocador() {
@@ -10,7 +10,6 @@ function GerenciadorReservasLocador() {
   const [loadingReservas, setLoadingReservas] = useState(true);
   const [errorReservas, setErrorReservas] = useState("");
   const [operationLoading, setOperationLoading] = useState(null);
-  const [pendingStatusUpdate, setPendingStatusUpdate] = useState(null);
 
   const fetchReservasLocador = useCallback(async () => {
     if (!token || !userId) {
@@ -59,7 +58,8 @@ function GerenciadorReservasLocador() {
   const handleAtualizarStatusReserva = async (
     reservaId,
     novoStatus,
-    mensagemConfirmacao
+    mensagemConfirmacao,
+    actionType
   ) => {
     if (!token) {
       alert("Autenticação necessária.");
@@ -67,8 +67,7 @@ function GerenciadorReservasLocador() {
     }
     if (mensagemConfirmacao && !window.confirm(mensagemConfirmacao)) return;
 
-    setOperationLoading(reservaId);
-    setPendingStatusUpdate(novoStatus.toUpperCase());
+    setOperationLoading({ id: reservaId, action: actionType });
     setErrorReservas("");
     try {
       const response = await fetch(
@@ -84,11 +83,12 @@ function GerenciadorReservasLocador() {
       );
       const result = await response.json();
       if (!response.ok) {
-        throw new Error(result.error || "Falha ao atualizar status.");
+        throw new Error(
+          result.error ||
+            `Falha ao atualizar status para ${novoStatus}. Status: ${response.status}`
+        );
       }
-      alert(
-        `Status da reserva atualizado para ${novoStatus.toUpperCase()} com sucesso!`
-      );
+      alert("Status da reserva atualizado com sucesso!");
       fetchReservasLocador();
     } catch (err) {
       alert(`Erro ao atualizar status: ${err.message}`);
@@ -98,7 +98,6 @@ function GerenciadorReservasLocador() {
       );
     } finally {
       setOperationLoading(null);
-      setPendingStatusUpdate(null);
     }
   };
 
@@ -108,32 +107,35 @@ function GerenciadorReservasLocador() {
   };
 
   if (loadingReservas && reservas.length === 0)
-    return <p className={styles.loading}>Carregando reservas...</p>;
+    return <p className={styles.loading}>Carregando suas reservas ativas...</p>;
 
   if (errorReservas && reservas.length === 0)
     return <p className={styles.error}>{errorReservas}</p>;
 
   return (
     <section className={styles.dashboardSection}>
-      <h3>Reservas para Suas Casas ({reservas.length})</h3>
+      <h3>Reservas Ativas para Suas Casas ({reservas.length})</h3>
       {errorReservas && <p className={styles.error}>{errorReservas}</p>}
       {reservas.length === 0 && !loadingReservas ? (
-        <p>Nenhuma reserva encontrada para suas casas no momento.</p>
+        <p>
+          Nenhuma reserva ativa (pendente ou confirmada) encontrada para suas
+          casas no momento.
+        </p>
       ) : (
         <ul className={styles.reservasList}>
           {reservas.map((reserva) => {
-            const isCurrentOperation = operationLoading === reserva.id;
+            const isCurrentOperation = operationLoading?.id === reserva.id;
+            const currentAction = operationLoading?.action;
+
             const podeConfirmarRejeitar = reserva.status === "PENDENTE";
             const podeCancelarLocador =
               reserva.status === "PENDENTE" || reserva.status === "CONFIRMADA";
-
-            // ***** LÓGICA ATUALIZADA PARA podeArquivarLocador *****
             const podeArquivarLocador = [
               "CONCLUIDA",
-              "CANCELADA_PELO_HOSPEDE", // Agora o locador PODE arquivar se o hóspede já cancelou/arquivou
+              "CANCELADA_PELO_HOSPEDE",
               "CANCELADA_PELO_LOCADOR",
               "REJEITADA",
-              "ARQUIVADA_PELO_HOSPEDE", // Adicionado para permitir que o locador também arquive da sua visão
+              "ARQUIVADA_PELO_HOSPEDE",
             ].includes(reserva.status);
 
             return (
@@ -174,7 +176,7 @@ function GerenciadorReservasLocador() {
                     className={styles.actionButtonSecondary}
                     onClick={() => {
                       alert(
-                        `Redirecionar para detalhes da Casa ID: ${reserva.casaId} (rota a ser criada)`
+                        `Redirecionar para detalhes da Casa ID: ${reserva.casaId} (rota /casas/${reserva.casaId} a ser criada)`
                       );
                     }}
                     disabled={isCurrentOperation}
@@ -190,13 +192,13 @@ function GerenciadorReservasLocador() {
                           handleAtualizarStatusReserva(
                             reserva.id,
                             "CONFIRMADA",
-                            "Confirmar esta reserva?"
+                            "Confirmar esta reserva?",
+                            "aprovar"
                           )
                         }
                         disabled={isCurrentOperation}
                       >
-                        {isCurrentOperation &&
-                        pendingStatusUpdate === "CONFIRMADA"
+                        {isCurrentOperation && currentAction === "aprovar"
                           ? "Aprovando..."
                           : "Aprovar"}
                       </button>
@@ -206,13 +208,13 @@ function GerenciadorReservasLocador() {
                           handleAtualizarStatusReserva(
                             reserva.id,
                             "REJEITADA",
-                            "Rejeitar esta reserva?"
+                            "Rejeitar esta reserva?",
+                            "rejeitar"
                           )
                         }
                         disabled={isCurrentOperation}
                       >
-                        {isCurrentOperation &&
-                        pendingStatusUpdate === "REJEITADA"
+                        {isCurrentOperation && currentAction === "rejeitar"
                           ? "Rejeitando..."
                           : "Rejeitar"}
                       </button>
@@ -225,13 +227,13 @@ function GerenciadorReservasLocador() {
                         handleAtualizarStatusReserva(
                           reserva.id,
                           "CANCELADA_PELO_LOCADOR",
-                          "Cancelar esta reserva (como locador)?"
+                          "Cancelar esta reserva (como locador)?",
+                          "cancelar"
                         )
                       }
                       disabled={isCurrentOperation}
                     >
-                      {isCurrentOperation &&
-                      pendingStatusUpdate === "CANCELADA_PELO_LOCADOR"
+                      {isCurrentOperation && currentAction === "cancelar"
                         ? "Cancelando..."
                         : "Cancelar"}
                     </button>
@@ -243,13 +245,13 @@ function GerenciadorReservasLocador() {
                         handleAtualizarStatusReserva(
                           reserva.id,
                           "ARQUIVADA_PELO_LOCADOR",
-                          "Arquivar esta reserva? Ela não será mais exibida na sua lista principal."
+                          "Arquivar esta reserva? Ela não será mais exibida na sua lista principal.",
+                          "arquivar"
                         )
                       }
                       disabled={isCurrentOperation}
                     >
-                      {isCurrentOperation &&
-                      pendingStatusUpdate === "ARQUIVADA_PELO_LOCADOR"
+                      {isCurrentOperation && currentAction === "arquivar"
                         ? "Arquivando..."
                         : "Arquivar"}
                     </button>

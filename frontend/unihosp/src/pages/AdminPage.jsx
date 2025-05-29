@@ -1,6 +1,5 @@
-// src/pages/AdminPage.jsx
 import React, { useState, useEffect } from "react";
-import { useAuth } from "../context/AuthContext"; // Ajuste o caminho
+import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import styles from "./AdminPage.module.css";
 
@@ -8,14 +7,13 @@ import GerenciarHospedes from "./components/admin/GerenciarHospede";
 import GerenciarLocadores from "./components/admin/GerenciarLocador";
 import GerenciarCasas from "./components/admin/GerenciarCasa";
 import GerenciarAdmins from "./components/admin/GerenciarAdmin";
-import VerGraficos from "./components/admin/VerGraficos"; // Importe o componente real
+import VerGraficos from "./components/admin/VerGraficos";
 
 function AdminPage() {
   const { token, userType, logoutAction } = useAuth();
   const navigate = useNavigate();
-  const [currentView, setCurrentView] = useState("graficos"); // Pode definir 'graficos' como default para testar
+  const [currentView, setCurrentView] = useState("graficos");
 
-  // ... (useEffect para verificação de userType e handleLogout como antes)
   useEffect(() => {
     if (userType !== "admin") {
       navigate("/");
@@ -40,9 +38,9 @@ function AdminPage() {
       case "admins":
         return <GerenciarAdmins token={token} />;
       case "graficos":
-        return <VerGraficos token={token} />; // Passa o token se necessário para buscar dados
+        return <VerGraficos token={token} />;
       default:
-        return <VerGraficos token={token} />; // Default para gráficos
+        return <VerGraficos token={token} />;
     }
   };
 
@@ -52,7 +50,7 @@ function AdminPage() {
         <h2 className={styles.sidebarTitle}>UniHosp Admin</h2>
         <nav>
           <ul>
-            {/* Link para Gráficos primeiro para fácil acesso durante o desenvolvimento */}
+            {}
             <li
               onClick={() => setCurrentView("graficos")}
               className={currentView === "graficos" ? styles.active : ""}

@@ -1,213 +1,251 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useAuth } from "../../context/AuthContext";
 import styles from "../LocadorDashboard.module.css";
-import { useNavigate } from "react-router-dom";
+import formStyles from "../../pages/AdminPage.module.css";
+import CasaLocadorForm from "./CasaLocadorForm";
 
-function GerenciadorReservasLocador() {
+function GerenciadorCasasLocador() {
   const { token, userId } = useAuth();
-  const navigate = useNavigate();
-  const [reservas, setReservas] = useState([]);
-  const [loadingReservas, setLoadingReservas] = useState(true);
-  const [errorReservas, setErrorReservas] = useState("");
-  const [operationLoading, setOperationLoading] = useState(null);
-  const [pendingStatusUpdate, setPendingStatusUpdate] = useState(null);
+  const [minhasCasas, setMinhasCasas] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [showForm, setShowForm] = useState(false);
+  const [editingCasa, setEditingCasa] = useState(null);
 
-  const fetchReservasLocador = useCallback(async () => {
+  const fetchMinhasCasas = useCallback(async () => {
     if (!token || !userId) {
-      setLoadingReservas(false);
+      setLoading(false);
       return;
     }
-    setLoadingReservas(true);
-    setErrorReservas("");
+    setLoading(true);
+    setError("");
     try {
       const response = await fetch(
-        `http://localhost:5000/api/locador/reservas`,
+        `http://localhost:5000/api/locador/${userId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
       const data = await response.json();
-      if (!response.ok)
-        throw new Error(data.error || "Erro ao buscar reservas");
-      if (Array.isArray(data)) setReservas(data);
-      else {
-        setReservas([]);
-        console.warn("GerenciadorReservasLocador: Dados não são array:", data);
+      if (!response.ok) {
+        throw new Error(
+          data.error || "Erro ao buscar dados do locador e suas casas."
+        );
       }
+      setMinhasCasas(data.casas || []);
     } catch (err) {
-      setErrorReservas(err.message);
+      console.error("GerenciadorCasasLocador: Falha ao buscar casas:", err);
+      setError(err.message);
     } finally {
-      setLoadingReservas(false);
+      setLoading(false);
     }
   }, [token, userId]);
 
   useEffect(() => {
-    if (token && userId) fetchReservasLocador();
-  }, [fetchReservasLocador, token, userId]);
+    if (token && userId) {
+      fetchMinhasCasas();
+    }
+  }, [fetchMinhasCasas, token, userId]);
 
-  const handleAtualizarStatusReserva = async (
-    reservaId,
-    novoStatus,
-    mensagemConfirmacao
-  ) => {
+  const handleAddClick = () => {
+    setEditingCasa(null);
+    setShowForm(true);
+    setError("");
+  };
+
+  const handleEditClick = (casa) => {
+    setEditingCasa(casa);
+    setShowForm(true);
+    setError("");
+  };
+
+  const handleDeleteClick = async (casaId) => {
+    if (
+      !window.confirm(
+        "Tem certeza que deseja deletar esta casa? Todas as reservas associadas (se não tratadas com onDelete: SetNull no schema) também podem ser afetadas."
+      )
+    )
+      return;
     if (!token) {
-      alert("Autenticação necessária.");
+      alert("Token de autenticação não encontrado.");
       return;
     }
-    if (mensagemConfirmacao && !window.confirm(mensagemConfirmacao)) return;
-    setOperationLoading(reservaId);
-    setPendingStatusUpdate(novoStatus.toUpperCase());
-    setErrorReservas("");
+
+    setLoading(true);
+    setError("");
+    console.log(`GerenciadorCasasLocador: Tentando deletar casa ID: ${casaId}`);
     try {
-      const response = await fetch(
-        `http://localhost:5000/api/reservas/${reservaId}/status`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify({ status: novoStatus.toUpperCase() }),
-        }
-      );
-      const result = await response.json();
-      if (!response.ok)
-        throw new Error(result.error || "Falha ao atualizar status.");
-      alert(`Status da reserva atualizado para ${novoStatus.toUpperCase()}!`);
-      fetchReservasLocador();
+      const response = await fetch(`http://localhost:5000/api/casa/${casaId}`, {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      if (!response.ok) {
+        const errData = await response
+          .json()
+          .catch(() => ({ error: `Erro HTTP ${response.status} ao deletar.` }));
+        throw new Error(errData.error || "Falha ao deletar casa.");
+      }
+      alert("Casa deletada com sucesso!");
+      fetchMinhasCasas();
     } catch (err) {
-      alert(`Erro ao atualizar status: ${err.message}`);
-      setErrorReservas(`Erro: ${err.message}`);
+      console.error("GerenciadorCasasLocador: Erro ao deletar casa:", err);
+      setError(err.message);
+      alert(`Erro ao deletar: ${err.message}`);
     } finally {
-      setOperationLoading(null);
-      setPendingStatusUpdate(null);
+      setLoading(false);
     }
   };
 
-  const formatarData = (dataISO) =>
-    new Date(dataISO).toLocaleDateString("pt-BR", { timeZone: "UTC" });
+  const handleSaveCasa = async (formDataFromForm, casaIdParaEditar) => {
+    setLoading(true);
+    setError("");
+    const method = casaIdParaEditar ? "PUT" : "POST";
+    const url = casaIdParaEditar
+      ? `http://localhost:5000/api/casa/${casaIdParaEditar}`
+      : "http://localhost:5000/api/casa";
 
-  if (loadingReservas && reservas.length === 0)
-    return <p className={styles.loading}>Carregando reservas...</p>;
-  if (errorReservas && reservas.length === 0)
-    return <p className={styles.error}>{errorReservas}</p>;
+    const payload = { ...formDataFromForm, locadorId: parseInt(userId) };
+    if (
+      casaIdParaEditar &&
+      formDataFromForm.locadorId &&
+      parseInt(formDataFromForm.locadorId) !== parseInt(userId)
+    ) {
+      alert("Erro: Tentativa de salvar casa para locador incorreto.");
+      setLoading(false);
+      return;
+    }
+
+    console.log(
+      `GerenciadorCasasLocador: Tentando salvar casa. Método: ${method}, URL: ${url}`
+    );
+    console.log(
+      "GerenciadorCasasLocador: Dados enviados para o backend:",
+      JSON.stringify(payload)
+    );
+
+    try {
+      const response = await fetch(url, {
+        method: method,
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+      if (!response.ok) {
+        console.error(
+          "GerenciadorCasasLocador: Erro ao salvar casa, Status:",
+          response.status,
+          "Resultado:",
+          result
+        );
+        throw new Error(
+          result.error ||
+            `Falha ao ${casaIdParaEditar ? "atualizar" : "criar"} casa.`
+        );
+      }
+
+      console.log("GerenciadorCasasLocador: Casa salva com sucesso:", result);
+      alert(`Casa ${casaIdParaEditar ? "atualizada" : "criada"} com sucesso!`);
+      setShowForm(false);
+      setEditingCasa(null);
+      fetchMinhasCasas();
+    } catch (err) {
+      console.error(
+        `GerenciadorCasasLocador: Erro na operação de salvar casa (${method}):`,
+        err
+      );
+      setError(
+        `Erro ao salvar casa: ${err.message}. Verifique os dados e tente novamente.`
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (loading && !showForm && minhasCasas.length === 0)
+    return <p className={styles.loading}>Carregando suas casas...</p>;
 
   return (
     <section className={styles.dashboardSection}>
-      <h3>Reservas Ativas para Suas Casas ({reservas.length})</h3>
-      {errorReservas && <p className={styles.error}>{errorReservas}</p>}
-      {reservas.length === 0 && !loadingReservas ? (
-        <p>Nenhuma reserva ativa encontrada para suas casas.</p>
+      <h3>Minhas Casas Cadastradas ({minhasCasas.length})</h3>
+      {error && <p className={formStyles.errorMessage}>{error}</p>} {}
+      {!showForm && (
+        <button
+          className={styles.actionButton}
+          style={{ marginBottom: "20px" }}
+          onClick={handleAddClick}
+          disabled={loading}
+        >
+          Adicionar Nova Casa
+        </button>
+      )}
+      {showForm && (
+        <CasaLocadorForm
+          casaAtual={editingCasa}
+          onSave={handleSaveCasa}
+          onCancel={() => {
+            setShowForm(false);
+            setEditingCasa(null);
+            setError("");
+          }}
+          isLoading={loading}
+          locadorId={userId}
+        />
+      )}
+      {!showForm && minhasCasas.length === 0 && !loading ? (
+        <p>Você ainda não cadastrou nenhuma casa.</p>
       ) : (
-        <ul className={styles.reservasList}>
-          {reservas.map((reserva) => {
-            const isCurrentOperation = operationLoading === reserva.id;
-            const podeConfirmarRejeitar = reserva.status === "PENDENTE";
-            const podeCancelarLocador =
-              reserva.status === "PENDENTE" || reserva.status === "CONFIRMADA";
-            return (
-              <li
-                key={reserva.id}
-                className={`${styles.reservaCard} ${
-                  styles[
-                    "reservaStatus" + reserva.status?.replace(/\s+/g, "")
-                  ] || ""
-                }`}
-              >
-                <h4>
-                  Casa: {reserva.casa?.endereco || "N/A"},{" "}
-                  {reserva.casa?.cidade || "N/A"} (ID: {reserva.casaId})
-                </h4>
-                <p>
-                  <strong>Hóspede:</strong> {reserva.hospede?.name || "N/A"} (
-                  {reserva.hospede?.email || "N/A"})
-                </p>
-                <p>
-                  <strong>Check-in:</strong> {formatarData(reserva.dataCheckIn)}{" "}
-                  | <strong>Check-out:</strong>{" "}
-                  {formatarData(reserva.dataCheckOut)}
-                </p>
-                <p>
-                  <strong>Status:</strong>{" "}
-                  <span
-                    className={`${styles.status} ${
-                      styles["status" + reserva.status?.replace(/\s+/g, "")] ||
-                      ""
-                    }`}
-                  >
-                    {reserva.status || "N/A"}
-                  </span>
-                </p>
-                <div className={styles.reservaActions}>
-                  <button
-                    className={styles.actionButtonSecondary}
-                    onClick={() => navigate(`/casas/${reserva.casaId}`)}
-                    disabled={isCurrentOperation}
-                  >
-                    Ver Casa
-                  </button>
-                  {podeConfirmarRejeitar && (
-                    <>
-                      <button
-                        className={styles.actionButtonConfirm}
-                        onClick={() =>
-                          handleAtualizarStatusReserva(
-                            reserva.id,
-                            "CONFIRMADA",
-                            "Confirmar reserva?"
-                          )
-                        }
-                        disabled={isCurrentOperation}
-                      >
-                        {isCurrentOperation &&
-                        pendingStatusUpdate === "CONFIRMADA"
-                          ? "Aprovando..."
-                          : "Aprovar"}
-                      </button>
-                      <button
-                        className={styles.actionButtonRejeitar}
-                        onClick={() =>
-                          handleAtualizarStatusReserva(
-                            reserva.id,
-                            "REJEITADA",
-                            "Rejeitar reserva?"
-                          )
-                        }
-                        disabled={isCurrentOperation}
-                      >
-                        {isCurrentOperation &&
-                        pendingStatusUpdate === "REJEITADA"
-                          ? "Rejeitando..."
-                          : "Rejeitar"}
-                      </button>
-                    </>
-                  )}
-                  {podeCancelarLocador && (
+        !showForm &&
+        minhasCasas.length > 0 && (
+          <table className={formStyles.dataTable}>
+            {" "}
+            {}
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Endereço</th>
+                <th>Número</th>
+                <th>Cidade</th>
+                <th>Estado</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              {minhasCasas.map((casa) => (
+                <tr key={casa.id}>
+                  <td>{casa.id}</td>
+                  <td>{casa.endereco}</td>
+                  <td>{casa.numero}</td>
+                  <td>{casa.cidade || "N/A"}</td>
+                  <td>{casa.estado || "N/A"}</td>
+                  <td>
                     <button
-                      className={styles.actionButtonDelete}
-                      onClick={() =>
-                        handleAtualizarStatusReserva(
-                          reserva.id,
-                          "CANCELADA_PELO_LOCADOR",
-                          "Cancelar esta reserva?"
-                        )
-                      }
-                      disabled={isCurrentOperation}
+                      className={formStyles.actionButton}
+                      onClick={() => handleEditClick(casa)}
+                      disabled={loading}
                     >
-                      {isCurrentOperation &&
-                      pendingStatusUpdate === "CANCELADA_PELO_LOCADOR"
-                        ? "Cancelando..."
-                        : "Cancelar"}
+                      Editar
                     </button>
-                  )}
-                  {}
-                </div>
-              </li>
-            );
-          })}
-        </ul>
+                    <button
+                      className={formStyles.actionButtonDelete}
+                      onClick={() => handleDeleteClick(casa.id)}
+                      disabled={loading}
+                    >
+                      Deletar
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )
       )}
     </section>
   );
 }
-export default GerenciadorReservasLocador;
+
+export default GerenciadorCasasLocador;

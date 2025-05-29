@@ -19,7 +19,7 @@ function HeroSection() {
       </div>
       <div className={styles.imageContainer}>
         <img
-          src="https://placehold.co/500x450/CCCCCC/4A4A4A?text=Imagem+Ilustrativa"
+          src="https://imgs.search.brave.com/Pigjnw0Za3PaNdYP-Ic2LYPgS23mt_EmgcLdsHpYI8A/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS12ZWN0b3Iv/Y29sbGVnZS1zdHVk/ZW50LWRvcm0taW50/ZXJpb3IteW91bmct/dHJhdmVsZXJzLXN0/b3BwaW5nLWhvc3Rl/bC12ZWN0b3ItaWxs/dXN0cmF0aW9uLWFs/dGVybmF0aXZlLWFj/Y29tbW9kYXRpb24t/YmFja3BhY2tlcnMt/aG91c2UtdHJpcC1j/b25jZXB0Xzc0ODU1/LTEzMDI3LmpwZz9z/ZW10PWFpc19oeWJy/aWQ"
           alt="Ilustração de boas-vindas da UniHosp"
           className={styles.heroImage}
         />

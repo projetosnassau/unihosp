@@ -199,7 +199,6 @@
   border-radius: 16px;
   font-weight: 600;
   font-size: 0.8em;
-  color: white;
   text-transform: uppercase;
   letter-spacing: 0.6px;
   display: inline-block;
@@ -326,4 +325,15 @@
   background-color: #bdc3c7;
   cursor: not-allowed;
   color: #7f8c8d;
+}
+
+.statusREJEITADA,
+.statusCANCELADAPELOHOSPEDE,
+.statusCANCELADAPELOLOCADOR {
+  background-color: #c0392b;
+}
+.reservaStatusREJEITADA,
+.reservaStatusCANCELADAPELOHOSPEDE,
+.reservaStatusCANCELADAPELOLOCADOR {
+  border-left-color: #c0392b !important;
 }

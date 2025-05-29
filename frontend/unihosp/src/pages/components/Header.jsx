@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Header.module.css";
 import { useAuth } from "../../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import LoginModal from "../../utils/LoginModal";
 import EscolhaModal from "../../utils/EscolhaModal";
 import RegisterHospedeModal from "../../utils/RegisterHospedeModal";
 import RegisterLocadorModal from "../../utils/RegisterLocadorModal";
 
-function Header() {
+function Header({ isLandingPage }) {
   const { isAuthenticated, userType, logoutAction } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isUserTypeChoiceModalOpen, setIsUserTypeChoiceModalOpen] =
@@ -31,22 +32,18 @@ function Header() {
     closeAllModals();
     setIsLoginModalOpen(true);
   };
-
   const handleNavigateToUserTypeChoice = () => {
     closeAllModals();
     setIsUserTypeChoiceModalOpen(true);
   };
-
   const handleSelectHospede = () => {
     closeAllModals();
     setIsRegisterHospedeModalOpen(true);
   };
-
   const handleSelectLocador = () => {
     closeAllModals();
     setIsRegisterLocadorModalOpen(true);
   };
-
   const handleNavigateToLogin = () => {
     closeAllModals();
     setIsLoginModalOpen(true);
@@ -79,9 +76,32 @@ function Header() {
     isRegisterLocadorModalOpen,
   ]);
 
-  const navigateToPath = (e, path) => {
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      const headerOffset = 70;
+      const elementPosition = section.getBoundingClientRect().top;
+      const offsetPosition =
+        elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    } else {
+      navigate("/");
+    }
+  };
+
+  const handleNavClick = (e, pathOrId) => {
     e.preventDefault();
-    navigate(path);
+    if (isLandingPage && pathOrId.startsWith("#")) {
+      scrollToSection(pathOrId.substring(1));
+    } else if (isLandingPage && pathOrId === "/") {
+      scrollToSection("inicio");
+    } else {
+      navigate(pathOrId);
+    }
   };
 
   return (
@@ -89,29 +109,54 @@ function Header() {
       <header className={styles.header}>
         <h1
           className={styles.title}
-          onClick={() => navigate("/")}
+          onClick={() =>
+            handleNavClick(
+              { preventDefault: () => {} },
+              isLandingPage ? "#inicio" : "/"
+            )
+          }
           style={{ cursor: "pointer" }}
         >
           UniHosp
         </h1>
         <ul className={styles.listContainer}>
           <li className={styles.list}>
-            <a href="/" onClick={(e) => navigateToPath(e, "/")}>
+            <a
+              href={isLandingPage ? "#inicio" : "/"}
+              onClick={(e) =>
+                handleNavClick(e, isLandingPage ? "#inicio" : "/")
+              }
+            >
               Home
             </a>
           </li>
           <li className={styles.list}>
-            <a href="/sobre" onClick={(e) => navigateToPath(e, "/sobre")}>
+            <a
+              href={isLandingPage ? "#sobre" : "/sobre"}
+              onClick={(e) =>
+                handleNavClick(e, isLandingPage ? "#sobre" : "/sobre")
+              }
+            >
               Sobre
             </a>
           </li>
           <li className={styles.list}>
-            <a href="/servicos" onClick={(e) => navigateToPath(e, "/servicos")}>
+            <a
+              href={isLandingPage ? "#servicos" : "/servicos"}
+              onClick={(e) =>
+                handleNavClick(e, isLandingPage ? "#servicos" : "/servicos")
+              }
+            >
               Serviços
             </a>
           </li>
           <li className={styles.list}>
-            <a href="/contato" onClick={(e) => navigateToPath(e, "/contato")}>
+            <a
+              href={isLandingPage ? "#contato" : "/contato"}
+              onClick={(e) =>
+                handleNavClick(e, isLandingPage ? "#contato" : "/contato")
+              }
+            >
               Contato
             </a>
           </li>
@@ -120,7 +165,7 @@ function Header() {
             <>
               {userType === "admin" && (
                 <li className={styles.list}>
-                  <a href="/admin" onClick={(e) => navigateToPath(e, "/admin")}>
+                  <a href="/admin" onClick={(e) => handleNavClick(e, "/admin")}>
                     Painel Admin
                   </a>
                 </li>
@@ -129,7 +174,7 @@ function Header() {
                 <li className={styles.list}>
                   <a
                     href="/hospede/dashboard"
-                    onClick={(e) => navigateToPath(e, "/hospede/dashboard")}
+                    onClick={(e) => handleNavClick(e, "/hospede/dashboard")}
                   >
                     Meu Painel
                   </a>
@@ -139,7 +184,7 @@ function Header() {
                 <li className={styles.list}>
                   <a
                     href="/locador/dashboard"
-                    onClick={(e) => navigateToPath(e, "/locador/dashboard")}
+                    onClick={(e) => handleNavClick(e, "/locador/dashboard")}
                   >
                     Meu Painel
                   </a>

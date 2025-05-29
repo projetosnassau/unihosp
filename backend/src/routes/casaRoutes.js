@@ -55,13 +55,28 @@ router.post(
   autenticarToken,
   autorizarTipos("locador", "admin"),
   async (req, res) => {
-    const { endereco, numero, cep, cidade, estado, diretrizes, locadorId } =
-      req.body;
+    const {
+      endereco,
+      numero,
+      cep,
+      cidade,
+      estado,
+      diretrizes,
+      complemento,
+      precoPorNoite,
+      locadorId,
+    } = req.body;
 
-    if (!endereco || !numero || !diretrizes || !locadorId) {
+    if (
+      !endereco ||
+      !numero ||
+      !diretrizes ||
+      !locadorId ||
+      precoPorNoite === undefined
+    ) {
       return res.status(400).json({
         error:
-          "Campos obrigatórios (endereco, numero, diretrizes, locadorId) não fornecidos.",
+          "Campos obrigatórios (endereco, numero, diretrizes, precoPorNoite, locadorId) não fornecidos.",
       });
     }
 
@@ -69,67 +84,100 @@ router.post(
       const locadorExistente = await prisma.locador.findUnique({
         where: { id: parseInt(locadorId) },
       });
-
-      if (!locadorExistente) {
-        return res
-          .status(404)
-          .json({ error: "Locador não encontrado com o ID fornecido." });
-      }
+      if (!locadorExistente)
+        return res.status(404).json({ error: "Locador não encontrado." });
 
       const novaCasa = await prisma.casa.create({
         data: {
           endereco,
-          numero,
+          numero: parseInt(numero),
           cep,
           cidade,
           estado,
           diretrizes,
+          complemento,
+          precoPorNoite: parseFloat(precoPorNoite),
           locadorId: parseInt(locadorId),
         },
-        include: {
-          locador: {
-            select: {
-              id: true,
-              name: true,
-              email: true,
-            },
-          },
-        },
+        include: { locador: { select: { id: true, name: true, email: true } } },
       });
       res.status(201).json(novaCasa);
     } catch (error) {
       console.error("Erro ao criar casa: ", error);
-      if (error.code === "P2003") {
+      if (error.code === "P2003")
         return res.status(400).json({
           error: `Falha na restrição de chave estrangeira: ${error.meta?.field_name}`,
         });
-      }
-      res.status(500).json({ error: "Erro interno ao criar casa" });
+      res
+        .status(500)
+        .json({ error: "Erro interno ao criar casa", details: error.message });
     }
   }
 );
 
-// Atualizar casa
 router.put(
   "/casa/:id",
   autenticarToken,
   autorizarTipos("locador", "admin"),
   async (req, res) => {
-    const { endereco, numero, cep, cidade, estado, diretrizes } = req.body;
+    const { id } = req.params;
+    const {
+      endereco,
+      numero,
+      cep,
+      cidade,
+      estado,
+      diretrizes,
+      complemento,
+      precoPorNoite,
+    } = req.body;
+    const usuarioLogado = req.usuario;
+
     try {
+      const casaExistente = await prisma.casa.findUnique({
+        where: { id: parseInt(id) },
+      });
+      if (!casaExistente)
+        return res.status(404).json({ error: "Casa não encontrada." });
+
+      if (
+        usuarioLogado.tipo === "locador" &&
+        casaExistente.locadorId !== usuarioLogado.id
+      ) {
+        return res.status(403).json({
+          error: "Acesso negado: Você só pode editar suas próprias casas.",
+        });
+      }
+
+      const dadosAtualizar = {
+        endereco,
+        numero: numero ? parseInt(numero) : undefined,
+        cep,
+        cidade,
+        estado,
+        diretrizes,
+        complemento,
+        precoPorNoite:
+          precoPorNoite !== undefined ? parseFloat(precoPorNoite) : undefined,
+      };
+      Object.keys(dadosAtualizar).forEach(
+        (key) => dadosAtualizar[key] === undefined && delete dadosAtualizar[key]
+      );
+
       const casaAtualizada = await prisma.casa.update({
-        where: { id: parseInt(req.params.id) },
-        data: { endereco, numero, cep, cidade, estado, diretrizes },
+        where: { id: parseInt(id) },
+        data: dadosAtualizar,
       });
       res.json(casaAtualizada);
     } catch (error) {
       console.error("Erro ao atualizar casa: ", error);
-      res.status(500).json({ error: "Erro ao atualizar casa" });
+      res
+        .status(500)
+        .json({ error: "Erro ao atualizar casa", details: error.message });
     }
   }
 );
 
-// Deletar casa
 router.delete(
   "/casa/:id",
   autenticarToken,

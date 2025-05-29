@@ -1,23 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./ReservaModal.module.css";
 import { useAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
-function ReservaModal({
-  isOpen,
-  onClose,
-  casaId,
-  casaEndereco,
-  onReservaSucesso,
-}) {
+function ReservaModal({ isOpen, onClose, casa, onReservaSucesso }) {
   const { token } = useAuth();
+  const navigate = useNavigate();
+
   const [dataCheckIn, setDataCheckIn] = useState("");
   const [dataCheckOut, setDataCheckOut] = useState("");
   const [numeroHospedes, setNumeroHospedes] = useState(1);
   const [observacoes, setObservacoes] = useState("");
+  const [valorCalculado, setValorCalculado] = useState(0);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  if (!isOpen) return null;
+  useEffect(() => {
+    if (dataCheckIn && dataCheckOut && casa?.precoPorNoite) {
+      const checkIn = new Date(dataCheckIn);
+      const checkOut = new Date(dataCheckOut);
+      if (checkOut > checkIn) {
+        const diffTime = Math.abs(checkOut - checkIn);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        setValorCalculado(diffDays * casa.precoPorNoite);
+      } else {
+        setValorCalculado(0);
+      }
+    } else {
+      setValorCalculado(0);
+    }
+  }, [dataCheckIn, dataCheckOut, casa?.precoPorNoite]);
+
+  if (!isOpen || !casa) return null;
 
   const handleOverlayClick = (e) => {
     if (e.target === e.currentTarget) onClose();
@@ -33,12 +47,16 @@ function ReservaModal({
       setIsLoading(false);
       return;
     }
-    if (new Date(dataCheckOut) <= new Date(dataCheckIn)) {
+    const checkInDateObj = new Date(dataCheckIn);
+    const checkOutDateObj = new Date(dataCheckOut);
+
+    if (checkOutDateObj <= checkInDateObj) {
       setError("Data de check-out deve ser posterior à data de check-in.");
       setIsLoading(false);
       return;
     }
-    if (new Date(dataCheckIn) < new Date().setHours(0, 0, 0, 0)) {
+    if (checkInDateObj < new Date(new Date().setHours(0, 0, 0, 0))) {
+      // Comparar apenas a data
       setError("Data de check-in não pode ser no passado.");
       setIsLoading(false);
       return;
@@ -50,13 +68,12 @@ function ReservaModal({
     }
 
     const payload = {
-      casaId: parseInt(casaId),
-      dataCheckIn,
-      dataCheckOut,
+      casaId: casa.id,
+      dataCheckIn: checkInDateObj.toISOString(),
+      dataCheckOut: checkOutDateObj.toISOString(),
       numeroHospedes: parseInt(numeroHospedes, 10),
       observacoes,
     };
-    console.log("ReservaModal: Enviando payload para /api/reservas:", payload);
 
     try {
       const response = await fetch("http://localhost:5000/api/reservas", {
@@ -68,28 +85,17 @@ function ReservaModal({
         body: JSON.stringify(payload),
       });
 
-      const responseText = await response.text();
-      console.log(
-        `ReservaModal: handleSubmit - Status: ${response.status}, Resposta Bruta: ${responseText}`
-      );
-      let result;
-      try {
-        result = JSON.parse(responseText);
-      } catch (parseErr) {
-        if (!response.ok)
-          throw new Error(responseText || `Erro ${response.status}`);
-        result = { message: "Operação enviada, resposta não JSON." };
-      }
+      const result = await response.json();
 
       if (!response.ok) {
         throw new Error(result.error || "Falha ao criar reserva.");
       }
 
-      alert(
-        "Reserva solicitada com sucesso! Aguarde a confirmação do locador."
-      );
-      if (onReservaSucesso) onReservaSucesso(result);
+      console.log("Reserva solicitada com sucesso:", result);
       onClose();
+      if (onReservaSucesso) onReservaSucesso(result);
+
+      navigate(`/pagamento/simular/${result.id}`);
     } catch (err) {
       console.error("ReservaModal: Erro ao criar reserva:", err);
       setError(err.message || "Não foi possível solicitar a reserva.");
@@ -105,7 +111,9 @@ function ReservaModal({
           &times;
         </button>
         <h3>Solicitar Reserva para:</h3>
-        <p className={styles.casaEnderecoReserva}>{casaEndereco}</p>
+        <p className={styles.casaEnderecoReserva}>
+          {casa.endereco}, {casa.numero}
+        </p>
         {error && <p className={styles.errorMessage}>{error}</p>}
         <form onSubmit={handleSubmitReserva} className={styles.reservaForm}>
           <div className={styles.formGroup}>
@@ -142,6 +150,24 @@ function ReservaModal({
               disabled={isLoading}
             />
           </div>
+
+          {casa.precoPorNoite > 0 && valorCalculado > 0 && (
+            <div className={styles.valorTotalInfo}>
+              <p>
+                Valor Estimado:{" "}
+                <strong>
+                  R$ {valorCalculado.toFixed(2).replace(".", ",")}
+                </strong>
+                (
+                {Math.ceil(
+                  Math.abs(new Date(dataCheckOut) - new Date(dataCheckIn)) /
+                    (1000 * 60 * 60 * 24)
+                )}{" "}
+                noites)
+              </p>
+            </div>
+          )}
+
           <div className={styles.formGroup}>
             <label htmlFor="observacoes">Observações (opcional):</label>
             <textarea
@@ -166,7 +192,7 @@ function ReservaModal({
               className={styles.confirmButtonModal}
               disabled={isLoading}
             >
-              {isLoading ? "Enviando..." : "Confirmar Solicitação"}
+              {isLoading ? "Enviando..." : "Solicitar Reserva"}
             </button>
           </div>
         </form>

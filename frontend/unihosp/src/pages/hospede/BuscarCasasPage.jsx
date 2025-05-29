@@ -1,3 +1,4 @@
+// src/pages/BuscarCasasPage.jsx
 import React, { useState, useEffect, useCallback } from "react";
 import styles from "./BuscarCasasPage.module.css";
 import { useAuth } from "../../context/AuthContext";
@@ -176,12 +177,12 @@ function BuscarCasasPage() {
     }
   };
 
-  const handleAbrirModalReserva = (casa) => {
+  const handleAbrirModalReserva = (casaSelecionada) => {
     if (!isHospedeLogado) {
       alert("Você precisa estar logado como hóspede para fazer uma reserva.");
       return;
     }
-    setSelectedCasaParaReserva(casa);
+    setSelectedCasaParaReserva(casaSelecionada);
     setIsReservaModalOpen(true);
   };
 
@@ -263,13 +264,11 @@ function BuscarCasasPage() {
         <ReservaModal
           isOpen={isReservaModalOpen}
           onClose={handleCloseReservaModal}
-          casaId={selectedCasaParaReserva.id}
-          casaEndereco={`${selectedCasaParaReserva.endereco}, ${selectedCasaParaReserva.numero}`}
+          casa={selectedCasaParaReserva}
           onReservaSucesso={handleReservaSucesso}
         />
       )}
     </div>
   );
 }
-
 export default BuscarCasasPage;

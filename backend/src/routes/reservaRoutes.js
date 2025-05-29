@@ -32,26 +32,35 @@ router.post(
     }
     const checkInDate = new Date(dataCheckIn);
     const checkOutDate = new Date(dataCheckOut);
-    if (isNaN(checkInDate.getTime()) || isNaN(checkOutDate.getTime())) {
+    if (isNaN(checkInDate.getTime()) || isNaN(checkOutDate.getTime()))
+      return res.status(400).json({ error: "Datas inválidas." });
+    if (checkOutDate <= checkInDate)
       return res
         .status(400)
-        .json({ error: "Datas de check-in ou check-out inválidas." });
-    }
-    if (checkOutDate <= checkInDate) {
-      return res.status(400).json({
-        error: "Data de check-out deve ser posterior à data de check-in.",
-      });
-    }
-    if (checkInDate < new Date().setHours(0, 0, 0, 0)) {
-      return res
-        .status(400)
-        .json({ error: "Data de check-in não pode ser no passado." });
-    }
+        .json({ error: "Check-out antes ou igual ao check-in." });
+    if (checkInDate < new Date().setHours(0, 0, 0, 0))
+      return res.status(400).json({ error: "Check-in no passado." });
+
     try {
       const casa = await prisma.casa.findUnique({
         where: { id: parseInt(casaId) },
       });
       if (!casa) return res.status(404).json({ error: "Casa não encontrada." });
+      if (casa.precoPorNoite === null || casa.precoPorNoite === undefined) {
+        return res.status(400).json({
+          error:
+            "Esta casa não possui um preço por noite definido e não pode ser reservada.",
+        });
+      }
+
+      const diffTime = Math.abs(checkOutDate - checkInDate);
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      if (diffDays <= 0)
+        return res
+          .status(400)
+          .json({ error: "A reserva deve ser de pelo menos uma noite." });
+
+      const valorTotalCalculado = diffDays * casa.precoPorNoite;
 
       const novaReserva = await prisma.reserva.create({
         data: {
@@ -60,12 +69,16 @@ router.post(
           locadorId: casa.locadorId,
           dataCheckIn: checkInDate.toISOString(),
           dataCheckOut: checkOutDate.toISOString(),
-          numeroHospedes: numeroHospedes ? parseInt(numeroHospedes) : null,
+          numeroHospedes: numeroHospedes ? parseInt(numeroHospedes) : 1,
           observacoes,
           status: "PENDENTE",
+          valorTotalCalculado: valorTotalCalculado,
+          statusPagamento: "PENDENTE_PAGAMENTO",
         },
         include: {
-          casa: { select: { endereco: true, cidade: true } },
+          casa: {
+            select: { endereco: true, cidade: true, precoPorNoite: true },
+          },
           hospede: { select: { name: true, email: true } },
         },
       });
@@ -79,7 +92,6 @@ router.post(
     }
   }
 );
-
 router.get(
   "/hospede/reservas",
   autenticarToken,

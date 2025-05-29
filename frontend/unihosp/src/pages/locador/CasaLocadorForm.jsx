@@ -10,6 +10,7 @@ const StateIcon = () => (
   <span className={formStyles.icon}>&#127463;&#127479;</span>
 );
 const RulesIcon = () => <span className={formStyles.icon}>&#128220;</span>;
+const PriceIcon = () => <span className={formStyles.icon}>&#128176;</span>;
 
 function CasaLocadorForm({
   casaAtual,
@@ -27,6 +28,7 @@ function CasaLocadorForm({
     diretrizes: "",
     complemento: "",
     locadorId: locadorId || "",
+    precoPorNoite: "",
   });
   const [formError, setFormError] = useState("");
 
@@ -38,9 +40,10 @@ function CasaLocadorForm({
         cep: casaAtual.cep || "",
         cidade: casaAtual.cidade || "",
         estado: casaAtual.estado || "",
+        precoPorNoite: casaAtual.precoPorNoite?.toString() || "",
+        locadorId: casaAtual.locadorId?.toString() || locadorId.toString(),
         diretrizes: casaAtual.diretrizes || "",
         complemento: casaAtual.complemento || "",
-        locadorId: casaAtual.locadorId?.toString() || locadorId.toString(),
       });
     } else {
       setFormData({
@@ -51,7 +54,8 @@ function CasaLocadorForm({
         estado: "",
         diretrizes: "",
         complemento: "",
-        locadorId: locadorId.toString(),
+        precoPorNoite: "",
+        locadorId: locadorId ? locadorId.toString() : "",
       });
     }
   }, [casaAtual, locadorId]);
@@ -64,24 +68,49 @@ function CasaLocadorForm({
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormError("");
-    if (!formData.endereco || !formData.numero || !formData.diretrizes) {
-      setFormError("Endereço, Número e Diretrizes são obrigatórios.");
+
+    if (
+      !formData.endereco ||
+      !formData.numero ||
+      !formData.diretrizes ||
+      !formData.locadorId ||
+      !formData.precoPorNoite
+    ) {
+      setFormError(
+        "Endereço, Número, Diretrizes, ID do Locador e Preço por Noite são obrigatórios."
+      );
       return;
     }
+
+    const numeroConvertido = parseInt(formData.numero, 10);
+    const locadorIdConvertido = parseInt(formData.locadorId, 10);
+    const precoNumerico = parseFloat(formData.precoPorNoite);
+
+    if (isNaN(numeroConvertido)) {
+      setFormError("Número da casa deve ser um valor numérico válido.");
+      return;
+    }
+    if (isNaN(locadorIdConvertido)) {
+      setFormError("ID do Locador inválido.");
+      return;
+    }
+    if (isNaN(precoNumerico) || precoNumerico < 0) {
+      setFormError(
+        "Preço por Noite deve ser um valor numérico válido e não negativo."
+      );
+      return;
+    }
+
     const payload = {
       ...formData,
-      numero: parseInt(formData.numero, 10),
-      locadorId: parseInt(formData.locadorId, 10),
+      numero: numeroConvertido,
+      locadorId: locadorIdConvertido,
+      precoPorNoite: precoNumerico,
     };
+
     if (!payload.complemento) delete payload.complemento;
     if (!payload.cep) delete payload.cep;
-    if (!payload.cidade) delete payload.cidade;
-    if (!payload.estado) delete payload.estado;
 
-    if (isNaN(payload.numero) || isNaN(payload.locadorId)) {
-      setFormError("Número e ID do Locador devem ser válidos.");
-      return;
-    }
     onSave(payload, casaAtual?.id);
   };
 
@@ -187,8 +216,29 @@ function CasaLocadorForm({
                 onChange={handleChange}
                 required
                 disabled={isLoading}
+                rows="3"
               />
             </div>
+            {}
+            <div
+              className={formStyles.inputGroupAdmin}
+              style={{ gridColumn: "span 2" }}
+            >
+              <PriceIcon />
+              <input
+                className={formStyles.formInput}
+                type="number"
+                name="precoPorNoite"
+                placeholder="Preço por Noite (R$)"
+                value={formData.precoPorNoite}
+                onChange={handleChange}
+                required
+                disabled={isLoading}
+                step="0.01"
+                min="0"
+              />
+            </div>
+            {}
             <input type="hidden" name="locadorId" value={formData.locadorId} />
           </div>
           <div className={formStyles.formActions}>

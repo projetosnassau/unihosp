@@ -133,6 +133,7 @@ exports.Prisma.CasaScalarFieldEnum = {
   estado: 'estado',
   diretrizes: 'diretrizes',
   complemento: 'complemento',
+  precoPorNoite: 'precoPorNoite',
   locadorId: 'locadorId'
 };
 
@@ -169,6 +170,8 @@ exports.Prisma.ReservaScalarFieldEnum = {
   numeroHospedes: 'numeroHospedes',
   valorTotal: 'valorTotal',
   observacoes: 'observacoes',
+  valorTotalCalculado: 'valorTotalCalculado',
+  statusPagamento: 'statusPagamento',
   hospedeId: 'hospedeId',
   casaId: 'casaId',
   locadorId: 'locadorId',

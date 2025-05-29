@@ -15,6 +15,7 @@ model Admin {
   senha String
 }
 
+
 model Casa {
   id           Int      @id @default(autoincrement())
   endereco     String
@@ -24,15 +25,14 @@ model Casa {
   estado       String?
   diretrizes   String
   complemento  String?
+  precoPorNoite Float?  
   locadorId    Int
   locador      Locador  @relation(fields: [locadorId], references: [id], onDelete: Cascade)
-
-  reservas     Reserva[] 
-  favoritos    Favorito[] 
+  reservas     Reserva[]
+  favoritos    Favorito[]
 
   @@map("casas")
 }
-
 model Locador {
   id         Int      @id @default(autoincrement())
   name       String
@@ -70,26 +70,28 @@ model Reserva {
   id              Int      @id @default(autoincrement())
   dataCheckIn     DateTime
   dataCheckOut    DateTime
-  status          String   
+  status          String  
   numeroHospedes  Int?
   valorTotal      Float?   
-  observacoes     String?  
+  observacoes     String?
+
+
+  valorTotalCalculado Float? 
+  statusPagamento String?  
 
   hospedeId       Int
   hospede         Hospede  @relation(fields: [hospedeId], references: [id], onDelete: Cascade)
-
   casaId          Int
   casa            Casa     @relation(fields: [casaId], references: [id], onDelete: Cascade)
-
-  locadorId       Int      
+  locadorId       Int
   locador         Locador  @relation(fields: [locadorId], references: [id], onDelete: Cascade)
-
 
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
 
   @@map("reservas")
 }
+
 
 model Favorito {
   id          Int      @id @default(autoincrement())

@@ -16,19 +16,19 @@ model Admin {
 }
 
 model Casa {
-  id          Int     @id @default(autoincrement())
-  endereco    String
-  numero      Int
-  cep         String?
-  cidade      String?
-  estado      String?
-  diretrizes  String
-  complemento String?
-  locadorId   Int
-  locador     Locador @relation(fields: [locadorId], references: [id], onDelete: Cascade)
-
-  reservas  Reserva[]
-  favoritos Favorito[]
+  id            Int        @id @default(autoincrement())
+  endereco      String
+  numero        Int
+  cep           String?
+  cidade        String?
+  estado        String?
+  diretrizes    String
+  complemento   String?
+  precoPorNoite Float?
+  locadorId     Int
+  locador       Locador    @relation(fields: [locadorId], references: [id], onDelete: Cascade)
+  reservas      Reserva[]
+  favoritos     Favorito[]
 
   @@map("casas")
 }
@@ -74,12 +74,13 @@ model Reserva {
   valorTotal     Float?
   observacoes    String?
 
+  valorTotalCalculado Float?
+  statusPagamento     String?
+
   hospedeId Int
   hospede   Hospede @relation(fields: [hospedeId], references: [id], onDelete: Cascade)
-
-  casaId Int
-  casa   Casa @relation(fields: [casaId], references: [id], onDelete: Cascade)
-
+  casaId    Int
+  casa      Casa    @relation(fields: [casaId], references: [id], onDelete: Cascade)
   locadorId Int
   locador   Locador @relation(fields: [locadorId], references: [id], onDelete: Cascade)
 

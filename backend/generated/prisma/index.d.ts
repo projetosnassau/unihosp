@@ -2472,12 +2472,14 @@ export namespace Prisma {
   export type CasaAvgAggregateOutputType = {
     id: number | null
     numero: number | null
+    precoPorNoite: number | null
     locadorId: number | null
   }
 
   export type CasaSumAggregateOutputType = {
     id: number | null
     numero: number | null
+    precoPorNoite: number | null
     locadorId: number | null
   }
 
@@ -2490,6 +2492,7 @@ export namespace Prisma {
     estado: string | null
     diretrizes: string | null
     complemento: string | null
+    precoPorNoite: number | null
     locadorId: number | null
   }
 
@@ -2502,6 +2505,7 @@ export namespace Prisma {
     estado: string | null
     diretrizes: string | null
     complemento: string | null
+    precoPorNoite: number | null
     locadorId: number | null
   }
 
@@ -2514,6 +2518,7 @@ export namespace Prisma {
     estado: number
     diretrizes: number
     complemento: number
+    precoPorNoite: number
     locadorId: number
     _all: number
   }
@@ -2522,12 +2527,14 @@ export namespace Prisma {
   export type CasaAvgAggregateInputType = {
     id?: true
     numero?: true
+    precoPorNoite?: true
     locadorId?: true
   }
 
   export type CasaSumAggregateInputType = {
     id?: true
     numero?: true
+    precoPorNoite?: true
     locadorId?: true
   }
 
@@ -2540,6 +2547,7 @@ export namespace Prisma {
     estado?: true
     diretrizes?: true
     complemento?: true
+    precoPorNoite?: true
     locadorId?: true
   }
 
@@ -2552,6 +2560,7 @@ export namespace Prisma {
     estado?: true
     diretrizes?: true
     complemento?: true
+    precoPorNoite?: true
     locadorId?: true
   }
 
@@ -2564,6 +2573,7 @@ export namespace Prisma {
     estado?: true
     diretrizes?: true
     complemento?: true
+    precoPorNoite?: true
     locadorId?: true
     _all?: true
   }
@@ -2663,6 +2673,7 @@ export namespace Prisma {
     estado: string | null
     diretrizes: string
     complemento: string | null
+    precoPorNoite: number | null
     locadorId: number
     _count: CasaCountAggregateOutputType | null
     _avg: CasaAvgAggregateOutputType | null
@@ -2694,6 +2705,7 @@ export namespace Prisma {
     estado?: boolean
     diretrizes?: boolean
     complemento?: boolean
+    precoPorNoite?: boolean
     locadorId?: boolean
     locador?: boolean | LocadorDefaultArgs<ExtArgs>
     reservas?: boolean | Casa$reservasArgs<ExtArgs>
@@ -2710,6 +2722,7 @@ export namespace Prisma {
     estado?: boolean
     diretrizes?: boolean
     complemento?: boolean
+    precoPorNoite?: boolean
     locadorId?: boolean
     locador?: boolean | LocadorDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["casa"]>
@@ -2723,6 +2736,7 @@ export namespace Prisma {
     estado?: boolean
     diretrizes?: boolean
     complemento?: boolean
+    precoPorNoite?: boolean
     locadorId?: boolean
     locador?: boolean | LocadorDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["casa"]>
@@ -2736,10 +2750,11 @@ export namespace Prisma {
     estado?: boolean
     diretrizes?: boolean
     complemento?: boolean
+    precoPorNoite?: boolean
     locadorId?: boolean
   }
 
-  export type CasaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "endereco" | "numero" | "cep" | "cidade" | "estado" | "diretrizes" | "complemento" | "locadorId", ExtArgs["result"]["casa"]>
+  export type CasaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "endereco" | "numero" | "cep" | "cidade" | "estado" | "diretrizes" | "complemento" | "precoPorNoite" | "locadorId", ExtArgs["result"]["casa"]>
   export type CasaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     locador?: boolean | LocadorDefaultArgs<ExtArgs>
     reservas?: boolean | Casa$reservasArgs<ExtArgs>
@@ -2769,6 +2784,7 @@ export namespace Prisma {
       estado: string | null
       diretrizes: string
       complemento: string | null
+      precoPorNoite: number | null
       locadorId: number
     }, ExtArgs["result"]["casa"]>
     composites: {}
@@ -3204,6 +3220,7 @@ export namespace Prisma {
     readonly estado: FieldRef<"Casa", 'String'>
     readonly diretrizes: FieldRef<"Casa", 'String'>
     readonly complemento: FieldRef<"Casa", 'String'>
+    readonly precoPorNoite: FieldRef<"Casa", 'Float'>
     readonly locadorId: FieldRef<"Casa", 'Int'>
   }
     
@@ -6058,6 +6075,7 @@ export namespace Prisma {
     id: number | null
     numeroHospedes: number | null
     valorTotal: number | null
+    valorTotalCalculado: number | null
     hospedeId: number | null
     casaId: number | null
     locadorId: number | null
@@ -6067,6 +6085,7 @@ export namespace Prisma {
     id: number | null
     numeroHospedes: number | null
     valorTotal: number | null
+    valorTotalCalculado: number | null
     hospedeId: number | null
     casaId: number | null
     locadorId: number | null
@@ -6080,6 +6099,8 @@ export namespace Prisma {
     numeroHospedes: number | null
     valorTotal: number | null
     observacoes: string | null
+    valorTotalCalculado: number | null
+    statusPagamento: string | null
     hospedeId: number | null
     casaId: number | null
     locadorId: number | null
@@ -6095,6 +6116,8 @@ export namespace Prisma {
     numeroHospedes: number | null
     valorTotal: number | null
     observacoes: string | null
+    valorTotalCalculado: number | null
+    statusPagamento: string | null
     hospedeId: number | null
     casaId: number | null
     locadorId: number | null
@@ -6110,6 +6133,8 @@ export namespace Prisma {
     numeroHospedes: number
     valorTotal: number
     observacoes: number
+    valorTotalCalculado: number
+    statusPagamento: number
     hospedeId: number
     casaId: number
     locadorId: number
@@ -6123,6 +6148,7 @@ export namespace Prisma {
     id?: true
     numeroHospedes?: true
     valorTotal?: true
+    valorTotalCalculado?: true
     hospedeId?: true
     casaId?: true
     locadorId?: true
@@ -6132,6 +6158,7 @@ export namespace Prisma {
     id?: true
     numeroHospedes?: true
     valorTotal?: true
+    valorTotalCalculado?: true
     hospedeId?: true
     casaId?: true
     locadorId?: true
@@ -6145,6 +6172,8 @@ export namespace Prisma {
     numeroHospedes?: true
     valorTotal?: true
     observacoes?: true
+    valorTotalCalculado?: true
+    statusPagamento?: true
     hospedeId?: true
     casaId?: true
     locadorId?: true
@@ -6160,6 +6189,8 @@ export namespace Prisma {
     numeroHospedes?: true
     valorTotal?: true
     observacoes?: true
+    valorTotalCalculado?: true
+    statusPagamento?: true
     hospedeId?: true
     casaId?: true
     locadorId?: true
@@ -6175,6 +6206,8 @@ export namespace Prisma {
     numeroHospedes?: true
     valorTotal?: true
     observacoes?: true
+    valorTotalCalculado?: true
+    statusPagamento?: true
     hospedeId?: true
     casaId?: true
     locadorId?: true
@@ -6277,6 +6310,8 @@ export namespace Prisma {
     numeroHospedes: number | null
     valorTotal: number | null
     observacoes: string | null
+    valorTotalCalculado: number | null
+    statusPagamento: string | null
     hospedeId: number
     casaId: number
     locadorId: number
@@ -6311,6 +6346,8 @@ export namespace Prisma {
     numeroHospedes?: boolean
     valorTotal?: boolean
     observacoes?: boolean
+    valorTotalCalculado?: boolean
+    statusPagamento?: boolean
     hospedeId?: boolean
     casaId?: boolean
     locadorId?: boolean
@@ -6329,6 +6366,8 @@ export namespace Prisma {
     numeroHospedes?: boolean
     valorTotal?: boolean
     observacoes?: boolean
+    valorTotalCalculado?: boolean
+    statusPagamento?: boolean
     hospedeId?: boolean
     casaId?: boolean
     locadorId?: boolean
@@ -6347,6 +6386,8 @@ export namespace Prisma {
     numeroHospedes?: boolean
     valorTotal?: boolean
     observacoes?: boolean
+    valorTotalCalculado?: boolean
+    statusPagamento?: boolean
     hospedeId?: boolean
     casaId?: boolean
     locadorId?: boolean
@@ -6365,6 +6406,8 @@ export namespace Prisma {
     numeroHospedes?: boolean
     valorTotal?: boolean
     observacoes?: boolean
+    valorTotalCalculado?: boolean
+    statusPagamento?: boolean
     hospedeId?: boolean
     casaId?: boolean
     locadorId?: boolean
@@ -6372,7 +6415,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type ReservaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "dataCheckIn" | "dataCheckOut" | "status" | "numeroHospedes" | "valorTotal" | "observacoes" | "hospedeId" | "casaId" | "locadorId" | "createdAt" | "updatedAt", ExtArgs["result"]["reserva"]>
+  export type ReservaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "dataCheckIn" | "dataCheckOut" | "status" | "numeroHospedes" | "valorTotal" | "observacoes" | "valorTotalCalculado" | "statusPagamento" | "hospedeId" | "casaId" | "locadorId" | "createdAt" | "updatedAt", ExtArgs["result"]["reserva"]>
   export type ReservaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     hospede?: boolean | HospedeDefaultArgs<ExtArgs>
     casa?: boolean | CasaDefaultArgs<ExtArgs>
@@ -6404,6 +6447,8 @@ export namespace Prisma {
       numeroHospedes: number | null
       valorTotal: number | null
       observacoes: string | null
+      valorTotalCalculado: number | null
+      statusPagamento: string | null
       hospedeId: number
       casaId: number
       locadorId: number
@@ -6842,6 +6887,8 @@ export namespace Prisma {
     readonly numeroHospedes: FieldRef<"Reserva", 'Int'>
     readonly valorTotal: FieldRef<"Reserva", 'Float'>
     readonly observacoes: FieldRef<"Reserva", 'String'>
+    readonly valorTotalCalculado: FieldRef<"Reserva", 'Float'>
+    readonly statusPagamento: FieldRef<"Reserva", 'String'>
     readonly hospedeId: FieldRef<"Reserva", 'Int'>
     readonly casaId: FieldRef<"Reserva", 'Int'>
     readonly locadorId: FieldRef<"Reserva", 'Int'>
@@ -8382,6 +8429,7 @@ export namespace Prisma {
     estado: 'estado',
     diretrizes: 'diretrizes',
     complemento: 'complemento',
+    precoPorNoite: 'precoPorNoite',
     locadorId: 'locadorId'
   };
 
@@ -8427,6 +8475,8 @@ export namespace Prisma {
     numeroHospedes: 'numeroHospedes',
     valorTotal: 'valorTotal',
     observacoes: 'observacoes',
+    valorTotalCalculado: 'valorTotalCalculado',
+    statusPagamento: 'statusPagamento',
     hospedeId: 'hospedeId',
     casaId: 'casaId',
     locadorId: 'locadorId',
@@ -8483,16 +8533,16 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'DateTime'
+   * Reference to a field of type 'Float'
    */
-  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+  export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
     
 
 
   /**
-   * Reference to a field of type 'Float'
+   * Reference to a field of type 'DateTime'
    */
-  export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
     
   /**
    * Deep Input Types
@@ -8560,6 +8610,7 @@ export namespace Prisma {
     estado?: StringNullableFilter<"Casa"> | string | null
     diretrizes?: StringFilter<"Casa"> | string
     complemento?: StringNullableFilter<"Casa"> | string | null
+    precoPorNoite?: FloatNullableFilter<"Casa"> | number | null
     locadorId?: IntFilter<"Casa"> | number
     locador?: XOR<LocadorScalarRelationFilter, LocadorWhereInput>
     reservas?: ReservaListRelationFilter
@@ -8575,6 +8626,7 @@ export namespace Prisma {
     estado?: SortOrderInput | SortOrder
     diretrizes?: SortOrder
     complemento?: SortOrderInput | SortOrder
+    precoPorNoite?: SortOrderInput | SortOrder
     locadorId?: SortOrder
     locador?: LocadorOrderByWithRelationInput
     reservas?: ReservaOrderByRelationAggregateInput
@@ -8593,6 +8645,7 @@ export namespace Prisma {
     estado?: StringNullableFilter<"Casa"> | string | null
     diretrizes?: StringFilter<"Casa"> | string
     complemento?: StringNullableFilter<"Casa"> | string | null
+    precoPorNoite?: FloatNullableFilter<"Casa"> | number | null
     locadorId?: IntFilter<"Casa"> | number
     locador?: XOR<LocadorScalarRelationFilter, LocadorWhereInput>
     reservas?: ReservaListRelationFilter
@@ -8608,6 +8661,7 @@ export namespace Prisma {
     estado?: SortOrderInput | SortOrder
     diretrizes?: SortOrder
     complemento?: SortOrderInput | SortOrder
+    precoPorNoite?: SortOrderInput | SortOrder
     locadorId?: SortOrder
     _count?: CasaCountOrderByAggregateInput
     _avg?: CasaAvgOrderByAggregateInput
@@ -8628,6 +8682,7 @@ export namespace Prisma {
     estado?: StringNullableWithAggregatesFilter<"Casa"> | string | null
     diretrizes?: StringWithAggregatesFilter<"Casa"> | string
     complemento?: StringNullableWithAggregatesFilter<"Casa"> | string | null
+    precoPorNoite?: FloatNullableWithAggregatesFilter<"Casa"> | number | null
     locadorId?: IntWithAggregatesFilter<"Casa"> | number
   }
 
@@ -8807,6 +8862,8 @@ export namespace Prisma {
     numeroHospedes?: IntNullableFilter<"Reserva"> | number | null
     valorTotal?: FloatNullableFilter<"Reserva"> | number | null
     observacoes?: StringNullableFilter<"Reserva"> | string | null
+    valorTotalCalculado?: FloatNullableFilter<"Reserva"> | number | null
+    statusPagamento?: StringNullableFilter<"Reserva"> | string | null
     hospedeId?: IntFilter<"Reserva"> | number
     casaId?: IntFilter<"Reserva"> | number
     locadorId?: IntFilter<"Reserva"> | number
@@ -8825,6 +8882,8 @@ export namespace Prisma {
     numeroHospedes?: SortOrderInput | SortOrder
     valorTotal?: SortOrderInput | SortOrder
     observacoes?: SortOrderInput | SortOrder
+    valorTotalCalculado?: SortOrderInput | SortOrder
+    statusPagamento?: SortOrderInput | SortOrder
     hospedeId?: SortOrder
     casaId?: SortOrder
     locadorId?: SortOrder
@@ -8846,6 +8905,8 @@ export namespace Prisma {
     numeroHospedes?: IntNullableFilter<"Reserva"> | number | null
     valorTotal?: FloatNullableFilter<"Reserva"> | number | null
     observacoes?: StringNullableFilter<"Reserva"> | string | null
+    valorTotalCalculado?: FloatNullableFilter<"Reserva"> | number | null
+    statusPagamento?: StringNullableFilter<"Reserva"> | string | null
     hospedeId?: IntFilter<"Reserva"> | number
     casaId?: IntFilter<"Reserva"> | number
     locadorId?: IntFilter<"Reserva"> | number
@@ -8864,6 +8925,8 @@ export namespace Prisma {
     numeroHospedes?: SortOrderInput | SortOrder
     valorTotal?: SortOrderInput | SortOrder
     observacoes?: SortOrderInput | SortOrder
+    valorTotalCalculado?: SortOrderInput | SortOrder
+    statusPagamento?: SortOrderInput | SortOrder
     hospedeId?: SortOrder
     casaId?: SortOrder
     locadorId?: SortOrder
@@ -8887,6 +8950,8 @@ export namespace Prisma {
     numeroHospedes?: IntNullableWithAggregatesFilter<"Reserva"> | number | null
     valorTotal?: FloatNullableWithAggregatesFilter<"Reserva"> | number | null
     observacoes?: StringNullableWithAggregatesFilter<"Reserva"> | string | null
+    valorTotalCalculado?: FloatNullableWithAggregatesFilter<"Reserva"> | number | null
+    statusPagamento?: StringNullableWithAggregatesFilter<"Reserva"> | string | null
     hospedeId?: IntWithAggregatesFilter<"Reserva"> | number
     casaId?: IntWithAggregatesFilter<"Reserva"> | number
     locadorId?: IntWithAggregatesFilter<"Reserva"> | number
@@ -9004,6 +9069,7 @@ export namespace Prisma {
     estado?: string | null
     diretrizes: string
     complemento?: string | null
+    precoPorNoite?: number | null
     locador: LocadorCreateNestedOneWithoutCasasInput
     reservas?: ReservaCreateNestedManyWithoutCasaInput
     favoritos?: FavoritoCreateNestedManyWithoutCasaInput
@@ -9018,6 +9084,7 @@ export namespace Prisma {
     estado?: string | null
     diretrizes: string
     complemento?: string | null
+    precoPorNoite?: number | null
     locadorId: number
     reservas?: ReservaUncheckedCreateNestedManyWithoutCasaInput
     favoritos?: FavoritoUncheckedCreateNestedManyWithoutCasaInput
@@ -9031,6 +9098,7 @@ export namespace Prisma {
     estado?: NullableStringFieldUpdateOperationsInput | string | null
     diretrizes?: StringFieldUpdateOperationsInput | string
     complemento?: NullableStringFieldUpdateOperationsInput | string | null
+    precoPorNoite?: NullableFloatFieldUpdateOperationsInput | number | null
     locador?: LocadorUpdateOneRequiredWithoutCasasNestedInput
     reservas?: ReservaUpdateManyWithoutCasaNestedInput
     favoritos?: FavoritoUpdateManyWithoutCasaNestedInput
@@ -9045,6 +9113,7 @@ export namespace Prisma {
     estado?: NullableStringFieldUpdateOperationsInput | string | null
     diretrizes?: StringFieldUpdateOperationsInput | string
     complemento?: NullableStringFieldUpdateOperationsInput | string | null
+    precoPorNoite?: NullableFloatFieldUpdateOperationsInput | number | null
     locadorId?: IntFieldUpdateOperationsInput | number
     reservas?: ReservaUncheckedUpdateManyWithoutCasaNestedInput
     favoritos?: FavoritoUncheckedUpdateManyWithoutCasaNestedInput
@@ -9059,6 +9128,7 @@ export namespace Prisma {
     estado?: string | null
     diretrizes: string
     complemento?: string | null
+    precoPorNoite?: number | null
     locadorId: number
   }
 
@@ -9070,6 +9140,7 @@ export namespace Prisma {
     estado?: NullableStringFieldUpdateOperationsInput | string | null
     diretrizes?: StringFieldUpdateOperationsInput | string
     complemento?: NullableStringFieldUpdateOperationsInput | string | null
+    precoPorNoite?: NullableFloatFieldUpdateOperationsInput | number | null
   }
 
   export type CasaUncheckedUpdateManyInput = {
@@ -9081,6 +9152,7 @@ export namespace Prisma {
     estado?: NullableStringFieldUpdateOperationsInput | string | null
     diretrizes?: StringFieldUpdateOperationsInput | string
     complemento?: NullableStringFieldUpdateOperationsInput | string | null
+    precoPorNoite?: NullableFloatFieldUpdateOperationsInput | number | null
     locadorId?: IntFieldUpdateOperationsInput | number
   }
 
@@ -9276,6 +9348,8 @@ export namespace Prisma {
     numeroHospedes?: number | null
     valorTotal?: number | null
     observacoes?: string | null
+    valorTotalCalculado?: number | null
+    statusPagamento?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     hospede: HospedeCreateNestedOneWithoutReservasInput
@@ -9291,6 +9365,8 @@ export namespace Prisma {
     numeroHospedes?: number | null
     valorTotal?: number | null
     observacoes?: string | null
+    valorTotalCalculado?: number | null
+    statusPagamento?: string | null
     hospedeId: number
     casaId: number
     locadorId: number
@@ -9305,6 +9381,8 @@ export namespace Prisma {
     numeroHospedes?: NullableIntFieldUpdateOperationsInput | number | null
     valorTotal?: NullableFloatFieldUpdateOperationsInput | number | null
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    valorTotalCalculado?: NullableFloatFieldUpdateOperationsInput | number | null
+    statusPagamento?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     hospede?: HospedeUpdateOneRequiredWithoutReservasNestedInput
@@ -9320,6 +9398,8 @@ export namespace Prisma {
     numeroHospedes?: NullableIntFieldUpdateOperationsInput | number | null
     valorTotal?: NullableFloatFieldUpdateOperationsInput | number | null
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    valorTotalCalculado?: NullableFloatFieldUpdateOperationsInput | number | null
+    statusPagamento?: NullableStringFieldUpdateOperationsInput | string | null
     hospedeId?: IntFieldUpdateOperationsInput | number
     casaId?: IntFieldUpdateOperationsInput | number
     locadorId?: IntFieldUpdateOperationsInput | number
@@ -9335,6 +9415,8 @@ export namespace Prisma {
     numeroHospedes?: number | null
     valorTotal?: number | null
     observacoes?: string | null
+    valorTotalCalculado?: number | null
+    statusPagamento?: string | null
     hospedeId: number
     casaId: number
     locadorId: number
@@ -9349,6 +9431,8 @@ export namespace Prisma {
     numeroHospedes?: NullableIntFieldUpdateOperationsInput | number | null
     valorTotal?: NullableFloatFieldUpdateOperationsInput | number | null
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    valorTotalCalculado?: NullableFloatFieldUpdateOperationsInput | number | null
+    statusPagamento?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -9361,6 +9445,8 @@ export namespace Prisma {
     numeroHospedes?: NullableIntFieldUpdateOperationsInput | number | null
     valorTotal?: NullableFloatFieldUpdateOperationsInput | number | null
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    valorTotalCalculado?: NullableFloatFieldUpdateOperationsInput | number | null
+    statusPagamento?: NullableStringFieldUpdateOperationsInput | string | null
     hospedeId?: IntFieldUpdateOperationsInput | number
     casaId?: IntFieldUpdateOperationsInput | number
     locadorId?: IntFieldUpdateOperationsInput | number
@@ -9535,6 +9621,17 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type FloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
   export type LocadorScalarRelationFilter = {
     is?: LocadorWhereInput
     isNot?: LocadorWhereInput
@@ -9569,12 +9666,14 @@ export namespace Prisma {
     estado?: SortOrder
     diretrizes?: SortOrder
     complemento?: SortOrder
+    precoPorNoite?: SortOrder
     locadorId?: SortOrder
   }
 
   export type CasaAvgOrderByAggregateInput = {
     id?: SortOrder
     numero?: SortOrder
+    precoPorNoite?: SortOrder
     locadorId?: SortOrder
   }
 
@@ -9587,6 +9686,7 @@ export namespace Prisma {
     estado?: SortOrder
     diretrizes?: SortOrder
     complemento?: SortOrder
+    precoPorNoite?: SortOrder
     locadorId?: SortOrder
   }
 
@@ -9599,13 +9699,31 @@ export namespace Prisma {
     estado?: SortOrder
     diretrizes?: SortOrder
     complemento?: SortOrder
+    precoPorNoite?: SortOrder
     locadorId?: SortOrder
   }
 
   export type CasaSumOrderByAggregateInput = {
     id?: SortOrder
     numero?: SortOrder
+    precoPorNoite?: SortOrder
     locadorId?: SortOrder
+  }
+
+  export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
   }
 
   export type CasaListRelationFilter = {
@@ -9731,17 +9849,6 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
-  export type FloatNullableFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
-  }
-
   export type HospedeScalarRelationFilter = {
     is?: HospedeWhereInput
     isNot?: HospedeWhereInput
@@ -9760,6 +9867,8 @@ export namespace Prisma {
     numeroHospedes?: SortOrder
     valorTotal?: SortOrder
     observacoes?: SortOrder
+    valorTotalCalculado?: SortOrder
+    statusPagamento?: SortOrder
     hospedeId?: SortOrder
     casaId?: SortOrder
     locadorId?: SortOrder
@@ -9771,6 +9880,7 @@ export namespace Prisma {
     id?: SortOrder
     numeroHospedes?: SortOrder
     valorTotal?: SortOrder
+    valorTotalCalculado?: SortOrder
     hospedeId?: SortOrder
     casaId?: SortOrder
     locadorId?: SortOrder
@@ -9784,6 +9894,8 @@ export namespace Prisma {
     numeroHospedes?: SortOrder
     valorTotal?: SortOrder
     observacoes?: SortOrder
+    valorTotalCalculado?: SortOrder
+    statusPagamento?: SortOrder
     hospedeId?: SortOrder
     casaId?: SortOrder
     locadorId?: SortOrder
@@ -9799,6 +9911,8 @@ export namespace Prisma {
     numeroHospedes?: SortOrder
     valorTotal?: SortOrder
     observacoes?: SortOrder
+    valorTotalCalculado?: SortOrder
+    statusPagamento?: SortOrder
     hospedeId?: SortOrder
     casaId?: SortOrder
     locadorId?: SortOrder
@@ -9810,6 +9924,7 @@ export namespace Prisma {
     id?: SortOrder
     numeroHospedes?: SortOrder
     valorTotal?: SortOrder
+    valorTotalCalculado?: SortOrder
     hospedeId?: SortOrder
     casaId?: SortOrder
     locadorId?: SortOrder
@@ -9843,22 +9958,6 @@ export namespace Prisma {
     _sum?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedIntNullableFilter<$PrismaModel>
     _max?: NestedIntNullableFilter<$PrismaModel>
-  }
-
-  export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedFloatNullableFilter<$PrismaModel>
-    _min?: NestedFloatNullableFilter<$PrismaModel>
-    _max?: NestedFloatNullableFilter<$PrismaModel>
   }
 
   export type FavoritoHospede_casa_favorito_uniqueCompoundUniqueInput = {
@@ -9947,6 +10046,14 @@ export namespace Prisma {
     connectOrCreate?: FavoritoCreateOrConnectWithoutCasaInput | FavoritoCreateOrConnectWithoutCasaInput[]
     createMany?: FavoritoCreateManyCasaInputEnvelope
     connect?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+  }
+
+  export type NullableFloatFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
   export type LocadorUpdateOneRequiredWithoutCasasNestedInput = {
@@ -10211,14 +10318,6 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type NullableFloatFieldUpdateOperationsInput = {
-    set?: number | null
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
-  }
-
   export type HospedeUpdateOneRequiredWithoutReservasNestedInput = {
     create?: XOR<HospedeCreateWithoutReservasInput, HospedeUncheckedCreateWithoutReservasInput>
     connectOrCreate?: HospedeCreateOrConnectWithoutReservasInput
@@ -10382,17 +10481,6 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
-  export type NestedDateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[]
-    notIn?: Date[] | string[]
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
-  }
-
   export type NestedFloatNullableFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel> | null
     in?: number[] | null
@@ -10402,6 +10490,33 @@ export namespace Prisma {
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
+  }
+
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -10432,22 +10547,6 @@ export namespace Prisma {
     _sum?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedIntNullableFilter<$PrismaModel>
     _max?: NestedIntNullableFilter<$PrismaModel>
-  }
-
-  export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedFloatNullableFilter<$PrismaModel>
-    _min?: NestedFloatNullableFilter<$PrismaModel>
-    _max?: NestedFloatNullableFilter<$PrismaModel>
   }
 
   export type LocadorCreateWithoutCasasInput = {
@@ -10487,6 +10586,8 @@ export namespace Prisma {
     numeroHospedes?: number | null
     valorTotal?: number | null
     observacoes?: string | null
+    valorTotalCalculado?: number | null
+    statusPagamento?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     hospede: HospedeCreateNestedOneWithoutReservasInput
@@ -10501,6 +10602,8 @@ export namespace Prisma {
     numeroHospedes?: number | null
     valorTotal?: number | null
     observacoes?: string | null
+    valorTotalCalculado?: number | null
+    statusPagamento?: string | null
     hospedeId: number
     locadorId: number
     createdAt?: Date | string
@@ -10599,6 +10702,8 @@ export namespace Prisma {
     numeroHospedes?: IntNullableFilter<"Reserva"> | number | null
     valorTotal?: FloatNullableFilter<"Reserva"> | number | null
     observacoes?: StringNullableFilter<"Reserva"> | string | null
+    valorTotalCalculado?: FloatNullableFilter<"Reserva"> | number | null
+    statusPagamento?: StringNullableFilter<"Reserva"> | string | null
     hospedeId?: IntFilter<"Reserva"> | number
     casaId?: IntFilter<"Reserva"> | number
     locadorId?: IntFilter<"Reserva"> | number
@@ -10640,6 +10745,7 @@ export namespace Prisma {
     estado?: string | null
     diretrizes: string
     complemento?: string | null
+    precoPorNoite?: number | null
     reservas?: ReservaCreateNestedManyWithoutCasaInput
     favoritos?: FavoritoCreateNestedManyWithoutCasaInput
   }
@@ -10653,6 +10759,7 @@ export namespace Prisma {
     estado?: string | null
     diretrizes: string
     complemento?: string | null
+    precoPorNoite?: number | null
     reservas?: ReservaUncheckedCreateNestedManyWithoutCasaInput
     favoritos?: FavoritoUncheckedCreateNestedManyWithoutCasaInput
   }
@@ -10673,6 +10780,8 @@ export namespace Prisma {
     numeroHospedes?: number | null
     valorTotal?: number | null
     observacoes?: string | null
+    valorTotalCalculado?: number | null
+    statusPagamento?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     hospede: HospedeCreateNestedOneWithoutReservasInput
@@ -10687,6 +10796,8 @@ export namespace Prisma {
     numeroHospedes?: number | null
     valorTotal?: number | null
     observacoes?: string | null
+    valorTotalCalculado?: number | null
+    statusPagamento?: string | null
     hospedeId: number
     casaId: number
     createdAt?: Date | string
@@ -10730,6 +10841,7 @@ export namespace Prisma {
     estado?: StringNullableFilter<"Casa"> | string | null
     diretrizes?: StringFilter<"Casa"> | string
     complemento?: StringNullableFilter<"Casa"> | string | null
+    precoPorNoite?: FloatNullableFilter<"Casa"> | number | null
     locadorId?: IntFilter<"Casa"> | number
   }
 
@@ -10756,6 +10868,8 @@ export namespace Prisma {
     numeroHospedes?: number | null
     valorTotal?: number | null
     observacoes?: string | null
+    valorTotalCalculado?: number | null
+    statusPagamento?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     casa: CasaCreateNestedOneWithoutReservasInput
@@ -10770,6 +10884,8 @@ export namespace Prisma {
     numeroHospedes?: number | null
     valorTotal?: number | null
     observacoes?: string | null
+    valorTotalCalculado?: number | null
+    statusPagamento?: string | null
     casaId: number
     locadorId: number
     createdAt?: Date | string
@@ -10877,6 +10993,7 @@ export namespace Prisma {
     estado?: string | null
     diretrizes: string
     complemento?: string | null
+    precoPorNoite?: number | null
     locador: LocadorCreateNestedOneWithoutCasasInput
     favoritos?: FavoritoCreateNestedManyWithoutCasaInput
   }
@@ -10890,6 +11007,7 @@ export namespace Prisma {
     estado?: string | null
     diretrizes: string
     complemento?: string | null
+    precoPorNoite?: number | null
     locadorId: number
     favoritos?: FavoritoUncheckedCreateNestedManyWithoutCasaInput
   }
@@ -10986,6 +11104,7 @@ export namespace Prisma {
     estado?: NullableStringFieldUpdateOperationsInput | string | null
     diretrizes?: StringFieldUpdateOperationsInput | string
     complemento?: NullableStringFieldUpdateOperationsInput | string | null
+    precoPorNoite?: NullableFloatFieldUpdateOperationsInput | number | null
     locador?: LocadorUpdateOneRequiredWithoutCasasNestedInput
     favoritos?: FavoritoUpdateManyWithoutCasaNestedInput
   }
@@ -10999,6 +11118,7 @@ export namespace Prisma {
     estado?: NullableStringFieldUpdateOperationsInput | string | null
     diretrizes?: StringFieldUpdateOperationsInput | string
     complemento?: NullableStringFieldUpdateOperationsInput | string | null
+    precoPorNoite?: NullableFloatFieldUpdateOperationsInput | number | null
     locadorId?: IntFieldUpdateOperationsInput | number
     favoritos?: FavoritoUncheckedUpdateManyWithoutCasaNestedInput
   }
@@ -11079,6 +11199,7 @@ export namespace Prisma {
     estado?: string | null
     diretrizes: string
     complemento?: string | null
+    precoPorNoite?: number | null
     locador: LocadorCreateNestedOneWithoutCasasInput
     reservas?: ReservaCreateNestedManyWithoutCasaInput
   }
@@ -11092,6 +11213,7 @@ export namespace Prisma {
     estado?: string | null
     diretrizes: string
     complemento?: string | null
+    precoPorNoite?: number | null
     locadorId: number
     reservas?: ReservaUncheckedCreateNestedManyWithoutCasaInput
   }
@@ -11158,6 +11280,7 @@ export namespace Prisma {
     estado?: NullableStringFieldUpdateOperationsInput | string | null
     diretrizes?: StringFieldUpdateOperationsInput | string
     complemento?: NullableStringFieldUpdateOperationsInput | string | null
+    precoPorNoite?: NullableFloatFieldUpdateOperationsInput | number | null
     locador?: LocadorUpdateOneRequiredWithoutCasasNestedInput
     reservas?: ReservaUpdateManyWithoutCasaNestedInput
   }
@@ -11171,6 +11294,7 @@ export namespace Prisma {
     estado?: NullableStringFieldUpdateOperationsInput | string | null
     diretrizes?: StringFieldUpdateOperationsInput | string
     complemento?: NullableStringFieldUpdateOperationsInput | string | null
+    precoPorNoite?: NullableFloatFieldUpdateOperationsInput | number | null
     locadorId?: IntFieldUpdateOperationsInput | number
     reservas?: ReservaUncheckedUpdateManyWithoutCasaNestedInput
   }
@@ -11183,6 +11307,8 @@ export namespace Prisma {
     numeroHospedes?: number | null
     valorTotal?: number | null
     observacoes?: string | null
+    valorTotalCalculado?: number | null
+    statusPagamento?: string | null
     hospedeId: number
     locadorId: number
     createdAt?: Date | string
@@ -11202,6 +11328,8 @@ export namespace Prisma {
     numeroHospedes?: NullableIntFieldUpdateOperationsInput | number | null
     valorTotal?: NullableFloatFieldUpdateOperationsInput | number | null
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    valorTotalCalculado?: NullableFloatFieldUpdateOperationsInput | number | null
+    statusPagamento?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     hospede?: HospedeUpdateOneRequiredWithoutReservasNestedInput
@@ -11216,6 +11344,8 @@ export namespace Prisma {
     numeroHospedes?: NullableIntFieldUpdateOperationsInput | number | null
     valorTotal?: NullableFloatFieldUpdateOperationsInput | number | null
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    valorTotalCalculado?: NullableFloatFieldUpdateOperationsInput | number | null
+    statusPagamento?: NullableStringFieldUpdateOperationsInput | string | null
     hospedeId?: IntFieldUpdateOperationsInput | number
     locadorId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11230,6 +11360,8 @@ export namespace Prisma {
     numeroHospedes?: NullableIntFieldUpdateOperationsInput | number | null
     valorTotal?: NullableFloatFieldUpdateOperationsInput | number | null
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    valorTotalCalculado?: NullableFloatFieldUpdateOperationsInput | number | null
+    statusPagamento?: NullableStringFieldUpdateOperationsInput | string | null
     hospedeId?: IntFieldUpdateOperationsInput | number
     locadorId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11262,6 +11394,7 @@ export namespace Prisma {
     estado?: string | null
     diretrizes: string
     complemento?: string | null
+    precoPorNoite?: number | null
   }
 
   export type ReservaCreateManyLocadorInput = {
@@ -11272,6 +11405,8 @@ export namespace Prisma {
     numeroHospedes?: number | null
     valorTotal?: number | null
     observacoes?: string | null
+    valorTotalCalculado?: number | null
+    statusPagamento?: string | null
     hospedeId: number
     casaId: number
     createdAt?: Date | string
@@ -11286,6 +11421,7 @@ export namespace Prisma {
     estado?: NullableStringFieldUpdateOperationsInput | string | null
     diretrizes?: StringFieldUpdateOperationsInput | string
     complemento?: NullableStringFieldUpdateOperationsInput | string | null
+    precoPorNoite?: NullableFloatFieldUpdateOperationsInput | number | null
     reservas?: ReservaUpdateManyWithoutCasaNestedInput
     favoritos?: FavoritoUpdateManyWithoutCasaNestedInput
   }
@@ -11299,6 +11435,7 @@ export namespace Prisma {
     estado?: NullableStringFieldUpdateOperationsInput | string | null
     diretrizes?: StringFieldUpdateOperationsInput | string
     complemento?: NullableStringFieldUpdateOperationsInput | string | null
+    precoPorNoite?: NullableFloatFieldUpdateOperationsInput | number | null
     reservas?: ReservaUncheckedUpdateManyWithoutCasaNestedInput
     favoritos?: FavoritoUncheckedUpdateManyWithoutCasaNestedInput
   }
@@ -11312,6 +11449,7 @@ export namespace Prisma {
     estado?: NullableStringFieldUpdateOperationsInput | string | null
     diretrizes?: StringFieldUpdateOperationsInput | string
     complemento?: NullableStringFieldUpdateOperationsInput | string | null
+    precoPorNoite?: NullableFloatFieldUpdateOperationsInput | number | null
   }
 
   export type ReservaUpdateWithoutLocadorInput = {
@@ -11321,6 +11459,8 @@ export namespace Prisma {
     numeroHospedes?: NullableIntFieldUpdateOperationsInput | number | null
     valorTotal?: NullableFloatFieldUpdateOperationsInput | number | null
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    valorTotalCalculado?: NullableFloatFieldUpdateOperationsInput | number | null
+    statusPagamento?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     hospede?: HospedeUpdateOneRequiredWithoutReservasNestedInput
@@ -11335,6 +11475,8 @@ export namespace Prisma {
     numeroHospedes?: NullableIntFieldUpdateOperationsInput | number | null
     valorTotal?: NullableFloatFieldUpdateOperationsInput | number | null
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    valorTotalCalculado?: NullableFloatFieldUpdateOperationsInput | number | null
+    statusPagamento?: NullableStringFieldUpdateOperationsInput | string | null
     hospedeId?: IntFieldUpdateOperationsInput | number
     casaId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11349,6 +11491,8 @@ export namespace Prisma {
     numeroHospedes?: NullableIntFieldUpdateOperationsInput | number | null
     valorTotal?: NullableFloatFieldUpdateOperationsInput | number | null
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    valorTotalCalculado?: NullableFloatFieldUpdateOperationsInput | number | null
+    statusPagamento?: NullableStringFieldUpdateOperationsInput | string | null
     hospedeId?: IntFieldUpdateOperationsInput | number
     casaId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11363,6 +11507,8 @@ export namespace Prisma {
     numeroHospedes?: number | null
     valorTotal?: number | null
     observacoes?: string | null
+    valorTotalCalculado?: number | null
+    statusPagamento?: string | null
     casaId: number
     locadorId: number
     createdAt?: Date | string
@@ -11382,6 +11528,8 @@ export namespace Prisma {
     numeroHospedes?: NullableIntFieldUpdateOperationsInput | number | null
     valorTotal?: NullableFloatFieldUpdateOperationsInput | number | null
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    valorTotalCalculado?: NullableFloatFieldUpdateOperationsInput | number | null
+    statusPagamento?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     casa?: CasaUpdateOneRequiredWithoutReservasNestedInput
@@ -11396,6 +11544,8 @@ export namespace Prisma {
     numeroHospedes?: NullableIntFieldUpdateOperationsInput | number | null
     valorTotal?: NullableFloatFieldUpdateOperationsInput | number | null
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    valorTotalCalculado?: NullableFloatFieldUpdateOperationsInput | number | null
+    statusPagamento?: NullableStringFieldUpdateOperationsInput | string | null
     casaId?: IntFieldUpdateOperationsInput | number
     locadorId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11410,6 +11560,8 @@ export namespace Prisma {
     numeroHospedes?: NullableIntFieldUpdateOperationsInput | number | null
     valorTotal?: NullableFloatFieldUpdateOperationsInput | number | null
     observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    valorTotalCalculado?: NullableFloatFieldUpdateOperationsInput | number | null
+    statusPagamento?: NullableStringFieldUpdateOperationsInput | string | null
     casaId?: IntFieldUpdateOperationsInput | number
     locadorId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string

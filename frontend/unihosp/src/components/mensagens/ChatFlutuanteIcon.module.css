@@ -1,0 +1,48 @@
+.chatFlutuanteBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease;
+  padding: 0;
+}
+
+.chatFlutuanteBtn:hover {
+  background-color: #0056b3;
+  transform: scale(1.1);
+}
+
+.chatFlutuanteBtn svg {
+  width: 28px;
+  height: 28px;
+}
+
+.notificationBadge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #dc3545;
+  color: white;
+  border-radius: 50%;
+  padding: 3px 7px;
+  font-size: 0.75em;
+  font-weight: bold;
+  border: 2px solid white;
+  min-width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}

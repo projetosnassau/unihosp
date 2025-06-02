@@ -1,0 +1,142 @@
+/* src/components/hospede/HistoricoReservasHospede.module.css */
+/* Pode ser muito similar a MinhasReservas.module.css */
+/* Vamos reutilizar e adaptar os estilos de .reservasContainer, .reservasList, .reservaCard, etc. */
+
+.loading,
+.error {
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+  margin: 20px 0;
+  font-size: 1.05em;
+  max-width: 100%;
+}
+.loading {
+  color: #34495e;
+  font-style: italic;
+  background-color: #f8f9fa;
+}
+.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.reservasContainer { /* Wrapper para a lista de histórico */
+  margin-top: 10px;
+}
+
+.reservasList { /* Grid para os cards de histórico */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 20px; /* Espaçamento entre os cards */
+}
+
+.reservaCard { /* Card individual do histórico */
+  background-color: #fdfdfd;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  border-left: 5px solid #95a5a6; /* Cor padrão para histórico (Concluída) */
+  display: flex;
+  flex-direction: row; /* Imagem ao lado do texto */
+  gap: 18px; /* Espaço entre imagem e texto */
+  align-items: flex-start;
+}
+
+/* Cores de borda por status */
+.reservaStatusCONCLUIDA { border-left-color: #7f8c8d !important; } /* Cinza para Concluída */
+.reservaStatusCANCELADA_PELO_HOSPEDE, /* Nome da classe conforme gerado pelo JS */
+.reservaStatusCANCELADA_PELO_LOCADOR,
+.reservaStatusREJEITADA {
+  border-left-color: #c0392b !important; /* Vermelho mais escuro para canceladas/rejeitadas */
+}
+/* Outros status podem não aparecer no histórico, mas se aparecerem: */
+.reservaStatusPENDENTE { border-left-color: #f1c40f !important; }
+.reservaStatusCONFIRMADA { border-left-color: #27ae60 !important; }
+
+
+.casaImageContainerSmall {
+  width: 130px; /* Tamanho ligeiramente menor para histórico se desejar */
+  height: 90px;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #e0e6ed;
+  flex-shrink: 0;
+}
+
+.reservaCasaImagem {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.reservaInfo {
+  flex-grow: 1;
+}
+
+.reservaCard h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #2c3e50;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+.reservaCard p {
+  font-size: 0.9em;
+  margin-bottom: 6px;
+  color: #525f6f;
+  line-height: 1.5;
+}
+.reservaCard p strong {
+  font-weight: 600;
+  color: #34495e;
+}
+
+.status { /* Estilos de status tags */
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 0.75em;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  line-height: 1.3;
+}
+.statusCONCLUIDA { background-color: #7f8c8d; }
+.statusCANCELADA_PELO_HOSPEDE,
+.statusCANCELADA_PELO_LOCADOR,
+.statusREJEITADA { background-color: #c0392b; }
+/* Outros status */
+.statusPENDENTE { background-color: #f1c40f; color: #333; }
+.statusCONFIRMADA { background-color: #27ae60; }
+
+
+.reservaActions {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid #f0f2f5; /* Linha mais sutil */
+  display: flex;
+  gap: 10px;
+}
+
+/* Botão de Ver Detalhes da Casa (reutilize de .actionButtonSecondary se for o mesmo estilo) */
+.actionButtonSecondary {
+  background-color: #5dade2;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.85em;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+.actionButtonSecondary:hover {
+  background-color: #3498db;
+}

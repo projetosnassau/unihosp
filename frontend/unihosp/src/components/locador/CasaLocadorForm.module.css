@@ -1,0 +1,210 @@
+.formOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(30, 40, 50, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050;
+  padding: 20px;
+  overflow-y: auto;
+  font-family: "Josefin Sans", "Arial", sans-serif;
+}
+
+.formContainerModal {
+  background-color: #ffffff;
+  padding: 30px 35px 35px 35px;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 750px;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: fadeInScaleUp 0.35s ease-out;
+}
+
+@keyframes fadeInScaleUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.formContainerModal h3 {
+  margin-top: 0;
+  margin-bottom: 30px;
+  color: #2a3f54;
+  font-size: 1.8em;
+  font-weight: 600;
+  text-align: center;
+  border-bottom: 1px solid #dde2e7;
+  padding-bottom: 18px;
+}
+
+.errorMessage {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  padding: 12px 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px 28px;
+  margin-bottom: 30px;
+}
+
+.formGrid > div[style*="gridColumn: span 2"] {
+  grid-column: span 2;
+}
+
+.inputGroup {
+  display: flex;
+  align-items: center;
+  background-color: #f9fafb;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding-left: 15px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.inputGroup:focus-within {
+  border-color: #0062cc;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+}
+
+.icon {
+  margin-right: 12px;
+  color: #6b7280;
+  font-size: 1.05em;
+  line-height: 1;
+}
+
+.formInput,
+.formTextarea {
+  flex-grow: 1;
+  padding: 15px 15px 15px 0;
+  border: none;
+  background-color: transparent;
+  font-size: 1em;
+  font-family: "Josefin Sans", "Arial", sans-serif;
+  color: #1f2937;
+  width: 100%;
+}
+.formInput:focus,
+.formTextarea:focus {
+  outline: none;
+}
+.formInput::placeholder,
+.formTextarea::placeholder {
+  color: #9ca3af;
+}
+
+.formTextarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.sectionTitle {
+  grid-column: span 2;
+  margin-top: 28px;
+  margin-bottom: 12px;
+  padding-top: 22px;
+  border-top: 1px solid #e5e7eb;
+  font-size: 1.15em;
+  font-weight: 600;
+  color: #374151;
+}
+.sectionTitle h4 {
+  margin: 0;
+}
+
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 20px;
+  padding-top: 25px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.actionButton,
+.cancelButton {
+  padding: 11px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95em;
+  font-weight: 500;
+  transition: all 0.2s ease-out;
+  font-family: "Josefin Sans", "Arial", sans-serif;
+  border: 1px solid transparent;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.actionButton {
+  background-color: #007bff;
+  color: white;
+  box-shadow: 0 1px 3px rgba(0, 123, 255, 0.25);
+}
+.actionButton:hover:not(:disabled) {
+  background-color: #005ec2;
+  box-shadow: 0 2px 5px rgba(0, 94, 194, 0.35);
+  transform: translateY(-1px);
+}
+.actionButton:disabled {
+  background-color: #a0c7e8;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.cancelButton {
+  background-color: #f3f4f6;
+  color: #4b5563;
+  border-color: #d1d5db;
+}
+.cancelButton:hover:not(:disabled) {
+  background-color: #e5e7eb;
+  border-color: #9ca3af;
+}
+.cancelButton:disabled {
+  background-color: #e5e7eb;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .formContainerModal {
+    padding: 20px 25px 25px 25px;
+    max-height: calc(100vh - 40px);
+  }
+  .formGrid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .formGrid > div[style*="gridColumn: span 2"] {
+    grid-column: span 1;
+  }
+  .formActions {
+    flex-direction: column-reverse;
+    gap: 12px;
+  }
+  .actionButton,
+  .cancelButton {
+    width: 100%;
+  }
+  .formContainerModal h3 {
+    font-size: 1.5em;
+  }
+}

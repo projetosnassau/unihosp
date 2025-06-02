@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import styles from "./PagamentoSimularPage.module.css";
+import jsPDF from "jspdf";
 
 function PagamentoSimularPage() {
   const { reservaId } = useParams();
@@ -54,6 +55,57 @@ function PagamentoSimularPage() {
     fetchReservaDetalhes();
   }, [fetchReservaDetalhes]);
 
+  const gerarReciboPDF = () => {
+    if (!reserva) return;
+
+    const doc = new jsPDF();
+    const dataSimulacao = new Date().toLocaleDateString("pt-BR");
+    const horaSimulacao = new Date().toLocaleTimeString("pt-BR");
+
+    doc.setFontSize(18);
+    doc.text("Recibo de Reserva Simulada - UniHosp", 14, 22);
+
+    doc.setFontSize(12);
+    doc.text(`Data da Simulação: ${dataSimulacao} às ${horaSimulacao}`, 14, 32);
+    doc.text(`ID da Reserva: ${reserva.id}`, 14, 42);
+    doc.text(`ID da Transação Simulada: SIM-${Date.now()}`, 14, 52);
+
+    doc.setFontSize(14);
+    doc.text("Detalhes do Hóspede:", 14, 70);
+    doc.setFontSize(12);
+    doc.text(`Nome: ${reserva.hospede?.name || "N/A"}`, 14, 78);
+    doc.text(`Email: ${reserva.hospede?.email || "N/A"}`, 14, 86);
+
+    doc.setFontSize(14);
+    doc.text("Detalhes da Acomodação:", 14, 104);
+    doc.setFontSize(12);
+    doc.text(`Propriedade: ${reserva.casa?.endereco || ""}, ${reserva.casa?.numero || ""}`, 14, 112);
+    doc.text(`Cidade: ${reserva.casa?.cidade || "N/A"}`, 14, 120);
+    doc.text(`Locador: ${reserva.locador?.name || "N/A"}`, 14, 128);
+
+
+    doc.setFontSize(14);
+    doc.text("Detalhes da Reserva:", 14, 146);
+    doc.setFontSize(12);
+    doc.text(`Check-in: ${formatarData(reserva.dataCheckIn)}`, 14, 154);
+    doc.text(`Check-out: ${formatarData(reserva.dataCheckOut)}`, 14, 162);
+    doc.text(`Número de Hóspedes: ${reserva.numeroHospedes}`, 14, 170);
+
+    doc.setFontSize(14);
+    doc.text("Detalhes do Pagamento (Simulado):", 14, 188);
+    doc.setFontSize(12);
+    doc.text(`Valor Total: R$ ${parseFloat(reserva.valorTotalCalculado || 0).toFixed(2).replace(".", ",")}`, 14, 196);
+    doc.text(`Status do Pagamento: ${reserva.statusPagamento || "N/A"}`, 14, 204);
+    doc.text(`Status da Reserva: ${reserva.status || "N/A"}`, 14, 212);
+
+
+    doc.setFontSize(10);
+    doc.text("Este é um comprovante de uma transação simulada para fins de desenvolvimento.", 14, 230);
+    doc.text("Nenhum valor real foi cobrado e nenhum serviço de hospedagem real foi contratado.", 14, 236);
+
+    doc.save(`recibo-simulado-reserva-${reserva.id}.pdf`);
+  };
+
   const handleSimularPagamento = async () => {
     setSimulandoPagamento(true);
     setError("");
@@ -80,12 +132,10 @@ function PagamentoSimularPage() {
         throw new Error(errData.error);
       }
 
+      const reservaAtualizadaDoBackend = await response.json();
+      setReserva(reservaAtualizadaDoBackend);
       setPagamentoSucesso(true);
-      setReserva((prev) => ({
-        ...prev,
-        status: "CONFIRMADA",
-        statusPagamento: "PAGO_SIMULADO",
-      }));
+
     } catch (err) {
       console.error("Erro na simulação de pagamento:", err);
       setError(err.message || "Ocorreu um erro ao simular o pagamento.");
@@ -94,6 +144,12 @@ function PagamentoSimularPage() {
       setSimulandoPagamento(false);
     }
   };
+
+  useEffect(() => {
+    if (pagamentoSucesso && reserva && reserva.status === "CONFIRMADA") {
+      gerarReciboPDF();
+    }
+  }, [pagamentoSucesso, reserva]);
 
   const formatarData = (dataISO) => {
     if (!dataISO) return "N/A";
@@ -108,7 +164,7 @@ function PagamentoSimularPage() {
     );
   }
 
-  if (error && !reserva) {
+  if (error && !reserva && !pagamentoSucesso) {
     return (
       <div className={styles.errorContainer}>
         <p>Erro: {error}</p>
@@ -116,7 +172,7 @@ function PagamentoSimularPage() {
     );
   }
 
-  if (!reserva) {
+  if (!reserva && !pagamentoSucesso) {
     return (
       <div className={styles.errorContainer}>
         <p>Reserva não encontrada ou dados insuficientes.</p>
@@ -129,21 +185,29 @@ function PagamentoSimularPage() {
       <div className={styles.paymentCard}>
         <h1 className={styles.title}>Simulação de Pagamento</h1>
 
-        {pagamentoSucesso ? (
+        {pagamentoSucesso && reserva ? (
           <div className={styles.successMessage}>
             <h2>Pagamento Simulado com Sucesso!</h2>
-            <p>Sua reserva para "{reserva.casa?.endereco}" foi confirmada.</p>
-            <p>Você será redirecionado para suas reservas em breve.</p>
+            <p>Sua reserva para "{reserva.casa?.endereco}" ({reserva.casa?.numero}, {reserva.casa?.cidade}) foi confirmada.</p>
+            <p>Status: {reserva.status}</p>
+            <p>Status Pagamento: {reserva.statusPagamento}</p>
+            <p style={{ marginTop: '15px', fontSize: '0.9em', color: '#555' }}>
+              Um recibo em PDF foi gerado e o download deve ter iniciado automaticamente.
+            </p>
+            <p style={{ fontSize: '0.9em', color: '#555' }}>
+              (Simulação: Um e-mail de confirmação seria enviado para: {reserva.hospede?.email || "email não disponível"})
+            </p>
             <button
               onClick={() =>
                 navigate("/hospede/dashboard", { state: { view: "ativas" } })
               }
               className={styles.actionButton}
+              style={{ marginTop: '20px' }}
             >
               Ver Minhas Reservas
             </button>
           </div>
-        ) : (
+        ) : reserva ? (
           <>
             <div className={styles.reservaInfo}>
               <h2>Detalhes da Reserva</h2>
@@ -171,7 +235,7 @@ function PagamentoSimularPage() {
                   <strong>Status Atual:</strong>{" "}
                   <span
                     className={`${styles.status} ${
-                      styles["status" + reserva.status.replace(/\s+/g, "")]
+                      styles["status" + reserva.status.replace(/\s+/g, "")] || styles.statusDefault
                     }`}
                   >
                     {reserva.status}
@@ -185,7 +249,7 @@ function PagamentoSimularPage() {
                     className={`${styles.status} ${
                       styles[
                         "status" + reserva.statusPagamento.replace(/\s+/g, "")
-                      ]
+                      ] || styles.statusDefault
                     }`}
                   >
                     {reserva.statusPagamento}
@@ -200,17 +264,21 @@ function PagamentoSimularPage() {
               <p>Esta é uma simulação. Nenhum valor real será cobrado.</p>
               <button
                 onClick={handleSimularPagamento}
-                disabled={simulandoPagamento || reserva.status === "CONFIRMADA"}
+                disabled={simulandoPagamento || reserva?.status === "CONFIRMADA"}
                 className={styles.actionButton}
               >
                 {simulandoPagamento
                   ? "Processando Simulação..."
-                  : reserva.status === "CONFIRMADA"
+                  : reserva?.status === "CONFIRMADA"
                   ? "Pagamento Confirmado"
                   : "Simular Pagamento Agora"}
               </button>
             </div>
           </>
+        ) : (
+           <div className={styles.errorContainer}>
+             <p>Não foi possível carregar os dados da reserva para pagamento.</p>
+           </div>
         )}
       </div>
     </div>

@@ -1,0 +1,123 @@
+.loading,
+.errorFeedback {
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+  margin: 20px 0;
+  font-size: 1em;
+}
+.loading {
+  color: #34495e;
+  background-color: #f8f9fa;
+  border: 1px dashed #d1d9e0;
+}
+.errorFeedback {
+  background-color: #fceded;
+  color: #a94442;
+  border: 1px solid #f7c6c5;
+}
+
+.reservasContainer {
+  margin-top: 10px;
+}
+
+.reservasList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 20px;
+}
+
+.reservaCard {
+  background-color: #fdfdfd;
+  padding: 20px 25px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+  border-left: 5px solid #b0bec5;
+}
+
+.reservaStatusCONCLUIDA { border-left-color: #78909c !important; }
+.reservaStatusCANCELADA_PELO_HOSPEDE,
+.reservaStatusCANCELADA_PELO_LOCADOR,
+.reservaStatusREJEITADA {
+  border-left-color: #d32f2f !important;
+}
+.reservaStatusPENDENTE { border-left-color: #fbc02d !important; }
+.reservaStatusCONFIRMADA { border-left-color: #388e3c !important; }
+
+
+.reservaCard h4 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: #37474f;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+.reservaCard p {
+  font-size: 0.9em;
+  margin-bottom: 8px;
+  color: #546e7a;
+  line-height: 1.6;
+}
+.reservaCard p strong {
+  font-weight: 600;
+  color: #263238;
+}
+
+.status {
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-weight: 500;
+  font-size: 0.75em;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  line-height: 1.2;
+}
+.statusCONCLUIDA { background-color: #78909c; }
+.statusCANCELADA_PELO_HOSPEDE { background-color: #d32f2f; }
+.statusCANCELADA_PELO_LOCADOR { background-color: #d32f2f; }
+.statusREJEITADA { background-color: #d32f2f; }
+.statusPENDENTE { background-color: #fbc02d; color: #333 }
+.statusCONFIRMADA { background-color: #388e3c; }
+
+
+.reservaActions {
+  margin-top: 15px;
+  padding-top: 12px;
+  border-top: 1px solid #eceff1;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.actionButtonSecondary {
+  background-color: #607d8b;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.85em;
+  font-family: "Josefin Sans", "Arial", sans-serif;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+.actionButtonSecondary:hover:not(:disabled) {
+  background-color: #455a64;
+}
+.actionButtonSecondary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+.noReservasMessage {
+    padding: 20px;
+    text-align: center;
+    color: #6c757d;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    border: 1px dashed #d1d9e0;
+}
+

@@ -1,0 +1,8 @@
+-- CreateTable
+CREATE TABLE "imagens_casa" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "url" TEXT NOT NULL,
+    "casaId" INTEGER NOT NULL,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT "imagens_casa_casaId_fkey" FOREIGN KEY ("casaId") REFERENCES "casas" ("id") ON DELETE CASCADE ON UPDATE CASCADE
+);

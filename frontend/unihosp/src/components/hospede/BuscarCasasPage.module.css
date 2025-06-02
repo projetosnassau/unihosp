@@ -1,0 +1,347 @@
+
+.pageContainer {
+  font-family: "Josefin Sans", sans-serif;
+  background-color: #f4f6f8;
+  min-height: 100vh;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.pageHeader {
+  text-align: center;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+}
+
+.pageHeader h1 {
+  font-size: 2.8em;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.pageHeader p {
+  font-size: 1.2em;
+  color: #555e68;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.filtersContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 35px;
+  padding: 25px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+}
+
+.searchInput,
+.cityFilter {
+  padding: 14px 18px;
+  border: 1px solid #dbe0e6;
+  border-radius: 8px;
+  font-size: 1em;
+  font-family: "Josefin Sans", sans-serif;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.searchInput:focus,
+.cityFilter:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+  outline: none;
+}
+
+.searchInput {
+  flex-grow: 1;
+  min-width: 250px;
+}
+
+.cityFilter {
+  min-width: 220px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.casasList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.casaCard {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.casaCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.casaImageContainer {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background-color: #e9ecef;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.casaImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.casaCard:hover .casaImage {
+  transform: scale(1.05);
+}
+
+.casaInfo {
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.casaInfo h3 {
+  font-size: 1.5em;
+  color: #343a40;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.cidadeEstado {
+  font-size: 1em;
+  color: #7f8c8d;
+  margin-bottom: 12px;
+}
+
+.diretrizes {
+  font-size: 0.9em;
+  color: #555e68;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  flex-grow: 1;
+}
+
+.precoPorNoite {
+  font-size: 1.2em;
+  font-weight: 700;
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+.locadorInfo {
+  font-size: 0.9em;
+  color: #16a085;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+}
+.locadorInfo strong {
+  color: #1abc9c;
+}
+
+.casaActions {
+  margin-top: auto; 
+  padding-top: 15px;
+  border-top: 1px solid #f0f0f0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.detailsButton,
+.actionButtonSmall {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  font-family: "Josefin Sans", sans-serif;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2;
+}
+
+.detailsButton:hover,
+.actionButtonSmall:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.detailsButton:disabled,
+.actionButtonSmall:disabled {
+  background-color: #e9ecef !important;
+  color: #adb5bd !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+  box-shadow: none !important;
+  border-color: #ced4da !important;
+}
+
+.detailsButton {
+  background-color: #6c757d;
+  color: white;
+}
+.detailsButton:hover:not(:disabled) {
+  background-color: #5a6268;
+}
+
+
+.contactButton {
+  background-color: #5bc0de;
+  color: white;
+}
+.contactButton:hover:not(:disabled) {
+  background-color: #31b0d5;
+}
+
+.reserveButton {
+  background-color: #1abc9c;
+  color: white;
+}
+.reserveButton:hover:not(:disabled) {
+  background-color: #16a085;
+}
+
+.favoriteButton {
+  background-color: #f8f9fa;
+  color: #e74c3c;
+  border: 1px solid #dee2e6;
+  padding: 8px 10px !important;
+}
+.favoriteButton:hover:not(:disabled) {
+  background-color: #e9ecef;
+}
+
+.favoritedButton {
+  background-color: #ffe0e0;
+  color: #e74c3c;
+  border: 1px solid #f5c6cb;
+  padding: 8px 10px !important;
+}
+.favoritedButton:hover:not(:disabled) {
+  background-color: #e74c3c;
+  color: white;
+}
+
+
+.loading,
+.error,
+.noResults {
+  padding: 30px 20px;
+  text-align: center;
+  border-radius: 8px;
+  margin: 30px auto;
+  font-size: 1.1em;
+  max-width: 600px;
+}
+.loading {
+  color: #34495e;
+  font-style: italic;
+  background-color: transparent;
+}
+.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+.noResults {
+  color: #555e68;
+  background-color: #f9f9f9;
+  border: 1px dashed #ced4da;
+}
+
+
+.actionButtonSmall {
+  padding: 7px 10px;
+  font-size: 0.85em;
+  min-width: auto;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2;
+  margin-left: 8px;
+}
+.actionButtonSmall:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.actionButtonSmall:disabled {
+  background-color: #e9ecef !important;
+  color: #adb5bd !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.contactButton {
+  background-color: #5bc0de;
+  color: white;
+}
+.contactButton:hover:not(:disabled) {
+  background-color: #31b0d5;
+}
+
+.reserveButton {
+  background-color: #1abc9c;
+  color: white;
+}
+.reserveButton:hover:not(:disabled) {
+  background-color: #16a085;
+}
+
+.favoriteButton {
+  background-color: #f8f9fa;
+  color: #e74c3c;
+  border: 1px solid #dee2e6;
+  padding: 7px 10px;
+}
+.favoriteButton:hover:not(:disabled) {
+  background-color: #e9ecef;
+}
+
+.favoritedButton {
+  background-color: #ffe0e0;
+  color: #e74c3c;
+  border: 1px solid #f5c6cb;
+  padding: 7px 10px;
+}
+.favoritedButton:hover:not(:disabled) {
+  background-color: #e74c3c;
+  color: white;
+}

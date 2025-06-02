@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import styles from "./HospedeDashboard.module.css";
-import ProfileSummary from "./hospede/ProfileSummary";
-import DashboardHeader from "./hospede/DashboardHeader";
-import MinhasReservas from "./hospede/MinhasReservas";
-import MeusFavoritos from "./hospede/MeusFavoritos";
-import HistoricoReservasHospede from "./hospede/HistoricoReservasHospede";
+import ProfileSummary from "../components/hospede/ProfileSummary";
+import DashboardHeader from "../components/hospede/DashboardHeader";
+import MinhasReservas from "../components/hospede/MinhasReservas";
+import MeusFavoritos from "../components/hospede/MeusFavoritos";
+import HistoricoReservasHospede from "../components/hospede/HistoricoReservasHospede";
 
 function HospedeDashboard() {
   const { userType, isAuthenticated } = useAuth();
@@ -83,6 +83,15 @@ function HospedeDashboard() {
               Você precisa estar logado como hóspede para ver suas reservas.
             </p>
           )}
+        </section>
+        <section className={styles.dashboardSection}>
+          <h3>Minhas Mensagens</h3>
+          <button
+              className={styles.actionButton}
+              onClick={() => navigate("/mensagens")}
+        >
+              Ver Mensagens
+          </button>
         </section>
 
         <section className={styles.dashboardSection}>

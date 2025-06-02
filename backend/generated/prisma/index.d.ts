@@ -24,6 +24,16 @@ export type Admin = $Result.DefaultSelection<Prisma.$AdminPayload>
  */
 export type Casa = $Result.DefaultSelection<Prisma.$CasaPayload>
 /**
+ * Model ImagemCasa
+ * 
+ */
+export type ImagemCasa = $Result.DefaultSelection<Prisma.$ImagemCasaPayload>
+/**
+ * Model BloqueioDisponibilidade
+ * 
+ */
+export type BloqueioDisponibilidade = $Result.DefaultSelection<Prisma.$BloqueioDisponibilidadePayload>
+/**
  * Model Locador
  * 
  */
@@ -43,6 +53,21 @@ export type Reserva = $Result.DefaultSelection<Prisma.$ReservaPayload>
  * 
  */
 export type Favorito = $Result.DefaultSelection<Prisma.$FavoritoPayload>
+/**
+ * Model Conversa
+ * 
+ */
+export type Conversa = $Result.DefaultSelection<Prisma.$ConversaPayload>
+/**
+ * Model Mensagem
+ * 
+ */
+export type Mensagem = $Result.DefaultSelection<Prisma.$MensagemPayload>
+/**
+ * Model Avaliacao
+ * 
+ */
+export type Avaliacao = $Result.DefaultSelection<Prisma.$AvaliacaoPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -190,6 +215,26 @@ export class PrismaClient<
   get casa(): Prisma.CasaDelegate<ExtArgs, ClientOptions>;
 
   /**
+   * `prisma.imagemCasa`: Exposes CRUD operations for the **ImagemCasa** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ImagemCasas
+    * const imagemCasas = await prisma.imagemCasa.findMany()
+    * ```
+    */
+  get imagemCasa(): Prisma.ImagemCasaDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.bloqueioDisponibilidade`: Exposes CRUD operations for the **BloqueioDisponibilidade** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more BloqueioDisponibilidades
+    * const bloqueioDisponibilidades = await prisma.bloqueioDisponibilidade.findMany()
+    * ```
+    */
+  get bloqueioDisponibilidade(): Prisma.BloqueioDisponibilidadeDelegate<ExtArgs, ClientOptions>;
+
+  /**
    * `prisma.locador`: Exposes CRUD operations for the **Locador** model.
     * Example usage:
     * ```ts
@@ -228,6 +273,36 @@ export class PrismaClient<
     * ```
     */
   get favorito(): Prisma.FavoritoDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.conversa`: Exposes CRUD operations for the **Conversa** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Conversas
+    * const conversas = await prisma.conversa.findMany()
+    * ```
+    */
+  get conversa(): Prisma.ConversaDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.mensagem`: Exposes CRUD operations for the **Mensagem** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Mensagems
+    * const mensagems = await prisma.mensagem.findMany()
+    * ```
+    */
+  get mensagem(): Prisma.MensagemDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.avaliacao`: Exposes CRUD operations for the **Avaliacao** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Avaliacaos
+    * const avaliacaos = await prisma.avaliacao.findMany()
+    * ```
+    */
+  get avaliacao(): Prisma.AvaliacaoDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -670,10 +745,15 @@ export namespace Prisma {
   export const ModelName: {
     Admin: 'Admin',
     Casa: 'Casa',
+    ImagemCasa: 'ImagemCasa',
+    BloqueioDisponibilidade: 'BloqueioDisponibilidade',
     Locador: 'Locador',
     Hospede: 'Hospede',
     Reserva: 'Reserva',
-    Favorito: 'Favorito'
+    Favorito: 'Favorito',
+    Conversa: 'Conversa',
+    Mensagem: 'Mensagem',
+    Avaliacao: 'Avaliacao'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -692,7 +772,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "admin" | "casa" | "locador" | "hospede" | "reserva" | "favorito"
+      modelProps: "admin" | "casa" | "imagemCasa" | "bloqueioDisponibilidade" | "locador" | "hospede" | "reserva" | "favorito" | "conversa" | "mensagem" | "avaliacao"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -841,6 +921,154 @@ export namespace Prisma {
           count: {
             args: Prisma.CasaCountArgs<ExtArgs>
             result: $Utils.Optional<CasaCountAggregateOutputType> | number
+          }
+        }
+      }
+      ImagemCasa: {
+        payload: Prisma.$ImagemCasaPayload<ExtArgs>
+        fields: Prisma.ImagemCasaFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ImagemCasaFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ImagemCasaPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ImagemCasaFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ImagemCasaPayload>
+          }
+          findFirst: {
+            args: Prisma.ImagemCasaFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ImagemCasaPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ImagemCasaFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ImagemCasaPayload>
+          }
+          findMany: {
+            args: Prisma.ImagemCasaFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ImagemCasaPayload>[]
+          }
+          create: {
+            args: Prisma.ImagemCasaCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ImagemCasaPayload>
+          }
+          createMany: {
+            args: Prisma.ImagemCasaCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ImagemCasaCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ImagemCasaPayload>[]
+          }
+          delete: {
+            args: Prisma.ImagemCasaDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ImagemCasaPayload>
+          }
+          update: {
+            args: Prisma.ImagemCasaUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ImagemCasaPayload>
+          }
+          deleteMany: {
+            args: Prisma.ImagemCasaDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ImagemCasaUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ImagemCasaUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ImagemCasaPayload>[]
+          }
+          upsert: {
+            args: Prisma.ImagemCasaUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ImagemCasaPayload>
+          }
+          aggregate: {
+            args: Prisma.ImagemCasaAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateImagemCasa>
+          }
+          groupBy: {
+            args: Prisma.ImagemCasaGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ImagemCasaGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ImagemCasaCountArgs<ExtArgs>
+            result: $Utils.Optional<ImagemCasaCountAggregateOutputType> | number
+          }
+        }
+      }
+      BloqueioDisponibilidade: {
+        payload: Prisma.$BloqueioDisponibilidadePayload<ExtArgs>
+        fields: Prisma.BloqueioDisponibilidadeFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BloqueioDisponibilidadeFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BloqueioDisponibilidadePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BloqueioDisponibilidadeFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BloqueioDisponibilidadePayload>
+          }
+          findFirst: {
+            args: Prisma.BloqueioDisponibilidadeFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BloqueioDisponibilidadePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BloqueioDisponibilidadeFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BloqueioDisponibilidadePayload>
+          }
+          findMany: {
+            args: Prisma.BloqueioDisponibilidadeFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BloqueioDisponibilidadePayload>[]
+          }
+          create: {
+            args: Prisma.BloqueioDisponibilidadeCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BloqueioDisponibilidadePayload>
+          }
+          createMany: {
+            args: Prisma.BloqueioDisponibilidadeCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.BloqueioDisponibilidadeCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BloqueioDisponibilidadePayload>[]
+          }
+          delete: {
+            args: Prisma.BloqueioDisponibilidadeDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BloqueioDisponibilidadePayload>
+          }
+          update: {
+            args: Prisma.BloqueioDisponibilidadeUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BloqueioDisponibilidadePayload>
+          }
+          deleteMany: {
+            args: Prisma.BloqueioDisponibilidadeDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BloqueioDisponibilidadeUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.BloqueioDisponibilidadeUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BloqueioDisponibilidadePayload>[]
+          }
+          upsert: {
+            args: Prisma.BloqueioDisponibilidadeUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BloqueioDisponibilidadePayload>
+          }
+          aggregate: {
+            args: Prisma.BloqueioDisponibilidadeAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBloqueioDisponibilidade>
+          }
+          groupBy: {
+            args: Prisma.BloqueioDisponibilidadeGroupByArgs<ExtArgs>
+            result: $Utils.Optional<BloqueioDisponibilidadeGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BloqueioDisponibilidadeCountArgs<ExtArgs>
+            result: $Utils.Optional<BloqueioDisponibilidadeCountAggregateOutputType> | number
           }
         }
       }
@@ -1140,6 +1368,228 @@ export namespace Prisma {
           }
         }
       }
+      Conversa: {
+        payload: Prisma.$ConversaPayload<ExtArgs>
+        fields: Prisma.ConversaFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ConversaFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ConversaPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ConversaFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ConversaPayload>
+          }
+          findFirst: {
+            args: Prisma.ConversaFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ConversaPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ConversaFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ConversaPayload>
+          }
+          findMany: {
+            args: Prisma.ConversaFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ConversaPayload>[]
+          }
+          create: {
+            args: Prisma.ConversaCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ConversaPayload>
+          }
+          createMany: {
+            args: Prisma.ConversaCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ConversaCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ConversaPayload>[]
+          }
+          delete: {
+            args: Prisma.ConversaDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ConversaPayload>
+          }
+          update: {
+            args: Prisma.ConversaUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ConversaPayload>
+          }
+          deleteMany: {
+            args: Prisma.ConversaDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ConversaUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ConversaUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ConversaPayload>[]
+          }
+          upsert: {
+            args: Prisma.ConversaUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ConversaPayload>
+          }
+          aggregate: {
+            args: Prisma.ConversaAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateConversa>
+          }
+          groupBy: {
+            args: Prisma.ConversaGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ConversaGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ConversaCountArgs<ExtArgs>
+            result: $Utils.Optional<ConversaCountAggregateOutputType> | number
+          }
+        }
+      }
+      Mensagem: {
+        payload: Prisma.$MensagemPayload<ExtArgs>
+        fields: Prisma.MensagemFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.MensagemFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MensagemPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.MensagemFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MensagemPayload>
+          }
+          findFirst: {
+            args: Prisma.MensagemFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MensagemPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.MensagemFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MensagemPayload>
+          }
+          findMany: {
+            args: Prisma.MensagemFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MensagemPayload>[]
+          }
+          create: {
+            args: Prisma.MensagemCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MensagemPayload>
+          }
+          createMany: {
+            args: Prisma.MensagemCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.MensagemCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MensagemPayload>[]
+          }
+          delete: {
+            args: Prisma.MensagemDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MensagemPayload>
+          }
+          update: {
+            args: Prisma.MensagemUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MensagemPayload>
+          }
+          deleteMany: {
+            args: Prisma.MensagemDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.MensagemUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.MensagemUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MensagemPayload>[]
+          }
+          upsert: {
+            args: Prisma.MensagemUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MensagemPayload>
+          }
+          aggregate: {
+            args: Prisma.MensagemAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateMensagem>
+          }
+          groupBy: {
+            args: Prisma.MensagemGroupByArgs<ExtArgs>
+            result: $Utils.Optional<MensagemGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.MensagemCountArgs<ExtArgs>
+            result: $Utils.Optional<MensagemCountAggregateOutputType> | number
+          }
+        }
+      }
+      Avaliacao: {
+        payload: Prisma.$AvaliacaoPayload<ExtArgs>
+        fields: Prisma.AvaliacaoFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.AvaliacaoFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AvaliacaoPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.AvaliacaoFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AvaliacaoPayload>
+          }
+          findFirst: {
+            args: Prisma.AvaliacaoFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AvaliacaoPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.AvaliacaoFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AvaliacaoPayload>
+          }
+          findMany: {
+            args: Prisma.AvaliacaoFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AvaliacaoPayload>[]
+          }
+          create: {
+            args: Prisma.AvaliacaoCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AvaliacaoPayload>
+          }
+          createMany: {
+            args: Prisma.AvaliacaoCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.AvaliacaoCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AvaliacaoPayload>[]
+          }
+          delete: {
+            args: Prisma.AvaliacaoDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AvaliacaoPayload>
+          }
+          update: {
+            args: Prisma.AvaliacaoUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AvaliacaoPayload>
+          }
+          deleteMany: {
+            args: Prisma.AvaliacaoDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.AvaliacaoUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.AvaliacaoUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AvaliacaoPayload>[]
+          }
+          upsert: {
+            args: Prisma.AvaliacaoUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AvaliacaoPayload>
+          }
+          aggregate: {
+            args: Prisma.AvaliacaoAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAvaliacao>
+          }
+          groupBy: {
+            args: Prisma.AvaliacaoGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AvaliacaoGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.AvaliacaoCountArgs<ExtArgs>
+            result: $Utils.Optional<AvaliacaoCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1226,10 +1676,15 @@ export namespace Prisma {
   export type GlobalOmitConfig = {
     admin?: AdminOmit
     casa?: CasaOmit
+    imagemCasa?: ImagemCasaOmit
+    bloqueioDisponibilidade?: BloqueioDisponibilidadeOmit
     locador?: LocadorOmit
     hospede?: HospedeOmit
     reserva?: ReservaOmit
     favorito?: FavoritoOmit
+    conversa?: ConversaOmit
+    mensagem?: MensagemOmit
+    avaliacao?: AvaliacaoOmit
   }
 
   /* Types for Logging */
@@ -1326,11 +1781,19 @@ export namespace Prisma {
   export type CasaCountOutputType = {
     reservas: number
     favoritos: number
+    imagens: number
+    conversas: number
+    bloqueiosDisponibilidade: number
+    avaliacoes: number
   }
 
   export type CasaCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     reservas?: boolean | CasaCountOutputTypeCountReservasArgs
     favoritos?: boolean | CasaCountOutputTypeCountFavoritosArgs
+    imagens?: boolean | CasaCountOutputTypeCountImagensArgs
+    conversas?: boolean | CasaCountOutputTypeCountConversasArgs
+    bloqueiosDisponibilidade?: boolean | CasaCountOutputTypeCountBloqueiosDisponibilidadeArgs
+    avaliacoes?: boolean | CasaCountOutputTypeCountAvaliacoesArgs
   }
 
   // Custom InputTypes
@@ -1358,6 +1821,34 @@ export namespace Prisma {
     where?: FavoritoWhereInput
   }
 
+  /**
+   * CasaCountOutputType without action
+   */
+  export type CasaCountOutputTypeCountImagensArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ImagemCasaWhereInput
+  }
+
+  /**
+   * CasaCountOutputType without action
+   */
+  export type CasaCountOutputTypeCountConversasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ConversaWhereInput
+  }
+
+  /**
+   * CasaCountOutputType without action
+   */
+  export type CasaCountOutputTypeCountBloqueiosDisponibilidadeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BloqueioDisponibilidadeWhereInput
+  }
+
+  /**
+   * CasaCountOutputType without action
+   */
+  export type CasaCountOutputTypeCountAvaliacoesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AvaliacaoWhereInput
+  }
+
 
   /**
    * Count Type LocadorCountOutputType
@@ -1366,11 +1857,15 @@ export namespace Prisma {
   export type LocadorCountOutputType = {
     casas: number
     reservas: number
+    conversas: number
+    mensagens: number
   }
 
   export type LocadorCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     casas?: boolean | LocadorCountOutputTypeCountCasasArgs
     reservas?: boolean | LocadorCountOutputTypeCountReservasArgs
+    conversas?: boolean | LocadorCountOutputTypeCountConversasArgs
+    mensagens?: boolean | LocadorCountOutputTypeCountMensagensArgs
   }
 
   // Custom InputTypes
@@ -1398,6 +1893,20 @@ export namespace Prisma {
     where?: ReservaWhereInput
   }
 
+  /**
+   * LocadorCountOutputType without action
+   */
+  export type LocadorCountOutputTypeCountConversasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ConversaWhereInput
+  }
+
+  /**
+   * LocadorCountOutputType without action
+   */
+  export type LocadorCountOutputTypeCountMensagensArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MensagemWhereInput
+  }
+
 
   /**
    * Count Type HospedeCountOutputType
@@ -1406,11 +1915,17 @@ export namespace Prisma {
   export type HospedeCountOutputType = {
     reservas: number
     favoritos: number
+    conversas: number
+    mensagens: number
+    avaliacoesFeitas: number
   }
 
   export type HospedeCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     reservas?: boolean | HospedeCountOutputTypeCountReservasArgs
     favoritos?: boolean | HospedeCountOutputTypeCountFavoritosArgs
+    conversas?: boolean | HospedeCountOutputTypeCountConversasArgs
+    mensagens?: boolean | HospedeCountOutputTypeCountMensagensArgs
+    avaliacoesFeitas?: boolean | HospedeCountOutputTypeCountAvaliacoesFeitasArgs
   }
 
   // Custom InputTypes
@@ -1436,6 +1951,58 @@ export namespace Prisma {
    */
   export type HospedeCountOutputTypeCountFavoritosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: FavoritoWhereInput
+  }
+
+  /**
+   * HospedeCountOutputType without action
+   */
+  export type HospedeCountOutputTypeCountConversasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ConversaWhereInput
+  }
+
+  /**
+   * HospedeCountOutputType without action
+   */
+  export type HospedeCountOutputTypeCountMensagensArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MensagemWhereInput
+  }
+
+  /**
+   * HospedeCountOutputType without action
+   */
+  export type HospedeCountOutputTypeCountAvaliacoesFeitasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AvaliacaoWhereInput
+  }
+
+
+  /**
+   * Count Type ConversaCountOutputType
+   */
+
+  export type ConversaCountOutputType = {
+    mensagens: number
+  }
+
+  export type ConversaCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    mensagens?: boolean | ConversaCountOutputTypeCountMensagensArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ConversaCountOutputType without action
+   */
+  export type ConversaCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ConversaCountOutputType
+     */
+    select?: ConversaCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ConversaCountOutputType without action
+   */
+  export type ConversaCountOutputTypeCountMensagensArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MensagemWhereInput
   }
 
 
@@ -2710,6 +3277,10 @@ export namespace Prisma {
     locador?: boolean | LocadorDefaultArgs<ExtArgs>
     reservas?: boolean | Casa$reservasArgs<ExtArgs>
     favoritos?: boolean | Casa$favoritosArgs<ExtArgs>
+    imagens?: boolean | Casa$imagensArgs<ExtArgs>
+    conversas?: boolean | Casa$conversasArgs<ExtArgs>
+    bloqueiosDisponibilidade?: boolean | Casa$bloqueiosDisponibilidadeArgs<ExtArgs>
+    avaliacoes?: boolean | Casa$avaliacoesArgs<ExtArgs>
     _count?: boolean | CasaCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["casa"]>
 
@@ -2759,6 +3330,10 @@ export namespace Prisma {
     locador?: boolean | LocadorDefaultArgs<ExtArgs>
     reservas?: boolean | Casa$reservasArgs<ExtArgs>
     favoritos?: boolean | Casa$favoritosArgs<ExtArgs>
+    imagens?: boolean | Casa$imagensArgs<ExtArgs>
+    conversas?: boolean | Casa$conversasArgs<ExtArgs>
+    bloqueiosDisponibilidade?: boolean | Casa$bloqueiosDisponibilidadeArgs<ExtArgs>
+    avaliacoes?: boolean | Casa$avaliacoesArgs<ExtArgs>
     _count?: boolean | CasaCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type CasaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2774,6 +3349,10 @@ export namespace Prisma {
       locador: Prisma.$LocadorPayload<ExtArgs>
       reservas: Prisma.$ReservaPayload<ExtArgs>[]
       favoritos: Prisma.$FavoritoPayload<ExtArgs>[]
+      imagens: Prisma.$ImagemCasaPayload<ExtArgs>[]
+      conversas: Prisma.$ConversaPayload<ExtArgs>[]
+      bloqueiosDisponibilidade: Prisma.$BloqueioDisponibilidadePayload<ExtArgs>[]
+      avaliacoes: Prisma.$AvaliacaoPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -3183,6 +3762,10 @@ export namespace Prisma {
     locador<T extends LocadorDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LocadorDefaultArgs<ExtArgs>>): Prisma__LocadorClient<$Result.GetResult<Prisma.$LocadorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     reservas<T extends Casa$reservasArgs<ExtArgs> = {}>(args?: Subset<T, Casa$reservasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReservaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     favoritos<T extends Casa$favoritosArgs<ExtArgs> = {}>(args?: Subset<T, Casa$favoritosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FavoritoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    imagens<T extends Casa$imagensArgs<ExtArgs> = {}>(args?: Subset<T, Casa$imagensArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ImagemCasaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    conversas<T extends Casa$conversasArgs<ExtArgs> = {}>(args?: Subset<T, Casa$conversasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ConversaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    bloqueiosDisponibilidade<T extends Casa$bloqueiosDisponibilidadeArgs<ExtArgs> = {}>(args?: Subset<T, Casa$bloqueiosDisponibilidadeArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BloqueioDisponibilidadePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    avaliacoes<T extends Casa$avaliacoesArgs<ExtArgs> = {}>(args?: Subset<T, Casa$avaliacoesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AvaliacaoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3664,6 +4247,102 @@ export namespace Prisma {
   }
 
   /**
+   * Casa.imagens
+   */
+  export type Casa$imagensArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ImagemCasa
+     */
+    select?: ImagemCasaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ImagemCasa
+     */
+    omit?: ImagemCasaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ImagemCasaInclude<ExtArgs> | null
+    where?: ImagemCasaWhereInput
+    orderBy?: ImagemCasaOrderByWithRelationInput | ImagemCasaOrderByWithRelationInput[]
+    cursor?: ImagemCasaWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ImagemCasaScalarFieldEnum | ImagemCasaScalarFieldEnum[]
+  }
+
+  /**
+   * Casa.conversas
+   */
+  export type Casa$conversasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Conversa
+     */
+    select?: ConversaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Conversa
+     */
+    omit?: ConversaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConversaInclude<ExtArgs> | null
+    where?: ConversaWhereInput
+    orderBy?: ConversaOrderByWithRelationInput | ConversaOrderByWithRelationInput[]
+    cursor?: ConversaWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ConversaScalarFieldEnum | ConversaScalarFieldEnum[]
+  }
+
+  /**
+   * Casa.bloqueiosDisponibilidade
+   */
+  export type Casa$bloqueiosDisponibilidadeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BloqueioDisponibilidade
+     */
+    select?: BloqueioDisponibilidadeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BloqueioDisponibilidade
+     */
+    omit?: BloqueioDisponibilidadeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BloqueioDisponibilidadeInclude<ExtArgs> | null
+    where?: BloqueioDisponibilidadeWhereInput
+    orderBy?: BloqueioDisponibilidadeOrderByWithRelationInput | BloqueioDisponibilidadeOrderByWithRelationInput[]
+    cursor?: BloqueioDisponibilidadeWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BloqueioDisponibilidadeScalarFieldEnum | BloqueioDisponibilidadeScalarFieldEnum[]
+  }
+
+  /**
+   * Casa.avaliacoes
+   */
+  export type Casa$avaliacoesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Avaliacao
+     */
+    select?: AvaliacaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Avaliacao
+     */
+    omit?: AvaliacaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AvaliacaoInclude<ExtArgs> | null
+    where?: AvaliacaoWhereInput
+    orderBy?: AvaliacaoOrderByWithRelationInput | AvaliacaoOrderByWithRelationInput[]
+    cursor?: AvaliacaoWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: AvaliacaoScalarFieldEnum | AvaliacaoScalarFieldEnum[]
+  }
+
+  /**
    * Casa without action
    */
   export type CasaDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3679,6 +4358,2194 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: CasaInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ImagemCasa
+   */
+
+  export type AggregateImagemCasa = {
+    _count: ImagemCasaCountAggregateOutputType | null
+    _avg: ImagemCasaAvgAggregateOutputType | null
+    _sum: ImagemCasaSumAggregateOutputType | null
+    _min: ImagemCasaMinAggregateOutputType | null
+    _max: ImagemCasaMaxAggregateOutputType | null
+  }
+
+  export type ImagemCasaAvgAggregateOutputType = {
+    id: number | null
+    casaId: number | null
+  }
+
+  export type ImagemCasaSumAggregateOutputType = {
+    id: number | null
+    casaId: number | null
+  }
+
+  export type ImagemCasaMinAggregateOutputType = {
+    id: number | null
+    url: string | null
+    casaId: number | null
+    createdAt: Date | null
+  }
+
+  export type ImagemCasaMaxAggregateOutputType = {
+    id: number | null
+    url: string | null
+    casaId: number | null
+    createdAt: Date | null
+  }
+
+  export type ImagemCasaCountAggregateOutputType = {
+    id: number
+    url: number
+    casaId: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type ImagemCasaAvgAggregateInputType = {
+    id?: true
+    casaId?: true
+  }
+
+  export type ImagemCasaSumAggregateInputType = {
+    id?: true
+    casaId?: true
+  }
+
+  export type ImagemCasaMinAggregateInputType = {
+    id?: true
+    url?: true
+    casaId?: true
+    createdAt?: true
+  }
+
+  export type ImagemCasaMaxAggregateInputType = {
+    id?: true
+    url?: true
+    casaId?: true
+    createdAt?: true
+  }
+
+  export type ImagemCasaCountAggregateInputType = {
+    id?: true
+    url?: true
+    casaId?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type ImagemCasaAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ImagemCasa to aggregate.
+     */
+    where?: ImagemCasaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ImagemCasas to fetch.
+     */
+    orderBy?: ImagemCasaOrderByWithRelationInput | ImagemCasaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ImagemCasaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ImagemCasas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ImagemCasas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ImagemCasas
+    **/
+    _count?: true | ImagemCasaCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ImagemCasaAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ImagemCasaSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ImagemCasaMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ImagemCasaMaxAggregateInputType
+  }
+
+  export type GetImagemCasaAggregateType<T extends ImagemCasaAggregateArgs> = {
+        [P in keyof T & keyof AggregateImagemCasa]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateImagemCasa[P]>
+      : GetScalarType<T[P], AggregateImagemCasa[P]>
+  }
+
+
+
+
+  export type ImagemCasaGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ImagemCasaWhereInput
+    orderBy?: ImagemCasaOrderByWithAggregationInput | ImagemCasaOrderByWithAggregationInput[]
+    by: ImagemCasaScalarFieldEnum[] | ImagemCasaScalarFieldEnum
+    having?: ImagemCasaScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ImagemCasaCountAggregateInputType | true
+    _avg?: ImagemCasaAvgAggregateInputType
+    _sum?: ImagemCasaSumAggregateInputType
+    _min?: ImagemCasaMinAggregateInputType
+    _max?: ImagemCasaMaxAggregateInputType
+  }
+
+  export type ImagemCasaGroupByOutputType = {
+    id: number
+    url: string
+    casaId: number
+    createdAt: Date
+    _count: ImagemCasaCountAggregateOutputType | null
+    _avg: ImagemCasaAvgAggregateOutputType | null
+    _sum: ImagemCasaSumAggregateOutputType | null
+    _min: ImagemCasaMinAggregateOutputType | null
+    _max: ImagemCasaMaxAggregateOutputType | null
+  }
+
+  type GetImagemCasaGroupByPayload<T extends ImagemCasaGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ImagemCasaGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ImagemCasaGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ImagemCasaGroupByOutputType[P]>
+            : GetScalarType<T[P], ImagemCasaGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ImagemCasaSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    url?: boolean
+    casaId?: boolean
+    createdAt?: boolean
+    casa?: boolean | CasaDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["imagemCasa"]>
+
+  export type ImagemCasaSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    url?: boolean
+    casaId?: boolean
+    createdAt?: boolean
+    casa?: boolean | CasaDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["imagemCasa"]>
+
+  export type ImagemCasaSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    url?: boolean
+    casaId?: boolean
+    createdAt?: boolean
+    casa?: boolean | CasaDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["imagemCasa"]>
+
+  export type ImagemCasaSelectScalar = {
+    id?: boolean
+    url?: boolean
+    casaId?: boolean
+    createdAt?: boolean
+  }
+
+  export type ImagemCasaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "url" | "casaId" | "createdAt", ExtArgs["result"]["imagemCasa"]>
+  export type ImagemCasaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    casa?: boolean | CasaDefaultArgs<ExtArgs>
+  }
+  export type ImagemCasaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    casa?: boolean | CasaDefaultArgs<ExtArgs>
+  }
+  export type ImagemCasaIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    casa?: boolean | CasaDefaultArgs<ExtArgs>
+  }
+
+  export type $ImagemCasaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ImagemCasa"
+    objects: {
+      casa: Prisma.$CasaPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      url: string
+      casaId: number
+      createdAt: Date
+    }, ExtArgs["result"]["imagemCasa"]>
+    composites: {}
+  }
+
+  type ImagemCasaGetPayload<S extends boolean | null | undefined | ImagemCasaDefaultArgs> = $Result.GetResult<Prisma.$ImagemCasaPayload, S>
+
+  type ImagemCasaCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ImagemCasaFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ImagemCasaCountAggregateInputType | true
+    }
+
+  export interface ImagemCasaDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ImagemCasa'], meta: { name: 'ImagemCasa' } }
+    /**
+     * Find zero or one ImagemCasa that matches the filter.
+     * @param {ImagemCasaFindUniqueArgs} args - Arguments to find a ImagemCasa
+     * @example
+     * // Get one ImagemCasa
+     * const imagemCasa = await prisma.imagemCasa.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ImagemCasaFindUniqueArgs>(args: SelectSubset<T, ImagemCasaFindUniqueArgs<ExtArgs>>): Prisma__ImagemCasaClient<$Result.GetResult<Prisma.$ImagemCasaPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ImagemCasa that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ImagemCasaFindUniqueOrThrowArgs} args - Arguments to find a ImagemCasa
+     * @example
+     * // Get one ImagemCasa
+     * const imagemCasa = await prisma.imagemCasa.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ImagemCasaFindUniqueOrThrowArgs>(args: SelectSubset<T, ImagemCasaFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ImagemCasaClient<$Result.GetResult<Prisma.$ImagemCasaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ImagemCasa that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ImagemCasaFindFirstArgs} args - Arguments to find a ImagemCasa
+     * @example
+     * // Get one ImagemCasa
+     * const imagemCasa = await prisma.imagemCasa.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ImagemCasaFindFirstArgs>(args?: SelectSubset<T, ImagemCasaFindFirstArgs<ExtArgs>>): Prisma__ImagemCasaClient<$Result.GetResult<Prisma.$ImagemCasaPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ImagemCasa that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ImagemCasaFindFirstOrThrowArgs} args - Arguments to find a ImagemCasa
+     * @example
+     * // Get one ImagemCasa
+     * const imagemCasa = await prisma.imagemCasa.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ImagemCasaFindFirstOrThrowArgs>(args?: SelectSubset<T, ImagemCasaFindFirstOrThrowArgs<ExtArgs>>): Prisma__ImagemCasaClient<$Result.GetResult<Prisma.$ImagemCasaPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ImagemCasas that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ImagemCasaFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ImagemCasas
+     * const imagemCasas = await prisma.imagemCasa.findMany()
+     * 
+     * // Get first 10 ImagemCasas
+     * const imagemCasas = await prisma.imagemCasa.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const imagemCasaWithIdOnly = await prisma.imagemCasa.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ImagemCasaFindManyArgs>(args?: SelectSubset<T, ImagemCasaFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ImagemCasaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ImagemCasa.
+     * @param {ImagemCasaCreateArgs} args - Arguments to create a ImagemCasa.
+     * @example
+     * // Create one ImagemCasa
+     * const ImagemCasa = await prisma.imagemCasa.create({
+     *   data: {
+     *     // ... data to create a ImagemCasa
+     *   }
+     * })
+     * 
+     */
+    create<T extends ImagemCasaCreateArgs>(args: SelectSubset<T, ImagemCasaCreateArgs<ExtArgs>>): Prisma__ImagemCasaClient<$Result.GetResult<Prisma.$ImagemCasaPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ImagemCasas.
+     * @param {ImagemCasaCreateManyArgs} args - Arguments to create many ImagemCasas.
+     * @example
+     * // Create many ImagemCasas
+     * const imagemCasa = await prisma.imagemCasa.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ImagemCasaCreateManyArgs>(args?: SelectSubset<T, ImagemCasaCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ImagemCasas and returns the data saved in the database.
+     * @param {ImagemCasaCreateManyAndReturnArgs} args - Arguments to create many ImagemCasas.
+     * @example
+     * // Create many ImagemCasas
+     * const imagemCasa = await prisma.imagemCasa.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ImagemCasas and only return the `id`
+     * const imagemCasaWithIdOnly = await prisma.imagemCasa.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ImagemCasaCreateManyAndReturnArgs>(args?: SelectSubset<T, ImagemCasaCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ImagemCasaPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ImagemCasa.
+     * @param {ImagemCasaDeleteArgs} args - Arguments to delete one ImagemCasa.
+     * @example
+     * // Delete one ImagemCasa
+     * const ImagemCasa = await prisma.imagemCasa.delete({
+     *   where: {
+     *     // ... filter to delete one ImagemCasa
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ImagemCasaDeleteArgs>(args: SelectSubset<T, ImagemCasaDeleteArgs<ExtArgs>>): Prisma__ImagemCasaClient<$Result.GetResult<Prisma.$ImagemCasaPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ImagemCasa.
+     * @param {ImagemCasaUpdateArgs} args - Arguments to update one ImagemCasa.
+     * @example
+     * // Update one ImagemCasa
+     * const imagemCasa = await prisma.imagemCasa.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ImagemCasaUpdateArgs>(args: SelectSubset<T, ImagemCasaUpdateArgs<ExtArgs>>): Prisma__ImagemCasaClient<$Result.GetResult<Prisma.$ImagemCasaPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ImagemCasas.
+     * @param {ImagemCasaDeleteManyArgs} args - Arguments to filter ImagemCasas to delete.
+     * @example
+     * // Delete a few ImagemCasas
+     * const { count } = await prisma.imagemCasa.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ImagemCasaDeleteManyArgs>(args?: SelectSubset<T, ImagemCasaDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ImagemCasas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ImagemCasaUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ImagemCasas
+     * const imagemCasa = await prisma.imagemCasa.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ImagemCasaUpdateManyArgs>(args: SelectSubset<T, ImagemCasaUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ImagemCasas and returns the data updated in the database.
+     * @param {ImagemCasaUpdateManyAndReturnArgs} args - Arguments to update many ImagemCasas.
+     * @example
+     * // Update many ImagemCasas
+     * const imagemCasa = await prisma.imagemCasa.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ImagemCasas and only return the `id`
+     * const imagemCasaWithIdOnly = await prisma.imagemCasa.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ImagemCasaUpdateManyAndReturnArgs>(args: SelectSubset<T, ImagemCasaUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ImagemCasaPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ImagemCasa.
+     * @param {ImagemCasaUpsertArgs} args - Arguments to update or create a ImagemCasa.
+     * @example
+     * // Update or create a ImagemCasa
+     * const imagemCasa = await prisma.imagemCasa.upsert({
+     *   create: {
+     *     // ... data to create a ImagemCasa
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ImagemCasa we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ImagemCasaUpsertArgs>(args: SelectSubset<T, ImagemCasaUpsertArgs<ExtArgs>>): Prisma__ImagemCasaClient<$Result.GetResult<Prisma.$ImagemCasaPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ImagemCasas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ImagemCasaCountArgs} args - Arguments to filter ImagemCasas to count.
+     * @example
+     * // Count the number of ImagemCasas
+     * const count = await prisma.imagemCasa.count({
+     *   where: {
+     *     // ... the filter for the ImagemCasas we want to count
+     *   }
+     * })
+    **/
+    count<T extends ImagemCasaCountArgs>(
+      args?: Subset<T, ImagemCasaCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ImagemCasaCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ImagemCasa.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ImagemCasaAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ImagemCasaAggregateArgs>(args: Subset<T, ImagemCasaAggregateArgs>): Prisma.PrismaPromise<GetImagemCasaAggregateType<T>>
+
+    /**
+     * Group by ImagemCasa.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ImagemCasaGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ImagemCasaGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ImagemCasaGroupByArgs['orderBy'] }
+        : { orderBy?: ImagemCasaGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ImagemCasaGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetImagemCasaGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ImagemCasa model
+   */
+  readonly fields: ImagemCasaFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ImagemCasa.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ImagemCasaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    casa<T extends CasaDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CasaDefaultArgs<ExtArgs>>): Prisma__CasaClient<$Result.GetResult<Prisma.$CasaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ImagemCasa model
+   */
+  interface ImagemCasaFieldRefs {
+    readonly id: FieldRef<"ImagemCasa", 'Int'>
+    readonly url: FieldRef<"ImagemCasa", 'String'>
+    readonly casaId: FieldRef<"ImagemCasa", 'Int'>
+    readonly createdAt: FieldRef<"ImagemCasa", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ImagemCasa findUnique
+   */
+  export type ImagemCasaFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ImagemCasa
+     */
+    select?: ImagemCasaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ImagemCasa
+     */
+    omit?: ImagemCasaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ImagemCasaInclude<ExtArgs> | null
+    /**
+     * Filter, which ImagemCasa to fetch.
+     */
+    where: ImagemCasaWhereUniqueInput
+  }
+
+  /**
+   * ImagemCasa findUniqueOrThrow
+   */
+  export type ImagemCasaFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ImagemCasa
+     */
+    select?: ImagemCasaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ImagemCasa
+     */
+    omit?: ImagemCasaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ImagemCasaInclude<ExtArgs> | null
+    /**
+     * Filter, which ImagemCasa to fetch.
+     */
+    where: ImagemCasaWhereUniqueInput
+  }
+
+  /**
+   * ImagemCasa findFirst
+   */
+  export type ImagemCasaFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ImagemCasa
+     */
+    select?: ImagemCasaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ImagemCasa
+     */
+    omit?: ImagemCasaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ImagemCasaInclude<ExtArgs> | null
+    /**
+     * Filter, which ImagemCasa to fetch.
+     */
+    where?: ImagemCasaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ImagemCasas to fetch.
+     */
+    orderBy?: ImagemCasaOrderByWithRelationInput | ImagemCasaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ImagemCasas.
+     */
+    cursor?: ImagemCasaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ImagemCasas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ImagemCasas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ImagemCasas.
+     */
+    distinct?: ImagemCasaScalarFieldEnum | ImagemCasaScalarFieldEnum[]
+  }
+
+  /**
+   * ImagemCasa findFirstOrThrow
+   */
+  export type ImagemCasaFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ImagemCasa
+     */
+    select?: ImagemCasaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ImagemCasa
+     */
+    omit?: ImagemCasaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ImagemCasaInclude<ExtArgs> | null
+    /**
+     * Filter, which ImagemCasa to fetch.
+     */
+    where?: ImagemCasaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ImagemCasas to fetch.
+     */
+    orderBy?: ImagemCasaOrderByWithRelationInput | ImagemCasaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ImagemCasas.
+     */
+    cursor?: ImagemCasaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ImagemCasas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ImagemCasas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ImagemCasas.
+     */
+    distinct?: ImagemCasaScalarFieldEnum | ImagemCasaScalarFieldEnum[]
+  }
+
+  /**
+   * ImagemCasa findMany
+   */
+  export type ImagemCasaFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ImagemCasa
+     */
+    select?: ImagemCasaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ImagemCasa
+     */
+    omit?: ImagemCasaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ImagemCasaInclude<ExtArgs> | null
+    /**
+     * Filter, which ImagemCasas to fetch.
+     */
+    where?: ImagemCasaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ImagemCasas to fetch.
+     */
+    orderBy?: ImagemCasaOrderByWithRelationInput | ImagemCasaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ImagemCasas.
+     */
+    cursor?: ImagemCasaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ImagemCasas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ImagemCasas.
+     */
+    skip?: number
+    distinct?: ImagemCasaScalarFieldEnum | ImagemCasaScalarFieldEnum[]
+  }
+
+  /**
+   * ImagemCasa create
+   */
+  export type ImagemCasaCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ImagemCasa
+     */
+    select?: ImagemCasaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ImagemCasa
+     */
+    omit?: ImagemCasaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ImagemCasaInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ImagemCasa.
+     */
+    data: XOR<ImagemCasaCreateInput, ImagemCasaUncheckedCreateInput>
+  }
+
+  /**
+   * ImagemCasa createMany
+   */
+  export type ImagemCasaCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ImagemCasas.
+     */
+    data: ImagemCasaCreateManyInput | ImagemCasaCreateManyInput[]
+  }
+
+  /**
+   * ImagemCasa createManyAndReturn
+   */
+  export type ImagemCasaCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ImagemCasa
+     */
+    select?: ImagemCasaSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ImagemCasa
+     */
+    omit?: ImagemCasaOmit<ExtArgs> | null
+    /**
+     * The data used to create many ImagemCasas.
+     */
+    data: ImagemCasaCreateManyInput | ImagemCasaCreateManyInput[]
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ImagemCasaIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ImagemCasa update
+   */
+  export type ImagemCasaUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ImagemCasa
+     */
+    select?: ImagemCasaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ImagemCasa
+     */
+    omit?: ImagemCasaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ImagemCasaInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ImagemCasa.
+     */
+    data: XOR<ImagemCasaUpdateInput, ImagemCasaUncheckedUpdateInput>
+    /**
+     * Choose, which ImagemCasa to update.
+     */
+    where: ImagemCasaWhereUniqueInput
+  }
+
+  /**
+   * ImagemCasa updateMany
+   */
+  export type ImagemCasaUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ImagemCasas.
+     */
+    data: XOR<ImagemCasaUpdateManyMutationInput, ImagemCasaUncheckedUpdateManyInput>
+    /**
+     * Filter which ImagemCasas to update
+     */
+    where?: ImagemCasaWhereInput
+    /**
+     * Limit how many ImagemCasas to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ImagemCasa updateManyAndReturn
+   */
+  export type ImagemCasaUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ImagemCasa
+     */
+    select?: ImagemCasaSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ImagemCasa
+     */
+    omit?: ImagemCasaOmit<ExtArgs> | null
+    /**
+     * The data used to update ImagemCasas.
+     */
+    data: XOR<ImagemCasaUpdateManyMutationInput, ImagemCasaUncheckedUpdateManyInput>
+    /**
+     * Filter which ImagemCasas to update
+     */
+    where?: ImagemCasaWhereInput
+    /**
+     * Limit how many ImagemCasas to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ImagemCasaIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ImagemCasa upsert
+   */
+  export type ImagemCasaUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ImagemCasa
+     */
+    select?: ImagemCasaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ImagemCasa
+     */
+    omit?: ImagemCasaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ImagemCasaInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ImagemCasa to update in case it exists.
+     */
+    where: ImagemCasaWhereUniqueInput
+    /**
+     * In case the ImagemCasa found by the `where` argument doesn't exist, create a new ImagemCasa with this data.
+     */
+    create: XOR<ImagemCasaCreateInput, ImagemCasaUncheckedCreateInput>
+    /**
+     * In case the ImagemCasa was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ImagemCasaUpdateInput, ImagemCasaUncheckedUpdateInput>
+  }
+
+  /**
+   * ImagemCasa delete
+   */
+  export type ImagemCasaDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ImagemCasa
+     */
+    select?: ImagemCasaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ImagemCasa
+     */
+    omit?: ImagemCasaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ImagemCasaInclude<ExtArgs> | null
+    /**
+     * Filter which ImagemCasa to delete.
+     */
+    where: ImagemCasaWhereUniqueInput
+  }
+
+  /**
+   * ImagemCasa deleteMany
+   */
+  export type ImagemCasaDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ImagemCasas to delete
+     */
+    where?: ImagemCasaWhereInput
+    /**
+     * Limit how many ImagemCasas to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ImagemCasa without action
+   */
+  export type ImagemCasaDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ImagemCasa
+     */
+    select?: ImagemCasaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ImagemCasa
+     */
+    omit?: ImagemCasaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ImagemCasaInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model BloqueioDisponibilidade
+   */
+
+  export type AggregateBloqueioDisponibilidade = {
+    _count: BloqueioDisponibilidadeCountAggregateOutputType | null
+    _avg: BloqueioDisponibilidadeAvgAggregateOutputType | null
+    _sum: BloqueioDisponibilidadeSumAggregateOutputType | null
+    _min: BloqueioDisponibilidadeMinAggregateOutputType | null
+    _max: BloqueioDisponibilidadeMaxAggregateOutputType | null
+  }
+
+  export type BloqueioDisponibilidadeAvgAggregateOutputType = {
+    id: number | null
+    casaId: number | null
+  }
+
+  export type BloqueioDisponibilidadeSumAggregateOutputType = {
+    id: number | null
+    casaId: number | null
+  }
+
+  export type BloqueioDisponibilidadeMinAggregateOutputType = {
+    id: number | null
+    dataInicio: Date | null
+    dataFim: Date | null
+    motivo: string | null
+    casaId: number | null
+    createdAt: Date | null
+  }
+
+  export type BloqueioDisponibilidadeMaxAggregateOutputType = {
+    id: number | null
+    dataInicio: Date | null
+    dataFim: Date | null
+    motivo: string | null
+    casaId: number | null
+    createdAt: Date | null
+  }
+
+  export type BloqueioDisponibilidadeCountAggregateOutputType = {
+    id: number
+    dataInicio: number
+    dataFim: number
+    motivo: number
+    casaId: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type BloqueioDisponibilidadeAvgAggregateInputType = {
+    id?: true
+    casaId?: true
+  }
+
+  export type BloqueioDisponibilidadeSumAggregateInputType = {
+    id?: true
+    casaId?: true
+  }
+
+  export type BloqueioDisponibilidadeMinAggregateInputType = {
+    id?: true
+    dataInicio?: true
+    dataFim?: true
+    motivo?: true
+    casaId?: true
+    createdAt?: true
+  }
+
+  export type BloqueioDisponibilidadeMaxAggregateInputType = {
+    id?: true
+    dataInicio?: true
+    dataFim?: true
+    motivo?: true
+    casaId?: true
+    createdAt?: true
+  }
+
+  export type BloqueioDisponibilidadeCountAggregateInputType = {
+    id?: true
+    dataInicio?: true
+    dataFim?: true
+    motivo?: true
+    casaId?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type BloqueioDisponibilidadeAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BloqueioDisponibilidade to aggregate.
+     */
+    where?: BloqueioDisponibilidadeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BloqueioDisponibilidades to fetch.
+     */
+    orderBy?: BloqueioDisponibilidadeOrderByWithRelationInput | BloqueioDisponibilidadeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BloqueioDisponibilidadeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BloqueioDisponibilidades from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BloqueioDisponibilidades.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned BloqueioDisponibilidades
+    **/
+    _count?: true | BloqueioDisponibilidadeCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: BloqueioDisponibilidadeAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: BloqueioDisponibilidadeSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BloqueioDisponibilidadeMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BloqueioDisponibilidadeMaxAggregateInputType
+  }
+
+  export type GetBloqueioDisponibilidadeAggregateType<T extends BloqueioDisponibilidadeAggregateArgs> = {
+        [P in keyof T & keyof AggregateBloqueioDisponibilidade]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBloqueioDisponibilidade[P]>
+      : GetScalarType<T[P], AggregateBloqueioDisponibilidade[P]>
+  }
+
+
+
+
+  export type BloqueioDisponibilidadeGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BloqueioDisponibilidadeWhereInput
+    orderBy?: BloqueioDisponibilidadeOrderByWithAggregationInput | BloqueioDisponibilidadeOrderByWithAggregationInput[]
+    by: BloqueioDisponibilidadeScalarFieldEnum[] | BloqueioDisponibilidadeScalarFieldEnum
+    having?: BloqueioDisponibilidadeScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BloqueioDisponibilidadeCountAggregateInputType | true
+    _avg?: BloqueioDisponibilidadeAvgAggregateInputType
+    _sum?: BloqueioDisponibilidadeSumAggregateInputType
+    _min?: BloqueioDisponibilidadeMinAggregateInputType
+    _max?: BloqueioDisponibilidadeMaxAggregateInputType
+  }
+
+  export type BloqueioDisponibilidadeGroupByOutputType = {
+    id: number
+    dataInicio: Date
+    dataFim: Date
+    motivo: string | null
+    casaId: number
+    createdAt: Date
+    _count: BloqueioDisponibilidadeCountAggregateOutputType | null
+    _avg: BloqueioDisponibilidadeAvgAggregateOutputType | null
+    _sum: BloqueioDisponibilidadeSumAggregateOutputType | null
+    _min: BloqueioDisponibilidadeMinAggregateOutputType | null
+    _max: BloqueioDisponibilidadeMaxAggregateOutputType | null
+  }
+
+  type GetBloqueioDisponibilidadeGroupByPayload<T extends BloqueioDisponibilidadeGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BloqueioDisponibilidadeGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BloqueioDisponibilidadeGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BloqueioDisponibilidadeGroupByOutputType[P]>
+            : GetScalarType<T[P], BloqueioDisponibilidadeGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BloqueioDisponibilidadeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    dataInicio?: boolean
+    dataFim?: boolean
+    motivo?: boolean
+    casaId?: boolean
+    createdAt?: boolean
+    casa?: boolean | CasaDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["bloqueioDisponibilidade"]>
+
+  export type BloqueioDisponibilidadeSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    dataInicio?: boolean
+    dataFim?: boolean
+    motivo?: boolean
+    casaId?: boolean
+    createdAt?: boolean
+    casa?: boolean | CasaDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["bloqueioDisponibilidade"]>
+
+  export type BloqueioDisponibilidadeSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    dataInicio?: boolean
+    dataFim?: boolean
+    motivo?: boolean
+    casaId?: boolean
+    createdAt?: boolean
+    casa?: boolean | CasaDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["bloqueioDisponibilidade"]>
+
+  export type BloqueioDisponibilidadeSelectScalar = {
+    id?: boolean
+    dataInicio?: boolean
+    dataFim?: boolean
+    motivo?: boolean
+    casaId?: boolean
+    createdAt?: boolean
+  }
+
+  export type BloqueioDisponibilidadeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "dataInicio" | "dataFim" | "motivo" | "casaId" | "createdAt", ExtArgs["result"]["bloqueioDisponibilidade"]>
+  export type BloqueioDisponibilidadeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    casa?: boolean | CasaDefaultArgs<ExtArgs>
+  }
+  export type BloqueioDisponibilidadeIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    casa?: boolean | CasaDefaultArgs<ExtArgs>
+  }
+  export type BloqueioDisponibilidadeIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    casa?: boolean | CasaDefaultArgs<ExtArgs>
+  }
+
+  export type $BloqueioDisponibilidadePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "BloqueioDisponibilidade"
+    objects: {
+      casa: Prisma.$CasaPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      dataInicio: Date
+      dataFim: Date
+      motivo: string | null
+      casaId: number
+      createdAt: Date
+    }, ExtArgs["result"]["bloqueioDisponibilidade"]>
+    composites: {}
+  }
+
+  type BloqueioDisponibilidadeGetPayload<S extends boolean | null | undefined | BloqueioDisponibilidadeDefaultArgs> = $Result.GetResult<Prisma.$BloqueioDisponibilidadePayload, S>
+
+  type BloqueioDisponibilidadeCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<BloqueioDisponibilidadeFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: BloqueioDisponibilidadeCountAggregateInputType | true
+    }
+
+  export interface BloqueioDisponibilidadeDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['BloqueioDisponibilidade'], meta: { name: 'BloqueioDisponibilidade' } }
+    /**
+     * Find zero or one BloqueioDisponibilidade that matches the filter.
+     * @param {BloqueioDisponibilidadeFindUniqueArgs} args - Arguments to find a BloqueioDisponibilidade
+     * @example
+     * // Get one BloqueioDisponibilidade
+     * const bloqueioDisponibilidade = await prisma.bloqueioDisponibilidade.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends BloqueioDisponibilidadeFindUniqueArgs>(args: SelectSubset<T, BloqueioDisponibilidadeFindUniqueArgs<ExtArgs>>): Prisma__BloqueioDisponibilidadeClient<$Result.GetResult<Prisma.$BloqueioDisponibilidadePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one BloqueioDisponibilidade that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {BloqueioDisponibilidadeFindUniqueOrThrowArgs} args - Arguments to find a BloqueioDisponibilidade
+     * @example
+     * // Get one BloqueioDisponibilidade
+     * const bloqueioDisponibilidade = await prisma.bloqueioDisponibilidade.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends BloqueioDisponibilidadeFindUniqueOrThrowArgs>(args: SelectSubset<T, BloqueioDisponibilidadeFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BloqueioDisponibilidadeClient<$Result.GetResult<Prisma.$BloqueioDisponibilidadePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BloqueioDisponibilidade that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BloqueioDisponibilidadeFindFirstArgs} args - Arguments to find a BloqueioDisponibilidade
+     * @example
+     * // Get one BloqueioDisponibilidade
+     * const bloqueioDisponibilidade = await prisma.bloqueioDisponibilidade.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends BloqueioDisponibilidadeFindFirstArgs>(args?: SelectSubset<T, BloqueioDisponibilidadeFindFirstArgs<ExtArgs>>): Prisma__BloqueioDisponibilidadeClient<$Result.GetResult<Prisma.$BloqueioDisponibilidadePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BloqueioDisponibilidade that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BloqueioDisponibilidadeFindFirstOrThrowArgs} args - Arguments to find a BloqueioDisponibilidade
+     * @example
+     * // Get one BloqueioDisponibilidade
+     * const bloqueioDisponibilidade = await prisma.bloqueioDisponibilidade.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends BloqueioDisponibilidadeFindFirstOrThrowArgs>(args?: SelectSubset<T, BloqueioDisponibilidadeFindFirstOrThrowArgs<ExtArgs>>): Prisma__BloqueioDisponibilidadeClient<$Result.GetResult<Prisma.$BloqueioDisponibilidadePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more BloqueioDisponibilidades that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BloqueioDisponibilidadeFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all BloqueioDisponibilidades
+     * const bloqueioDisponibilidades = await prisma.bloqueioDisponibilidade.findMany()
+     * 
+     * // Get first 10 BloqueioDisponibilidades
+     * const bloqueioDisponibilidades = await prisma.bloqueioDisponibilidade.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const bloqueioDisponibilidadeWithIdOnly = await prisma.bloqueioDisponibilidade.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends BloqueioDisponibilidadeFindManyArgs>(args?: SelectSubset<T, BloqueioDisponibilidadeFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BloqueioDisponibilidadePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a BloqueioDisponibilidade.
+     * @param {BloqueioDisponibilidadeCreateArgs} args - Arguments to create a BloqueioDisponibilidade.
+     * @example
+     * // Create one BloqueioDisponibilidade
+     * const BloqueioDisponibilidade = await prisma.bloqueioDisponibilidade.create({
+     *   data: {
+     *     // ... data to create a BloqueioDisponibilidade
+     *   }
+     * })
+     * 
+     */
+    create<T extends BloqueioDisponibilidadeCreateArgs>(args: SelectSubset<T, BloqueioDisponibilidadeCreateArgs<ExtArgs>>): Prisma__BloqueioDisponibilidadeClient<$Result.GetResult<Prisma.$BloqueioDisponibilidadePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many BloqueioDisponibilidades.
+     * @param {BloqueioDisponibilidadeCreateManyArgs} args - Arguments to create many BloqueioDisponibilidades.
+     * @example
+     * // Create many BloqueioDisponibilidades
+     * const bloqueioDisponibilidade = await prisma.bloqueioDisponibilidade.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends BloqueioDisponibilidadeCreateManyArgs>(args?: SelectSubset<T, BloqueioDisponibilidadeCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many BloqueioDisponibilidades and returns the data saved in the database.
+     * @param {BloqueioDisponibilidadeCreateManyAndReturnArgs} args - Arguments to create many BloqueioDisponibilidades.
+     * @example
+     * // Create many BloqueioDisponibilidades
+     * const bloqueioDisponibilidade = await prisma.bloqueioDisponibilidade.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many BloqueioDisponibilidades and only return the `id`
+     * const bloqueioDisponibilidadeWithIdOnly = await prisma.bloqueioDisponibilidade.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends BloqueioDisponibilidadeCreateManyAndReturnArgs>(args?: SelectSubset<T, BloqueioDisponibilidadeCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BloqueioDisponibilidadePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a BloqueioDisponibilidade.
+     * @param {BloqueioDisponibilidadeDeleteArgs} args - Arguments to delete one BloqueioDisponibilidade.
+     * @example
+     * // Delete one BloqueioDisponibilidade
+     * const BloqueioDisponibilidade = await prisma.bloqueioDisponibilidade.delete({
+     *   where: {
+     *     // ... filter to delete one BloqueioDisponibilidade
+     *   }
+     * })
+     * 
+     */
+    delete<T extends BloqueioDisponibilidadeDeleteArgs>(args: SelectSubset<T, BloqueioDisponibilidadeDeleteArgs<ExtArgs>>): Prisma__BloqueioDisponibilidadeClient<$Result.GetResult<Prisma.$BloqueioDisponibilidadePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one BloqueioDisponibilidade.
+     * @param {BloqueioDisponibilidadeUpdateArgs} args - Arguments to update one BloqueioDisponibilidade.
+     * @example
+     * // Update one BloqueioDisponibilidade
+     * const bloqueioDisponibilidade = await prisma.bloqueioDisponibilidade.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends BloqueioDisponibilidadeUpdateArgs>(args: SelectSubset<T, BloqueioDisponibilidadeUpdateArgs<ExtArgs>>): Prisma__BloqueioDisponibilidadeClient<$Result.GetResult<Prisma.$BloqueioDisponibilidadePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more BloqueioDisponibilidades.
+     * @param {BloqueioDisponibilidadeDeleteManyArgs} args - Arguments to filter BloqueioDisponibilidades to delete.
+     * @example
+     * // Delete a few BloqueioDisponibilidades
+     * const { count } = await prisma.bloqueioDisponibilidade.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends BloqueioDisponibilidadeDeleteManyArgs>(args?: SelectSubset<T, BloqueioDisponibilidadeDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BloqueioDisponibilidades.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BloqueioDisponibilidadeUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many BloqueioDisponibilidades
+     * const bloqueioDisponibilidade = await prisma.bloqueioDisponibilidade.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends BloqueioDisponibilidadeUpdateManyArgs>(args: SelectSubset<T, BloqueioDisponibilidadeUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BloqueioDisponibilidades and returns the data updated in the database.
+     * @param {BloqueioDisponibilidadeUpdateManyAndReturnArgs} args - Arguments to update many BloqueioDisponibilidades.
+     * @example
+     * // Update many BloqueioDisponibilidades
+     * const bloqueioDisponibilidade = await prisma.bloqueioDisponibilidade.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more BloqueioDisponibilidades and only return the `id`
+     * const bloqueioDisponibilidadeWithIdOnly = await prisma.bloqueioDisponibilidade.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends BloqueioDisponibilidadeUpdateManyAndReturnArgs>(args: SelectSubset<T, BloqueioDisponibilidadeUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BloqueioDisponibilidadePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one BloqueioDisponibilidade.
+     * @param {BloqueioDisponibilidadeUpsertArgs} args - Arguments to update or create a BloqueioDisponibilidade.
+     * @example
+     * // Update or create a BloqueioDisponibilidade
+     * const bloqueioDisponibilidade = await prisma.bloqueioDisponibilidade.upsert({
+     *   create: {
+     *     // ... data to create a BloqueioDisponibilidade
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the BloqueioDisponibilidade we want to update
+     *   }
+     * })
+     */
+    upsert<T extends BloqueioDisponibilidadeUpsertArgs>(args: SelectSubset<T, BloqueioDisponibilidadeUpsertArgs<ExtArgs>>): Prisma__BloqueioDisponibilidadeClient<$Result.GetResult<Prisma.$BloqueioDisponibilidadePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of BloqueioDisponibilidades.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BloqueioDisponibilidadeCountArgs} args - Arguments to filter BloqueioDisponibilidades to count.
+     * @example
+     * // Count the number of BloqueioDisponibilidades
+     * const count = await prisma.bloqueioDisponibilidade.count({
+     *   where: {
+     *     // ... the filter for the BloqueioDisponibilidades we want to count
+     *   }
+     * })
+    **/
+    count<T extends BloqueioDisponibilidadeCountArgs>(
+      args?: Subset<T, BloqueioDisponibilidadeCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BloqueioDisponibilidadeCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a BloqueioDisponibilidade.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BloqueioDisponibilidadeAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BloqueioDisponibilidadeAggregateArgs>(args: Subset<T, BloqueioDisponibilidadeAggregateArgs>): Prisma.PrismaPromise<GetBloqueioDisponibilidadeAggregateType<T>>
+
+    /**
+     * Group by BloqueioDisponibilidade.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BloqueioDisponibilidadeGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BloqueioDisponibilidadeGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BloqueioDisponibilidadeGroupByArgs['orderBy'] }
+        : { orderBy?: BloqueioDisponibilidadeGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BloqueioDisponibilidadeGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBloqueioDisponibilidadeGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the BloqueioDisponibilidade model
+   */
+  readonly fields: BloqueioDisponibilidadeFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for BloqueioDisponibilidade.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BloqueioDisponibilidadeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    casa<T extends CasaDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CasaDefaultArgs<ExtArgs>>): Prisma__CasaClient<$Result.GetResult<Prisma.$CasaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the BloqueioDisponibilidade model
+   */
+  interface BloqueioDisponibilidadeFieldRefs {
+    readonly id: FieldRef<"BloqueioDisponibilidade", 'Int'>
+    readonly dataInicio: FieldRef<"BloqueioDisponibilidade", 'DateTime'>
+    readonly dataFim: FieldRef<"BloqueioDisponibilidade", 'DateTime'>
+    readonly motivo: FieldRef<"BloqueioDisponibilidade", 'String'>
+    readonly casaId: FieldRef<"BloqueioDisponibilidade", 'Int'>
+    readonly createdAt: FieldRef<"BloqueioDisponibilidade", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * BloqueioDisponibilidade findUnique
+   */
+  export type BloqueioDisponibilidadeFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BloqueioDisponibilidade
+     */
+    select?: BloqueioDisponibilidadeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BloqueioDisponibilidade
+     */
+    omit?: BloqueioDisponibilidadeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BloqueioDisponibilidadeInclude<ExtArgs> | null
+    /**
+     * Filter, which BloqueioDisponibilidade to fetch.
+     */
+    where: BloqueioDisponibilidadeWhereUniqueInput
+  }
+
+  /**
+   * BloqueioDisponibilidade findUniqueOrThrow
+   */
+  export type BloqueioDisponibilidadeFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BloqueioDisponibilidade
+     */
+    select?: BloqueioDisponibilidadeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BloqueioDisponibilidade
+     */
+    omit?: BloqueioDisponibilidadeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BloqueioDisponibilidadeInclude<ExtArgs> | null
+    /**
+     * Filter, which BloqueioDisponibilidade to fetch.
+     */
+    where: BloqueioDisponibilidadeWhereUniqueInput
+  }
+
+  /**
+   * BloqueioDisponibilidade findFirst
+   */
+  export type BloqueioDisponibilidadeFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BloqueioDisponibilidade
+     */
+    select?: BloqueioDisponibilidadeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BloqueioDisponibilidade
+     */
+    omit?: BloqueioDisponibilidadeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BloqueioDisponibilidadeInclude<ExtArgs> | null
+    /**
+     * Filter, which BloqueioDisponibilidade to fetch.
+     */
+    where?: BloqueioDisponibilidadeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BloqueioDisponibilidades to fetch.
+     */
+    orderBy?: BloqueioDisponibilidadeOrderByWithRelationInput | BloqueioDisponibilidadeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BloqueioDisponibilidades.
+     */
+    cursor?: BloqueioDisponibilidadeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BloqueioDisponibilidades from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BloqueioDisponibilidades.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BloqueioDisponibilidades.
+     */
+    distinct?: BloqueioDisponibilidadeScalarFieldEnum | BloqueioDisponibilidadeScalarFieldEnum[]
+  }
+
+  /**
+   * BloqueioDisponibilidade findFirstOrThrow
+   */
+  export type BloqueioDisponibilidadeFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BloqueioDisponibilidade
+     */
+    select?: BloqueioDisponibilidadeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BloqueioDisponibilidade
+     */
+    omit?: BloqueioDisponibilidadeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BloqueioDisponibilidadeInclude<ExtArgs> | null
+    /**
+     * Filter, which BloqueioDisponibilidade to fetch.
+     */
+    where?: BloqueioDisponibilidadeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BloqueioDisponibilidades to fetch.
+     */
+    orderBy?: BloqueioDisponibilidadeOrderByWithRelationInput | BloqueioDisponibilidadeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BloqueioDisponibilidades.
+     */
+    cursor?: BloqueioDisponibilidadeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BloqueioDisponibilidades from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BloqueioDisponibilidades.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BloqueioDisponibilidades.
+     */
+    distinct?: BloqueioDisponibilidadeScalarFieldEnum | BloqueioDisponibilidadeScalarFieldEnum[]
+  }
+
+  /**
+   * BloqueioDisponibilidade findMany
+   */
+  export type BloqueioDisponibilidadeFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BloqueioDisponibilidade
+     */
+    select?: BloqueioDisponibilidadeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BloqueioDisponibilidade
+     */
+    omit?: BloqueioDisponibilidadeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BloqueioDisponibilidadeInclude<ExtArgs> | null
+    /**
+     * Filter, which BloqueioDisponibilidades to fetch.
+     */
+    where?: BloqueioDisponibilidadeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BloqueioDisponibilidades to fetch.
+     */
+    orderBy?: BloqueioDisponibilidadeOrderByWithRelationInput | BloqueioDisponibilidadeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing BloqueioDisponibilidades.
+     */
+    cursor?: BloqueioDisponibilidadeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BloqueioDisponibilidades from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BloqueioDisponibilidades.
+     */
+    skip?: number
+    distinct?: BloqueioDisponibilidadeScalarFieldEnum | BloqueioDisponibilidadeScalarFieldEnum[]
+  }
+
+  /**
+   * BloqueioDisponibilidade create
+   */
+  export type BloqueioDisponibilidadeCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BloqueioDisponibilidade
+     */
+    select?: BloqueioDisponibilidadeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BloqueioDisponibilidade
+     */
+    omit?: BloqueioDisponibilidadeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BloqueioDisponibilidadeInclude<ExtArgs> | null
+    /**
+     * The data needed to create a BloqueioDisponibilidade.
+     */
+    data: XOR<BloqueioDisponibilidadeCreateInput, BloqueioDisponibilidadeUncheckedCreateInput>
+  }
+
+  /**
+   * BloqueioDisponibilidade createMany
+   */
+  export type BloqueioDisponibilidadeCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many BloqueioDisponibilidades.
+     */
+    data: BloqueioDisponibilidadeCreateManyInput | BloqueioDisponibilidadeCreateManyInput[]
+  }
+
+  /**
+   * BloqueioDisponibilidade createManyAndReturn
+   */
+  export type BloqueioDisponibilidadeCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BloqueioDisponibilidade
+     */
+    select?: BloqueioDisponibilidadeSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the BloqueioDisponibilidade
+     */
+    omit?: BloqueioDisponibilidadeOmit<ExtArgs> | null
+    /**
+     * The data used to create many BloqueioDisponibilidades.
+     */
+    data: BloqueioDisponibilidadeCreateManyInput | BloqueioDisponibilidadeCreateManyInput[]
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BloqueioDisponibilidadeIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * BloqueioDisponibilidade update
+   */
+  export type BloqueioDisponibilidadeUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BloqueioDisponibilidade
+     */
+    select?: BloqueioDisponibilidadeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BloqueioDisponibilidade
+     */
+    omit?: BloqueioDisponibilidadeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BloqueioDisponibilidadeInclude<ExtArgs> | null
+    /**
+     * The data needed to update a BloqueioDisponibilidade.
+     */
+    data: XOR<BloqueioDisponibilidadeUpdateInput, BloqueioDisponibilidadeUncheckedUpdateInput>
+    /**
+     * Choose, which BloqueioDisponibilidade to update.
+     */
+    where: BloqueioDisponibilidadeWhereUniqueInput
+  }
+
+  /**
+   * BloqueioDisponibilidade updateMany
+   */
+  export type BloqueioDisponibilidadeUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update BloqueioDisponibilidades.
+     */
+    data: XOR<BloqueioDisponibilidadeUpdateManyMutationInput, BloqueioDisponibilidadeUncheckedUpdateManyInput>
+    /**
+     * Filter which BloqueioDisponibilidades to update
+     */
+    where?: BloqueioDisponibilidadeWhereInput
+    /**
+     * Limit how many BloqueioDisponibilidades to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * BloqueioDisponibilidade updateManyAndReturn
+   */
+  export type BloqueioDisponibilidadeUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BloqueioDisponibilidade
+     */
+    select?: BloqueioDisponibilidadeSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the BloqueioDisponibilidade
+     */
+    omit?: BloqueioDisponibilidadeOmit<ExtArgs> | null
+    /**
+     * The data used to update BloqueioDisponibilidades.
+     */
+    data: XOR<BloqueioDisponibilidadeUpdateManyMutationInput, BloqueioDisponibilidadeUncheckedUpdateManyInput>
+    /**
+     * Filter which BloqueioDisponibilidades to update
+     */
+    where?: BloqueioDisponibilidadeWhereInput
+    /**
+     * Limit how many BloqueioDisponibilidades to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BloqueioDisponibilidadeIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * BloqueioDisponibilidade upsert
+   */
+  export type BloqueioDisponibilidadeUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BloqueioDisponibilidade
+     */
+    select?: BloqueioDisponibilidadeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BloqueioDisponibilidade
+     */
+    omit?: BloqueioDisponibilidadeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BloqueioDisponibilidadeInclude<ExtArgs> | null
+    /**
+     * The filter to search for the BloqueioDisponibilidade to update in case it exists.
+     */
+    where: BloqueioDisponibilidadeWhereUniqueInput
+    /**
+     * In case the BloqueioDisponibilidade found by the `where` argument doesn't exist, create a new BloqueioDisponibilidade with this data.
+     */
+    create: XOR<BloqueioDisponibilidadeCreateInput, BloqueioDisponibilidadeUncheckedCreateInput>
+    /**
+     * In case the BloqueioDisponibilidade was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BloqueioDisponibilidadeUpdateInput, BloqueioDisponibilidadeUncheckedUpdateInput>
+  }
+
+  /**
+   * BloqueioDisponibilidade delete
+   */
+  export type BloqueioDisponibilidadeDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BloqueioDisponibilidade
+     */
+    select?: BloqueioDisponibilidadeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BloqueioDisponibilidade
+     */
+    omit?: BloqueioDisponibilidadeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BloqueioDisponibilidadeInclude<ExtArgs> | null
+    /**
+     * Filter which BloqueioDisponibilidade to delete.
+     */
+    where: BloqueioDisponibilidadeWhereUniqueInput
+  }
+
+  /**
+   * BloqueioDisponibilidade deleteMany
+   */
+  export type BloqueioDisponibilidadeDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BloqueioDisponibilidades to delete
+     */
+    where?: BloqueioDisponibilidadeWhereInput
+    /**
+     * Limit how many BloqueioDisponibilidades to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * BloqueioDisponibilidade without action
+   */
+  export type BloqueioDisponibilidadeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BloqueioDisponibilidade
+     */
+    select?: BloqueioDisponibilidadeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BloqueioDisponibilidade
+     */
+    omit?: BloqueioDisponibilidadeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BloqueioDisponibilidadeInclude<ExtArgs> | null
   }
 
 
@@ -3914,6 +6781,8 @@ export namespace Prisma {
     estado?: boolean
     casas?: boolean | Locador$casasArgs<ExtArgs>
     reservas?: boolean | Locador$reservasArgs<ExtArgs>
+    conversas?: boolean | Locador$conversasArgs<ExtArgs>
+    mensagens?: boolean | Locador$mensagensArgs<ExtArgs>
     _count?: boolean | LocadorCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["locador"]>
 
@@ -3957,6 +6826,8 @@ export namespace Prisma {
   export type LocadorInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     casas?: boolean | Locador$casasArgs<ExtArgs>
     reservas?: boolean | Locador$reservasArgs<ExtArgs>
+    conversas?: boolean | Locador$conversasArgs<ExtArgs>
+    mensagens?: boolean | Locador$mensagensArgs<ExtArgs>
     _count?: boolean | LocadorCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type LocadorIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -3967,6 +6838,8 @@ export namespace Prisma {
     objects: {
       casas: Prisma.$CasaPayload<ExtArgs>[]
       reservas: Prisma.$ReservaPayload<ExtArgs>[]
+      conversas: Prisma.$ConversaPayload<ExtArgs>[]
+      mensagens: Prisma.$MensagemPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -4374,6 +7247,8 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     casas<T extends Locador$casasArgs<ExtArgs> = {}>(args?: Subset<T, Locador$casasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CasaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     reservas<T extends Locador$reservasArgs<ExtArgs> = {}>(args?: Subset<T, Locador$reservasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReservaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    conversas<T extends Locador$conversasArgs<ExtArgs> = {}>(args?: Subset<T, Locador$conversasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ConversaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    mensagens<T extends Locador$mensagensArgs<ExtArgs> = {}>(args?: Subset<T, Locador$mensagensArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MensagemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4846,6 +7721,54 @@ export namespace Prisma {
   }
 
   /**
+   * Locador.conversas
+   */
+  export type Locador$conversasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Conversa
+     */
+    select?: ConversaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Conversa
+     */
+    omit?: ConversaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConversaInclude<ExtArgs> | null
+    where?: ConversaWhereInput
+    orderBy?: ConversaOrderByWithRelationInput | ConversaOrderByWithRelationInput[]
+    cursor?: ConversaWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ConversaScalarFieldEnum | ConversaScalarFieldEnum[]
+  }
+
+  /**
+   * Locador.mensagens
+   */
+  export type Locador$mensagensArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mensagem
+     */
+    select?: MensagemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mensagem
+     */
+    omit?: MensagemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MensagemInclude<ExtArgs> | null
+    where?: MensagemWhereInput
+    orderBy?: MensagemOrderByWithRelationInput | MensagemOrderByWithRelationInput[]
+    cursor?: MensagemWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: MensagemScalarFieldEnum | MensagemScalarFieldEnum[]
+  }
+
+  /**
    * Locador without action
    */
   export type LocadorDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5104,6 +8027,9 @@ export namespace Prisma {
     universidade?: boolean
     reservas?: boolean | Hospede$reservasArgs<ExtArgs>
     favoritos?: boolean | Hospede$favoritosArgs<ExtArgs>
+    conversas?: boolean | Hospede$conversasArgs<ExtArgs>
+    mensagens?: boolean | Hospede$mensagensArgs<ExtArgs>
+    avaliacoesFeitas?: boolean | Hospede$avaliacoesFeitasArgs<ExtArgs>
     _count?: boolean | HospedeCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["hospede"]>
 
@@ -5150,6 +8076,9 @@ export namespace Prisma {
   export type HospedeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     reservas?: boolean | Hospede$reservasArgs<ExtArgs>
     favoritos?: boolean | Hospede$favoritosArgs<ExtArgs>
+    conversas?: boolean | Hospede$conversasArgs<ExtArgs>
+    mensagens?: boolean | Hospede$mensagensArgs<ExtArgs>
+    avaliacoesFeitas?: boolean | Hospede$avaliacoesFeitasArgs<ExtArgs>
     _count?: boolean | HospedeCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type HospedeIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -5160,6 +8089,9 @@ export namespace Prisma {
     objects: {
       reservas: Prisma.$ReservaPayload<ExtArgs>[]
       favoritos: Prisma.$FavoritoPayload<ExtArgs>[]
+      conversas: Prisma.$ConversaPayload<ExtArgs>[]
+      mensagens: Prisma.$MensagemPayload<ExtArgs>[]
+      avaliacoesFeitas: Prisma.$AvaliacaoPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -5568,6 +8500,9 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     reservas<T extends Hospede$reservasArgs<ExtArgs> = {}>(args?: Subset<T, Hospede$reservasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReservaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     favoritos<T extends Hospede$favoritosArgs<ExtArgs> = {}>(args?: Subset<T, Hospede$favoritosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FavoritoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    conversas<T extends Hospede$conversasArgs<ExtArgs> = {}>(args?: Subset<T, Hospede$conversasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ConversaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    mensagens<T extends Hospede$mensagensArgs<ExtArgs> = {}>(args?: Subset<T, Hospede$mensagensArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MensagemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    avaliacoesFeitas<T extends Hospede$avaliacoesFeitasArgs<ExtArgs> = {}>(args?: Subset<T, Hospede$avaliacoesFeitasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AvaliacaoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6041,6 +8976,78 @@ export namespace Prisma {
   }
 
   /**
+   * Hospede.conversas
+   */
+  export type Hospede$conversasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Conversa
+     */
+    select?: ConversaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Conversa
+     */
+    omit?: ConversaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConversaInclude<ExtArgs> | null
+    where?: ConversaWhereInput
+    orderBy?: ConversaOrderByWithRelationInput | ConversaOrderByWithRelationInput[]
+    cursor?: ConversaWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ConversaScalarFieldEnum | ConversaScalarFieldEnum[]
+  }
+
+  /**
+   * Hospede.mensagens
+   */
+  export type Hospede$mensagensArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mensagem
+     */
+    select?: MensagemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mensagem
+     */
+    omit?: MensagemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MensagemInclude<ExtArgs> | null
+    where?: MensagemWhereInput
+    orderBy?: MensagemOrderByWithRelationInput | MensagemOrderByWithRelationInput[]
+    cursor?: MensagemWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: MensagemScalarFieldEnum | MensagemScalarFieldEnum[]
+  }
+
+  /**
+   * Hospede.avaliacoesFeitas
+   */
+  export type Hospede$avaliacoesFeitasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Avaliacao
+     */
+    select?: AvaliacaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Avaliacao
+     */
+    omit?: AvaliacaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AvaliacaoInclude<ExtArgs> | null
+    where?: AvaliacaoWhereInput
+    orderBy?: AvaliacaoOrderByWithRelationInput | AvaliacaoOrderByWithRelationInput[]
+    cursor?: AvaliacaoWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: AvaliacaoScalarFieldEnum | AvaliacaoScalarFieldEnum[]
+  }
+
+  /**
    * Hospede without action
    */
   export type HospedeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -6356,6 +9363,7 @@ export namespace Prisma {
     hospede?: boolean | HospedeDefaultArgs<ExtArgs>
     casa?: boolean | CasaDefaultArgs<ExtArgs>
     locador?: boolean | LocadorDefaultArgs<ExtArgs>
+    avaliacao?: boolean | Reserva$avaliacaoArgs<ExtArgs>
   }, ExtArgs["result"]["reserva"]>
 
   export type ReservaSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -6420,6 +9428,7 @@ export namespace Prisma {
     hospede?: boolean | HospedeDefaultArgs<ExtArgs>
     casa?: boolean | CasaDefaultArgs<ExtArgs>
     locador?: boolean | LocadorDefaultArgs<ExtArgs>
+    avaliacao?: boolean | Reserva$avaliacaoArgs<ExtArgs>
   }
   export type ReservaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     hospede?: boolean | HospedeDefaultArgs<ExtArgs>
@@ -6438,6 +9447,7 @@ export namespace Prisma {
       hospede: Prisma.$HospedePayload<ExtArgs>
       casa: Prisma.$CasaPayload<ExtArgs>
       locador: Prisma.$LocadorPayload<ExtArgs>
+      avaliacao: Prisma.$AvaliacaoPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -6851,6 +9861,7 @@ export namespace Prisma {
     hospede<T extends HospedeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, HospedeDefaultArgs<ExtArgs>>): Prisma__HospedeClient<$Result.GetResult<Prisma.$HospedePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     casa<T extends CasaDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CasaDefaultArgs<ExtArgs>>): Prisma__CasaClient<$Result.GetResult<Prisma.$CasaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     locador<T extends LocadorDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LocadorDefaultArgs<ExtArgs>>): Prisma__LocadorClient<$Result.GetResult<Prisma.$LocadorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    avaliacao<T extends Reserva$avaliacaoArgs<ExtArgs> = {}>(args?: Subset<T, Reserva$avaliacaoArgs<ExtArgs>>): Prisma__AvaliacaoClient<$Result.GetResult<Prisma.$AvaliacaoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -7285,6 +10296,25 @@ export namespace Prisma {
      * Limit how many Reservas to delete.
      */
     limit?: number
+  }
+
+  /**
+   * Reserva.avaliacao
+   */
+  export type Reserva$avaliacaoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Avaliacao
+     */
+    select?: AvaliacaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Avaliacao
+     */
+    omit?: AvaliacaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AvaliacaoInclude<ExtArgs> | null
+    where?: AvaliacaoWhereInput
   }
 
   /**
@@ -8400,6 +11430,3542 @@ export namespace Prisma {
 
 
   /**
+   * Model Conversa
+   */
+
+  export type AggregateConversa = {
+    _count: ConversaCountAggregateOutputType | null
+    _avg: ConversaAvgAggregateOutputType | null
+    _sum: ConversaSumAggregateOutputType | null
+    _min: ConversaMinAggregateOutputType | null
+    _max: ConversaMaxAggregateOutputType | null
+  }
+
+  export type ConversaAvgAggregateOutputType = {
+    id: number | null
+    hospedeId: number | null
+    locadorId: number | null
+    casaId: number | null
+  }
+
+  export type ConversaSumAggregateOutputType = {
+    id: number | null
+    hospedeId: number | null
+    locadorId: number | null
+    casaId: number | null
+  }
+
+  export type ConversaMinAggregateOutputType = {
+    id: number | null
+    hospedeId: number | null
+    locadorId: number | null
+    casaId: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ConversaMaxAggregateOutputType = {
+    id: number | null
+    hospedeId: number | null
+    locadorId: number | null
+    casaId: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ConversaCountAggregateOutputType = {
+    id: number
+    hospedeId: number
+    locadorId: number
+    casaId: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type ConversaAvgAggregateInputType = {
+    id?: true
+    hospedeId?: true
+    locadorId?: true
+    casaId?: true
+  }
+
+  export type ConversaSumAggregateInputType = {
+    id?: true
+    hospedeId?: true
+    locadorId?: true
+    casaId?: true
+  }
+
+  export type ConversaMinAggregateInputType = {
+    id?: true
+    hospedeId?: true
+    locadorId?: true
+    casaId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ConversaMaxAggregateInputType = {
+    id?: true
+    hospedeId?: true
+    locadorId?: true
+    casaId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ConversaCountAggregateInputType = {
+    id?: true
+    hospedeId?: true
+    locadorId?: true
+    casaId?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type ConversaAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Conversa to aggregate.
+     */
+    where?: ConversaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Conversas to fetch.
+     */
+    orderBy?: ConversaOrderByWithRelationInput | ConversaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ConversaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Conversas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Conversas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Conversas
+    **/
+    _count?: true | ConversaCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ConversaAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ConversaSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ConversaMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ConversaMaxAggregateInputType
+  }
+
+  export type GetConversaAggregateType<T extends ConversaAggregateArgs> = {
+        [P in keyof T & keyof AggregateConversa]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateConversa[P]>
+      : GetScalarType<T[P], AggregateConversa[P]>
+  }
+
+
+
+
+  export type ConversaGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ConversaWhereInput
+    orderBy?: ConversaOrderByWithAggregationInput | ConversaOrderByWithAggregationInput[]
+    by: ConversaScalarFieldEnum[] | ConversaScalarFieldEnum
+    having?: ConversaScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ConversaCountAggregateInputType | true
+    _avg?: ConversaAvgAggregateInputType
+    _sum?: ConversaSumAggregateInputType
+    _min?: ConversaMinAggregateInputType
+    _max?: ConversaMaxAggregateInputType
+  }
+
+  export type ConversaGroupByOutputType = {
+    id: number
+    hospedeId: number
+    locadorId: number
+    casaId: number | null
+    createdAt: Date
+    updatedAt: Date
+    _count: ConversaCountAggregateOutputType | null
+    _avg: ConversaAvgAggregateOutputType | null
+    _sum: ConversaSumAggregateOutputType | null
+    _min: ConversaMinAggregateOutputType | null
+    _max: ConversaMaxAggregateOutputType | null
+  }
+
+  type GetConversaGroupByPayload<T extends ConversaGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ConversaGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ConversaGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ConversaGroupByOutputType[P]>
+            : GetScalarType<T[P], ConversaGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ConversaSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    hospedeId?: boolean
+    locadorId?: boolean
+    casaId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    hospede?: boolean | HospedeDefaultArgs<ExtArgs>
+    locador?: boolean | LocadorDefaultArgs<ExtArgs>
+    casa?: boolean | Conversa$casaArgs<ExtArgs>
+    mensagens?: boolean | Conversa$mensagensArgs<ExtArgs>
+    _count?: boolean | ConversaCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["conversa"]>
+
+  export type ConversaSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    hospedeId?: boolean
+    locadorId?: boolean
+    casaId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    hospede?: boolean | HospedeDefaultArgs<ExtArgs>
+    locador?: boolean | LocadorDefaultArgs<ExtArgs>
+    casa?: boolean | Conversa$casaArgs<ExtArgs>
+  }, ExtArgs["result"]["conversa"]>
+
+  export type ConversaSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    hospedeId?: boolean
+    locadorId?: boolean
+    casaId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    hospede?: boolean | HospedeDefaultArgs<ExtArgs>
+    locador?: boolean | LocadorDefaultArgs<ExtArgs>
+    casa?: boolean | Conversa$casaArgs<ExtArgs>
+  }, ExtArgs["result"]["conversa"]>
+
+  export type ConversaSelectScalar = {
+    id?: boolean
+    hospedeId?: boolean
+    locadorId?: boolean
+    casaId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type ConversaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "hospedeId" | "locadorId" | "casaId" | "createdAt" | "updatedAt", ExtArgs["result"]["conversa"]>
+  export type ConversaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    hospede?: boolean | HospedeDefaultArgs<ExtArgs>
+    locador?: boolean | LocadorDefaultArgs<ExtArgs>
+    casa?: boolean | Conversa$casaArgs<ExtArgs>
+    mensagens?: boolean | Conversa$mensagensArgs<ExtArgs>
+    _count?: boolean | ConversaCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type ConversaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    hospede?: boolean | HospedeDefaultArgs<ExtArgs>
+    locador?: boolean | LocadorDefaultArgs<ExtArgs>
+    casa?: boolean | Conversa$casaArgs<ExtArgs>
+  }
+  export type ConversaIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    hospede?: boolean | HospedeDefaultArgs<ExtArgs>
+    locador?: boolean | LocadorDefaultArgs<ExtArgs>
+    casa?: boolean | Conversa$casaArgs<ExtArgs>
+  }
+
+  export type $ConversaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Conversa"
+    objects: {
+      hospede: Prisma.$HospedePayload<ExtArgs>
+      locador: Prisma.$LocadorPayload<ExtArgs>
+      casa: Prisma.$CasaPayload<ExtArgs> | null
+      mensagens: Prisma.$MensagemPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      hospedeId: number
+      locadorId: number
+      casaId: number | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["conversa"]>
+    composites: {}
+  }
+
+  type ConversaGetPayload<S extends boolean | null | undefined | ConversaDefaultArgs> = $Result.GetResult<Prisma.$ConversaPayload, S>
+
+  type ConversaCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ConversaFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ConversaCountAggregateInputType | true
+    }
+
+  export interface ConversaDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Conversa'], meta: { name: 'Conversa' } }
+    /**
+     * Find zero or one Conversa that matches the filter.
+     * @param {ConversaFindUniqueArgs} args - Arguments to find a Conversa
+     * @example
+     * // Get one Conversa
+     * const conversa = await prisma.conversa.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ConversaFindUniqueArgs>(args: SelectSubset<T, ConversaFindUniqueArgs<ExtArgs>>): Prisma__ConversaClient<$Result.GetResult<Prisma.$ConversaPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Conversa that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ConversaFindUniqueOrThrowArgs} args - Arguments to find a Conversa
+     * @example
+     * // Get one Conversa
+     * const conversa = await prisma.conversa.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ConversaFindUniqueOrThrowArgs>(args: SelectSubset<T, ConversaFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ConversaClient<$Result.GetResult<Prisma.$ConversaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Conversa that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ConversaFindFirstArgs} args - Arguments to find a Conversa
+     * @example
+     * // Get one Conversa
+     * const conversa = await prisma.conversa.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ConversaFindFirstArgs>(args?: SelectSubset<T, ConversaFindFirstArgs<ExtArgs>>): Prisma__ConversaClient<$Result.GetResult<Prisma.$ConversaPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Conversa that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ConversaFindFirstOrThrowArgs} args - Arguments to find a Conversa
+     * @example
+     * // Get one Conversa
+     * const conversa = await prisma.conversa.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ConversaFindFirstOrThrowArgs>(args?: SelectSubset<T, ConversaFindFirstOrThrowArgs<ExtArgs>>): Prisma__ConversaClient<$Result.GetResult<Prisma.$ConversaPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Conversas that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ConversaFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Conversas
+     * const conversas = await prisma.conversa.findMany()
+     * 
+     * // Get first 10 Conversas
+     * const conversas = await prisma.conversa.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const conversaWithIdOnly = await prisma.conversa.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ConversaFindManyArgs>(args?: SelectSubset<T, ConversaFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ConversaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Conversa.
+     * @param {ConversaCreateArgs} args - Arguments to create a Conversa.
+     * @example
+     * // Create one Conversa
+     * const Conversa = await prisma.conversa.create({
+     *   data: {
+     *     // ... data to create a Conversa
+     *   }
+     * })
+     * 
+     */
+    create<T extends ConversaCreateArgs>(args: SelectSubset<T, ConversaCreateArgs<ExtArgs>>): Prisma__ConversaClient<$Result.GetResult<Prisma.$ConversaPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Conversas.
+     * @param {ConversaCreateManyArgs} args - Arguments to create many Conversas.
+     * @example
+     * // Create many Conversas
+     * const conversa = await prisma.conversa.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ConversaCreateManyArgs>(args?: SelectSubset<T, ConversaCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Conversas and returns the data saved in the database.
+     * @param {ConversaCreateManyAndReturnArgs} args - Arguments to create many Conversas.
+     * @example
+     * // Create many Conversas
+     * const conversa = await prisma.conversa.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Conversas and only return the `id`
+     * const conversaWithIdOnly = await prisma.conversa.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ConversaCreateManyAndReturnArgs>(args?: SelectSubset<T, ConversaCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ConversaPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Conversa.
+     * @param {ConversaDeleteArgs} args - Arguments to delete one Conversa.
+     * @example
+     * // Delete one Conversa
+     * const Conversa = await prisma.conversa.delete({
+     *   where: {
+     *     // ... filter to delete one Conversa
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ConversaDeleteArgs>(args: SelectSubset<T, ConversaDeleteArgs<ExtArgs>>): Prisma__ConversaClient<$Result.GetResult<Prisma.$ConversaPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Conversa.
+     * @param {ConversaUpdateArgs} args - Arguments to update one Conversa.
+     * @example
+     * // Update one Conversa
+     * const conversa = await prisma.conversa.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ConversaUpdateArgs>(args: SelectSubset<T, ConversaUpdateArgs<ExtArgs>>): Prisma__ConversaClient<$Result.GetResult<Prisma.$ConversaPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Conversas.
+     * @param {ConversaDeleteManyArgs} args - Arguments to filter Conversas to delete.
+     * @example
+     * // Delete a few Conversas
+     * const { count } = await prisma.conversa.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ConversaDeleteManyArgs>(args?: SelectSubset<T, ConversaDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Conversas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ConversaUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Conversas
+     * const conversa = await prisma.conversa.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ConversaUpdateManyArgs>(args: SelectSubset<T, ConversaUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Conversas and returns the data updated in the database.
+     * @param {ConversaUpdateManyAndReturnArgs} args - Arguments to update many Conversas.
+     * @example
+     * // Update many Conversas
+     * const conversa = await prisma.conversa.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Conversas and only return the `id`
+     * const conversaWithIdOnly = await prisma.conversa.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ConversaUpdateManyAndReturnArgs>(args: SelectSubset<T, ConversaUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ConversaPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Conversa.
+     * @param {ConversaUpsertArgs} args - Arguments to update or create a Conversa.
+     * @example
+     * // Update or create a Conversa
+     * const conversa = await prisma.conversa.upsert({
+     *   create: {
+     *     // ... data to create a Conversa
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Conversa we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ConversaUpsertArgs>(args: SelectSubset<T, ConversaUpsertArgs<ExtArgs>>): Prisma__ConversaClient<$Result.GetResult<Prisma.$ConversaPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Conversas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ConversaCountArgs} args - Arguments to filter Conversas to count.
+     * @example
+     * // Count the number of Conversas
+     * const count = await prisma.conversa.count({
+     *   where: {
+     *     // ... the filter for the Conversas we want to count
+     *   }
+     * })
+    **/
+    count<T extends ConversaCountArgs>(
+      args?: Subset<T, ConversaCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ConversaCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Conversa.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ConversaAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ConversaAggregateArgs>(args: Subset<T, ConversaAggregateArgs>): Prisma.PrismaPromise<GetConversaAggregateType<T>>
+
+    /**
+     * Group by Conversa.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ConversaGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ConversaGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ConversaGroupByArgs['orderBy'] }
+        : { orderBy?: ConversaGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ConversaGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetConversaGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Conversa model
+   */
+  readonly fields: ConversaFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Conversa.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ConversaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    hospede<T extends HospedeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, HospedeDefaultArgs<ExtArgs>>): Prisma__HospedeClient<$Result.GetResult<Prisma.$HospedePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    locador<T extends LocadorDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LocadorDefaultArgs<ExtArgs>>): Prisma__LocadorClient<$Result.GetResult<Prisma.$LocadorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    casa<T extends Conversa$casaArgs<ExtArgs> = {}>(args?: Subset<T, Conversa$casaArgs<ExtArgs>>): Prisma__CasaClient<$Result.GetResult<Prisma.$CasaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    mensagens<T extends Conversa$mensagensArgs<ExtArgs> = {}>(args?: Subset<T, Conversa$mensagensArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MensagemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Conversa model
+   */
+  interface ConversaFieldRefs {
+    readonly id: FieldRef<"Conversa", 'Int'>
+    readonly hospedeId: FieldRef<"Conversa", 'Int'>
+    readonly locadorId: FieldRef<"Conversa", 'Int'>
+    readonly casaId: FieldRef<"Conversa", 'Int'>
+    readonly createdAt: FieldRef<"Conversa", 'DateTime'>
+    readonly updatedAt: FieldRef<"Conversa", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Conversa findUnique
+   */
+  export type ConversaFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Conversa
+     */
+    select?: ConversaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Conversa
+     */
+    omit?: ConversaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConversaInclude<ExtArgs> | null
+    /**
+     * Filter, which Conversa to fetch.
+     */
+    where: ConversaWhereUniqueInput
+  }
+
+  /**
+   * Conversa findUniqueOrThrow
+   */
+  export type ConversaFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Conversa
+     */
+    select?: ConversaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Conversa
+     */
+    omit?: ConversaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConversaInclude<ExtArgs> | null
+    /**
+     * Filter, which Conversa to fetch.
+     */
+    where: ConversaWhereUniqueInput
+  }
+
+  /**
+   * Conversa findFirst
+   */
+  export type ConversaFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Conversa
+     */
+    select?: ConversaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Conversa
+     */
+    omit?: ConversaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConversaInclude<ExtArgs> | null
+    /**
+     * Filter, which Conversa to fetch.
+     */
+    where?: ConversaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Conversas to fetch.
+     */
+    orderBy?: ConversaOrderByWithRelationInput | ConversaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Conversas.
+     */
+    cursor?: ConversaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Conversas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Conversas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Conversas.
+     */
+    distinct?: ConversaScalarFieldEnum | ConversaScalarFieldEnum[]
+  }
+
+  /**
+   * Conversa findFirstOrThrow
+   */
+  export type ConversaFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Conversa
+     */
+    select?: ConversaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Conversa
+     */
+    omit?: ConversaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConversaInclude<ExtArgs> | null
+    /**
+     * Filter, which Conversa to fetch.
+     */
+    where?: ConversaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Conversas to fetch.
+     */
+    orderBy?: ConversaOrderByWithRelationInput | ConversaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Conversas.
+     */
+    cursor?: ConversaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Conversas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Conversas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Conversas.
+     */
+    distinct?: ConversaScalarFieldEnum | ConversaScalarFieldEnum[]
+  }
+
+  /**
+   * Conversa findMany
+   */
+  export type ConversaFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Conversa
+     */
+    select?: ConversaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Conversa
+     */
+    omit?: ConversaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConversaInclude<ExtArgs> | null
+    /**
+     * Filter, which Conversas to fetch.
+     */
+    where?: ConversaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Conversas to fetch.
+     */
+    orderBy?: ConversaOrderByWithRelationInput | ConversaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Conversas.
+     */
+    cursor?: ConversaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Conversas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Conversas.
+     */
+    skip?: number
+    distinct?: ConversaScalarFieldEnum | ConversaScalarFieldEnum[]
+  }
+
+  /**
+   * Conversa create
+   */
+  export type ConversaCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Conversa
+     */
+    select?: ConversaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Conversa
+     */
+    omit?: ConversaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConversaInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Conversa.
+     */
+    data: XOR<ConversaCreateInput, ConversaUncheckedCreateInput>
+  }
+
+  /**
+   * Conversa createMany
+   */
+  export type ConversaCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Conversas.
+     */
+    data: ConversaCreateManyInput | ConversaCreateManyInput[]
+  }
+
+  /**
+   * Conversa createManyAndReturn
+   */
+  export type ConversaCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Conversa
+     */
+    select?: ConversaSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Conversa
+     */
+    omit?: ConversaOmit<ExtArgs> | null
+    /**
+     * The data used to create many Conversas.
+     */
+    data: ConversaCreateManyInput | ConversaCreateManyInput[]
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConversaIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Conversa update
+   */
+  export type ConversaUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Conversa
+     */
+    select?: ConversaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Conversa
+     */
+    omit?: ConversaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConversaInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Conversa.
+     */
+    data: XOR<ConversaUpdateInput, ConversaUncheckedUpdateInput>
+    /**
+     * Choose, which Conversa to update.
+     */
+    where: ConversaWhereUniqueInput
+  }
+
+  /**
+   * Conversa updateMany
+   */
+  export type ConversaUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Conversas.
+     */
+    data: XOR<ConversaUpdateManyMutationInput, ConversaUncheckedUpdateManyInput>
+    /**
+     * Filter which Conversas to update
+     */
+    where?: ConversaWhereInput
+    /**
+     * Limit how many Conversas to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Conversa updateManyAndReturn
+   */
+  export type ConversaUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Conversa
+     */
+    select?: ConversaSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Conversa
+     */
+    omit?: ConversaOmit<ExtArgs> | null
+    /**
+     * The data used to update Conversas.
+     */
+    data: XOR<ConversaUpdateManyMutationInput, ConversaUncheckedUpdateManyInput>
+    /**
+     * Filter which Conversas to update
+     */
+    where?: ConversaWhereInput
+    /**
+     * Limit how many Conversas to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConversaIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Conversa upsert
+   */
+  export type ConversaUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Conversa
+     */
+    select?: ConversaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Conversa
+     */
+    omit?: ConversaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConversaInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Conversa to update in case it exists.
+     */
+    where: ConversaWhereUniqueInput
+    /**
+     * In case the Conversa found by the `where` argument doesn't exist, create a new Conversa with this data.
+     */
+    create: XOR<ConversaCreateInput, ConversaUncheckedCreateInput>
+    /**
+     * In case the Conversa was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ConversaUpdateInput, ConversaUncheckedUpdateInput>
+  }
+
+  /**
+   * Conversa delete
+   */
+  export type ConversaDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Conversa
+     */
+    select?: ConversaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Conversa
+     */
+    omit?: ConversaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConversaInclude<ExtArgs> | null
+    /**
+     * Filter which Conversa to delete.
+     */
+    where: ConversaWhereUniqueInput
+  }
+
+  /**
+   * Conversa deleteMany
+   */
+  export type ConversaDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Conversas to delete
+     */
+    where?: ConversaWhereInput
+    /**
+     * Limit how many Conversas to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Conversa.casa
+   */
+  export type Conversa$casaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Casa
+     */
+    select?: CasaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Casa
+     */
+    omit?: CasaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CasaInclude<ExtArgs> | null
+    where?: CasaWhereInput
+  }
+
+  /**
+   * Conversa.mensagens
+   */
+  export type Conversa$mensagensArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mensagem
+     */
+    select?: MensagemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mensagem
+     */
+    omit?: MensagemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MensagemInclude<ExtArgs> | null
+    where?: MensagemWhereInput
+    orderBy?: MensagemOrderByWithRelationInput | MensagemOrderByWithRelationInput[]
+    cursor?: MensagemWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: MensagemScalarFieldEnum | MensagemScalarFieldEnum[]
+  }
+
+  /**
+   * Conversa without action
+   */
+  export type ConversaDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Conversa
+     */
+    select?: ConversaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Conversa
+     */
+    omit?: ConversaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConversaInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Mensagem
+   */
+
+  export type AggregateMensagem = {
+    _count: MensagemCountAggregateOutputType | null
+    _avg: MensagemAvgAggregateOutputType | null
+    _sum: MensagemSumAggregateOutputType | null
+    _min: MensagemMinAggregateOutputType | null
+    _max: MensagemMaxAggregateOutputType | null
+  }
+
+  export type MensagemAvgAggregateOutputType = {
+    id: number | null
+    conversaId: number | null
+    remetenteHospedeId: number | null
+    remetenteLocadorId: number | null
+  }
+
+  export type MensagemSumAggregateOutputType = {
+    id: number | null
+    conversaId: number | null
+    remetenteHospedeId: number | null
+    remetenteLocadorId: number | null
+  }
+
+  export type MensagemMinAggregateOutputType = {
+    id: number | null
+    conteudo: string | null
+    createdAt: Date | null
+    conversaId: number | null
+    remetenteHospedeId: number | null
+    remetenteLocadorId: number | null
+    lidaPeloHospede: boolean | null
+    lidaPeloLocador: boolean | null
+  }
+
+  export type MensagemMaxAggregateOutputType = {
+    id: number | null
+    conteudo: string | null
+    createdAt: Date | null
+    conversaId: number | null
+    remetenteHospedeId: number | null
+    remetenteLocadorId: number | null
+    lidaPeloHospede: boolean | null
+    lidaPeloLocador: boolean | null
+  }
+
+  export type MensagemCountAggregateOutputType = {
+    id: number
+    conteudo: number
+    createdAt: number
+    conversaId: number
+    remetenteHospedeId: number
+    remetenteLocadorId: number
+    lidaPeloHospede: number
+    lidaPeloLocador: number
+    _all: number
+  }
+
+
+  export type MensagemAvgAggregateInputType = {
+    id?: true
+    conversaId?: true
+    remetenteHospedeId?: true
+    remetenteLocadorId?: true
+  }
+
+  export type MensagemSumAggregateInputType = {
+    id?: true
+    conversaId?: true
+    remetenteHospedeId?: true
+    remetenteLocadorId?: true
+  }
+
+  export type MensagemMinAggregateInputType = {
+    id?: true
+    conteudo?: true
+    createdAt?: true
+    conversaId?: true
+    remetenteHospedeId?: true
+    remetenteLocadorId?: true
+    lidaPeloHospede?: true
+    lidaPeloLocador?: true
+  }
+
+  export type MensagemMaxAggregateInputType = {
+    id?: true
+    conteudo?: true
+    createdAt?: true
+    conversaId?: true
+    remetenteHospedeId?: true
+    remetenteLocadorId?: true
+    lidaPeloHospede?: true
+    lidaPeloLocador?: true
+  }
+
+  export type MensagemCountAggregateInputType = {
+    id?: true
+    conteudo?: true
+    createdAt?: true
+    conversaId?: true
+    remetenteHospedeId?: true
+    remetenteLocadorId?: true
+    lidaPeloHospede?: true
+    lidaPeloLocador?: true
+    _all?: true
+  }
+
+  export type MensagemAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Mensagem to aggregate.
+     */
+    where?: MensagemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Mensagems to fetch.
+     */
+    orderBy?: MensagemOrderByWithRelationInput | MensagemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: MensagemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Mensagems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Mensagems.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Mensagems
+    **/
+    _count?: true | MensagemCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: MensagemAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: MensagemSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: MensagemMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: MensagemMaxAggregateInputType
+  }
+
+  export type GetMensagemAggregateType<T extends MensagemAggregateArgs> = {
+        [P in keyof T & keyof AggregateMensagem]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateMensagem[P]>
+      : GetScalarType<T[P], AggregateMensagem[P]>
+  }
+
+
+
+
+  export type MensagemGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MensagemWhereInput
+    orderBy?: MensagemOrderByWithAggregationInput | MensagemOrderByWithAggregationInput[]
+    by: MensagemScalarFieldEnum[] | MensagemScalarFieldEnum
+    having?: MensagemScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: MensagemCountAggregateInputType | true
+    _avg?: MensagemAvgAggregateInputType
+    _sum?: MensagemSumAggregateInputType
+    _min?: MensagemMinAggregateInputType
+    _max?: MensagemMaxAggregateInputType
+  }
+
+  export type MensagemGroupByOutputType = {
+    id: number
+    conteudo: string
+    createdAt: Date
+    conversaId: number
+    remetenteHospedeId: number | null
+    remetenteLocadorId: number | null
+    lidaPeloHospede: boolean
+    lidaPeloLocador: boolean
+    _count: MensagemCountAggregateOutputType | null
+    _avg: MensagemAvgAggregateOutputType | null
+    _sum: MensagemSumAggregateOutputType | null
+    _min: MensagemMinAggregateOutputType | null
+    _max: MensagemMaxAggregateOutputType | null
+  }
+
+  type GetMensagemGroupByPayload<T extends MensagemGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<MensagemGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof MensagemGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], MensagemGroupByOutputType[P]>
+            : GetScalarType<T[P], MensagemGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type MensagemSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    conteudo?: boolean
+    createdAt?: boolean
+    conversaId?: boolean
+    remetenteHospedeId?: boolean
+    remetenteLocadorId?: boolean
+    lidaPeloHospede?: boolean
+    lidaPeloLocador?: boolean
+    conversa?: boolean | ConversaDefaultArgs<ExtArgs>
+    remetenteHospede?: boolean | Mensagem$remetenteHospedeArgs<ExtArgs>
+    remetenteLocador?: boolean | Mensagem$remetenteLocadorArgs<ExtArgs>
+  }, ExtArgs["result"]["mensagem"]>
+
+  export type MensagemSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    conteudo?: boolean
+    createdAt?: boolean
+    conversaId?: boolean
+    remetenteHospedeId?: boolean
+    remetenteLocadorId?: boolean
+    lidaPeloHospede?: boolean
+    lidaPeloLocador?: boolean
+    conversa?: boolean | ConversaDefaultArgs<ExtArgs>
+    remetenteHospede?: boolean | Mensagem$remetenteHospedeArgs<ExtArgs>
+    remetenteLocador?: boolean | Mensagem$remetenteLocadorArgs<ExtArgs>
+  }, ExtArgs["result"]["mensagem"]>
+
+  export type MensagemSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    conteudo?: boolean
+    createdAt?: boolean
+    conversaId?: boolean
+    remetenteHospedeId?: boolean
+    remetenteLocadorId?: boolean
+    lidaPeloHospede?: boolean
+    lidaPeloLocador?: boolean
+    conversa?: boolean | ConversaDefaultArgs<ExtArgs>
+    remetenteHospede?: boolean | Mensagem$remetenteHospedeArgs<ExtArgs>
+    remetenteLocador?: boolean | Mensagem$remetenteLocadorArgs<ExtArgs>
+  }, ExtArgs["result"]["mensagem"]>
+
+  export type MensagemSelectScalar = {
+    id?: boolean
+    conteudo?: boolean
+    createdAt?: boolean
+    conversaId?: boolean
+    remetenteHospedeId?: boolean
+    remetenteLocadorId?: boolean
+    lidaPeloHospede?: boolean
+    lidaPeloLocador?: boolean
+  }
+
+  export type MensagemOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "conteudo" | "createdAt" | "conversaId" | "remetenteHospedeId" | "remetenteLocadorId" | "lidaPeloHospede" | "lidaPeloLocador", ExtArgs["result"]["mensagem"]>
+  export type MensagemInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    conversa?: boolean | ConversaDefaultArgs<ExtArgs>
+    remetenteHospede?: boolean | Mensagem$remetenteHospedeArgs<ExtArgs>
+    remetenteLocador?: boolean | Mensagem$remetenteLocadorArgs<ExtArgs>
+  }
+  export type MensagemIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    conversa?: boolean | ConversaDefaultArgs<ExtArgs>
+    remetenteHospede?: boolean | Mensagem$remetenteHospedeArgs<ExtArgs>
+    remetenteLocador?: boolean | Mensagem$remetenteLocadorArgs<ExtArgs>
+  }
+  export type MensagemIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    conversa?: boolean | ConversaDefaultArgs<ExtArgs>
+    remetenteHospede?: boolean | Mensagem$remetenteHospedeArgs<ExtArgs>
+    remetenteLocador?: boolean | Mensagem$remetenteLocadorArgs<ExtArgs>
+  }
+
+  export type $MensagemPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Mensagem"
+    objects: {
+      conversa: Prisma.$ConversaPayload<ExtArgs>
+      remetenteHospede: Prisma.$HospedePayload<ExtArgs> | null
+      remetenteLocador: Prisma.$LocadorPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      conteudo: string
+      createdAt: Date
+      conversaId: number
+      remetenteHospedeId: number | null
+      remetenteLocadorId: number | null
+      lidaPeloHospede: boolean
+      lidaPeloLocador: boolean
+    }, ExtArgs["result"]["mensagem"]>
+    composites: {}
+  }
+
+  type MensagemGetPayload<S extends boolean | null | undefined | MensagemDefaultArgs> = $Result.GetResult<Prisma.$MensagemPayload, S>
+
+  type MensagemCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<MensagemFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: MensagemCountAggregateInputType | true
+    }
+
+  export interface MensagemDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Mensagem'], meta: { name: 'Mensagem' } }
+    /**
+     * Find zero or one Mensagem that matches the filter.
+     * @param {MensagemFindUniqueArgs} args - Arguments to find a Mensagem
+     * @example
+     * // Get one Mensagem
+     * const mensagem = await prisma.mensagem.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends MensagemFindUniqueArgs>(args: SelectSubset<T, MensagemFindUniqueArgs<ExtArgs>>): Prisma__MensagemClient<$Result.GetResult<Prisma.$MensagemPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Mensagem that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {MensagemFindUniqueOrThrowArgs} args - Arguments to find a Mensagem
+     * @example
+     * // Get one Mensagem
+     * const mensagem = await prisma.mensagem.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends MensagemFindUniqueOrThrowArgs>(args: SelectSubset<T, MensagemFindUniqueOrThrowArgs<ExtArgs>>): Prisma__MensagemClient<$Result.GetResult<Prisma.$MensagemPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Mensagem that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MensagemFindFirstArgs} args - Arguments to find a Mensagem
+     * @example
+     * // Get one Mensagem
+     * const mensagem = await prisma.mensagem.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends MensagemFindFirstArgs>(args?: SelectSubset<T, MensagemFindFirstArgs<ExtArgs>>): Prisma__MensagemClient<$Result.GetResult<Prisma.$MensagemPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Mensagem that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MensagemFindFirstOrThrowArgs} args - Arguments to find a Mensagem
+     * @example
+     * // Get one Mensagem
+     * const mensagem = await prisma.mensagem.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends MensagemFindFirstOrThrowArgs>(args?: SelectSubset<T, MensagemFindFirstOrThrowArgs<ExtArgs>>): Prisma__MensagemClient<$Result.GetResult<Prisma.$MensagemPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Mensagems that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MensagemFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Mensagems
+     * const mensagems = await prisma.mensagem.findMany()
+     * 
+     * // Get first 10 Mensagems
+     * const mensagems = await prisma.mensagem.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const mensagemWithIdOnly = await prisma.mensagem.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends MensagemFindManyArgs>(args?: SelectSubset<T, MensagemFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MensagemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Mensagem.
+     * @param {MensagemCreateArgs} args - Arguments to create a Mensagem.
+     * @example
+     * // Create one Mensagem
+     * const Mensagem = await prisma.mensagem.create({
+     *   data: {
+     *     // ... data to create a Mensagem
+     *   }
+     * })
+     * 
+     */
+    create<T extends MensagemCreateArgs>(args: SelectSubset<T, MensagemCreateArgs<ExtArgs>>): Prisma__MensagemClient<$Result.GetResult<Prisma.$MensagemPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Mensagems.
+     * @param {MensagemCreateManyArgs} args - Arguments to create many Mensagems.
+     * @example
+     * // Create many Mensagems
+     * const mensagem = await prisma.mensagem.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends MensagemCreateManyArgs>(args?: SelectSubset<T, MensagemCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Mensagems and returns the data saved in the database.
+     * @param {MensagemCreateManyAndReturnArgs} args - Arguments to create many Mensagems.
+     * @example
+     * // Create many Mensagems
+     * const mensagem = await prisma.mensagem.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Mensagems and only return the `id`
+     * const mensagemWithIdOnly = await prisma.mensagem.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends MensagemCreateManyAndReturnArgs>(args?: SelectSubset<T, MensagemCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MensagemPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Mensagem.
+     * @param {MensagemDeleteArgs} args - Arguments to delete one Mensagem.
+     * @example
+     * // Delete one Mensagem
+     * const Mensagem = await prisma.mensagem.delete({
+     *   where: {
+     *     // ... filter to delete one Mensagem
+     *   }
+     * })
+     * 
+     */
+    delete<T extends MensagemDeleteArgs>(args: SelectSubset<T, MensagemDeleteArgs<ExtArgs>>): Prisma__MensagemClient<$Result.GetResult<Prisma.$MensagemPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Mensagem.
+     * @param {MensagemUpdateArgs} args - Arguments to update one Mensagem.
+     * @example
+     * // Update one Mensagem
+     * const mensagem = await prisma.mensagem.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends MensagemUpdateArgs>(args: SelectSubset<T, MensagemUpdateArgs<ExtArgs>>): Prisma__MensagemClient<$Result.GetResult<Prisma.$MensagemPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Mensagems.
+     * @param {MensagemDeleteManyArgs} args - Arguments to filter Mensagems to delete.
+     * @example
+     * // Delete a few Mensagems
+     * const { count } = await prisma.mensagem.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends MensagemDeleteManyArgs>(args?: SelectSubset<T, MensagemDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Mensagems.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MensagemUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Mensagems
+     * const mensagem = await prisma.mensagem.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends MensagemUpdateManyArgs>(args: SelectSubset<T, MensagemUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Mensagems and returns the data updated in the database.
+     * @param {MensagemUpdateManyAndReturnArgs} args - Arguments to update many Mensagems.
+     * @example
+     * // Update many Mensagems
+     * const mensagem = await prisma.mensagem.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Mensagems and only return the `id`
+     * const mensagemWithIdOnly = await prisma.mensagem.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends MensagemUpdateManyAndReturnArgs>(args: SelectSubset<T, MensagemUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MensagemPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Mensagem.
+     * @param {MensagemUpsertArgs} args - Arguments to update or create a Mensagem.
+     * @example
+     * // Update or create a Mensagem
+     * const mensagem = await prisma.mensagem.upsert({
+     *   create: {
+     *     // ... data to create a Mensagem
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Mensagem we want to update
+     *   }
+     * })
+     */
+    upsert<T extends MensagemUpsertArgs>(args: SelectSubset<T, MensagemUpsertArgs<ExtArgs>>): Prisma__MensagemClient<$Result.GetResult<Prisma.$MensagemPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Mensagems.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MensagemCountArgs} args - Arguments to filter Mensagems to count.
+     * @example
+     * // Count the number of Mensagems
+     * const count = await prisma.mensagem.count({
+     *   where: {
+     *     // ... the filter for the Mensagems we want to count
+     *   }
+     * })
+    **/
+    count<T extends MensagemCountArgs>(
+      args?: Subset<T, MensagemCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], MensagemCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Mensagem.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MensagemAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends MensagemAggregateArgs>(args: Subset<T, MensagemAggregateArgs>): Prisma.PrismaPromise<GetMensagemAggregateType<T>>
+
+    /**
+     * Group by Mensagem.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MensagemGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends MensagemGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: MensagemGroupByArgs['orderBy'] }
+        : { orderBy?: MensagemGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, MensagemGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMensagemGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Mensagem model
+   */
+  readonly fields: MensagemFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Mensagem.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__MensagemClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    conversa<T extends ConversaDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ConversaDefaultArgs<ExtArgs>>): Prisma__ConversaClient<$Result.GetResult<Prisma.$ConversaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    remetenteHospede<T extends Mensagem$remetenteHospedeArgs<ExtArgs> = {}>(args?: Subset<T, Mensagem$remetenteHospedeArgs<ExtArgs>>): Prisma__HospedeClient<$Result.GetResult<Prisma.$HospedePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    remetenteLocador<T extends Mensagem$remetenteLocadorArgs<ExtArgs> = {}>(args?: Subset<T, Mensagem$remetenteLocadorArgs<ExtArgs>>): Prisma__LocadorClient<$Result.GetResult<Prisma.$LocadorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Mensagem model
+   */
+  interface MensagemFieldRefs {
+    readonly id: FieldRef<"Mensagem", 'Int'>
+    readonly conteudo: FieldRef<"Mensagem", 'String'>
+    readonly createdAt: FieldRef<"Mensagem", 'DateTime'>
+    readonly conversaId: FieldRef<"Mensagem", 'Int'>
+    readonly remetenteHospedeId: FieldRef<"Mensagem", 'Int'>
+    readonly remetenteLocadorId: FieldRef<"Mensagem", 'Int'>
+    readonly lidaPeloHospede: FieldRef<"Mensagem", 'Boolean'>
+    readonly lidaPeloLocador: FieldRef<"Mensagem", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Mensagem findUnique
+   */
+  export type MensagemFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mensagem
+     */
+    select?: MensagemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mensagem
+     */
+    omit?: MensagemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MensagemInclude<ExtArgs> | null
+    /**
+     * Filter, which Mensagem to fetch.
+     */
+    where: MensagemWhereUniqueInput
+  }
+
+  /**
+   * Mensagem findUniqueOrThrow
+   */
+  export type MensagemFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mensagem
+     */
+    select?: MensagemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mensagem
+     */
+    omit?: MensagemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MensagemInclude<ExtArgs> | null
+    /**
+     * Filter, which Mensagem to fetch.
+     */
+    where: MensagemWhereUniqueInput
+  }
+
+  /**
+   * Mensagem findFirst
+   */
+  export type MensagemFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mensagem
+     */
+    select?: MensagemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mensagem
+     */
+    omit?: MensagemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MensagemInclude<ExtArgs> | null
+    /**
+     * Filter, which Mensagem to fetch.
+     */
+    where?: MensagemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Mensagems to fetch.
+     */
+    orderBy?: MensagemOrderByWithRelationInput | MensagemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Mensagems.
+     */
+    cursor?: MensagemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Mensagems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Mensagems.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Mensagems.
+     */
+    distinct?: MensagemScalarFieldEnum | MensagemScalarFieldEnum[]
+  }
+
+  /**
+   * Mensagem findFirstOrThrow
+   */
+  export type MensagemFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mensagem
+     */
+    select?: MensagemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mensagem
+     */
+    omit?: MensagemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MensagemInclude<ExtArgs> | null
+    /**
+     * Filter, which Mensagem to fetch.
+     */
+    where?: MensagemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Mensagems to fetch.
+     */
+    orderBy?: MensagemOrderByWithRelationInput | MensagemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Mensagems.
+     */
+    cursor?: MensagemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Mensagems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Mensagems.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Mensagems.
+     */
+    distinct?: MensagemScalarFieldEnum | MensagemScalarFieldEnum[]
+  }
+
+  /**
+   * Mensagem findMany
+   */
+  export type MensagemFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mensagem
+     */
+    select?: MensagemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mensagem
+     */
+    omit?: MensagemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MensagemInclude<ExtArgs> | null
+    /**
+     * Filter, which Mensagems to fetch.
+     */
+    where?: MensagemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Mensagems to fetch.
+     */
+    orderBy?: MensagemOrderByWithRelationInput | MensagemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Mensagems.
+     */
+    cursor?: MensagemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Mensagems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Mensagems.
+     */
+    skip?: number
+    distinct?: MensagemScalarFieldEnum | MensagemScalarFieldEnum[]
+  }
+
+  /**
+   * Mensagem create
+   */
+  export type MensagemCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mensagem
+     */
+    select?: MensagemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mensagem
+     */
+    omit?: MensagemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MensagemInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Mensagem.
+     */
+    data: XOR<MensagemCreateInput, MensagemUncheckedCreateInput>
+  }
+
+  /**
+   * Mensagem createMany
+   */
+  export type MensagemCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Mensagems.
+     */
+    data: MensagemCreateManyInput | MensagemCreateManyInput[]
+  }
+
+  /**
+   * Mensagem createManyAndReturn
+   */
+  export type MensagemCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mensagem
+     */
+    select?: MensagemSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mensagem
+     */
+    omit?: MensagemOmit<ExtArgs> | null
+    /**
+     * The data used to create many Mensagems.
+     */
+    data: MensagemCreateManyInput | MensagemCreateManyInput[]
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MensagemIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Mensagem update
+   */
+  export type MensagemUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mensagem
+     */
+    select?: MensagemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mensagem
+     */
+    omit?: MensagemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MensagemInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Mensagem.
+     */
+    data: XOR<MensagemUpdateInput, MensagemUncheckedUpdateInput>
+    /**
+     * Choose, which Mensagem to update.
+     */
+    where: MensagemWhereUniqueInput
+  }
+
+  /**
+   * Mensagem updateMany
+   */
+  export type MensagemUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Mensagems.
+     */
+    data: XOR<MensagemUpdateManyMutationInput, MensagemUncheckedUpdateManyInput>
+    /**
+     * Filter which Mensagems to update
+     */
+    where?: MensagemWhereInput
+    /**
+     * Limit how many Mensagems to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Mensagem updateManyAndReturn
+   */
+  export type MensagemUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mensagem
+     */
+    select?: MensagemSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mensagem
+     */
+    omit?: MensagemOmit<ExtArgs> | null
+    /**
+     * The data used to update Mensagems.
+     */
+    data: XOR<MensagemUpdateManyMutationInput, MensagemUncheckedUpdateManyInput>
+    /**
+     * Filter which Mensagems to update
+     */
+    where?: MensagemWhereInput
+    /**
+     * Limit how many Mensagems to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MensagemIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Mensagem upsert
+   */
+  export type MensagemUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mensagem
+     */
+    select?: MensagemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mensagem
+     */
+    omit?: MensagemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MensagemInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Mensagem to update in case it exists.
+     */
+    where: MensagemWhereUniqueInput
+    /**
+     * In case the Mensagem found by the `where` argument doesn't exist, create a new Mensagem with this data.
+     */
+    create: XOR<MensagemCreateInput, MensagemUncheckedCreateInput>
+    /**
+     * In case the Mensagem was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<MensagemUpdateInput, MensagemUncheckedUpdateInput>
+  }
+
+  /**
+   * Mensagem delete
+   */
+  export type MensagemDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mensagem
+     */
+    select?: MensagemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mensagem
+     */
+    omit?: MensagemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MensagemInclude<ExtArgs> | null
+    /**
+     * Filter which Mensagem to delete.
+     */
+    where: MensagemWhereUniqueInput
+  }
+
+  /**
+   * Mensagem deleteMany
+   */
+  export type MensagemDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Mensagems to delete
+     */
+    where?: MensagemWhereInput
+    /**
+     * Limit how many Mensagems to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Mensagem.remetenteHospede
+   */
+  export type Mensagem$remetenteHospedeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Hospede
+     */
+    select?: HospedeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Hospede
+     */
+    omit?: HospedeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HospedeInclude<ExtArgs> | null
+    where?: HospedeWhereInput
+  }
+
+  /**
+   * Mensagem.remetenteLocador
+   */
+  export type Mensagem$remetenteLocadorArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Locador
+     */
+    select?: LocadorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Locador
+     */
+    omit?: LocadorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LocadorInclude<ExtArgs> | null
+    where?: LocadorWhereInput
+  }
+
+  /**
+   * Mensagem without action
+   */
+  export type MensagemDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mensagem
+     */
+    select?: MensagemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mensagem
+     */
+    omit?: MensagemOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MensagemInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Avaliacao
+   */
+
+  export type AggregateAvaliacao = {
+    _count: AvaliacaoCountAggregateOutputType | null
+    _avg: AvaliacaoAvgAggregateOutputType | null
+    _sum: AvaliacaoSumAggregateOutputType | null
+    _min: AvaliacaoMinAggregateOutputType | null
+    _max: AvaliacaoMaxAggregateOutputType | null
+  }
+
+  export type AvaliacaoAvgAggregateOutputType = {
+    id: number | null
+    nota: number | null
+    reservaId: number | null
+    hospedeId: number | null
+    casaId: number | null
+  }
+
+  export type AvaliacaoSumAggregateOutputType = {
+    id: number | null
+    nota: number | null
+    reservaId: number | null
+    hospedeId: number | null
+    casaId: number | null
+  }
+
+  export type AvaliacaoMinAggregateOutputType = {
+    id: number | null
+    nota: number | null
+    comentario: string | null
+    reservaId: number | null
+    hospedeId: number | null
+    casaId: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type AvaliacaoMaxAggregateOutputType = {
+    id: number | null
+    nota: number | null
+    comentario: string | null
+    reservaId: number | null
+    hospedeId: number | null
+    casaId: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type AvaliacaoCountAggregateOutputType = {
+    id: number
+    nota: number
+    comentario: number
+    reservaId: number
+    hospedeId: number
+    casaId: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type AvaliacaoAvgAggregateInputType = {
+    id?: true
+    nota?: true
+    reservaId?: true
+    hospedeId?: true
+    casaId?: true
+  }
+
+  export type AvaliacaoSumAggregateInputType = {
+    id?: true
+    nota?: true
+    reservaId?: true
+    hospedeId?: true
+    casaId?: true
+  }
+
+  export type AvaliacaoMinAggregateInputType = {
+    id?: true
+    nota?: true
+    comentario?: true
+    reservaId?: true
+    hospedeId?: true
+    casaId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type AvaliacaoMaxAggregateInputType = {
+    id?: true
+    nota?: true
+    comentario?: true
+    reservaId?: true
+    hospedeId?: true
+    casaId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type AvaliacaoCountAggregateInputType = {
+    id?: true
+    nota?: true
+    comentario?: true
+    reservaId?: true
+    hospedeId?: true
+    casaId?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type AvaliacaoAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Avaliacao to aggregate.
+     */
+    where?: AvaliacaoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Avaliacaos to fetch.
+     */
+    orderBy?: AvaliacaoOrderByWithRelationInput | AvaliacaoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: AvaliacaoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Avaliacaos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Avaliacaos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Avaliacaos
+    **/
+    _count?: true | AvaliacaoCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: AvaliacaoAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: AvaliacaoSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AvaliacaoMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AvaliacaoMaxAggregateInputType
+  }
+
+  export type GetAvaliacaoAggregateType<T extends AvaliacaoAggregateArgs> = {
+        [P in keyof T & keyof AggregateAvaliacao]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAvaliacao[P]>
+      : GetScalarType<T[P], AggregateAvaliacao[P]>
+  }
+
+
+
+
+  export type AvaliacaoGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AvaliacaoWhereInput
+    orderBy?: AvaliacaoOrderByWithAggregationInput | AvaliacaoOrderByWithAggregationInput[]
+    by: AvaliacaoScalarFieldEnum[] | AvaliacaoScalarFieldEnum
+    having?: AvaliacaoScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AvaliacaoCountAggregateInputType | true
+    _avg?: AvaliacaoAvgAggregateInputType
+    _sum?: AvaliacaoSumAggregateInputType
+    _min?: AvaliacaoMinAggregateInputType
+    _max?: AvaliacaoMaxAggregateInputType
+  }
+
+  export type AvaliacaoGroupByOutputType = {
+    id: number
+    nota: number
+    comentario: string | null
+    reservaId: number
+    hospedeId: number
+    casaId: number
+    createdAt: Date
+    updatedAt: Date
+    _count: AvaliacaoCountAggregateOutputType | null
+    _avg: AvaliacaoAvgAggregateOutputType | null
+    _sum: AvaliacaoSumAggregateOutputType | null
+    _min: AvaliacaoMinAggregateOutputType | null
+    _max: AvaliacaoMaxAggregateOutputType | null
+  }
+
+  type GetAvaliacaoGroupByPayload<T extends AvaliacaoGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AvaliacaoGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AvaliacaoGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AvaliacaoGroupByOutputType[P]>
+            : GetScalarType<T[P], AvaliacaoGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type AvaliacaoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    nota?: boolean
+    comentario?: boolean
+    reservaId?: boolean
+    hospedeId?: boolean
+    casaId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    reserva?: boolean | ReservaDefaultArgs<ExtArgs>
+    hospede?: boolean | HospedeDefaultArgs<ExtArgs>
+    casa?: boolean | CasaDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["avaliacao"]>
+
+  export type AvaliacaoSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    nota?: boolean
+    comentario?: boolean
+    reservaId?: boolean
+    hospedeId?: boolean
+    casaId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    reserva?: boolean | ReservaDefaultArgs<ExtArgs>
+    hospede?: boolean | HospedeDefaultArgs<ExtArgs>
+    casa?: boolean | CasaDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["avaliacao"]>
+
+  export type AvaliacaoSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    nota?: boolean
+    comentario?: boolean
+    reservaId?: boolean
+    hospedeId?: boolean
+    casaId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    reserva?: boolean | ReservaDefaultArgs<ExtArgs>
+    hospede?: boolean | HospedeDefaultArgs<ExtArgs>
+    casa?: boolean | CasaDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["avaliacao"]>
+
+  export type AvaliacaoSelectScalar = {
+    id?: boolean
+    nota?: boolean
+    comentario?: boolean
+    reservaId?: boolean
+    hospedeId?: boolean
+    casaId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type AvaliacaoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nota" | "comentario" | "reservaId" | "hospedeId" | "casaId" | "createdAt" | "updatedAt", ExtArgs["result"]["avaliacao"]>
+  export type AvaliacaoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    reserva?: boolean | ReservaDefaultArgs<ExtArgs>
+    hospede?: boolean | HospedeDefaultArgs<ExtArgs>
+    casa?: boolean | CasaDefaultArgs<ExtArgs>
+  }
+  export type AvaliacaoIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    reserva?: boolean | ReservaDefaultArgs<ExtArgs>
+    hospede?: boolean | HospedeDefaultArgs<ExtArgs>
+    casa?: boolean | CasaDefaultArgs<ExtArgs>
+  }
+  export type AvaliacaoIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    reserva?: boolean | ReservaDefaultArgs<ExtArgs>
+    hospede?: boolean | HospedeDefaultArgs<ExtArgs>
+    casa?: boolean | CasaDefaultArgs<ExtArgs>
+  }
+
+  export type $AvaliacaoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Avaliacao"
+    objects: {
+      reserva: Prisma.$ReservaPayload<ExtArgs>
+      hospede: Prisma.$HospedePayload<ExtArgs>
+      casa: Prisma.$CasaPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      nota: number
+      comentario: string | null
+      reservaId: number
+      hospedeId: number
+      casaId: number
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["avaliacao"]>
+    composites: {}
+  }
+
+  type AvaliacaoGetPayload<S extends boolean | null | undefined | AvaliacaoDefaultArgs> = $Result.GetResult<Prisma.$AvaliacaoPayload, S>
+
+  type AvaliacaoCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<AvaliacaoFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: AvaliacaoCountAggregateInputType | true
+    }
+
+  export interface AvaliacaoDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Avaliacao'], meta: { name: 'Avaliacao' } }
+    /**
+     * Find zero or one Avaliacao that matches the filter.
+     * @param {AvaliacaoFindUniqueArgs} args - Arguments to find a Avaliacao
+     * @example
+     * // Get one Avaliacao
+     * const avaliacao = await prisma.avaliacao.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends AvaliacaoFindUniqueArgs>(args: SelectSubset<T, AvaliacaoFindUniqueArgs<ExtArgs>>): Prisma__AvaliacaoClient<$Result.GetResult<Prisma.$AvaliacaoPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Avaliacao that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {AvaliacaoFindUniqueOrThrowArgs} args - Arguments to find a Avaliacao
+     * @example
+     * // Get one Avaliacao
+     * const avaliacao = await prisma.avaliacao.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends AvaliacaoFindUniqueOrThrowArgs>(args: SelectSubset<T, AvaliacaoFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AvaliacaoClient<$Result.GetResult<Prisma.$AvaliacaoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Avaliacao that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AvaliacaoFindFirstArgs} args - Arguments to find a Avaliacao
+     * @example
+     * // Get one Avaliacao
+     * const avaliacao = await prisma.avaliacao.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends AvaliacaoFindFirstArgs>(args?: SelectSubset<T, AvaliacaoFindFirstArgs<ExtArgs>>): Prisma__AvaliacaoClient<$Result.GetResult<Prisma.$AvaliacaoPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Avaliacao that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AvaliacaoFindFirstOrThrowArgs} args - Arguments to find a Avaliacao
+     * @example
+     * // Get one Avaliacao
+     * const avaliacao = await prisma.avaliacao.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends AvaliacaoFindFirstOrThrowArgs>(args?: SelectSubset<T, AvaliacaoFindFirstOrThrowArgs<ExtArgs>>): Prisma__AvaliacaoClient<$Result.GetResult<Prisma.$AvaliacaoPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Avaliacaos that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AvaliacaoFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Avaliacaos
+     * const avaliacaos = await prisma.avaliacao.findMany()
+     * 
+     * // Get first 10 Avaliacaos
+     * const avaliacaos = await prisma.avaliacao.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const avaliacaoWithIdOnly = await prisma.avaliacao.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends AvaliacaoFindManyArgs>(args?: SelectSubset<T, AvaliacaoFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AvaliacaoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Avaliacao.
+     * @param {AvaliacaoCreateArgs} args - Arguments to create a Avaliacao.
+     * @example
+     * // Create one Avaliacao
+     * const Avaliacao = await prisma.avaliacao.create({
+     *   data: {
+     *     // ... data to create a Avaliacao
+     *   }
+     * })
+     * 
+     */
+    create<T extends AvaliacaoCreateArgs>(args: SelectSubset<T, AvaliacaoCreateArgs<ExtArgs>>): Prisma__AvaliacaoClient<$Result.GetResult<Prisma.$AvaliacaoPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Avaliacaos.
+     * @param {AvaliacaoCreateManyArgs} args - Arguments to create many Avaliacaos.
+     * @example
+     * // Create many Avaliacaos
+     * const avaliacao = await prisma.avaliacao.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends AvaliacaoCreateManyArgs>(args?: SelectSubset<T, AvaliacaoCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Avaliacaos and returns the data saved in the database.
+     * @param {AvaliacaoCreateManyAndReturnArgs} args - Arguments to create many Avaliacaos.
+     * @example
+     * // Create many Avaliacaos
+     * const avaliacao = await prisma.avaliacao.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Avaliacaos and only return the `id`
+     * const avaliacaoWithIdOnly = await prisma.avaliacao.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends AvaliacaoCreateManyAndReturnArgs>(args?: SelectSubset<T, AvaliacaoCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AvaliacaoPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Avaliacao.
+     * @param {AvaliacaoDeleteArgs} args - Arguments to delete one Avaliacao.
+     * @example
+     * // Delete one Avaliacao
+     * const Avaliacao = await prisma.avaliacao.delete({
+     *   where: {
+     *     // ... filter to delete one Avaliacao
+     *   }
+     * })
+     * 
+     */
+    delete<T extends AvaliacaoDeleteArgs>(args: SelectSubset<T, AvaliacaoDeleteArgs<ExtArgs>>): Prisma__AvaliacaoClient<$Result.GetResult<Prisma.$AvaliacaoPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Avaliacao.
+     * @param {AvaliacaoUpdateArgs} args - Arguments to update one Avaliacao.
+     * @example
+     * // Update one Avaliacao
+     * const avaliacao = await prisma.avaliacao.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends AvaliacaoUpdateArgs>(args: SelectSubset<T, AvaliacaoUpdateArgs<ExtArgs>>): Prisma__AvaliacaoClient<$Result.GetResult<Prisma.$AvaliacaoPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Avaliacaos.
+     * @param {AvaliacaoDeleteManyArgs} args - Arguments to filter Avaliacaos to delete.
+     * @example
+     * // Delete a few Avaliacaos
+     * const { count } = await prisma.avaliacao.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends AvaliacaoDeleteManyArgs>(args?: SelectSubset<T, AvaliacaoDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Avaliacaos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AvaliacaoUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Avaliacaos
+     * const avaliacao = await prisma.avaliacao.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends AvaliacaoUpdateManyArgs>(args: SelectSubset<T, AvaliacaoUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Avaliacaos and returns the data updated in the database.
+     * @param {AvaliacaoUpdateManyAndReturnArgs} args - Arguments to update many Avaliacaos.
+     * @example
+     * // Update many Avaliacaos
+     * const avaliacao = await prisma.avaliacao.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Avaliacaos and only return the `id`
+     * const avaliacaoWithIdOnly = await prisma.avaliacao.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends AvaliacaoUpdateManyAndReturnArgs>(args: SelectSubset<T, AvaliacaoUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AvaliacaoPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Avaliacao.
+     * @param {AvaliacaoUpsertArgs} args - Arguments to update or create a Avaliacao.
+     * @example
+     * // Update or create a Avaliacao
+     * const avaliacao = await prisma.avaliacao.upsert({
+     *   create: {
+     *     // ... data to create a Avaliacao
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Avaliacao we want to update
+     *   }
+     * })
+     */
+    upsert<T extends AvaliacaoUpsertArgs>(args: SelectSubset<T, AvaliacaoUpsertArgs<ExtArgs>>): Prisma__AvaliacaoClient<$Result.GetResult<Prisma.$AvaliacaoPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Avaliacaos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AvaliacaoCountArgs} args - Arguments to filter Avaliacaos to count.
+     * @example
+     * // Count the number of Avaliacaos
+     * const count = await prisma.avaliacao.count({
+     *   where: {
+     *     // ... the filter for the Avaliacaos we want to count
+     *   }
+     * })
+    **/
+    count<T extends AvaliacaoCountArgs>(
+      args?: Subset<T, AvaliacaoCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AvaliacaoCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Avaliacao.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AvaliacaoAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AvaliacaoAggregateArgs>(args: Subset<T, AvaliacaoAggregateArgs>): Prisma.PrismaPromise<GetAvaliacaoAggregateType<T>>
+
+    /**
+     * Group by Avaliacao.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AvaliacaoGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends AvaliacaoGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: AvaliacaoGroupByArgs['orderBy'] }
+        : { orderBy?: AvaliacaoGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, AvaliacaoGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAvaliacaoGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Avaliacao model
+   */
+  readonly fields: AvaliacaoFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Avaliacao.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__AvaliacaoClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    reserva<T extends ReservaDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ReservaDefaultArgs<ExtArgs>>): Prisma__ReservaClient<$Result.GetResult<Prisma.$ReservaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    hospede<T extends HospedeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, HospedeDefaultArgs<ExtArgs>>): Prisma__HospedeClient<$Result.GetResult<Prisma.$HospedePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    casa<T extends CasaDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CasaDefaultArgs<ExtArgs>>): Prisma__CasaClient<$Result.GetResult<Prisma.$CasaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Avaliacao model
+   */
+  interface AvaliacaoFieldRefs {
+    readonly id: FieldRef<"Avaliacao", 'Int'>
+    readonly nota: FieldRef<"Avaliacao", 'Int'>
+    readonly comentario: FieldRef<"Avaliacao", 'String'>
+    readonly reservaId: FieldRef<"Avaliacao", 'Int'>
+    readonly hospedeId: FieldRef<"Avaliacao", 'Int'>
+    readonly casaId: FieldRef<"Avaliacao", 'Int'>
+    readonly createdAt: FieldRef<"Avaliacao", 'DateTime'>
+    readonly updatedAt: FieldRef<"Avaliacao", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Avaliacao findUnique
+   */
+  export type AvaliacaoFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Avaliacao
+     */
+    select?: AvaliacaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Avaliacao
+     */
+    omit?: AvaliacaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AvaliacaoInclude<ExtArgs> | null
+    /**
+     * Filter, which Avaliacao to fetch.
+     */
+    where: AvaliacaoWhereUniqueInput
+  }
+
+  /**
+   * Avaliacao findUniqueOrThrow
+   */
+  export type AvaliacaoFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Avaliacao
+     */
+    select?: AvaliacaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Avaliacao
+     */
+    omit?: AvaliacaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AvaliacaoInclude<ExtArgs> | null
+    /**
+     * Filter, which Avaliacao to fetch.
+     */
+    where: AvaliacaoWhereUniqueInput
+  }
+
+  /**
+   * Avaliacao findFirst
+   */
+  export type AvaliacaoFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Avaliacao
+     */
+    select?: AvaliacaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Avaliacao
+     */
+    omit?: AvaliacaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AvaliacaoInclude<ExtArgs> | null
+    /**
+     * Filter, which Avaliacao to fetch.
+     */
+    where?: AvaliacaoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Avaliacaos to fetch.
+     */
+    orderBy?: AvaliacaoOrderByWithRelationInput | AvaliacaoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Avaliacaos.
+     */
+    cursor?: AvaliacaoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Avaliacaos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Avaliacaos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Avaliacaos.
+     */
+    distinct?: AvaliacaoScalarFieldEnum | AvaliacaoScalarFieldEnum[]
+  }
+
+  /**
+   * Avaliacao findFirstOrThrow
+   */
+  export type AvaliacaoFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Avaliacao
+     */
+    select?: AvaliacaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Avaliacao
+     */
+    omit?: AvaliacaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AvaliacaoInclude<ExtArgs> | null
+    /**
+     * Filter, which Avaliacao to fetch.
+     */
+    where?: AvaliacaoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Avaliacaos to fetch.
+     */
+    orderBy?: AvaliacaoOrderByWithRelationInput | AvaliacaoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Avaliacaos.
+     */
+    cursor?: AvaliacaoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Avaliacaos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Avaliacaos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Avaliacaos.
+     */
+    distinct?: AvaliacaoScalarFieldEnum | AvaliacaoScalarFieldEnum[]
+  }
+
+  /**
+   * Avaliacao findMany
+   */
+  export type AvaliacaoFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Avaliacao
+     */
+    select?: AvaliacaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Avaliacao
+     */
+    omit?: AvaliacaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AvaliacaoInclude<ExtArgs> | null
+    /**
+     * Filter, which Avaliacaos to fetch.
+     */
+    where?: AvaliacaoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Avaliacaos to fetch.
+     */
+    orderBy?: AvaliacaoOrderByWithRelationInput | AvaliacaoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Avaliacaos.
+     */
+    cursor?: AvaliacaoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Avaliacaos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Avaliacaos.
+     */
+    skip?: number
+    distinct?: AvaliacaoScalarFieldEnum | AvaliacaoScalarFieldEnum[]
+  }
+
+  /**
+   * Avaliacao create
+   */
+  export type AvaliacaoCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Avaliacao
+     */
+    select?: AvaliacaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Avaliacao
+     */
+    omit?: AvaliacaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AvaliacaoInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Avaliacao.
+     */
+    data: XOR<AvaliacaoCreateInput, AvaliacaoUncheckedCreateInput>
+  }
+
+  /**
+   * Avaliacao createMany
+   */
+  export type AvaliacaoCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Avaliacaos.
+     */
+    data: AvaliacaoCreateManyInput | AvaliacaoCreateManyInput[]
+  }
+
+  /**
+   * Avaliacao createManyAndReturn
+   */
+  export type AvaliacaoCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Avaliacao
+     */
+    select?: AvaliacaoSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Avaliacao
+     */
+    omit?: AvaliacaoOmit<ExtArgs> | null
+    /**
+     * The data used to create many Avaliacaos.
+     */
+    data: AvaliacaoCreateManyInput | AvaliacaoCreateManyInput[]
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AvaliacaoIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Avaliacao update
+   */
+  export type AvaliacaoUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Avaliacao
+     */
+    select?: AvaliacaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Avaliacao
+     */
+    omit?: AvaliacaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AvaliacaoInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Avaliacao.
+     */
+    data: XOR<AvaliacaoUpdateInput, AvaliacaoUncheckedUpdateInput>
+    /**
+     * Choose, which Avaliacao to update.
+     */
+    where: AvaliacaoWhereUniqueInput
+  }
+
+  /**
+   * Avaliacao updateMany
+   */
+  export type AvaliacaoUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Avaliacaos.
+     */
+    data: XOR<AvaliacaoUpdateManyMutationInput, AvaliacaoUncheckedUpdateManyInput>
+    /**
+     * Filter which Avaliacaos to update
+     */
+    where?: AvaliacaoWhereInput
+    /**
+     * Limit how many Avaliacaos to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Avaliacao updateManyAndReturn
+   */
+  export type AvaliacaoUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Avaliacao
+     */
+    select?: AvaliacaoSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Avaliacao
+     */
+    omit?: AvaliacaoOmit<ExtArgs> | null
+    /**
+     * The data used to update Avaliacaos.
+     */
+    data: XOR<AvaliacaoUpdateManyMutationInput, AvaliacaoUncheckedUpdateManyInput>
+    /**
+     * Filter which Avaliacaos to update
+     */
+    where?: AvaliacaoWhereInput
+    /**
+     * Limit how many Avaliacaos to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AvaliacaoIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Avaliacao upsert
+   */
+  export type AvaliacaoUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Avaliacao
+     */
+    select?: AvaliacaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Avaliacao
+     */
+    omit?: AvaliacaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AvaliacaoInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Avaliacao to update in case it exists.
+     */
+    where: AvaliacaoWhereUniqueInput
+    /**
+     * In case the Avaliacao found by the `where` argument doesn't exist, create a new Avaliacao with this data.
+     */
+    create: XOR<AvaliacaoCreateInput, AvaliacaoUncheckedCreateInput>
+    /**
+     * In case the Avaliacao was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<AvaliacaoUpdateInput, AvaliacaoUncheckedUpdateInput>
+  }
+
+  /**
+   * Avaliacao delete
+   */
+  export type AvaliacaoDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Avaliacao
+     */
+    select?: AvaliacaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Avaliacao
+     */
+    omit?: AvaliacaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AvaliacaoInclude<ExtArgs> | null
+    /**
+     * Filter which Avaliacao to delete.
+     */
+    where: AvaliacaoWhereUniqueInput
+  }
+
+  /**
+   * Avaliacao deleteMany
+   */
+  export type AvaliacaoDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Avaliacaos to delete
+     */
+    where?: AvaliacaoWhereInput
+    /**
+     * Limit how many Avaliacaos to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Avaliacao without action
+   */
+  export type AvaliacaoDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Avaliacao
+     */
+    select?: AvaliacaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Avaliacao
+     */
+    omit?: AvaliacaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AvaliacaoInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -8434,6 +15000,28 @@ export namespace Prisma {
   };
 
   export type CasaScalarFieldEnum = (typeof CasaScalarFieldEnum)[keyof typeof CasaScalarFieldEnum]
+
+
+  export const ImagemCasaScalarFieldEnum: {
+    id: 'id',
+    url: 'url',
+    casaId: 'casaId',
+    createdAt: 'createdAt'
+  };
+
+  export type ImagemCasaScalarFieldEnum = (typeof ImagemCasaScalarFieldEnum)[keyof typeof ImagemCasaScalarFieldEnum]
+
+
+  export const BloqueioDisponibilidadeScalarFieldEnum: {
+    id: 'id',
+    dataInicio: 'dataInicio',
+    dataFim: 'dataFim',
+    motivo: 'motivo',
+    casaId: 'casaId',
+    createdAt: 'createdAt'
+  };
+
+  export type BloqueioDisponibilidadeScalarFieldEnum = (typeof BloqueioDisponibilidadeScalarFieldEnum)[keyof typeof BloqueioDisponibilidadeScalarFieldEnum]
 
 
   export const LocadorScalarFieldEnum: {
@@ -8497,6 +15085,46 @@ export namespace Prisma {
   export type FavoritoScalarFieldEnum = (typeof FavoritoScalarFieldEnum)[keyof typeof FavoritoScalarFieldEnum]
 
 
+  export const ConversaScalarFieldEnum: {
+    id: 'id',
+    hospedeId: 'hospedeId',
+    locadorId: 'locadorId',
+    casaId: 'casaId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type ConversaScalarFieldEnum = (typeof ConversaScalarFieldEnum)[keyof typeof ConversaScalarFieldEnum]
+
+
+  export const MensagemScalarFieldEnum: {
+    id: 'id',
+    conteudo: 'conteudo',
+    createdAt: 'createdAt',
+    conversaId: 'conversaId',
+    remetenteHospedeId: 'remetenteHospedeId',
+    remetenteLocadorId: 'remetenteLocadorId',
+    lidaPeloHospede: 'lidaPeloHospede',
+    lidaPeloLocador: 'lidaPeloLocador'
+  };
+
+  export type MensagemScalarFieldEnum = (typeof MensagemScalarFieldEnum)[keyof typeof MensagemScalarFieldEnum]
+
+
+  export const AvaliacaoScalarFieldEnum: {
+    id: 'id',
+    nota: 'nota',
+    comentario: 'comentario',
+    reservaId: 'reservaId',
+    hospedeId: 'hospedeId',
+    casaId: 'casaId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type AvaliacaoScalarFieldEnum = (typeof AvaliacaoScalarFieldEnum)[keyof typeof AvaliacaoScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -8543,6 +15171,13 @@ export namespace Prisma {
    * Reference to a field of type 'DateTime'
    */
   export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
   /**
    * Deep Input Types
@@ -8615,6 +15250,10 @@ export namespace Prisma {
     locador?: XOR<LocadorScalarRelationFilter, LocadorWhereInput>
     reservas?: ReservaListRelationFilter
     favoritos?: FavoritoListRelationFilter
+    imagens?: ImagemCasaListRelationFilter
+    conversas?: ConversaListRelationFilter
+    bloqueiosDisponibilidade?: BloqueioDisponibilidadeListRelationFilter
+    avaliacoes?: AvaliacaoListRelationFilter
   }
 
   export type CasaOrderByWithRelationInput = {
@@ -8631,6 +15270,10 @@ export namespace Prisma {
     locador?: LocadorOrderByWithRelationInput
     reservas?: ReservaOrderByRelationAggregateInput
     favoritos?: FavoritoOrderByRelationAggregateInput
+    imagens?: ImagemCasaOrderByRelationAggregateInput
+    conversas?: ConversaOrderByRelationAggregateInput
+    bloqueiosDisponibilidade?: BloqueioDisponibilidadeOrderByRelationAggregateInput
+    avaliacoes?: AvaliacaoOrderByRelationAggregateInput
   }
 
   export type CasaWhereUniqueInput = Prisma.AtLeast<{
@@ -8650,6 +15293,10 @@ export namespace Prisma {
     locador?: XOR<LocadorScalarRelationFilter, LocadorWhereInput>
     reservas?: ReservaListRelationFilter
     favoritos?: FavoritoListRelationFilter
+    imagens?: ImagemCasaListRelationFilter
+    conversas?: ConversaListRelationFilter
+    bloqueiosDisponibilidade?: BloqueioDisponibilidadeListRelationFilter
+    avaliacoes?: AvaliacaoListRelationFilter
   }, "id">
 
   export type CasaOrderByWithAggregationInput = {
@@ -8686,6 +15333,120 @@ export namespace Prisma {
     locadorId?: IntWithAggregatesFilter<"Casa"> | number
   }
 
+  export type ImagemCasaWhereInput = {
+    AND?: ImagemCasaWhereInput | ImagemCasaWhereInput[]
+    OR?: ImagemCasaWhereInput[]
+    NOT?: ImagemCasaWhereInput | ImagemCasaWhereInput[]
+    id?: IntFilter<"ImagemCasa"> | number
+    url?: StringFilter<"ImagemCasa"> | string
+    casaId?: IntFilter<"ImagemCasa"> | number
+    createdAt?: DateTimeFilter<"ImagemCasa"> | Date | string
+    casa?: XOR<CasaScalarRelationFilter, CasaWhereInput>
+  }
+
+  export type ImagemCasaOrderByWithRelationInput = {
+    id?: SortOrder
+    url?: SortOrder
+    casaId?: SortOrder
+    createdAt?: SortOrder
+    casa?: CasaOrderByWithRelationInput
+  }
+
+  export type ImagemCasaWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: ImagemCasaWhereInput | ImagemCasaWhereInput[]
+    OR?: ImagemCasaWhereInput[]
+    NOT?: ImagemCasaWhereInput | ImagemCasaWhereInput[]
+    url?: StringFilter<"ImagemCasa"> | string
+    casaId?: IntFilter<"ImagemCasa"> | number
+    createdAt?: DateTimeFilter<"ImagemCasa"> | Date | string
+    casa?: XOR<CasaScalarRelationFilter, CasaWhereInput>
+  }, "id">
+
+  export type ImagemCasaOrderByWithAggregationInput = {
+    id?: SortOrder
+    url?: SortOrder
+    casaId?: SortOrder
+    createdAt?: SortOrder
+    _count?: ImagemCasaCountOrderByAggregateInput
+    _avg?: ImagemCasaAvgOrderByAggregateInput
+    _max?: ImagemCasaMaxOrderByAggregateInput
+    _min?: ImagemCasaMinOrderByAggregateInput
+    _sum?: ImagemCasaSumOrderByAggregateInput
+  }
+
+  export type ImagemCasaScalarWhereWithAggregatesInput = {
+    AND?: ImagemCasaScalarWhereWithAggregatesInput | ImagemCasaScalarWhereWithAggregatesInput[]
+    OR?: ImagemCasaScalarWhereWithAggregatesInput[]
+    NOT?: ImagemCasaScalarWhereWithAggregatesInput | ImagemCasaScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"ImagemCasa"> | number
+    url?: StringWithAggregatesFilter<"ImagemCasa"> | string
+    casaId?: IntWithAggregatesFilter<"ImagemCasa"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"ImagemCasa"> | Date | string
+  }
+
+  export type BloqueioDisponibilidadeWhereInput = {
+    AND?: BloqueioDisponibilidadeWhereInput | BloqueioDisponibilidadeWhereInput[]
+    OR?: BloqueioDisponibilidadeWhereInput[]
+    NOT?: BloqueioDisponibilidadeWhereInput | BloqueioDisponibilidadeWhereInput[]
+    id?: IntFilter<"BloqueioDisponibilidade"> | number
+    dataInicio?: DateTimeFilter<"BloqueioDisponibilidade"> | Date | string
+    dataFim?: DateTimeFilter<"BloqueioDisponibilidade"> | Date | string
+    motivo?: StringNullableFilter<"BloqueioDisponibilidade"> | string | null
+    casaId?: IntFilter<"BloqueioDisponibilidade"> | number
+    createdAt?: DateTimeFilter<"BloqueioDisponibilidade"> | Date | string
+    casa?: XOR<CasaScalarRelationFilter, CasaWhereInput>
+  }
+
+  export type BloqueioDisponibilidadeOrderByWithRelationInput = {
+    id?: SortOrder
+    dataInicio?: SortOrder
+    dataFim?: SortOrder
+    motivo?: SortOrderInput | SortOrder
+    casaId?: SortOrder
+    createdAt?: SortOrder
+    casa?: CasaOrderByWithRelationInput
+  }
+
+  export type BloqueioDisponibilidadeWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: BloqueioDisponibilidadeWhereInput | BloqueioDisponibilidadeWhereInput[]
+    OR?: BloqueioDisponibilidadeWhereInput[]
+    NOT?: BloqueioDisponibilidadeWhereInput | BloqueioDisponibilidadeWhereInput[]
+    dataInicio?: DateTimeFilter<"BloqueioDisponibilidade"> | Date | string
+    dataFim?: DateTimeFilter<"BloqueioDisponibilidade"> | Date | string
+    motivo?: StringNullableFilter<"BloqueioDisponibilidade"> | string | null
+    casaId?: IntFilter<"BloqueioDisponibilidade"> | number
+    createdAt?: DateTimeFilter<"BloqueioDisponibilidade"> | Date | string
+    casa?: XOR<CasaScalarRelationFilter, CasaWhereInput>
+  }, "id">
+
+  export type BloqueioDisponibilidadeOrderByWithAggregationInput = {
+    id?: SortOrder
+    dataInicio?: SortOrder
+    dataFim?: SortOrder
+    motivo?: SortOrderInput | SortOrder
+    casaId?: SortOrder
+    createdAt?: SortOrder
+    _count?: BloqueioDisponibilidadeCountOrderByAggregateInput
+    _avg?: BloqueioDisponibilidadeAvgOrderByAggregateInput
+    _max?: BloqueioDisponibilidadeMaxOrderByAggregateInput
+    _min?: BloqueioDisponibilidadeMinOrderByAggregateInput
+    _sum?: BloqueioDisponibilidadeSumOrderByAggregateInput
+  }
+
+  export type BloqueioDisponibilidadeScalarWhereWithAggregatesInput = {
+    AND?: BloqueioDisponibilidadeScalarWhereWithAggregatesInput | BloqueioDisponibilidadeScalarWhereWithAggregatesInput[]
+    OR?: BloqueioDisponibilidadeScalarWhereWithAggregatesInput[]
+    NOT?: BloqueioDisponibilidadeScalarWhereWithAggregatesInput | BloqueioDisponibilidadeScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"BloqueioDisponibilidade"> | number
+    dataInicio?: DateTimeWithAggregatesFilter<"BloqueioDisponibilidade"> | Date | string
+    dataFim?: DateTimeWithAggregatesFilter<"BloqueioDisponibilidade"> | Date | string
+    motivo?: StringNullableWithAggregatesFilter<"BloqueioDisponibilidade"> | string | null
+    casaId?: IntWithAggregatesFilter<"BloqueioDisponibilidade"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"BloqueioDisponibilidade"> | Date | string
+  }
+
   export type LocadorWhereInput = {
     AND?: LocadorWhereInput | LocadorWhereInput[]
     OR?: LocadorWhereInput[]
@@ -8701,6 +15462,8 @@ export namespace Prisma {
     estado?: StringNullableFilter<"Locador"> | string | null
     casas?: CasaListRelationFilter
     reservas?: ReservaListRelationFilter
+    conversas?: ConversaListRelationFilter
+    mensagens?: MensagemListRelationFilter
   }
 
   export type LocadorOrderByWithRelationInput = {
@@ -8715,6 +15478,8 @@ export namespace Prisma {
     estado?: SortOrderInput | SortOrder
     casas?: CasaOrderByRelationAggregateInput
     reservas?: ReservaOrderByRelationAggregateInput
+    conversas?: ConversaOrderByRelationAggregateInput
+    mensagens?: MensagemOrderByRelationAggregateInput
   }
 
   export type LocadorWhereUniqueInput = Prisma.AtLeast<{
@@ -8732,6 +15497,8 @@ export namespace Prisma {
     estado?: StringNullableFilter<"Locador"> | string | null
     casas?: CasaListRelationFilter
     reservas?: ReservaListRelationFilter
+    conversas?: ConversaListRelationFilter
+    mensagens?: MensagemListRelationFilter
   }, "id" | "email" | "cpf">
 
   export type LocadorOrderByWithAggregationInput = {
@@ -8782,6 +15549,9 @@ export namespace Prisma {
     universidade?: StringNullableFilter<"Hospede"> | string | null
     reservas?: ReservaListRelationFilter
     favoritos?: FavoritoListRelationFilter
+    conversas?: ConversaListRelationFilter
+    mensagens?: MensagemListRelationFilter
+    avaliacoesFeitas?: AvaliacaoListRelationFilter
   }
 
   export type HospedeOrderByWithRelationInput = {
@@ -8797,6 +15567,9 @@ export namespace Prisma {
     universidade?: SortOrderInput | SortOrder
     reservas?: ReservaOrderByRelationAggregateInput
     favoritos?: FavoritoOrderByRelationAggregateInput
+    conversas?: ConversaOrderByRelationAggregateInput
+    mensagens?: MensagemOrderByRelationAggregateInput
+    avaliacoesFeitas?: AvaliacaoOrderByRelationAggregateInput
   }
 
   export type HospedeWhereUniqueInput = Prisma.AtLeast<{
@@ -8815,6 +15588,9 @@ export namespace Prisma {
     universidade?: StringNullableFilter<"Hospede"> | string | null
     reservas?: ReservaListRelationFilter
     favoritos?: FavoritoListRelationFilter
+    conversas?: ConversaListRelationFilter
+    mensagens?: MensagemListRelationFilter
+    avaliacoesFeitas?: AvaliacaoListRelationFilter
   }, "id" | "email" | "cpf" | "matricula">
 
   export type HospedeOrderByWithAggregationInput = {
@@ -8872,6 +15648,7 @@ export namespace Prisma {
     hospede?: XOR<HospedeScalarRelationFilter, HospedeWhereInput>
     casa?: XOR<CasaScalarRelationFilter, CasaWhereInput>
     locador?: XOR<LocadorScalarRelationFilter, LocadorWhereInput>
+    avaliacao?: XOR<AvaliacaoNullableScalarRelationFilter, AvaliacaoWhereInput> | null
   }
 
   export type ReservaOrderByWithRelationInput = {
@@ -8892,6 +15669,7 @@ export namespace Prisma {
     hospede?: HospedeOrderByWithRelationInput
     casa?: CasaOrderByWithRelationInput
     locador?: LocadorOrderByWithRelationInput
+    avaliacao?: AvaliacaoOrderByWithRelationInput
   }
 
   export type ReservaWhereUniqueInput = Prisma.AtLeast<{
@@ -8915,6 +15693,7 @@ export namespace Prisma {
     hospede?: XOR<HospedeScalarRelationFilter, HospedeWhereInput>
     casa?: XOR<CasaScalarRelationFilter, CasaWhereInput>
     locador?: XOR<LocadorScalarRelationFilter, LocadorWhereInput>
+    avaliacao?: XOR<AvaliacaoNullableScalarRelationFilter, AvaliacaoWhereInput> | null
   }, "id">
 
   export type ReservaOrderByWithAggregationInput = {
@@ -9015,6 +15794,234 @@ export namespace Prisma {
     createdAt?: DateTimeWithAggregatesFilter<"Favorito"> | Date | string
   }
 
+  export type ConversaWhereInput = {
+    AND?: ConversaWhereInput | ConversaWhereInput[]
+    OR?: ConversaWhereInput[]
+    NOT?: ConversaWhereInput | ConversaWhereInput[]
+    id?: IntFilter<"Conversa"> | number
+    hospedeId?: IntFilter<"Conversa"> | number
+    locadorId?: IntFilter<"Conversa"> | number
+    casaId?: IntNullableFilter<"Conversa"> | number | null
+    createdAt?: DateTimeFilter<"Conversa"> | Date | string
+    updatedAt?: DateTimeFilter<"Conversa"> | Date | string
+    hospede?: XOR<HospedeScalarRelationFilter, HospedeWhereInput>
+    locador?: XOR<LocadorScalarRelationFilter, LocadorWhereInput>
+    casa?: XOR<CasaNullableScalarRelationFilter, CasaWhereInput> | null
+    mensagens?: MensagemListRelationFilter
+  }
+
+  export type ConversaOrderByWithRelationInput = {
+    id?: SortOrder
+    hospedeId?: SortOrder
+    locadorId?: SortOrder
+    casaId?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    hospede?: HospedeOrderByWithRelationInput
+    locador?: LocadorOrderByWithRelationInput
+    casa?: CasaOrderByWithRelationInput
+    mensagens?: MensagemOrderByRelationAggregateInput
+  }
+
+  export type ConversaWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    hospedeId_locadorId_casaId?: ConversaHospedeIdLocadorIdCasaIdCompoundUniqueInput
+    AND?: ConversaWhereInput | ConversaWhereInput[]
+    OR?: ConversaWhereInput[]
+    NOT?: ConversaWhereInput | ConversaWhereInput[]
+    hospedeId?: IntFilter<"Conversa"> | number
+    locadorId?: IntFilter<"Conversa"> | number
+    casaId?: IntNullableFilter<"Conversa"> | number | null
+    createdAt?: DateTimeFilter<"Conversa"> | Date | string
+    updatedAt?: DateTimeFilter<"Conversa"> | Date | string
+    hospede?: XOR<HospedeScalarRelationFilter, HospedeWhereInput>
+    locador?: XOR<LocadorScalarRelationFilter, LocadorWhereInput>
+    casa?: XOR<CasaNullableScalarRelationFilter, CasaWhereInput> | null
+    mensagens?: MensagemListRelationFilter
+  }, "id" | "hospedeId_locadorId_casaId">
+
+  export type ConversaOrderByWithAggregationInput = {
+    id?: SortOrder
+    hospedeId?: SortOrder
+    locadorId?: SortOrder
+    casaId?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: ConversaCountOrderByAggregateInput
+    _avg?: ConversaAvgOrderByAggregateInput
+    _max?: ConversaMaxOrderByAggregateInput
+    _min?: ConversaMinOrderByAggregateInput
+    _sum?: ConversaSumOrderByAggregateInput
+  }
+
+  export type ConversaScalarWhereWithAggregatesInput = {
+    AND?: ConversaScalarWhereWithAggregatesInput | ConversaScalarWhereWithAggregatesInput[]
+    OR?: ConversaScalarWhereWithAggregatesInput[]
+    NOT?: ConversaScalarWhereWithAggregatesInput | ConversaScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Conversa"> | number
+    hospedeId?: IntWithAggregatesFilter<"Conversa"> | number
+    locadorId?: IntWithAggregatesFilter<"Conversa"> | number
+    casaId?: IntNullableWithAggregatesFilter<"Conversa"> | number | null
+    createdAt?: DateTimeWithAggregatesFilter<"Conversa"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Conversa"> | Date | string
+  }
+
+  export type MensagemWhereInput = {
+    AND?: MensagemWhereInput | MensagemWhereInput[]
+    OR?: MensagemWhereInput[]
+    NOT?: MensagemWhereInput | MensagemWhereInput[]
+    id?: IntFilter<"Mensagem"> | number
+    conteudo?: StringFilter<"Mensagem"> | string
+    createdAt?: DateTimeFilter<"Mensagem"> | Date | string
+    conversaId?: IntFilter<"Mensagem"> | number
+    remetenteHospedeId?: IntNullableFilter<"Mensagem"> | number | null
+    remetenteLocadorId?: IntNullableFilter<"Mensagem"> | number | null
+    lidaPeloHospede?: BoolFilter<"Mensagem"> | boolean
+    lidaPeloLocador?: BoolFilter<"Mensagem"> | boolean
+    conversa?: XOR<ConversaScalarRelationFilter, ConversaWhereInput>
+    remetenteHospede?: XOR<HospedeNullableScalarRelationFilter, HospedeWhereInput> | null
+    remetenteLocador?: XOR<LocadorNullableScalarRelationFilter, LocadorWhereInput> | null
+  }
+
+  export type MensagemOrderByWithRelationInput = {
+    id?: SortOrder
+    conteudo?: SortOrder
+    createdAt?: SortOrder
+    conversaId?: SortOrder
+    remetenteHospedeId?: SortOrderInput | SortOrder
+    remetenteLocadorId?: SortOrderInput | SortOrder
+    lidaPeloHospede?: SortOrder
+    lidaPeloLocador?: SortOrder
+    conversa?: ConversaOrderByWithRelationInput
+    remetenteHospede?: HospedeOrderByWithRelationInput
+    remetenteLocador?: LocadorOrderByWithRelationInput
+  }
+
+  export type MensagemWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: MensagemWhereInput | MensagemWhereInput[]
+    OR?: MensagemWhereInput[]
+    NOT?: MensagemWhereInput | MensagemWhereInput[]
+    conteudo?: StringFilter<"Mensagem"> | string
+    createdAt?: DateTimeFilter<"Mensagem"> | Date | string
+    conversaId?: IntFilter<"Mensagem"> | number
+    remetenteHospedeId?: IntNullableFilter<"Mensagem"> | number | null
+    remetenteLocadorId?: IntNullableFilter<"Mensagem"> | number | null
+    lidaPeloHospede?: BoolFilter<"Mensagem"> | boolean
+    lidaPeloLocador?: BoolFilter<"Mensagem"> | boolean
+    conversa?: XOR<ConversaScalarRelationFilter, ConversaWhereInput>
+    remetenteHospede?: XOR<HospedeNullableScalarRelationFilter, HospedeWhereInput> | null
+    remetenteLocador?: XOR<LocadorNullableScalarRelationFilter, LocadorWhereInput> | null
+  }, "id">
+
+  export type MensagemOrderByWithAggregationInput = {
+    id?: SortOrder
+    conteudo?: SortOrder
+    createdAt?: SortOrder
+    conversaId?: SortOrder
+    remetenteHospedeId?: SortOrderInput | SortOrder
+    remetenteLocadorId?: SortOrderInput | SortOrder
+    lidaPeloHospede?: SortOrder
+    lidaPeloLocador?: SortOrder
+    _count?: MensagemCountOrderByAggregateInput
+    _avg?: MensagemAvgOrderByAggregateInput
+    _max?: MensagemMaxOrderByAggregateInput
+    _min?: MensagemMinOrderByAggregateInput
+    _sum?: MensagemSumOrderByAggregateInput
+  }
+
+  export type MensagemScalarWhereWithAggregatesInput = {
+    AND?: MensagemScalarWhereWithAggregatesInput | MensagemScalarWhereWithAggregatesInput[]
+    OR?: MensagemScalarWhereWithAggregatesInput[]
+    NOT?: MensagemScalarWhereWithAggregatesInput | MensagemScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Mensagem"> | number
+    conteudo?: StringWithAggregatesFilter<"Mensagem"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"Mensagem"> | Date | string
+    conversaId?: IntWithAggregatesFilter<"Mensagem"> | number
+    remetenteHospedeId?: IntNullableWithAggregatesFilter<"Mensagem"> | number | null
+    remetenteLocadorId?: IntNullableWithAggregatesFilter<"Mensagem"> | number | null
+    lidaPeloHospede?: BoolWithAggregatesFilter<"Mensagem"> | boolean
+    lidaPeloLocador?: BoolWithAggregatesFilter<"Mensagem"> | boolean
+  }
+
+  export type AvaliacaoWhereInput = {
+    AND?: AvaliacaoWhereInput | AvaliacaoWhereInput[]
+    OR?: AvaliacaoWhereInput[]
+    NOT?: AvaliacaoWhereInput | AvaliacaoWhereInput[]
+    id?: IntFilter<"Avaliacao"> | number
+    nota?: IntFilter<"Avaliacao"> | number
+    comentario?: StringNullableFilter<"Avaliacao"> | string | null
+    reservaId?: IntFilter<"Avaliacao"> | number
+    hospedeId?: IntFilter<"Avaliacao"> | number
+    casaId?: IntFilter<"Avaliacao"> | number
+    createdAt?: DateTimeFilter<"Avaliacao"> | Date | string
+    updatedAt?: DateTimeFilter<"Avaliacao"> | Date | string
+    reserva?: XOR<ReservaScalarRelationFilter, ReservaWhereInput>
+    hospede?: XOR<HospedeScalarRelationFilter, HospedeWhereInput>
+    casa?: XOR<CasaScalarRelationFilter, CasaWhereInput>
+  }
+
+  export type AvaliacaoOrderByWithRelationInput = {
+    id?: SortOrder
+    nota?: SortOrder
+    comentario?: SortOrderInput | SortOrder
+    reservaId?: SortOrder
+    hospedeId?: SortOrder
+    casaId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    reserva?: ReservaOrderByWithRelationInput
+    hospede?: HospedeOrderByWithRelationInput
+    casa?: CasaOrderByWithRelationInput
+  }
+
+  export type AvaliacaoWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    reservaId?: number
+    AND?: AvaliacaoWhereInput | AvaliacaoWhereInput[]
+    OR?: AvaliacaoWhereInput[]
+    NOT?: AvaliacaoWhereInput | AvaliacaoWhereInput[]
+    nota?: IntFilter<"Avaliacao"> | number
+    comentario?: StringNullableFilter<"Avaliacao"> | string | null
+    hospedeId?: IntFilter<"Avaliacao"> | number
+    casaId?: IntFilter<"Avaliacao"> | number
+    createdAt?: DateTimeFilter<"Avaliacao"> | Date | string
+    updatedAt?: DateTimeFilter<"Avaliacao"> | Date | string
+    reserva?: XOR<ReservaScalarRelationFilter, ReservaWhereInput>
+    hospede?: XOR<HospedeScalarRelationFilter, HospedeWhereInput>
+    casa?: XOR<CasaScalarRelationFilter, CasaWhereInput>
+  }, "id" | "reservaId">
+
+  export type AvaliacaoOrderByWithAggregationInput = {
+    id?: SortOrder
+    nota?: SortOrder
+    comentario?: SortOrderInput | SortOrder
+    reservaId?: SortOrder
+    hospedeId?: SortOrder
+    casaId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: AvaliacaoCountOrderByAggregateInput
+    _avg?: AvaliacaoAvgOrderByAggregateInput
+    _max?: AvaliacaoMaxOrderByAggregateInput
+    _min?: AvaliacaoMinOrderByAggregateInput
+    _sum?: AvaliacaoSumOrderByAggregateInput
+  }
+
+  export type AvaliacaoScalarWhereWithAggregatesInput = {
+    AND?: AvaliacaoScalarWhereWithAggregatesInput | AvaliacaoScalarWhereWithAggregatesInput[]
+    OR?: AvaliacaoScalarWhereWithAggregatesInput[]
+    NOT?: AvaliacaoScalarWhereWithAggregatesInput | AvaliacaoScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Avaliacao"> | number
+    nota?: IntWithAggregatesFilter<"Avaliacao"> | number
+    comentario?: StringNullableWithAggregatesFilter<"Avaliacao"> | string | null
+    reservaId?: IntWithAggregatesFilter<"Avaliacao"> | number
+    hospedeId?: IntWithAggregatesFilter<"Avaliacao"> | number
+    casaId?: IntWithAggregatesFilter<"Avaliacao"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"Avaliacao"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Avaliacao"> | Date | string
+  }
+
   export type AdminCreateInput = {
     name?: string | null
     email: string
@@ -9073,6 +16080,10 @@ export namespace Prisma {
     locador: LocadorCreateNestedOneWithoutCasasInput
     reservas?: ReservaCreateNestedManyWithoutCasaInput
     favoritos?: FavoritoCreateNestedManyWithoutCasaInput
+    imagens?: ImagemCasaCreateNestedManyWithoutCasaInput
+    conversas?: ConversaCreateNestedManyWithoutCasaInput
+    bloqueiosDisponibilidade?: BloqueioDisponibilidadeCreateNestedManyWithoutCasaInput
+    avaliacoes?: AvaliacaoCreateNestedManyWithoutCasaInput
   }
 
   export type CasaUncheckedCreateInput = {
@@ -9088,6 +16099,10 @@ export namespace Prisma {
     locadorId: number
     reservas?: ReservaUncheckedCreateNestedManyWithoutCasaInput
     favoritos?: FavoritoUncheckedCreateNestedManyWithoutCasaInput
+    imagens?: ImagemCasaUncheckedCreateNestedManyWithoutCasaInput
+    conversas?: ConversaUncheckedCreateNestedManyWithoutCasaInput
+    bloqueiosDisponibilidade?: BloqueioDisponibilidadeUncheckedCreateNestedManyWithoutCasaInput
+    avaliacoes?: AvaliacaoUncheckedCreateNestedManyWithoutCasaInput
   }
 
   export type CasaUpdateInput = {
@@ -9102,6 +16117,10 @@ export namespace Prisma {
     locador?: LocadorUpdateOneRequiredWithoutCasasNestedInput
     reservas?: ReservaUpdateManyWithoutCasaNestedInput
     favoritos?: FavoritoUpdateManyWithoutCasaNestedInput
+    imagens?: ImagemCasaUpdateManyWithoutCasaNestedInput
+    conversas?: ConversaUpdateManyWithoutCasaNestedInput
+    bloqueiosDisponibilidade?: BloqueioDisponibilidadeUpdateManyWithoutCasaNestedInput
+    avaliacoes?: AvaliacaoUpdateManyWithoutCasaNestedInput
   }
 
   export type CasaUncheckedUpdateInput = {
@@ -9117,6 +16136,10 @@ export namespace Prisma {
     locadorId?: IntFieldUpdateOperationsInput | number
     reservas?: ReservaUncheckedUpdateManyWithoutCasaNestedInput
     favoritos?: FavoritoUncheckedUpdateManyWithoutCasaNestedInput
+    imagens?: ImagemCasaUncheckedUpdateManyWithoutCasaNestedInput
+    conversas?: ConversaUncheckedUpdateManyWithoutCasaNestedInput
+    bloqueiosDisponibilidade?: BloqueioDisponibilidadeUncheckedUpdateManyWithoutCasaNestedInput
+    avaliacoes?: AvaliacaoUncheckedUpdateManyWithoutCasaNestedInput
   }
 
   export type CasaCreateManyInput = {
@@ -9156,6 +16179,110 @@ export namespace Prisma {
     locadorId?: IntFieldUpdateOperationsInput | number
   }
 
+  export type ImagemCasaCreateInput = {
+    url: string
+    createdAt?: Date | string
+    casa: CasaCreateNestedOneWithoutImagensInput
+  }
+
+  export type ImagemCasaUncheckedCreateInput = {
+    id?: number
+    url: string
+    casaId: number
+    createdAt?: Date | string
+  }
+
+  export type ImagemCasaUpdateInput = {
+    url?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    casa?: CasaUpdateOneRequiredWithoutImagensNestedInput
+  }
+
+  export type ImagemCasaUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    url?: StringFieldUpdateOperationsInput | string
+    casaId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ImagemCasaCreateManyInput = {
+    id?: number
+    url: string
+    casaId: number
+    createdAt?: Date | string
+  }
+
+  export type ImagemCasaUpdateManyMutationInput = {
+    url?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ImagemCasaUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    url?: StringFieldUpdateOperationsInput | string
+    casaId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BloqueioDisponibilidadeCreateInput = {
+    dataInicio: Date | string
+    dataFim: Date | string
+    motivo?: string | null
+    createdAt?: Date | string
+    casa: CasaCreateNestedOneWithoutBloqueiosDisponibilidadeInput
+  }
+
+  export type BloqueioDisponibilidadeUncheckedCreateInput = {
+    id?: number
+    dataInicio: Date | string
+    dataFim: Date | string
+    motivo?: string | null
+    casaId: number
+    createdAt?: Date | string
+  }
+
+  export type BloqueioDisponibilidadeUpdateInput = {
+    dataInicio?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataFim?: DateTimeFieldUpdateOperationsInput | Date | string
+    motivo?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    casa?: CasaUpdateOneRequiredWithoutBloqueiosDisponibilidadeNestedInput
+  }
+
+  export type BloqueioDisponibilidadeUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    dataInicio?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataFim?: DateTimeFieldUpdateOperationsInput | Date | string
+    motivo?: NullableStringFieldUpdateOperationsInput | string | null
+    casaId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BloqueioDisponibilidadeCreateManyInput = {
+    id?: number
+    dataInicio: Date | string
+    dataFim: Date | string
+    motivo?: string | null
+    casaId: number
+    createdAt?: Date | string
+  }
+
+  export type BloqueioDisponibilidadeUpdateManyMutationInput = {
+    dataInicio?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataFim?: DateTimeFieldUpdateOperationsInput | Date | string
+    motivo?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BloqueioDisponibilidadeUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    dataInicio?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataFim?: DateTimeFieldUpdateOperationsInput | Date | string
+    motivo?: NullableStringFieldUpdateOperationsInput | string | null
+    casaId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type LocadorCreateInput = {
     name: string
     email: string
@@ -9167,6 +16294,8 @@ export namespace Prisma {
     estado?: string | null
     casas?: CasaCreateNestedManyWithoutLocadorInput
     reservas?: ReservaCreateNestedManyWithoutLocadorInput
+    conversas?: ConversaCreateNestedManyWithoutLocadorInput
+    mensagens?: MensagemCreateNestedManyWithoutRemetenteLocadorInput
   }
 
   export type LocadorUncheckedCreateInput = {
@@ -9181,6 +16310,8 @@ export namespace Prisma {
     estado?: string | null
     casas?: CasaUncheckedCreateNestedManyWithoutLocadorInput
     reservas?: ReservaUncheckedCreateNestedManyWithoutLocadorInput
+    conversas?: ConversaUncheckedCreateNestedManyWithoutLocadorInput
+    mensagens?: MensagemUncheckedCreateNestedManyWithoutRemetenteLocadorInput
   }
 
   export type LocadorUpdateInput = {
@@ -9194,6 +16325,8 @@ export namespace Prisma {
     estado?: NullableStringFieldUpdateOperationsInput | string | null
     casas?: CasaUpdateManyWithoutLocadorNestedInput
     reservas?: ReservaUpdateManyWithoutLocadorNestedInput
+    conversas?: ConversaUpdateManyWithoutLocadorNestedInput
+    mensagens?: MensagemUpdateManyWithoutRemetenteLocadorNestedInput
   }
 
   export type LocadorUncheckedUpdateInput = {
@@ -9208,6 +16341,8 @@ export namespace Prisma {
     estado?: NullableStringFieldUpdateOperationsInput | string | null
     casas?: CasaUncheckedUpdateManyWithoutLocadorNestedInput
     reservas?: ReservaUncheckedUpdateManyWithoutLocadorNestedInput
+    conversas?: ConversaUncheckedUpdateManyWithoutLocadorNestedInput
+    mensagens?: MensagemUncheckedUpdateManyWithoutRemetenteLocadorNestedInput
   }
 
   export type LocadorCreateManyInput = {
@@ -9257,6 +16392,9 @@ export namespace Prisma {
     universidade?: string | null
     reservas?: ReservaCreateNestedManyWithoutHospedeInput
     favoritos?: FavoritoCreateNestedManyWithoutHospedeInput
+    conversas?: ConversaCreateNestedManyWithoutHospedeInput
+    mensagens?: MensagemCreateNestedManyWithoutRemetenteHospedeInput
+    avaliacoesFeitas?: AvaliacaoCreateNestedManyWithoutHospedeInput
   }
 
   export type HospedeUncheckedCreateInput = {
@@ -9272,6 +16410,9 @@ export namespace Prisma {
     universidade?: string | null
     reservas?: ReservaUncheckedCreateNestedManyWithoutHospedeInput
     favoritos?: FavoritoUncheckedCreateNestedManyWithoutHospedeInput
+    conversas?: ConversaUncheckedCreateNestedManyWithoutHospedeInput
+    mensagens?: MensagemUncheckedCreateNestedManyWithoutRemetenteHospedeInput
+    avaliacoesFeitas?: AvaliacaoUncheckedCreateNestedManyWithoutHospedeInput
   }
 
   export type HospedeUpdateInput = {
@@ -9286,6 +16427,9 @@ export namespace Prisma {
     universidade?: NullableStringFieldUpdateOperationsInput | string | null
     reservas?: ReservaUpdateManyWithoutHospedeNestedInput
     favoritos?: FavoritoUpdateManyWithoutHospedeNestedInput
+    conversas?: ConversaUpdateManyWithoutHospedeNestedInput
+    mensagens?: MensagemUpdateManyWithoutRemetenteHospedeNestedInput
+    avaliacoesFeitas?: AvaliacaoUpdateManyWithoutHospedeNestedInput
   }
 
   export type HospedeUncheckedUpdateInput = {
@@ -9301,6 +16445,9 @@ export namespace Prisma {
     universidade?: NullableStringFieldUpdateOperationsInput | string | null
     reservas?: ReservaUncheckedUpdateManyWithoutHospedeNestedInput
     favoritos?: FavoritoUncheckedUpdateManyWithoutHospedeNestedInput
+    conversas?: ConversaUncheckedUpdateManyWithoutHospedeNestedInput
+    mensagens?: MensagemUncheckedUpdateManyWithoutRemetenteHospedeNestedInput
+    avaliacoesFeitas?: AvaliacaoUncheckedUpdateManyWithoutHospedeNestedInput
   }
 
   export type HospedeCreateManyInput = {
@@ -9355,6 +16502,7 @@ export namespace Prisma {
     hospede: HospedeCreateNestedOneWithoutReservasInput
     casa: CasaCreateNestedOneWithoutReservasInput
     locador: LocadorCreateNestedOneWithoutReservasInput
+    avaliacao?: AvaliacaoCreateNestedOneWithoutReservaInput
   }
 
   export type ReservaUncheckedCreateInput = {
@@ -9372,6 +16520,7 @@ export namespace Prisma {
     locadorId: number
     createdAt?: Date | string
     updatedAt?: Date | string
+    avaliacao?: AvaliacaoUncheckedCreateNestedOneWithoutReservaInput
   }
 
   export type ReservaUpdateInput = {
@@ -9388,6 +16537,7 @@ export namespace Prisma {
     hospede?: HospedeUpdateOneRequiredWithoutReservasNestedInput
     casa?: CasaUpdateOneRequiredWithoutReservasNestedInput
     locador?: LocadorUpdateOneRequiredWithoutReservasNestedInput
+    avaliacao?: AvaliacaoUpdateOneWithoutReservaNestedInput
   }
 
   export type ReservaUncheckedUpdateInput = {
@@ -9405,6 +16555,7 @@ export namespace Prisma {
     locadorId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    avaliacao?: AvaliacaoUncheckedUpdateOneWithoutReservaNestedInput
   }
 
   export type ReservaCreateManyInput = {
@@ -9496,6 +16647,209 @@ export namespace Prisma {
     hospedeId?: IntFieldUpdateOperationsInput | number
     casaId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ConversaCreateInput = {
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    hospede: HospedeCreateNestedOneWithoutConversasInput
+    locador: LocadorCreateNestedOneWithoutConversasInput
+    casa?: CasaCreateNestedOneWithoutConversasInput
+    mensagens?: MensagemCreateNestedManyWithoutConversaInput
+  }
+
+  export type ConversaUncheckedCreateInput = {
+    id?: number
+    hospedeId: number
+    locadorId: number
+    casaId?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    mensagens?: MensagemUncheckedCreateNestedManyWithoutConversaInput
+  }
+
+  export type ConversaUpdateInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    hospede?: HospedeUpdateOneRequiredWithoutConversasNestedInput
+    locador?: LocadorUpdateOneRequiredWithoutConversasNestedInput
+    casa?: CasaUpdateOneWithoutConversasNestedInput
+    mensagens?: MensagemUpdateManyWithoutConversaNestedInput
+  }
+
+  export type ConversaUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    hospedeId?: IntFieldUpdateOperationsInput | number
+    locadorId?: IntFieldUpdateOperationsInput | number
+    casaId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mensagens?: MensagemUncheckedUpdateManyWithoutConversaNestedInput
+  }
+
+  export type ConversaCreateManyInput = {
+    id?: number
+    hospedeId: number
+    locadorId: number
+    casaId?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ConversaUpdateManyMutationInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ConversaUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    hospedeId?: IntFieldUpdateOperationsInput | number
+    locadorId?: IntFieldUpdateOperationsInput | number
+    casaId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MensagemCreateInput = {
+    conteudo: string
+    createdAt?: Date | string
+    lidaPeloHospede?: boolean
+    lidaPeloLocador?: boolean
+    conversa: ConversaCreateNestedOneWithoutMensagensInput
+    remetenteHospede?: HospedeCreateNestedOneWithoutMensagensInput
+    remetenteLocador?: LocadorCreateNestedOneWithoutMensagensInput
+  }
+
+  export type MensagemUncheckedCreateInput = {
+    id?: number
+    conteudo: string
+    createdAt?: Date | string
+    conversaId: number
+    remetenteHospedeId?: number | null
+    remetenteLocadorId?: number | null
+    lidaPeloHospede?: boolean
+    lidaPeloLocador?: boolean
+  }
+
+  export type MensagemUpdateInput = {
+    conteudo?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lidaPeloHospede?: BoolFieldUpdateOperationsInput | boolean
+    lidaPeloLocador?: BoolFieldUpdateOperationsInput | boolean
+    conversa?: ConversaUpdateOneRequiredWithoutMensagensNestedInput
+    remetenteHospede?: HospedeUpdateOneWithoutMensagensNestedInput
+    remetenteLocador?: LocadorUpdateOneWithoutMensagensNestedInput
+  }
+
+  export type MensagemUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    conteudo?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    conversaId?: IntFieldUpdateOperationsInput | number
+    remetenteHospedeId?: NullableIntFieldUpdateOperationsInput | number | null
+    remetenteLocadorId?: NullableIntFieldUpdateOperationsInput | number | null
+    lidaPeloHospede?: BoolFieldUpdateOperationsInput | boolean
+    lidaPeloLocador?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type MensagemCreateManyInput = {
+    id?: number
+    conteudo: string
+    createdAt?: Date | string
+    conversaId: number
+    remetenteHospedeId?: number | null
+    remetenteLocadorId?: number | null
+    lidaPeloHospede?: boolean
+    lidaPeloLocador?: boolean
+  }
+
+  export type MensagemUpdateManyMutationInput = {
+    conteudo?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lidaPeloHospede?: BoolFieldUpdateOperationsInput | boolean
+    lidaPeloLocador?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type MensagemUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    conteudo?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    conversaId?: IntFieldUpdateOperationsInput | number
+    remetenteHospedeId?: NullableIntFieldUpdateOperationsInput | number | null
+    remetenteLocadorId?: NullableIntFieldUpdateOperationsInput | number | null
+    lidaPeloHospede?: BoolFieldUpdateOperationsInput | boolean
+    lidaPeloLocador?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type AvaliacaoCreateInput = {
+    nota: number
+    comentario?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    reserva: ReservaCreateNestedOneWithoutAvaliacaoInput
+    hospede: HospedeCreateNestedOneWithoutAvaliacoesFeitasInput
+    casa: CasaCreateNestedOneWithoutAvaliacoesInput
+  }
+
+  export type AvaliacaoUncheckedCreateInput = {
+    id?: number
+    nota: number
+    comentario?: string | null
+    reservaId: number
+    hospedeId: number
+    casaId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AvaliacaoUpdateInput = {
+    nota?: IntFieldUpdateOperationsInput | number
+    comentario?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    reserva?: ReservaUpdateOneRequiredWithoutAvaliacaoNestedInput
+    hospede?: HospedeUpdateOneRequiredWithoutAvaliacoesFeitasNestedInput
+    casa?: CasaUpdateOneRequiredWithoutAvaliacoesNestedInput
+  }
+
+  export type AvaliacaoUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nota?: IntFieldUpdateOperationsInput | number
+    comentario?: NullableStringFieldUpdateOperationsInput | string | null
+    reservaId?: IntFieldUpdateOperationsInput | number
+    hospedeId?: IntFieldUpdateOperationsInput | number
+    casaId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AvaliacaoCreateManyInput = {
+    id?: number
+    nota: number
+    comentario?: string | null
+    reservaId: number
+    hospedeId: number
+    casaId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AvaliacaoUpdateManyMutationInput = {
+    nota?: IntFieldUpdateOperationsInput | number
+    comentario?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AvaliacaoUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nota?: IntFieldUpdateOperationsInput | number
+    comentario?: NullableStringFieldUpdateOperationsInput | string | null
+    reservaId?: IntFieldUpdateOperationsInput | number
+    hospedeId?: IntFieldUpdateOperationsInput | number
+    casaId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -9649,11 +17003,51 @@ export namespace Prisma {
     none?: FavoritoWhereInput
   }
 
+  export type ImagemCasaListRelationFilter = {
+    every?: ImagemCasaWhereInput
+    some?: ImagemCasaWhereInput
+    none?: ImagemCasaWhereInput
+  }
+
+  export type ConversaListRelationFilter = {
+    every?: ConversaWhereInput
+    some?: ConversaWhereInput
+    none?: ConversaWhereInput
+  }
+
+  export type BloqueioDisponibilidadeListRelationFilter = {
+    every?: BloqueioDisponibilidadeWhereInput
+    some?: BloqueioDisponibilidadeWhereInput
+    none?: BloqueioDisponibilidadeWhereInput
+  }
+
+  export type AvaliacaoListRelationFilter = {
+    every?: AvaliacaoWhereInput
+    some?: AvaliacaoWhereInput
+    none?: AvaliacaoWhereInput
+  }
+
   export type ReservaOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
   export type FavoritoOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ImagemCasaOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ConversaOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type BloqueioDisponibilidadeOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type AvaliacaoOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -9726,13 +17120,121 @@ export namespace Prisma {
     _max?: NestedFloatNullableFilter<$PrismaModel>
   }
 
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type CasaScalarRelationFilter = {
+    is?: CasaWhereInput
+    isNot?: CasaWhereInput
+  }
+
+  export type ImagemCasaCountOrderByAggregateInput = {
+    id?: SortOrder
+    url?: SortOrder
+    casaId?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type ImagemCasaAvgOrderByAggregateInput = {
+    id?: SortOrder
+    casaId?: SortOrder
+  }
+
+  export type ImagemCasaMaxOrderByAggregateInput = {
+    id?: SortOrder
+    url?: SortOrder
+    casaId?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type ImagemCasaMinOrderByAggregateInput = {
+    id?: SortOrder
+    url?: SortOrder
+    casaId?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type ImagemCasaSumOrderByAggregateInput = {
+    id?: SortOrder
+    casaId?: SortOrder
+  }
+
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type BloqueioDisponibilidadeCountOrderByAggregateInput = {
+    id?: SortOrder
+    dataInicio?: SortOrder
+    dataFim?: SortOrder
+    motivo?: SortOrder
+    casaId?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type BloqueioDisponibilidadeAvgOrderByAggregateInput = {
+    id?: SortOrder
+    casaId?: SortOrder
+  }
+
+  export type BloqueioDisponibilidadeMaxOrderByAggregateInput = {
+    id?: SortOrder
+    dataInicio?: SortOrder
+    dataFim?: SortOrder
+    motivo?: SortOrder
+    casaId?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type BloqueioDisponibilidadeMinOrderByAggregateInput = {
+    id?: SortOrder
+    dataInicio?: SortOrder
+    dataFim?: SortOrder
+    motivo?: SortOrder
+    casaId?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type BloqueioDisponibilidadeSumOrderByAggregateInput = {
+    id?: SortOrder
+    casaId?: SortOrder
+  }
+
   export type CasaListRelationFilter = {
     every?: CasaWhereInput
     some?: CasaWhereInput
     none?: CasaWhereInput
   }
 
+  export type MensagemListRelationFilter = {
+    every?: MensagemWhereInput
+    some?: MensagemWhereInput
+    none?: MensagemWhereInput
+  }
+
   export type CasaOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type MensagemOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -9827,17 +17329,6 @@ export namespace Prisma {
     id?: SortOrder
   }
 
-  export type DateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[]
-    notIn?: Date[] | string[]
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
-  }
-
   export type IntNullableFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | null
@@ -9854,9 +17345,9 @@ export namespace Prisma {
     isNot?: HospedeWhereInput
   }
 
-  export type CasaScalarRelationFilter = {
-    is?: CasaWhereInput
-    isNot?: CasaWhereInput
+  export type AvaliacaoNullableScalarRelationFilter = {
+    is?: AvaliacaoWhereInput | null
+    isNot?: AvaliacaoWhereInput | null
   }
 
   export type ReservaCountOrderByAggregateInput = {
@@ -9930,20 +17421,6 @@ export namespace Prisma {
     locadorId?: SortOrder
   }
 
-  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[]
-    notIn?: Date[] | string[]
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
-  }
-
   export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | null
@@ -9998,6 +17475,187 @@ export namespace Prisma {
     casaId?: SortOrder
   }
 
+  export type CasaNullableScalarRelationFilter = {
+    is?: CasaWhereInput | null
+    isNot?: CasaWhereInput | null
+  }
+
+  export type ConversaHospedeIdLocadorIdCasaIdCompoundUniqueInput = {
+    hospedeId: number
+    locadorId: number
+    casaId: number
+  }
+
+  export type ConversaCountOrderByAggregateInput = {
+    id?: SortOrder
+    hospedeId?: SortOrder
+    locadorId?: SortOrder
+    casaId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ConversaAvgOrderByAggregateInput = {
+    id?: SortOrder
+    hospedeId?: SortOrder
+    locadorId?: SortOrder
+    casaId?: SortOrder
+  }
+
+  export type ConversaMaxOrderByAggregateInput = {
+    id?: SortOrder
+    hospedeId?: SortOrder
+    locadorId?: SortOrder
+    casaId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ConversaMinOrderByAggregateInput = {
+    id?: SortOrder
+    hospedeId?: SortOrder
+    locadorId?: SortOrder
+    casaId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ConversaSumOrderByAggregateInput = {
+    id?: SortOrder
+    hospedeId?: SortOrder
+    locadorId?: SortOrder
+    casaId?: SortOrder
+  }
+
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type ConversaScalarRelationFilter = {
+    is?: ConversaWhereInput
+    isNot?: ConversaWhereInput
+  }
+
+  export type HospedeNullableScalarRelationFilter = {
+    is?: HospedeWhereInput | null
+    isNot?: HospedeWhereInput | null
+  }
+
+  export type LocadorNullableScalarRelationFilter = {
+    is?: LocadorWhereInput | null
+    isNot?: LocadorWhereInput | null
+  }
+
+  export type MensagemCountOrderByAggregateInput = {
+    id?: SortOrder
+    conteudo?: SortOrder
+    createdAt?: SortOrder
+    conversaId?: SortOrder
+    remetenteHospedeId?: SortOrder
+    remetenteLocadorId?: SortOrder
+    lidaPeloHospede?: SortOrder
+    lidaPeloLocador?: SortOrder
+  }
+
+  export type MensagemAvgOrderByAggregateInput = {
+    id?: SortOrder
+    conversaId?: SortOrder
+    remetenteHospedeId?: SortOrder
+    remetenteLocadorId?: SortOrder
+  }
+
+  export type MensagemMaxOrderByAggregateInput = {
+    id?: SortOrder
+    conteudo?: SortOrder
+    createdAt?: SortOrder
+    conversaId?: SortOrder
+    remetenteHospedeId?: SortOrder
+    remetenteLocadorId?: SortOrder
+    lidaPeloHospede?: SortOrder
+    lidaPeloLocador?: SortOrder
+  }
+
+  export type MensagemMinOrderByAggregateInput = {
+    id?: SortOrder
+    conteudo?: SortOrder
+    createdAt?: SortOrder
+    conversaId?: SortOrder
+    remetenteHospedeId?: SortOrder
+    remetenteLocadorId?: SortOrder
+    lidaPeloHospede?: SortOrder
+    lidaPeloLocador?: SortOrder
+  }
+
+  export type MensagemSumOrderByAggregateInput = {
+    id?: SortOrder
+    conversaId?: SortOrder
+    remetenteHospedeId?: SortOrder
+    remetenteLocadorId?: SortOrder
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type ReservaScalarRelationFilter = {
+    is?: ReservaWhereInput
+    isNot?: ReservaWhereInput
+  }
+
+  export type AvaliacaoCountOrderByAggregateInput = {
+    id?: SortOrder
+    nota?: SortOrder
+    comentario?: SortOrder
+    reservaId?: SortOrder
+    hospedeId?: SortOrder
+    casaId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type AvaliacaoAvgOrderByAggregateInput = {
+    id?: SortOrder
+    nota?: SortOrder
+    reservaId?: SortOrder
+    hospedeId?: SortOrder
+    casaId?: SortOrder
+  }
+
+  export type AvaliacaoMaxOrderByAggregateInput = {
+    id?: SortOrder
+    nota?: SortOrder
+    comentario?: SortOrder
+    reservaId?: SortOrder
+    hospedeId?: SortOrder
+    casaId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type AvaliacaoMinOrderByAggregateInput = {
+    id?: SortOrder
+    nota?: SortOrder
+    comentario?: SortOrder
+    reservaId?: SortOrder
+    hospedeId?: SortOrder
+    casaId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type AvaliacaoSumOrderByAggregateInput = {
+    id?: SortOrder
+    nota?: SortOrder
+    reservaId?: SortOrder
+    hospedeId?: SortOrder
+    casaId?: SortOrder
+  }
+
   export type NullableStringFieldUpdateOperationsInput = {
     set?: string | null
   }
@@ -10034,6 +17692,34 @@ export namespace Prisma {
     connect?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
   }
 
+  export type ImagemCasaCreateNestedManyWithoutCasaInput = {
+    create?: XOR<ImagemCasaCreateWithoutCasaInput, ImagemCasaUncheckedCreateWithoutCasaInput> | ImagemCasaCreateWithoutCasaInput[] | ImagemCasaUncheckedCreateWithoutCasaInput[]
+    connectOrCreate?: ImagemCasaCreateOrConnectWithoutCasaInput | ImagemCasaCreateOrConnectWithoutCasaInput[]
+    createMany?: ImagemCasaCreateManyCasaInputEnvelope
+    connect?: ImagemCasaWhereUniqueInput | ImagemCasaWhereUniqueInput[]
+  }
+
+  export type ConversaCreateNestedManyWithoutCasaInput = {
+    create?: XOR<ConversaCreateWithoutCasaInput, ConversaUncheckedCreateWithoutCasaInput> | ConversaCreateWithoutCasaInput[] | ConversaUncheckedCreateWithoutCasaInput[]
+    connectOrCreate?: ConversaCreateOrConnectWithoutCasaInput | ConversaCreateOrConnectWithoutCasaInput[]
+    createMany?: ConversaCreateManyCasaInputEnvelope
+    connect?: ConversaWhereUniqueInput | ConversaWhereUniqueInput[]
+  }
+
+  export type BloqueioDisponibilidadeCreateNestedManyWithoutCasaInput = {
+    create?: XOR<BloqueioDisponibilidadeCreateWithoutCasaInput, BloqueioDisponibilidadeUncheckedCreateWithoutCasaInput> | BloqueioDisponibilidadeCreateWithoutCasaInput[] | BloqueioDisponibilidadeUncheckedCreateWithoutCasaInput[]
+    connectOrCreate?: BloqueioDisponibilidadeCreateOrConnectWithoutCasaInput | BloqueioDisponibilidadeCreateOrConnectWithoutCasaInput[]
+    createMany?: BloqueioDisponibilidadeCreateManyCasaInputEnvelope
+    connect?: BloqueioDisponibilidadeWhereUniqueInput | BloqueioDisponibilidadeWhereUniqueInput[]
+  }
+
+  export type AvaliacaoCreateNestedManyWithoutCasaInput = {
+    create?: XOR<AvaliacaoCreateWithoutCasaInput, AvaliacaoUncheckedCreateWithoutCasaInput> | AvaliacaoCreateWithoutCasaInput[] | AvaliacaoUncheckedCreateWithoutCasaInput[]
+    connectOrCreate?: AvaliacaoCreateOrConnectWithoutCasaInput | AvaliacaoCreateOrConnectWithoutCasaInput[]
+    createMany?: AvaliacaoCreateManyCasaInputEnvelope
+    connect?: AvaliacaoWhereUniqueInput | AvaliacaoWhereUniqueInput[]
+  }
+
   export type ReservaUncheckedCreateNestedManyWithoutCasaInput = {
     create?: XOR<ReservaCreateWithoutCasaInput, ReservaUncheckedCreateWithoutCasaInput> | ReservaCreateWithoutCasaInput[] | ReservaUncheckedCreateWithoutCasaInput[]
     connectOrCreate?: ReservaCreateOrConnectWithoutCasaInput | ReservaCreateOrConnectWithoutCasaInput[]
@@ -10046,6 +17732,34 @@ export namespace Prisma {
     connectOrCreate?: FavoritoCreateOrConnectWithoutCasaInput | FavoritoCreateOrConnectWithoutCasaInput[]
     createMany?: FavoritoCreateManyCasaInputEnvelope
     connect?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+  }
+
+  export type ImagemCasaUncheckedCreateNestedManyWithoutCasaInput = {
+    create?: XOR<ImagemCasaCreateWithoutCasaInput, ImagemCasaUncheckedCreateWithoutCasaInput> | ImagemCasaCreateWithoutCasaInput[] | ImagemCasaUncheckedCreateWithoutCasaInput[]
+    connectOrCreate?: ImagemCasaCreateOrConnectWithoutCasaInput | ImagemCasaCreateOrConnectWithoutCasaInput[]
+    createMany?: ImagemCasaCreateManyCasaInputEnvelope
+    connect?: ImagemCasaWhereUniqueInput | ImagemCasaWhereUniqueInput[]
+  }
+
+  export type ConversaUncheckedCreateNestedManyWithoutCasaInput = {
+    create?: XOR<ConversaCreateWithoutCasaInput, ConversaUncheckedCreateWithoutCasaInput> | ConversaCreateWithoutCasaInput[] | ConversaUncheckedCreateWithoutCasaInput[]
+    connectOrCreate?: ConversaCreateOrConnectWithoutCasaInput | ConversaCreateOrConnectWithoutCasaInput[]
+    createMany?: ConversaCreateManyCasaInputEnvelope
+    connect?: ConversaWhereUniqueInput | ConversaWhereUniqueInput[]
+  }
+
+  export type BloqueioDisponibilidadeUncheckedCreateNestedManyWithoutCasaInput = {
+    create?: XOR<BloqueioDisponibilidadeCreateWithoutCasaInput, BloqueioDisponibilidadeUncheckedCreateWithoutCasaInput> | BloqueioDisponibilidadeCreateWithoutCasaInput[] | BloqueioDisponibilidadeUncheckedCreateWithoutCasaInput[]
+    connectOrCreate?: BloqueioDisponibilidadeCreateOrConnectWithoutCasaInput | BloqueioDisponibilidadeCreateOrConnectWithoutCasaInput[]
+    createMany?: BloqueioDisponibilidadeCreateManyCasaInputEnvelope
+    connect?: BloqueioDisponibilidadeWhereUniqueInput | BloqueioDisponibilidadeWhereUniqueInput[]
+  }
+
+  export type AvaliacaoUncheckedCreateNestedManyWithoutCasaInput = {
+    create?: XOR<AvaliacaoCreateWithoutCasaInput, AvaliacaoUncheckedCreateWithoutCasaInput> | AvaliacaoCreateWithoutCasaInput[] | AvaliacaoUncheckedCreateWithoutCasaInput[]
+    connectOrCreate?: AvaliacaoCreateOrConnectWithoutCasaInput | AvaliacaoCreateOrConnectWithoutCasaInput[]
+    createMany?: AvaliacaoCreateManyCasaInputEnvelope
+    connect?: AvaliacaoWhereUniqueInput | AvaliacaoWhereUniqueInput[]
   }
 
   export type NullableFloatFieldUpdateOperationsInput = {
@@ -10092,6 +17806,62 @@ export namespace Prisma {
     deleteMany?: FavoritoScalarWhereInput | FavoritoScalarWhereInput[]
   }
 
+  export type ImagemCasaUpdateManyWithoutCasaNestedInput = {
+    create?: XOR<ImagemCasaCreateWithoutCasaInput, ImagemCasaUncheckedCreateWithoutCasaInput> | ImagemCasaCreateWithoutCasaInput[] | ImagemCasaUncheckedCreateWithoutCasaInput[]
+    connectOrCreate?: ImagemCasaCreateOrConnectWithoutCasaInput | ImagemCasaCreateOrConnectWithoutCasaInput[]
+    upsert?: ImagemCasaUpsertWithWhereUniqueWithoutCasaInput | ImagemCasaUpsertWithWhereUniqueWithoutCasaInput[]
+    createMany?: ImagemCasaCreateManyCasaInputEnvelope
+    set?: ImagemCasaWhereUniqueInput | ImagemCasaWhereUniqueInput[]
+    disconnect?: ImagemCasaWhereUniqueInput | ImagemCasaWhereUniqueInput[]
+    delete?: ImagemCasaWhereUniqueInput | ImagemCasaWhereUniqueInput[]
+    connect?: ImagemCasaWhereUniqueInput | ImagemCasaWhereUniqueInput[]
+    update?: ImagemCasaUpdateWithWhereUniqueWithoutCasaInput | ImagemCasaUpdateWithWhereUniqueWithoutCasaInput[]
+    updateMany?: ImagemCasaUpdateManyWithWhereWithoutCasaInput | ImagemCasaUpdateManyWithWhereWithoutCasaInput[]
+    deleteMany?: ImagemCasaScalarWhereInput | ImagemCasaScalarWhereInput[]
+  }
+
+  export type ConversaUpdateManyWithoutCasaNestedInput = {
+    create?: XOR<ConversaCreateWithoutCasaInput, ConversaUncheckedCreateWithoutCasaInput> | ConversaCreateWithoutCasaInput[] | ConversaUncheckedCreateWithoutCasaInput[]
+    connectOrCreate?: ConversaCreateOrConnectWithoutCasaInput | ConversaCreateOrConnectWithoutCasaInput[]
+    upsert?: ConversaUpsertWithWhereUniqueWithoutCasaInput | ConversaUpsertWithWhereUniqueWithoutCasaInput[]
+    createMany?: ConversaCreateManyCasaInputEnvelope
+    set?: ConversaWhereUniqueInput | ConversaWhereUniqueInput[]
+    disconnect?: ConversaWhereUniqueInput | ConversaWhereUniqueInput[]
+    delete?: ConversaWhereUniqueInput | ConversaWhereUniqueInput[]
+    connect?: ConversaWhereUniqueInput | ConversaWhereUniqueInput[]
+    update?: ConversaUpdateWithWhereUniqueWithoutCasaInput | ConversaUpdateWithWhereUniqueWithoutCasaInput[]
+    updateMany?: ConversaUpdateManyWithWhereWithoutCasaInput | ConversaUpdateManyWithWhereWithoutCasaInput[]
+    deleteMany?: ConversaScalarWhereInput | ConversaScalarWhereInput[]
+  }
+
+  export type BloqueioDisponibilidadeUpdateManyWithoutCasaNestedInput = {
+    create?: XOR<BloqueioDisponibilidadeCreateWithoutCasaInput, BloqueioDisponibilidadeUncheckedCreateWithoutCasaInput> | BloqueioDisponibilidadeCreateWithoutCasaInput[] | BloqueioDisponibilidadeUncheckedCreateWithoutCasaInput[]
+    connectOrCreate?: BloqueioDisponibilidadeCreateOrConnectWithoutCasaInput | BloqueioDisponibilidadeCreateOrConnectWithoutCasaInput[]
+    upsert?: BloqueioDisponibilidadeUpsertWithWhereUniqueWithoutCasaInput | BloqueioDisponibilidadeUpsertWithWhereUniqueWithoutCasaInput[]
+    createMany?: BloqueioDisponibilidadeCreateManyCasaInputEnvelope
+    set?: BloqueioDisponibilidadeWhereUniqueInput | BloqueioDisponibilidadeWhereUniqueInput[]
+    disconnect?: BloqueioDisponibilidadeWhereUniqueInput | BloqueioDisponibilidadeWhereUniqueInput[]
+    delete?: BloqueioDisponibilidadeWhereUniqueInput | BloqueioDisponibilidadeWhereUniqueInput[]
+    connect?: BloqueioDisponibilidadeWhereUniqueInput | BloqueioDisponibilidadeWhereUniqueInput[]
+    update?: BloqueioDisponibilidadeUpdateWithWhereUniqueWithoutCasaInput | BloqueioDisponibilidadeUpdateWithWhereUniqueWithoutCasaInput[]
+    updateMany?: BloqueioDisponibilidadeUpdateManyWithWhereWithoutCasaInput | BloqueioDisponibilidadeUpdateManyWithWhereWithoutCasaInput[]
+    deleteMany?: BloqueioDisponibilidadeScalarWhereInput | BloqueioDisponibilidadeScalarWhereInput[]
+  }
+
+  export type AvaliacaoUpdateManyWithoutCasaNestedInput = {
+    create?: XOR<AvaliacaoCreateWithoutCasaInput, AvaliacaoUncheckedCreateWithoutCasaInput> | AvaliacaoCreateWithoutCasaInput[] | AvaliacaoUncheckedCreateWithoutCasaInput[]
+    connectOrCreate?: AvaliacaoCreateOrConnectWithoutCasaInput | AvaliacaoCreateOrConnectWithoutCasaInput[]
+    upsert?: AvaliacaoUpsertWithWhereUniqueWithoutCasaInput | AvaliacaoUpsertWithWhereUniqueWithoutCasaInput[]
+    createMany?: AvaliacaoCreateManyCasaInputEnvelope
+    set?: AvaliacaoWhereUniqueInput | AvaliacaoWhereUniqueInput[]
+    disconnect?: AvaliacaoWhereUniqueInput | AvaliacaoWhereUniqueInput[]
+    delete?: AvaliacaoWhereUniqueInput | AvaliacaoWhereUniqueInput[]
+    connect?: AvaliacaoWhereUniqueInput | AvaliacaoWhereUniqueInput[]
+    update?: AvaliacaoUpdateWithWhereUniqueWithoutCasaInput | AvaliacaoUpdateWithWhereUniqueWithoutCasaInput[]
+    updateMany?: AvaliacaoUpdateManyWithWhereWithoutCasaInput | AvaliacaoUpdateManyWithWhereWithoutCasaInput[]
+    deleteMany?: AvaliacaoScalarWhereInput | AvaliacaoScalarWhereInput[]
+  }
+
   export type ReservaUncheckedUpdateManyWithoutCasaNestedInput = {
     create?: XOR<ReservaCreateWithoutCasaInput, ReservaUncheckedCreateWithoutCasaInput> | ReservaCreateWithoutCasaInput[] | ReservaUncheckedCreateWithoutCasaInput[]
     connectOrCreate?: ReservaCreateOrConnectWithoutCasaInput | ReservaCreateOrConnectWithoutCasaInput[]
@@ -10120,6 +17890,94 @@ export namespace Prisma {
     deleteMany?: FavoritoScalarWhereInput | FavoritoScalarWhereInput[]
   }
 
+  export type ImagemCasaUncheckedUpdateManyWithoutCasaNestedInput = {
+    create?: XOR<ImagemCasaCreateWithoutCasaInput, ImagemCasaUncheckedCreateWithoutCasaInput> | ImagemCasaCreateWithoutCasaInput[] | ImagemCasaUncheckedCreateWithoutCasaInput[]
+    connectOrCreate?: ImagemCasaCreateOrConnectWithoutCasaInput | ImagemCasaCreateOrConnectWithoutCasaInput[]
+    upsert?: ImagemCasaUpsertWithWhereUniqueWithoutCasaInput | ImagemCasaUpsertWithWhereUniqueWithoutCasaInput[]
+    createMany?: ImagemCasaCreateManyCasaInputEnvelope
+    set?: ImagemCasaWhereUniqueInput | ImagemCasaWhereUniqueInput[]
+    disconnect?: ImagemCasaWhereUniqueInput | ImagemCasaWhereUniqueInput[]
+    delete?: ImagemCasaWhereUniqueInput | ImagemCasaWhereUniqueInput[]
+    connect?: ImagemCasaWhereUniqueInput | ImagemCasaWhereUniqueInput[]
+    update?: ImagemCasaUpdateWithWhereUniqueWithoutCasaInput | ImagemCasaUpdateWithWhereUniqueWithoutCasaInput[]
+    updateMany?: ImagemCasaUpdateManyWithWhereWithoutCasaInput | ImagemCasaUpdateManyWithWhereWithoutCasaInput[]
+    deleteMany?: ImagemCasaScalarWhereInput | ImagemCasaScalarWhereInput[]
+  }
+
+  export type ConversaUncheckedUpdateManyWithoutCasaNestedInput = {
+    create?: XOR<ConversaCreateWithoutCasaInput, ConversaUncheckedCreateWithoutCasaInput> | ConversaCreateWithoutCasaInput[] | ConversaUncheckedCreateWithoutCasaInput[]
+    connectOrCreate?: ConversaCreateOrConnectWithoutCasaInput | ConversaCreateOrConnectWithoutCasaInput[]
+    upsert?: ConversaUpsertWithWhereUniqueWithoutCasaInput | ConversaUpsertWithWhereUniqueWithoutCasaInput[]
+    createMany?: ConversaCreateManyCasaInputEnvelope
+    set?: ConversaWhereUniqueInput | ConversaWhereUniqueInput[]
+    disconnect?: ConversaWhereUniqueInput | ConversaWhereUniqueInput[]
+    delete?: ConversaWhereUniqueInput | ConversaWhereUniqueInput[]
+    connect?: ConversaWhereUniqueInput | ConversaWhereUniqueInput[]
+    update?: ConversaUpdateWithWhereUniqueWithoutCasaInput | ConversaUpdateWithWhereUniqueWithoutCasaInput[]
+    updateMany?: ConversaUpdateManyWithWhereWithoutCasaInput | ConversaUpdateManyWithWhereWithoutCasaInput[]
+    deleteMany?: ConversaScalarWhereInput | ConversaScalarWhereInput[]
+  }
+
+  export type BloqueioDisponibilidadeUncheckedUpdateManyWithoutCasaNestedInput = {
+    create?: XOR<BloqueioDisponibilidadeCreateWithoutCasaInput, BloqueioDisponibilidadeUncheckedCreateWithoutCasaInput> | BloqueioDisponibilidadeCreateWithoutCasaInput[] | BloqueioDisponibilidadeUncheckedCreateWithoutCasaInput[]
+    connectOrCreate?: BloqueioDisponibilidadeCreateOrConnectWithoutCasaInput | BloqueioDisponibilidadeCreateOrConnectWithoutCasaInput[]
+    upsert?: BloqueioDisponibilidadeUpsertWithWhereUniqueWithoutCasaInput | BloqueioDisponibilidadeUpsertWithWhereUniqueWithoutCasaInput[]
+    createMany?: BloqueioDisponibilidadeCreateManyCasaInputEnvelope
+    set?: BloqueioDisponibilidadeWhereUniqueInput | BloqueioDisponibilidadeWhereUniqueInput[]
+    disconnect?: BloqueioDisponibilidadeWhereUniqueInput | BloqueioDisponibilidadeWhereUniqueInput[]
+    delete?: BloqueioDisponibilidadeWhereUniqueInput | BloqueioDisponibilidadeWhereUniqueInput[]
+    connect?: BloqueioDisponibilidadeWhereUniqueInput | BloqueioDisponibilidadeWhereUniqueInput[]
+    update?: BloqueioDisponibilidadeUpdateWithWhereUniqueWithoutCasaInput | BloqueioDisponibilidadeUpdateWithWhereUniqueWithoutCasaInput[]
+    updateMany?: BloqueioDisponibilidadeUpdateManyWithWhereWithoutCasaInput | BloqueioDisponibilidadeUpdateManyWithWhereWithoutCasaInput[]
+    deleteMany?: BloqueioDisponibilidadeScalarWhereInput | BloqueioDisponibilidadeScalarWhereInput[]
+  }
+
+  export type AvaliacaoUncheckedUpdateManyWithoutCasaNestedInput = {
+    create?: XOR<AvaliacaoCreateWithoutCasaInput, AvaliacaoUncheckedCreateWithoutCasaInput> | AvaliacaoCreateWithoutCasaInput[] | AvaliacaoUncheckedCreateWithoutCasaInput[]
+    connectOrCreate?: AvaliacaoCreateOrConnectWithoutCasaInput | AvaliacaoCreateOrConnectWithoutCasaInput[]
+    upsert?: AvaliacaoUpsertWithWhereUniqueWithoutCasaInput | AvaliacaoUpsertWithWhereUniqueWithoutCasaInput[]
+    createMany?: AvaliacaoCreateManyCasaInputEnvelope
+    set?: AvaliacaoWhereUniqueInput | AvaliacaoWhereUniqueInput[]
+    disconnect?: AvaliacaoWhereUniqueInput | AvaliacaoWhereUniqueInput[]
+    delete?: AvaliacaoWhereUniqueInput | AvaliacaoWhereUniqueInput[]
+    connect?: AvaliacaoWhereUniqueInput | AvaliacaoWhereUniqueInput[]
+    update?: AvaliacaoUpdateWithWhereUniqueWithoutCasaInput | AvaliacaoUpdateWithWhereUniqueWithoutCasaInput[]
+    updateMany?: AvaliacaoUpdateManyWithWhereWithoutCasaInput | AvaliacaoUpdateManyWithWhereWithoutCasaInput[]
+    deleteMany?: AvaliacaoScalarWhereInput | AvaliacaoScalarWhereInput[]
+  }
+
+  export type CasaCreateNestedOneWithoutImagensInput = {
+    create?: XOR<CasaCreateWithoutImagensInput, CasaUncheckedCreateWithoutImagensInput>
+    connectOrCreate?: CasaCreateOrConnectWithoutImagensInput
+    connect?: CasaWhereUniqueInput
+  }
+
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
+  }
+
+  export type CasaUpdateOneRequiredWithoutImagensNestedInput = {
+    create?: XOR<CasaCreateWithoutImagensInput, CasaUncheckedCreateWithoutImagensInput>
+    connectOrCreate?: CasaCreateOrConnectWithoutImagensInput
+    upsert?: CasaUpsertWithoutImagensInput
+    connect?: CasaWhereUniqueInput
+    update?: XOR<XOR<CasaUpdateToOneWithWhereWithoutImagensInput, CasaUpdateWithoutImagensInput>, CasaUncheckedUpdateWithoutImagensInput>
+  }
+
+  export type CasaCreateNestedOneWithoutBloqueiosDisponibilidadeInput = {
+    create?: XOR<CasaCreateWithoutBloqueiosDisponibilidadeInput, CasaUncheckedCreateWithoutBloqueiosDisponibilidadeInput>
+    connectOrCreate?: CasaCreateOrConnectWithoutBloqueiosDisponibilidadeInput
+    connect?: CasaWhereUniqueInput
+  }
+
+  export type CasaUpdateOneRequiredWithoutBloqueiosDisponibilidadeNestedInput = {
+    create?: XOR<CasaCreateWithoutBloqueiosDisponibilidadeInput, CasaUncheckedCreateWithoutBloqueiosDisponibilidadeInput>
+    connectOrCreate?: CasaCreateOrConnectWithoutBloqueiosDisponibilidadeInput
+    upsert?: CasaUpsertWithoutBloqueiosDisponibilidadeInput
+    connect?: CasaWhereUniqueInput
+    update?: XOR<XOR<CasaUpdateToOneWithWhereWithoutBloqueiosDisponibilidadeInput, CasaUpdateWithoutBloqueiosDisponibilidadeInput>, CasaUncheckedUpdateWithoutBloqueiosDisponibilidadeInput>
+  }
+
   export type CasaCreateNestedManyWithoutLocadorInput = {
     create?: XOR<CasaCreateWithoutLocadorInput, CasaUncheckedCreateWithoutLocadorInput> | CasaCreateWithoutLocadorInput[] | CasaUncheckedCreateWithoutLocadorInput[]
     connectOrCreate?: CasaCreateOrConnectWithoutLocadorInput | CasaCreateOrConnectWithoutLocadorInput[]
@@ -10134,6 +17992,20 @@ export namespace Prisma {
     connect?: ReservaWhereUniqueInput | ReservaWhereUniqueInput[]
   }
 
+  export type ConversaCreateNestedManyWithoutLocadorInput = {
+    create?: XOR<ConversaCreateWithoutLocadorInput, ConversaUncheckedCreateWithoutLocadorInput> | ConversaCreateWithoutLocadorInput[] | ConversaUncheckedCreateWithoutLocadorInput[]
+    connectOrCreate?: ConversaCreateOrConnectWithoutLocadorInput | ConversaCreateOrConnectWithoutLocadorInput[]
+    createMany?: ConversaCreateManyLocadorInputEnvelope
+    connect?: ConversaWhereUniqueInput | ConversaWhereUniqueInput[]
+  }
+
+  export type MensagemCreateNestedManyWithoutRemetenteLocadorInput = {
+    create?: XOR<MensagemCreateWithoutRemetenteLocadorInput, MensagemUncheckedCreateWithoutRemetenteLocadorInput> | MensagemCreateWithoutRemetenteLocadorInput[] | MensagemUncheckedCreateWithoutRemetenteLocadorInput[]
+    connectOrCreate?: MensagemCreateOrConnectWithoutRemetenteLocadorInput | MensagemCreateOrConnectWithoutRemetenteLocadorInput[]
+    createMany?: MensagemCreateManyRemetenteLocadorInputEnvelope
+    connect?: MensagemWhereUniqueInput | MensagemWhereUniqueInput[]
+  }
+
   export type CasaUncheckedCreateNestedManyWithoutLocadorInput = {
     create?: XOR<CasaCreateWithoutLocadorInput, CasaUncheckedCreateWithoutLocadorInput> | CasaCreateWithoutLocadorInput[] | CasaUncheckedCreateWithoutLocadorInput[]
     connectOrCreate?: CasaCreateOrConnectWithoutLocadorInput | CasaCreateOrConnectWithoutLocadorInput[]
@@ -10146,6 +18018,20 @@ export namespace Prisma {
     connectOrCreate?: ReservaCreateOrConnectWithoutLocadorInput | ReservaCreateOrConnectWithoutLocadorInput[]
     createMany?: ReservaCreateManyLocadorInputEnvelope
     connect?: ReservaWhereUniqueInput | ReservaWhereUniqueInput[]
+  }
+
+  export type ConversaUncheckedCreateNestedManyWithoutLocadorInput = {
+    create?: XOR<ConversaCreateWithoutLocadorInput, ConversaUncheckedCreateWithoutLocadorInput> | ConversaCreateWithoutLocadorInput[] | ConversaUncheckedCreateWithoutLocadorInput[]
+    connectOrCreate?: ConversaCreateOrConnectWithoutLocadorInput | ConversaCreateOrConnectWithoutLocadorInput[]
+    createMany?: ConversaCreateManyLocadorInputEnvelope
+    connect?: ConversaWhereUniqueInput | ConversaWhereUniqueInput[]
+  }
+
+  export type MensagemUncheckedCreateNestedManyWithoutRemetenteLocadorInput = {
+    create?: XOR<MensagemCreateWithoutRemetenteLocadorInput, MensagemUncheckedCreateWithoutRemetenteLocadorInput> | MensagemCreateWithoutRemetenteLocadorInput[] | MensagemUncheckedCreateWithoutRemetenteLocadorInput[]
+    connectOrCreate?: MensagemCreateOrConnectWithoutRemetenteLocadorInput | MensagemCreateOrConnectWithoutRemetenteLocadorInput[]
+    createMany?: MensagemCreateManyRemetenteLocadorInputEnvelope
+    connect?: MensagemWhereUniqueInput | MensagemWhereUniqueInput[]
   }
 
   export type CasaUpdateManyWithoutLocadorNestedInput = {
@@ -10176,6 +18062,34 @@ export namespace Prisma {
     deleteMany?: ReservaScalarWhereInput | ReservaScalarWhereInput[]
   }
 
+  export type ConversaUpdateManyWithoutLocadorNestedInput = {
+    create?: XOR<ConversaCreateWithoutLocadorInput, ConversaUncheckedCreateWithoutLocadorInput> | ConversaCreateWithoutLocadorInput[] | ConversaUncheckedCreateWithoutLocadorInput[]
+    connectOrCreate?: ConversaCreateOrConnectWithoutLocadorInput | ConversaCreateOrConnectWithoutLocadorInput[]
+    upsert?: ConversaUpsertWithWhereUniqueWithoutLocadorInput | ConversaUpsertWithWhereUniqueWithoutLocadorInput[]
+    createMany?: ConversaCreateManyLocadorInputEnvelope
+    set?: ConversaWhereUniqueInput | ConversaWhereUniqueInput[]
+    disconnect?: ConversaWhereUniqueInput | ConversaWhereUniqueInput[]
+    delete?: ConversaWhereUniqueInput | ConversaWhereUniqueInput[]
+    connect?: ConversaWhereUniqueInput | ConversaWhereUniqueInput[]
+    update?: ConversaUpdateWithWhereUniqueWithoutLocadorInput | ConversaUpdateWithWhereUniqueWithoutLocadorInput[]
+    updateMany?: ConversaUpdateManyWithWhereWithoutLocadorInput | ConversaUpdateManyWithWhereWithoutLocadorInput[]
+    deleteMany?: ConversaScalarWhereInput | ConversaScalarWhereInput[]
+  }
+
+  export type MensagemUpdateManyWithoutRemetenteLocadorNestedInput = {
+    create?: XOR<MensagemCreateWithoutRemetenteLocadorInput, MensagemUncheckedCreateWithoutRemetenteLocadorInput> | MensagemCreateWithoutRemetenteLocadorInput[] | MensagemUncheckedCreateWithoutRemetenteLocadorInput[]
+    connectOrCreate?: MensagemCreateOrConnectWithoutRemetenteLocadorInput | MensagemCreateOrConnectWithoutRemetenteLocadorInput[]
+    upsert?: MensagemUpsertWithWhereUniqueWithoutRemetenteLocadorInput | MensagemUpsertWithWhereUniqueWithoutRemetenteLocadorInput[]
+    createMany?: MensagemCreateManyRemetenteLocadorInputEnvelope
+    set?: MensagemWhereUniqueInput | MensagemWhereUniqueInput[]
+    disconnect?: MensagemWhereUniqueInput | MensagemWhereUniqueInput[]
+    delete?: MensagemWhereUniqueInput | MensagemWhereUniqueInput[]
+    connect?: MensagemWhereUniqueInput | MensagemWhereUniqueInput[]
+    update?: MensagemUpdateWithWhereUniqueWithoutRemetenteLocadorInput | MensagemUpdateWithWhereUniqueWithoutRemetenteLocadorInput[]
+    updateMany?: MensagemUpdateManyWithWhereWithoutRemetenteLocadorInput | MensagemUpdateManyWithWhereWithoutRemetenteLocadorInput[]
+    deleteMany?: MensagemScalarWhereInput | MensagemScalarWhereInput[]
+  }
+
   export type CasaUncheckedUpdateManyWithoutLocadorNestedInput = {
     create?: XOR<CasaCreateWithoutLocadorInput, CasaUncheckedCreateWithoutLocadorInput> | CasaCreateWithoutLocadorInput[] | CasaUncheckedCreateWithoutLocadorInput[]
     connectOrCreate?: CasaCreateOrConnectWithoutLocadorInput | CasaCreateOrConnectWithoutLocadorInput[]
@@ -10204,6 +18118,34 @@ export namespace Prisma {
     deleteMany?: ReservaScalarWhereInput | ReservaScalarWhereInput[]
   }
 
+  export type ConversaUncheckedUpdateManyWithoutLocadorNestedInput = {
+    create?: XOR<ConversaCreateWithoutLocadorInput, ConversaUncheckedCreateWithoutLocadorInput> | ConversaCreateWithoutLocadorInput[] | ConversaUncheckedCreateWithoutLocadorInput[]
+    connectOrCreate?: ConversaCreateOrConnectWithoutLocadorInput | ConversaCreateOrConnectWithoutLocadorInput[]
+    upsert?: ConversaUpsertWithWhereUniqueWithoutLocadorInput | ConversaUpsertWithWhereUniqueWithoutLocadorInput[]
+    createMany?: ConversaCreateManyLocadorInputEnvelope
+    set?: ConversaWhereUniqueInput | ConversaWhereUniqueInput[]
+    disconnect?: ConversaWhereUniqueInput | ConversaWhereUniqueInput[]
+    delete?: ConversaWhereUniqueInput | ConversaWhereUniqueInput[]
+    connect?: ConversaWhereUniqueInput | ConversaWhereUniqueInput[]
+    update?: ConversaUpdateWithWhereUniqueWithoutLocadorInput | ConversaUpdateWithWhereUniqueWithoutLocadorInput[]
+    updateMany?: ConversaUpdateManyWithWhereWithoutLocadorInput | ConversaUpdateManyWithWhereWithoutLocadorInput[]
+    deleteMany?: ConversaScalarWhereInput | ConversaScalarWhereInput[]
+  }
+
+  export type MensagemUncheckedUpdateManyWithoutRemetenteLocadorNestedInput = {
+    create?: XOR<MensagemCreateWithoutRemetenteLocadorInput, MensagemUncheckedCreateWithoutRemetenteLocadorInput> | MensagemCreateWithoutRemetenteLocadorInput[] | MensagemUncheckedCreateWithoutRemetenteLocadorInput[]
+    connectOrCreate?: MensagemCreateOrConnectWithoutRemetenteLocadorInput | MensagemCreateOrConnectWithoutRemetenteLocadorInput[]
+    upsert?: MensagemUpsertWithWhereUniqueWithoutRemetenteLocadorInput | MensagemUpsertWithWhereUniqueWithoutRemetenteLocadorInput[]
+    createMany?: MensagemCreateManyRemetenteLocadorInputEnvelope
+    set?: MensagemWhereUniqueInput | MensagemWhereUniqueInput[]
+    disconnect?: MensagemWhereUniqueInput | MensagemWhereUniqueInput[]
+    delete?: MensagemWhereUniqueInput | MensagemWhereUniqueInput[]
+    connect?: MensagemWhereUniqueInput | MensagemWhereUniqueInput[]
+    update?: MensagemUpdateWithWhereUniqueWithoutRemetenteLocadorInput | MensagemUpdateWithWhereUniqueWithoutRemetenteLocadorInput[]
+    updateMany?: MensagemUpdateManyWithWhereWithoutRemetenteLocadorInput | MensagemUpdateManyWithWhereWithoutRemetenteLocadorInput[]
+    deleteMany?: MensagemScalarWhereInput | MensagemScalarWhereInput[]
+  }
+
   export type ReservaCreateNestedManyWithoutHospedeInput = {
     create?: XOR<ReservaCreateWithoutHospedeInput, ReservaUncheckedCreateWithoutHospedeInput> | ReservaCreateWithoutHospedeInput[] | ReservaUncheckedCreateWithoutHospedeInput[]
     connectOrCreate?: ReservaCreateOrConnectWithoutHospedeInput | ReservaCreateOrConnectWithoutHospedeInput[]
@@ -10218,6 +18160,27 @@ export namespace Prisma {
     connect?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
   }
 
+  export type ConversaCreateNestedManyWithoutHospedeInput = {
+    create?: XOR<ConversaCreateWithoutHospedeInput, ConversaUncheckedCreateWithoutHospedeInput> | ConversaCreateWithoutHospedeInput[] | ConversaUncheckedCreateWithoutHospedeInput[]
+    connectOrCreate?: ConversaCreateOrConnectWithoutHospedeInput | ConversaCreateOrConnectWithoutHospedeInput[]
+    createMany?: ConversaCreateManyHospedeInputEnvelope
+    connect?: ConversaWhereUniqueInput | ConversaWhereUniqueInput[]
+  }
+
+  export type MensagemCreateNestedManyWithoutRemetenteHospedeInput = {
+    create?: XOR<MensagemCreateWithoutRemetenteHospedeInput, MensagemUncheckedCreateWithoutRemetenteHospedeInput> | MensagemCreateWithoutRemetenteHospedeInput[] | MensagemUncheckedCreateWithoutRemetenteHospedeInput[]
+    connectOrCreate?: MensagemCreateOrConnectWithoutRemetenteHospedeInput | MensagemCreateOrConnectWithoutRemetenteHospedeInput[]
+    createMany?: MensagemCreateManyRemetenteHospedeInputEnvelope
+    connect?: MensagemWhereUniqueInput | MensagemWhereUniqueInput[]
+  }
+
+  export type AvaliacaoCreateNestedManyWithoutHospedeInput = {
+    create?: XOR<AvaliacaoCreateWithoutHospedeInput, AvaliacaoUncheckedCreateWithoutHospedeInput> | AvaliacaoCreateWithoutHospedeInput[] | AvaliacaoUncheckedCreateWithoutHospedeInput[]
+    connectOrCreate?: AvaliacaoCreateOrConnectWithoutHospedeInput | AvaliacaoCreateOrConnectWithoutHospedeInput[]
+    createMany?: AvaliacaoCreateManyHospedeInputEnvelope
+    connect?: AvaliacaoWhereUniqueInput | AvaliacaoWhereUniqueInput[]
+  }
+
   export type ReservaUncheckedCreateNestedManyWithoutHospedeInput = {
     create?: XOR<ReservaCreateWithoutHospedeInput, ReservaUncheckedCreateWithoutHospedeInput> | ReservaCreateWithoutHospedeInput[] | ReservaUncheckedCreateWithoutHospedeInput[]
     connectOrCreate?: ReservaCreateOrConnectWithoutHospedeInput | ReservaCreateOrConnectWithoutHospedeInput[]
@@ -10230,6 +18193,27 @@ export namespace Prisma {
     connectOrCreate?: FavoritoCreateOrConnectWithoutHospedeInput | FavoritoCreateOrConnectWithoutHospedeInput[]
     createMany?: FavoritoCreateManyHospedeInputEnvelope
     connect?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
+  }
+
+  export type ConversaUncheckedCreateNestedManyWithoutHospedeInput = {
+    create?: XOR<ConversaCreateWithoutHospedeInput, ConversaUncheckedCreateWithoutHospedeInput> | ConversaCreateWithoutHospedeInput[] | ConversaUncheckedCreateWithoutHospedeInput[]
+    connectOrCreate?: ConversaCreateOrConnectWithoutHospedeInput | ConversaCreateOrConnectWithoutHospedeInput[]
+    createMany?: ConversaCreateManyHospedeInputEnvelope
+    connect?: ConversaWhereUniqueInput | ConversaWhereUniqueInput[]
+  }
+
+  export type MensagemUncheckedCreateNestedManyWithoutRemetenteHospedeInput = {
+    create?: XOR<MensagemCreateWithoutRemetenteHospedeInput, MensagemUncheckedCreateWithoutRemetenteHospedeInput> | MensagemCreateWithoutRemetenteHospedeInput[] | MensagemUncheckedCreateWithoutRemetenteHospedeInput[]
+    connectOrCreate?: MensagemCreateOrConnectWithoutRemetenteHospedeInput | MensagemCreateOrConnectWithoutRemetenteHospedeInput[]
+    createMany?: MensagemCreateManyRemetenteHospedeInputEnvelope
+    connect?: MensagemWhereUniqueInput | MensagemWhereUniqueInput[]
+  }
+
+  export type AvaliacaoUncheckedCreateNestedManyWithoutHospedeInput = {
+    create?: XOR<AvaliacaoCreateWithoutHospedeInput, AvaliacaoUncheckedCreateWithoutHospedeInput> | AvaliacaoCreateWithoutHospedeInput[] | AvaliacaoUncheckedCreateWithoutHospedeInput[]
+    connectOrCreate?: AvaliacaoCreateOrConnectWithoutHospedeInput | AvaliacaoCreateOrConnectWithoutHospedeInput[]
+    createMany?: AvaliacaoCreateManyHospedeInputEnvelope
+    connect?: AvaliacaoWhereUniqueInput | AvaliacaoWhereUniqueInput[]
   }
 
   export type ReservaUpdateManyWithoutHospedeNestedInput = {
@@ -10260,6 +18244,48 @@ export namespace Prisma {
     deleteMany?: FavoritoScalarWhereInput | FavoritoScalarWhereInput[]
   }
 
+  export type ConversaUpdateManyWithoutHospedeNestedInput = {
+    create?: XOR<ConversaCreateWithoutHospedeInput, ConversaUncheckedCreateWithoutHospedeInput> | ConversaCreateWithoutHospedeInput[] | ConversaUncheckedCreateWithoutHospedeInput[]
+    connectOrCreate?: ConversaCreateOrConnectWithoutHospedeInput | ConversaCreateOrConnectWithoutHospedeInput[]
+    upsert?: ConversaUpsertWithWhereUniqueWithoutHospedeInput | ConversaUpsertWithWhereUniqueWithoutHospedeInput[]
+    createMany?: ConversaCreateManyHospedeInputEnvelope
+    set?: ConversaWhereUniqueInput | ConversaWhereUniqueInput[]
+    disconnect?: ConversaWhereUniqueInput | ConversaWhereUniqueInput[]
+    delete?: ConversaWhereUniqueInput | ConversaWhereUniqueInput[]
+    connect?: ConversaWhereUniqueInput | ConversaWhereUniqueInput[]
+    update?: ConversaUpdateWithWhereUniqueWithoutHospedeInput | ConversaUpdateWithWhereUniqueWithoutHospedeInput[]
+    updateMany?: ConversaUpdateManyWithWhereWithoutHospedeInput | ConversaUpdateManyWithWhereWithoutHospedeInput[]
+    deleteMany?: ConversaScalarWhereInput | ConversaScalarWhereInput[]
+  }
+
+  export type MensagemUpdateManyWithoutRemetenteHospedeNestedInput = {
+    create?: XOR<MensagemCreateWithoutRemetenteHospedeInput, MensagemUncheckedCreateWithoutRemetenteHospedeInput> | MensagemCreateWithoutRemetenteHospedeInput[] | MensagemUncheckedCreateWithoutRemetenteHospedeInput[]
+    connectOrCreate?: MensagemCreateOrConnectWithoutRemetenteHospedeInput | MensagemCreateOrConnectWithoutRemetenteHospedeInput[]
+    upsert?: MensagemUpsertWithWhereUniqueWithoutRemetenteHospedeInput | MensagemUpsertWithWhereUniqueWithoutRemetenteHospedeInput[]
+    createMany?: MensagemCreateManyRemetenteHospedeInputEnvelope
+    set?: MensagemWhereUniqueInput | MensagemWhereUniqueInput[]
+    disconnect?: MensagemWhereUniqueInput | MensagemWhereUniqueInput[]
+    delete?: MensagemWhereUniqueInput | MensagemWhereUniqueInput[]
+    connect?: MensagemWhereUniqueInput | MensagemWhereUniqueInput[]
+    update?: MensagemUpdateWithWhereUniqueWithoutRemetenteHospedeInput | MensagemUpdateWithWhereUniqueWithoutRemetenteHospedeInput[]
+    updateMany?: MensagemUpdateManyWithWhereWithoutRemetenteHospedeInput | MensagemUpdateManyWithWhereWithoutRemetenteHospedeInput[]
+    deleteMany?: MensagemScalarWhereInput | MensagemScalarWhereInput[]
+  }
+
+  export type AvaliacaoUpdateManyWithoutHospedeNestedInput = {
+    create?: XOR<AvaliacaoCreateWithoutHospedeInput, AvaliacaoUncheckedCreateWithoutHospedeInput> | AvaliacaoCreateWithoutHospedeInput[] | AvaliacaoUncheckedCreateWithoutHospedeInput[]
+    connectOrCreate?: AvaliacaoCreateOrConnectWithoutHospedeInput | AvaliacaoCreateOrConnectWithoutHospedeInput[]
+    upsert?: AvaliacaoUpsertWithWhereUniqueWithoutHospedeInput | AvaliacaoUpsertWithWhereUniqueWithoutHospedeInput[]
+    createMany?: AvaliacaoCreateManyHospedeInputEnvelope
+    set?: AvaliacaoWhereUniqueInput | AvaliacaoWhereUniqueInput[]
+    disconnect?: AvaliacaoWhereUniqueInput | AvaliacaoWhereUniqueInput[]
+    delete?: AvaliacaoWhereUniqueInput | AvaliacaoWhereUniqueInput[]
+    connect?: AvaliacaoWhereUniqueInput | AvaliacaoWhereUniqueInput[]
+    update?: AvaliacaoUpdateWithWhereUniqueWithoutHospedeInput | AvaliacaoUpdateWithWhereUniqueWithoutHospedeInput[]
+    updateMany?: AvaliacaoUpdateManyWithWhereWithoutHospedeInput | AvaliacaoUpdateManyWithWhereWithoutHospedeInput[]
+    deleteMany?: AvaliacaoScalarWhereInput | AvaliacaoScalarWhereInput[]
+  }
+
   export type ReservaUncheckedUpdateManyWithoutHospedeNestedInput = {
     create?: XOR<ReservaCreateWithoutHospedeInput, ReservaUncheckedCreateWithoutHospedeInput> | ReservaCreateWithoutHospedeInput[] | ReservaUncheckedCreateWithoutHospedeInput[]
     connectOrCreate?: ReservaCreateOrConnectWithoutHospedeInput | ReservaCreateOrConnectWithoutHospedeInput[]
@@ -10288,6 +18314,48 @@ export namespace Prisma {
     deleteMany?: FavoritoScalarWhereInput | FavoritoScalarWhereInput[]
   }
 
+  export type ConversaUncheckedUpdateManyWithoutHospedeNestedInput = {
+    create?: XOR<ConversaCreateWithoutHospedeInput, ConversaUncheckedCreateWithoutHospedeInput> | ConversaCreateWithoutHospedeInput[] | ConversaUncheckedCreateWithoutHospedeInput[]
+    connectOrCreate?: ConversaCreateOrConnectWithoutHospedeInput | ConversaCreateOrConnectWithoutHospedeInput[]
+    upsert?: ConversaUpsertWithWhereUniqueWithoutHospedeInput | ConversaUpsertWithWhereUniqueWithoutHospedeInput[]
+    createMany?: ConversaCreateManyHospedeInputEnvelope
+    set?: ConversaWhereUniqueInput | ConversaWhereUniqueInput[]
+    disconnect?: ConversaWhereUniqueInput | ConversaWhereUniqueInput[]
+    delete?: ConversaWhereUniqueInput | ConversaWhereUniqueInput[]
+    connect?: ConversaWhereUniqueInput | ConversaWhereUniqueInput[]
+    update?: ConversaUpdateWithWhereUniqueWithoutHospedeInput | ConversaUpdateWithWhereUniqueWithoutHospedeInput[]
+    updateMany?: ConversaUpdateManyWithWhereWithoutHospedeInput | ConversaUpdateManyWithWhereWithoutHospedeInput[]
+    deleteMany?: ConversaScalarWhereInput | ConversaScalarWhereInput[]
+  }
+
+  export type MensagemUncheckedUpdateManyWithoutRemetenteHospedeNestedInput = {
+    create?: XOR<MensagemCreateWithoutRemetenteHospedeInput, MensagemUncheckedCreateWithoutRemetenteHospedeInput> | MensagemCreateWithoutRemetenteHospedeInput[] | MensagemUncheckedCreateWithoutRemetenteHospedeInput[]
+    connectOrCreate?: MensagemCreateOrConnectWithoutRemetenteHospedeInput | MensagemCreateOrConnectWithoutRemetenteHospedeInput[]
+    upsert?: MensagemUpsertWithWhereUniqueWithoutRemetenteHospedeInput | MensagemUpsertWithWhereUniqueWithoutRemetenteHospedeInput[]
+    createMany?: MensagemCreateManyRemetenteHospedeInputEnvelope
+    set?: MensagemWhereUniqueInput | MensagemWhereUniqueInput[]
+    disconnect?: MensagemWhereUniqueInput | MensagemWhereUniqueInput[]
+    delete?: MensagemWhereUniqueInput | MensagemWhereUniqueInput[]
+    connect?: MensagemWhereUniqueInput | MensagemWhereUniqueInput[]
+    update?: MensagemUpdateWithWhereUniqueWithoutRemetenteHospedeInput | MensagemUpdateWithWhereUniqueWithoutRemetenteHospedeInput[]
+    updateMany?: MensagemUpdateManyWithWhereWithoutRemetenteHospedeInput | MensagemUpdateManyWithWhereWithoutRemetenteHospedeInput[]
+    deleteMany?: MensagemScalarWhereInput | MensagemScalarWhereInput[]
+  }
+
+  export type AvaliacaoUncheckedUpdateManyWithoutHospedeNestedInput = {
+    create?: XOR<AvaliacaoCreateWithoutHospedeInput, AvaliacaoUncheckedCreateWithoutHospedeInput> | AvaliacaoCreateWithoutHospedeInput[] | AvaliacaoUncheckedCreateWithoutHospedeInput[]
+    connectOrCreate?: AvaliacaoCreateOrConnectWithoutHospedeInput | AvaliacaoCreateOrConnectWithoutHospedeInput[]
+    upsert?: AvaliacaoUpsertWithWhereUniqueWithoutHospedeInput | AvaliacaoUpsertWithWhereUniqueWithoutHospedeInput[]
+    createMany?: AvaliacaoCreateManyHospedeInputEnvelope
+    set?: AvaliacaoWhereUniqueInput | AvaliacaoWhereUniqueInput[]
+    disconnect?: AvaliacaoWhereUniqueInput | AvaliacaoWhereUniqueInput[]
+    delete?: AvaliacaoWhereUniqueInput | AvaliacaoWhereUniqueInput[]
+    connect?: AvaliacaoWhereUniqueInput | AvaliacaoWhereUniqueInput[]
+    update?: AvaliacaoUpdateWithWhereUniqueWithoutHospedeInput | AvaliacaoUpdateWithWhereUniqueWithoutHospedeInput[]
+    updateMany?: AvaliacaoUpdateManyWithWhereWithoutHospedeInput | AvaliacaoUpdateManyWithWhereWithoutHospedeInput[]
+    deleteMany?: AvaliacaoScalarWhereInput | AvaliacaoScalarWhereInput[]
+  }
+
   export type HospedeCreateNestedOneWithoutReservasInput = {
     create?: XOR<HospedeCreateWithoutReservasInput, HospedeUncheckedCreateWithoutReservasInput>
     connectOrCreate?: HospedeCreateOrConnectWithoutReservasInput
@@ -10306,8 +18374,16 @@ export namespace Prisma {
     connect?: LocadorWhereUniqueInput
   }
 
-  export type DateTimeFieldUpdateOperationsInput = {
-    set?: Date | string
+  export type AvaliacaoCreateNestedOneWithoutReservaInput = {
+    create?: XOR<AvaliacaoCreateWithoutReservaInput, AvaliacaoUncheckedCreateWithoutReservaInput>
+    connectOrCreate?: AvaliacaoCreateOrConnectWithoutReservaInput
+    connect?: AvaliacaoWhereUniqueInput
+  }
+
+  export type AvaliacaoUncheckedCreateNestedOneWithoutReservaInput = {
+    create?: XOR<AvaliacaoCreateWithoutReservaInput, AvaliacaoUncheckedCreateWithoutReservaInput>
+    connectOrCreate?: AvaliacaoCreateOrConnectWithoutReservaInput
+    connect?: AvaliacaoWhereUniqueInput
   }
 
   export type NullableIntFieldUpdateOperationsInput = {
@@ -10342,6 +18418,26 @@ export namespace Prisma {
     update?: XOR<XOR<LocadorUpdateToOneWithWhereWithoutReservasInput, LocadorUpdateWithoutReservasInput>, LocadorUncheckedUpdateWithoutReservasInput>
   }
 
+  export type AvaliacaoUpdateOneWithoutReservaNestedInput = {
+    create?: XOR<AvaliacaoCreateWithoutReservaInput, AvaliacaoUncheckedCreateWithoutReservaInput>
+    connectOrCreate?: AvaliacaoCreateOrConnectWithoutReservaInput
+    upsert?: AvaliacaoUpsertWithoutReservaInput
+    disconnect?: AvaliacaoWhereInput | boolean
+    delete?: AvaliacaoWhereInput | boolean
+    connect?: AvaliacaoWhereUniqueInput
+    update?: XOR<XOR<AvaliacaoUpdateToOneWithWhereWithoutReservaInput, AvaliacaoUpdateWithoutReservaInput>, AvaliacaoUncheckedUpdateWithoutReservaInput>
+  }
+
+  export type AvaliacaoUncheckedUpdateOneWithoutReservaNestedInput = {
+    create?: XOR<AvaliacaoCreateWithoutReservaInput, AvaliacaoUncheckedCreateWithoutReservaInput>
+    connectOrCreate?: AvaliacaoCreateOrConnectWithoutReservaInput
+    upsert?: AvaliacaoUpsertWithoutReservaInput
+    disconnect?: AvaliacaoWhereInput | boolean
+    delete?: AvaliacaoWhereInput | boolean
+    connect?: AvaliacaoWhereUniqueInput
+    update?: XOR<XOR<AvaliacaoUpdateToOneWithWhereWithoutReservaInput, AvaliacaoUpdateWithoutReservaInput>, AvaliacaoUncheckedUpdateWithoutReservaInput>
+  }
+
   export type HospedeCreateNestedOneWithoutFavoritosInput = {
     create?: XOR<HospedeCreateWithoutFavoritosInput, HospedeUncheckedCreateWithoutFavoritosInput>
     connectOrCreate?: HospedeCreateOrConnectWithoutFavoritosInput
@@ -10368,6 +18464,184 @@ export namespace Prisma {
     upsert?: CasaUpsertWithoutFavoritosInput
     connect?: CasaWhereUniqueInput
     update?: XOR<XOR<CasaUpdateToOneWithWhereWithoutFavoritosInput, CasaUpdateWithoutFavoritosInput>, CasaUncheckedUpdateWithoutFavoritosInput>
+  }
+
+  export type HospedeCreateNestedOneWithoutConversasInput = {
+    create?: XOR<HospedeCreateWithoutConversasInput, HospedeUncheckedCreateWithoutConversasInput>
+    connectOrCreate?: HospedeCreateOrConnectWithoutConversasInput
+    connect?: HospedeWhereUniqueInput
+  }
+
+  export type LocadorCreateNestedOneWithoutConversasInput = {
+    create?: XOR<LocadorCreateWithoutConversasInput, LocadorUncheckedCreateWithoutConversasInput>
+    connectOrCreate?: LocadorCreateOrConnectWithoutConversasInput
+    connect?: LocadorWhereUniqueInput
+  }
+
+  export type CasaCreateNestedOneWithoutConversasInput = {
+    create?: XOR<CasaCreateWithoutConversasInput, CasaUncheckedCreateWithoutConversasInput>
+    connectOrCreate?: CasaCreateOrConnectWithoutConversasInput
+    connect?: CasaWhereUniqueInput
+  }
+
+  export type MensagemCreateNestedManyWithoutConversaInput = {
+    create?: XOR<MensagemCreateWithoutConversaInput, MensagemUncheckedCreateWithoutConversaInput> | MensagemCreateWithoutConversaInput[] | MensagemUncheckedCreateWithoutConversaInput[]
+    connectOrCreate?: MensagemCreateOrConnectWithoutConversaInput | MensagemCreateOrConnectWithoutConversaInput[]
+    createMany?: MensagemCreateManyConversaInputEnvelope
+    connect?: MensagemWhereUniqueInput | MensagemWhereUniqueInput[]
+  }
+
+  export type MensagemUncheckedCreateNestedManyWithoutConversaInput = {
+    create?: XOR<MensagemCreateWithoutConversaInput, MensagemUncheckedCreateWithoutConversaInput> | MensagemCreateWithoutConversaInput[] | MensagemUncheckedCreateWithoutConversaInput[]
+    connectOrCreate?: MensagemCreateOrConnectWithoutConversaInput | MensagemCreateOrConnectWithoutConversaInput[]
+    createMany?: MensagemCreateManyConversaInputEnvelope
+    connect?: MensagemWhereUniqueInput | MensagemWhereUniqueInput[]
+  }
+
+  export type HospedeUpdateOneRequiredWithoutConversasNestedInput = {
+    create?: XOR<HospedeCreateWithoutConversasInput, HospedeUncheckedCreateWithoutConversasInput>
+    connectOrCreate?: HospedeCreateOrConnectWithoutConversasInput
+    upsert?: HospedeUpsertWithoutConversasInput
+    connect?: HospedeWhereUniqueInput
+    update?: XOR<XOR<HospedeUpdateToOneWithWhereWithoutConversasInput, HospedeUpdateWithoutConversasInput>, HospedeUncheckedUpdateWithoutConversasInput>
+  }
+
+  export type LocadorUpdateOneRequiredWithoutConversasNestedInput = {
+    create?: XOR<LocadorCreateWithoutConversasInput, LocadorUncheckedCreateWithoutConversasInput>
+    connectOrCreate?: LocadorCreateOrConnectWithoutConversasInput
+    upsert?: LocadorUpsertWithoutConversasInput
+    connect?: LocadorWhereUniqueInput
+    update?: XOR<XOR<LocadorUpdateToOneWithWhereWithoutConversasInput, LocadorUpdateWithoutConversasInput>, LocadorUncheckedUpdateWithoutConversasInput>
+  }
+
+  export type CasaUpdateOneWithoutConversasNestedInput = {
+    create?: XOR<CasaCreateWithoutConversasInput, CasaUncheckedCreateWithoutConversasInput>
+    connectOrCreate?: CasaCreateOrConnectWithoutConversasInput
+    upsert?: CasaUpsertWithoutConversasInput
+    disconnect?: CasaWhereInput | boolean
+    delete?: CasaWhereInput | boolean
+    connect?: CasaWhereUniqueInput
+    update?: XOR<XOR<CasaUpdateToOneWithWhereWithoutConversasInput, CasaUpdateWithoutConversasInput>, CasaUncheckedUpdateWithoutConversasInput>
+  }
+
+  export type MensagemUpdateManyWithoutConversaNestedInput = {
+    create?: XOR<MensagemCreateWithoutConversaInput, MensagemUncheckedCreateWithoutConversaInput> | MensagemCreateWithoutConversaInput[] | MensagemUncheckedCreateWithoutConversaInput[]
+    connectOrCreate?: MensagemCreateOrConnectWithoutConversaInput | MensagemCreateOrConnectWithoutConversaInput[]
+    upsert?: MensagemUpsertWithWhereUniqueWithoutConversaInput | MensagemUpsertWithWhereUniqueWithoutConversaInput[]
+    createMany?: MensagemCreateManyConversaInputEnvelope
+    set?: MensagemWhereUniqueInput | MensagemWhereUniqueInput[]
+    disconnect?: MensagemWhereUniqueInput | MensagemWhereUniqueInput[]
+    delete?: MensagemWhereUniqueInput | MensagemWhereUniqueInput[]
+    connect?: MensagemWhereUniqueInput | MensagemWhereUniqueInput[]
+    update?: MensagemUpdateWithWhereUniqueWithoutConversaInput | MensagemUpdateWithWhereUniqueWithoutConversaInput[]
+    updateMany?: MensagemUpdateManyWithWhereWithoutConversaInput | MensagemUpdateManyWithWhereWithoutConversaInput[]
+    deleteMany?: MensagemScalarWhereInput | MensagemScalarWhereInput[]
+  }
+
+  export type MensagemUncheckedUpdateManyWithoutConversaNestedInput = {
+    create?: XOR<MensagemCreateWithoutConversaInput, MensagemUncheckedCreateWithoutConversaInput> | MensagemCreateWithoutConversaInput[] | MensagemUncheckedCreateWithoutConversaInput[]
+    connectOrCreate?: MensagemCreateOrConnectWithoutConversaInput | MensagemCreateOrConnectWithoutConversaInput[]
+    upsert?: MensagemUpsertWithWhereUniqueWithoutConversaInput | MensagemUpsertWithWhereUniqueWithoutConversaInput[]
+    createMany?: MensagemCreateManyConversaInputEnvelope
+    set?: MensagemWhereUniqueInput | MensagemWhereUniqueInput[]
+    disconnect?: MensagemWhereUniqueInput | MensagemWhereUniqueInput[]
+    delete?: MensagemWhereUniqueInput | MensagemWhereUniqueInput[]
+    connect?: MensagemWhereUniqueInput | MensagemWhereUniqueInput[]
+    update?: MensagemUpdateWithWhereUniqueWithoutConversaInput | MensagemUpdateWithWhereUniqueWithoutConversaInput[]
+    updateMany?: MensagemUpdateManyWithWhereWithoutConversaInput | MensagemUpdateManyWithWhereWithoutConversaInput[]
+    deleteMany?: MensagemScalarWhereInput | MensagemScalarWhereInput[]
+  }
+
+  export type ConversaCreateNestedOneWithoutMensagensInput = {
+    create?: XOR<ConversaCreateWithoutMensagensInput, ConversaUncheckedCreateWithoutMensagensInput>
+    connectOrCreate?: ConversaCreateOrConnectWithoutMensagensInput
+    connect?: ConversaWhereUniqueInput
+  }
+
+  export type HospedeCreateNestedOneWithoutMensagensInput = {
+    create?: XOR<HospedeCreateWithoutMensagensInput, HospedeUncheckedCreateWithoutMensagensInput>
+    connectOrCreate?: HospedeCreateOrConnectWithoutMensagensInput
+    connect?: HospedeWhereUniqueInput
+  }
+
+  export type LocadorCreateNestedOneWithoutMensagensInput = {
+    create?: XOR<LocadorCreateWithoutMensagensInput, LocadorUncheckedCreateWithoutMensagensInput>
+    connectOrCreate?: LocadorCreateOrConnectWithoutMensagensInput
+    connect?: LocadorWhereUniqueInput
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
+  }
+
+  export type ConversaUpdateOneRequiredWithoutMensagensNestedInput = {
+    create?: XOR<ConversaCreateWithoutMensagensInput, ConversaUncheckedCreateWithoutMensagensInput>
+    connectOrCreate?: ConversaCreateOrConnectWithoutMensagensInput
+    upsert?: ConversaUpsertWithoutMensagensInput
+    connect?: ConversaWhereUniqueInput
+    update?: XOR<XOR<ConversaUpdateToOneWithWhereWithoutMensagensInput, ConversaUpdateWithoutMensagensInput>, ConversaUncheckedUpdateWithoutMensagensInput>
+  }
+
+  export type HospedeUpdateOneWithoutMensagensNestedInput = {
+    create?: XOR<HospedeCreateWithoutMensagensInput, HospedeUncheckedCreateWithoutMensagensInput>
+    connectOrCreate?: HospedeCreateOrConnectWithoutMensagensInput
+    upsert?: HospedeUpsertWithoutMensagensInput
+    disconnect?: HospedeWhereInput | boolean
+    delete?: HospedeWhereInput | boolean
+    connect?: HospedeWhereUniqueInput
+    update?: XOR<XOR<HospedeUpdateToOneWithWhereWithoutMensagensInput, HospedeUpdateWithoutMensagensInput>, HospedeUncheckedUpdateWithoutMensagensInput>
+  }
+
+  export type LocadorUpdateOneWithoutMensagensNestedInput = {
+    create?: XOR<LocadorCreateWithoutMensagensInput, LocadorUncheckedCreateWithoutMensagensInput>
+    connectOrCreate?: LocadorCreateOrConnectWithoutMensagensInput
+    upsert?: LocadorUpsertWithoutMensagensInput
+    disconnect?: LocadorWhereInput | boolean
+    delete?: LocadorWhereInput | boolean
+    connect?: LocadorWhereUniqueInput
+    update?: XOR<XOR<LocadorUpdateToOneWithWhereWithoutMensagensInput, LocadorUpdateWithoutMensagensInput>, LocadorUncheckedUpdateWithoutMensagensInput>
+  }
+
+  export type ReservaCreateNestedOneWithoutAvaliacaoInput = {
+    create?: XOR<ReservaCreateWithoutAvaliacaoInput, ReservaUncheckedCreateWithoutAvaliacaoInput>
+    connectOrCreate?: ReservaCreateOrConnectWithoutAvaliacaoInput
+    connect?: ReservaWhereUniqueInput
+  }
+
+  export type HospedeCreateNestedOneWithoutAvaliacoesFeitasInput = {
+    create?: XOR<HospedeCreateWithoutAvaliacoesFeitasInput, HospedeUncheckedCreateWithoutAvaliacoesFeitasInput>
+    connectOrCreate?: HospedeCreateOrConnectWithoutAvaliacoesFeitasInput
+    connect?: HospedeWhereUniqueInput
+  }
+
+  export type CasaCreateNestedOneWithoutAvaliacoesInput = {
+    create?: XOR<CasaCreateWithoutAvaliacoesInput, CasaUncheckedCreateWithoutAvaliacoesInput>
+    connectOrCreate?: CasaCreateOrConnectWithoutAvaliacoesInput
+    connect?: CasaWhereUniqueInput
+  }
+
+  export type ReservaUpdateOneRequiredWithoutAvaliacaoNestedInput = {
+    create?: XOR<ReservaCreateWithoutAvaliacaoInput, ReservaUncheckedCreateWithoutAvaliacaoInput>
+    connectOrCreate?: ReservaCreateOrConnectWithoutAvaliacaoInput
+    upsert?: ReservaUpsertWithoutAvaliacaoInput
+    connect?: ReservaWhereUniqueInput
+    update?: XOR<XOR<ReservaUpdateToOneWithWhereWithoutAvaliacaoInput, ReservaUpdateWithoutAvaliacaoInput>, ReservaUncheckedUpdateWithoutAvaliacaoInput>
+  }
+
+  export type HospedeUpdateOneRequiredWithoutAvaliacoesFeitasNestedInput = {
+    create?: XOR<HospedeCreateWithoutAvaliacoesFeitasInput, HospedeUncheckedCreateWithoutAvaliacoesFeitasInput>
+    connectOrCreate?: HospedeCreateOrConnectWithoutAvaliacoesFeitasInput
+    upsert?: HospedeUpsertWithoutAvaliacoesFeitasInput
+    connect?: HospedeWhereUniqueInput
+    update?: XOR<XOR<HospedeUpdateToOneWithWhereWithoutAvaliacoesFeitasInput, HospedeUpdateWithoutAvaliacoesFeitasInput>, HospedeUncheckedUpdateWithoutAvaliacoesFeitasInput>
+  }
+
+  export type CasaUpdateOneRequiredWithoutAvaliacoesNestedInput = {
+    create?: XOR<CasaCreateWithoutAvaliacoesInput, CasaUncheckedCreateWithoutAvaliacoesInput>
+    connectOrCreate?: CasaCreateOrConnectWithoutAvaliacoesInput
+    upsert?: CasaUpsertWithoutAvaliacoesInput
+    connect?: CasaWhereUniqueInput
+    update?: XOR<XOR<CasaUpdateToOneWithWhereWithoutAvaliacoesInput, CasaUpdateWithoutAvaliacoesInput>, CasaUncheckedUpdateWithoutAvaliacoesInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -10549,6 +18823,19 @@ export namespace Prisma {
     _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
   export type LocadorCreateWithoutCasasInput = {
     name: string
     email: string
@@ -10559,6 +18846,8 @@ export namespace Prisma {
     cidade?: string | null
     estado?: string | null
     reservas?: ReservaCreateNestedManyWithoutLocadorInput
+    conversas?: ConversaCreateNestedManyWithoutLocadorInput
+    mensagens?: MensagemCreateNestedManyWithoutRemetenteLocadorInput
   }
 
   export type LocadorUncheckedCreateWithoutCasasInput = {
@@ -10572,6 +18861,8 @@ export namespace Prisma {
     cidade?: string | null
     estado?: string | null
     reservas?: ReservaUncheckedCreateNestedManyWithoutLocadorInput
+    conversas?: ConversaUncheckedCreateNestedManyWithoutLocadorInput
+    mensagens?: MensagemUncheckedCreateNestedManyWithoutRemetenteLocadorInput
   }
 
   export type LocadorCreateOrConnectWithoutCasasInput = {
@@ -10592,6 +18883,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     hospede: HospedeCreateNestedOneWithoutReservasInput
     locador: LocadorCreateNestedOneWithoutReservasInput
+    avaliacao?: AvaliacaoCreateNestedOneWithoutReservaInput
   }
 
   export type ReservaUncheckedCreateWithoutCasaInput = {
@@ -10608,6 +18900,7 @@ export namespace Prisma {
     locadorId: number
     createdAt?: Date | string
     updatedAt?: Date | string
+    avaliacao?: AvaliacaoUncheckedCreateNestedOneWithoutReservaInput
   }
 
   export type ReservaCreateOrConnectWithoutCasaInput = {
@@ -10639,6 +18932,104 @@ export namespace Prisma {
     data: FavoritoCreateManyCasaInput | FavoritoCreateManyCasaInput[]
   }
 
+  export type ImagemCasaCreateWithoutCasaInput = {
+    url: string
+    createdAt?: Date | string
+  }
+
+  export type ImagemCasaUncheckedCreateWithoutCasaInput = {
+    id?: number
+    url: string
+    createdAt?: Date | string
+  }
+
+  export type ImagemCasaCreateOrConnectWithoutCasaInput = {
+    where: ImagemCasaWhereUniqueInput
+    create: XOR<ImagemCasaCreateWithoutCasaInput, ImagemCasaUncheckedCreateWithoutCasaInput>
+  }
+
+  export type ImagemCasaCreateManyCasaInputEnvelope = {
+    data: ImagemCasaCreateManyCasaInput | ImagemCasaCreateManyCasaInput[]
+  }
+
+  export type ConversaCreateWithoutCasaInput = {
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    hospede: HospedeCreateNestedOneWithoutConversasInput
+    locador: LocadorCreateNestedOneWithoutConversasInput
+    mensagens?: MensagemCreateNestedManyWithoutConversaInput
+  }
+
+  export type ConversaUncheckedCreateWithoutCasaInput = {
+    id?: number
+    hospedeId: number
+    locadorId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    mensagens?: MensagemUncheckedCreateNestedManyWithoutConversaInput
+  }
+
+  export type ConversaCreateOrConnectWithoutCasaInput = {
+    where: ConversaWhereUniqueInput
+    create: XOR<ConversaCreateWithoutCasaInput, ConversaUncheckedCreateWithoutCasaInput>
+  }
+
+  export type ConversaCreateManyCasaInputEnvelope = {
+    data: ConversaCreateManyCasaInput | ConversaCreateManyCasaInput[]
+  }
+
+  export type BloqueioDisponibilidadeCreateWithoutCasaInput = {
+    dataInicio: Date | string
+    dataFim: Date | string
+    motivo?: string | null
+    createdAt?: Date | string
+  }
+
+  export type BloqueioDisponibilidadeUncheckedCreateWithoutCasaInput = {
+    id?: number
+    dataInicio: Date | string
+    dataFim: Date | string
+    motivo?: string | null
+    createdAt?: Date | string
+  }
+
+  export type BloqueioDisponibilidadeCreateOrConnectWithoutCasaInput = {
+    where: BloqueioDisponibilidadeWhereUniqueInput
+    create: XOR<BloqueioDisponibilidadeCreateWithoutCasaInput, BloqueioDisponibilidadeUncheckedCreateWithoutCasaInput>
+  }
+
+  export type BloqueioDisponibilidadeCreateManyCasaInputEnvelope = {
+    data: BloqueioDisponibilidadeCreateManyCasaInput | BloqueioDisponibilidadeCreateManyCasaInput[]
+  }
+
+  export type AvaliacaoCreateWithoutCasaInput = {
+    nota: number
+    comentario?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    reserva: ReservaCreateNestedOneWithoutAvaliacaoInput
+    hospede: HospedeCreateNestedOneWithoutAvaliacoesFeitasInput
+  }
+
+  export type AvaliacaoUncheckedCreateWithoutCasaInput = {
+    id?: number
+    nota: number
+    comentario?: string | null
+    reservaId: number
+    hospedeId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AvaliacaoCreateOrConnectWithoutCasaInput = {
+    where: AvaliacaoWhereUniqueInput
+    create: XOR<AvaliacaoCreateWithoutCasaInput, AvaliacaoUncheckedCreateWithoutCasaInput>
+  }
+
+  export type AvaliacaoCreateManyCasaInputEnvelope = {
+    data: AvaliacaoCreateManyCasaInput | AvaliacaoCreateManyCasaInput[]
+  }
+
   export type LocadorUpsertWithoutCasasInput = {
     update: XOR<LocadorUpdateWithoutCasasInput, LocadorUncheckedUpdateWithoutCasasInput>
     create: XOR<LocadorCreateWithoutCasasInput, LocadorUncheckedCreateWithoutCasasInput>
@@ -10660,6 +19051,8 @@ export namespace Prisma {
     cidade?: NullableStringFieldUpdateOperationsInput | string | null
     estado?: NullableStringFieldUpdateOperationsInput | string | null
     reservas?: ReservaUpdateManyWithoutLocadorNestedInput
+    conversas?: ConversaUpdateManyWithoutLocadorNestedInput
+    mensagens?: MensagemUpdateManyWithoutRemetenteLocadorNestedInput
   }
 
   export type LocadorUncheckedUpdateWithoutCasasInput = {
@@ -10673,6 +19066,8 @@ export namespace Prisma {
     cidade?: NullableStringFieldUpdateOperationsInput | string | null
     estado?: NullableStringFieldUpdateOperationsInput | string | null
     reservas?: ReservaUncheckedUpdateManyWithoutLocadorNestedInput
+    conversas?: ConversaUncheckedUpdateManyWithoutLocadorNestedInput
+    mensagens?: MensagemUncheckedUpdateManyWithoutRemetenteLocadorNestedInput
   }
 
   export type ReservaUpsertWithWhereUniqueWithoutCasaInput = {
@@ -10737,6 +19132,290 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Favorito"> | Date | string
   }
 
+  export type ImagemCasaUpsertWithWhereUniqueWithoutCasaInput = {
+    where: ImagemCasaWhereUniqueInput
+    update: XOR<ImagemCasaUpdateWithoutCasaInput, ImagemCasaUncheckedUpdateWithoutCasaInput>
+    create: XOR<ImagemCasaCreateWithoutCasaInput, ImagemCasaUncheckedCreateWithoutCasaInput>
+  }
+
+  export type ImagemCasaUpdateWithWhereUniqueWithoutCasaInput = {
+    where: ImagemCasaWhereUniqueInput
+    data: XOR<ImagemCasaUpdateWithoutCasaInput, ImagemCasaUncheckedUpdateWithoutCasaInput>
+  }
+
+  export type ImagemCasaUpdateManyWithWhereWithoutCasaInput = {
+    where: ImagemCasaScalarWhereInput
+    data: XOR<ImagemCasaUpdateManyMutationInput, ImagemCasaUncheckedUpdateManyWithoutCasaInput>
+  }
+
+  export type ImagemCasaScalarWhereInput = {
+    AND?: ImagemCasaScalarWhereInput | ImagemCasaScalarWhereInput[]
+    OR?: ImagemCasaScalarWhereInput[]
+    NOT?: ImagemCasaScalarWhereInput | ImagemCasaScalarWhereInput[]
+    id?: IntFilter<"ImagemCasa"> | number
+    url?: StringFilter<"ImagemCasa"> | string
+    casaId?: IntFilter<"ImagemCasa"> | number
+    createdAt?: DateTimeFilter<"ImagemCasa"> | Date | string
+  }
+
+  export type ConversaUpsertWithWhereUniqueWithoutCasaInput = {
+    where: ConversaWhereUniqueInput
+    update: XOR<ConversaUpdateWithoutCasaInput, ConversaUncheckedUpdateWithoutCasaInput>
+    create: XOR<ConversaCreateWithoutCasaInput, ConversaUncheckedCreateWithoutCasaInput>
+  }
+
+  export type ConversaUpdateWithWhereUniqueWithoutCasaInput = {
+    where: ConversaWhereUniqueInput
+    data: XOR<ConversaUpdateWithoutCasaInput, ConversaUncheckedUpdateWithoutCasaInput>
+  }
+
+  export type ConversaUpdateManyWithWhereWithoutCasaInput = {
+    where: ConversaScalarWhereInput
+    data: XOR<ConversaUpdateManyMutationInput, ConversaUncheckedUpdateManyWithoutCasaInput>
+  }
+
+  export type ConversaScalarWhereInput = {
+    AND?: ConversaScalarWhereInput | ConversaScalarWhereInput[]
+    OR?: ConversaScalarWhereInput[]
+    NOT?: ConversaScalarWhereInput | ConversaScalarWhereInput[]
+    id?: IntFilter<"Conversa"> | number
+    hospedeId?: IntFilter<"Conversa"> | number
+    locadorId?: IntFilter<"Conversa"> | number
+    casaId?: IntNullableFilter<"Conversa"> | number | null
+    createdAt?: DateTimeFilter<"Conversa"> | Date | string
+    updatedAt?: DateTimeFilter<"Conversa"> | Date | string
+  }
+
+  export type BloqueioDisponibilidadeUpsertWithWhereUniqueWithoutCasaInput = {
+    where: BloqueioDisponibilidadeWhereUniqueInput
+    update: XOR<BloqueioDisponibilidadeUpdateWithoutCasaInput, BloqueioDisponibilidadeUncheckedUpdateWithoutCasaInput>
+    create: XOR<BloqueioDisponibilidadeCreateWithoutCasaInput, BloqueioDisponibilidadeUncheckedCreateWithoutCasaInput>
+  }
+
+  export type BloqueioDisponibilidadeUpdateWithWhereUniqueWithoutCasaInput = {
+    where: BloqueioDisponibilidadeWhereUniqueInput
+    data: XOR<BloqueioDisponibilidadeUpdateWithoutCasaInput, BloqueioDisponibilidadeUncheckedUpdateWithoutCasaInput>
+  }
+
+  export type BloqueioDisponibilidadeUpdateManyWithWhereWithoutCasaInput = {
+    where: BloqueioDisponibilidadeScalarWhereInput
+    data: XOR<BloqueioDisponibilidadeUpdateManyMutationInput, BloqueioDisponibilidadeUncheckedUpdateManyWithoutCasaInput>
+  }
+
+  export type BloqueioDisponibilidadeScalarWhereInput = {
+    AND?: BloqueioDisponibilidadeScalarWhereInput | BloqueioDisponibilidadeScalarWhereInput[]
+    OR?: BloqueioDisponibilidadeScalarWhereInput[]
+    NOT?: BloqueioDisponibilidadeScalarWhereInput | BloqueioDisponibilidadeScalarWhereInput[]
+    id?: IntFilter<"BloqueioDisponibilidade"> | number
+    dataInicio?: DateTimeFilter<"BloqueioDisponibilidade"> | Date | string
+    dataFim?: DateTimeFilter<"BloqueioDisponibilidade"> | Date | string
+    motivo?: StringNullableFilter<"BloqueioDisponibilidade"> | string | null
+    casaId?: IntFilter<"BloqueioDisponibilidade"> | number
+    createdAt?: DateTimeFilter<"BloqueioDisponibilidade"> | Date | string
+  }
+
+  export type AvaliacaoUpsertWithWhereUniqueWithoutCasaInput = {
+    where: AvaliacaoWhereUniqueInput
+    update: XOR<AvaliacaoUpdateWithoutCasaInput, AvaliacaoUncheckedUpdateWithoutCasaInput>
+    create: XOR<AvaliacaoCreateWithoutCasaInput, AvaliacaoUncheckedCreateWithoutCasaInput>
+  }
+
+  export type AvaliacaoUpdateWithWhereUniqueWithoutCasaInput = {
+    where: AvaliacaoWhereUniqueInput
+    data: XOR<AvaliacaoUpdateWithoutCasaInput, AvaliacaoUncheckedUpdateWithoutCasaInput>
+  }
+
+  export type AvaliacaoUpdateManyWithWhereWithoutCasaInput = {
+    where: AvaliacaoScalarWhereInput
+    data: XOR<AvaliacaoUpdateManyMutationInput, AvaliacaoUncheckedUpdateManyWithoutCasaInput>
+  }
+
+  export type AvaliacaoScalarWhereInput = {
+    AND?: AvaliacaoScalarWhereInput | AvaliacaoScalarWhereInput[]
+    OR?: AvaliacaoScalarWhereInput[]
+    NOT?: AvaliacaoScalarWhereInput | AvaliacaoScalarWhereInput[]
+    id?: IntFilter<"Avaliacao"> | number
+    nota?: IntFilter<"Avaliacao"> | number
+    comentario?: StringNullableFilter<"Avaliacao"> | string | null
+    reservaId?: IntFilter<"Avaliacao"> | number
+    hospedeId?: IntFilter<"Avaliacao"> | number
+    casaId?: IntFilter<"Avaliacao"> | number
+    createdAt?: DateTimeFilter<"Avaliacao"> | Date | string
+    updatedAt?: DateTimeFilter<"Avaliacao"> | Date | string
+  }
+
+  export type CasaCreateWithoutImagensInput = {
+    endereco: string
+    numero: number
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
+    diretrizes: string
+    complemento?: string | null
+    precoPorNoite?: number | null
+    locador: LocadorCreateNestedOneWithoutCasasInput
+    reservas?: ReservaCreateNestedManyWithoutCasaInput
+    favoritos?: FavoritoCreateNestedManyWithoutCasaInput
+    conversas?: ConversaCreateNestedManyWithoutCasaInput
+    bloqueiosDisponibilidade?: BloqueioDisponibilidadeCreateNestedManyWithoutCasaInput
+    avaliacoes?: AvaliacaoCreateNestedManyWithoutCasaInput
+  }
+
+  export type CasaUncheckedCreateWithoutImagensInput = {
+    id?: number
+    endereco: string
+    numero: number
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
+    diretrizes: string
+    complemento?: string | null
+    precoPorNoite?: number | null
+    locadorId: number
+    reservas?: ReservaUncheckedCreateNestedManyWithoutCasaInput
+    favoritos?: FavoritoUncheckedCreateNestedManyWithoutCasaInput
+    conversas?: ConversaUncheckedCreateNestedManyWithoutCasaInput
+    bloqueiosDisponibilidade?: BloqueioDisponibilidadeUncheckedCreateNestedManyWithoutCasaInput
+    avaliacoes?: AvaliacaoUncheckedCreateNestedManyWithoutCasaInput
+  }
+
+  export type CasaCreateOrConnectWithoutImagensInput = {
+    where: CasaWhereUniqueInput
+    create: XOR<CasaCreateWithoutImagensInput, CasaUncheckedCreateWithoutImagensInput>
+  }
+
+  export type CasaUpsertWithoutImagensInput = {
+    update: XOR<CasaUpdateWithoutImagensInput, CasaUncheckedUpdateWithoutImagensInput>
+    create: XOR<CasaCreateWithoutImagensInput, CasaUncheckedCreateWithoutImagensInput>
+    where?: CasaWhereInput
+  }
+
+  export type CasaUpdateToOneWithWhereWithoutImagensInput = {
+    where?: CasaWhereInput
+    data: XOR<CasaUpdateWithoutImagensInput, CasaUncheckedUpdateWithoutImagensInput>
+  }
+
+  export type CasaUpdateWithoutImagensInput = {
+    endereco?: StringFieldUpdateOperationsInput | string
+    numero?: IntFieldUpdateOperationsInput | number
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
+    diretrizes?: StringFieldUpdateOperationsInput | string
+    complemento?: NullableStringFieldUpdateOperationsInput | string | null
+    precoPorNoite?: NullableFloatFieldUpdateOperationsInput | number | null
+    locador?: LocadorUpdateOneRequiredWithoutCasasNestedInput
+    reservas?: ReservaUpdateManyWithoutCasaNestedInput
+    favoritos?: FavoritoUpdateManyWithoutCasaNestedInput
+    conversas?: ConversaUpdateManyWithoutCasaNestedInput
+    bloqueiosDisponibilidade?: BloqueioDisponibilidadeUpdateManyWithoutCasaNestedInput
+    avaliacoes?: AvaliacaoUpdateManyWithoutCasaNestedInput
+  }
+
+  export type CasaUncheckedUpdateWithoutImagensInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    endereco?: StringFieldUpdateOperationsInput | string
+    numero?: IntFieldUpdateOperationsInput | number
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
+    diretrizes?: StringFieldUpdateOperationsInput | string
+    complemento?: NullableStringFieldUpdateOperationsInput | string | null
+    precoPorNoite?: NullableFloatFieldUpdateOperationsInput | number | null
+    locadorId?: IntFieldUpdateOperationsInput | number
+    reservas?: ReservaUncheckedUpdateManyWithoutCasaNestedInput
+    favoritos?: FavoritoUncheckedUpdateManyWithoutCasaNestedInput
+    conversas?: ConversaUncheckedUpdateManyWithoutCasaNestedInput
+    bloqueiosDisponibilidade?: BloqueioDisponibilidadeUncheckedUpdateManyWithoutCasaNestedInput
+    avaliacoes?: AvaliacaoUncheckedUpdateManyWithoutCasaNestedInput
+  }
+
+  export type CasaCreateWithoutBloqueiosDisponibilidadeInput = {
+    endereco: string
+    numero: number
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
+    diretrizes: string
+    complemento?: string | null
+    precoPorNoite?: number | null
+    locador: LocadorCreateNestedOneWithoutCasasInput
+    reservas?: ReservaCreateNestedManyWithoutCasaInput
+    favoritos?: FavoritoCreateNestedManyWithoutCasaInput
+    imagens?: ImagemCasaCreateNestedManyWithoutCasaInput
+    conversas?: ConversaCreateNestedManyWithoutCasaInput
+    avaliacoes?: AvaliacaoCreateNestedManyWithoutCasaInput
+  }
+
+  export type CasaUncheckedCreateWithoutBloqueiosDisponibilidadeInput = {
+    id?: number
+    endereco: string
+    numero: number
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
+    diretrizes: string
+    complemento?: string | null
+    precoPorNoite?: number | null
+    locadorId: number
+    reservas?: ReservaUncheckedCreateNestedManyWithoutCasaInput
+    favoritos?: FavoritoUncheckedCreateNestedManyWithoutCasaInput
+    imagens?: ImagemCasaUncheckedCreateNestedManyWithoutCasaInput
+    conversas?: ConversaUncheckedCreateNestedManyWithoutCasaInput
+    avaliacoes?: AvaliacaoUncheckedCreateNestedManyWithoutCasaInput
+  }
+
+  export type CasaCreateOrConnectWithoutBloqueiosDisponibilidadeInput = {
+    where: CasaWhereUniqueInput
+    create: XOR<CasaCreateWithoutBloqueiosDisponibilidadeInput, CasaUncheckedCreateWithoutBloqueiosDisponibilidadeInput>
+  }
+
+  export type CasaUpsertWithoutBloqueiosDisponibilidadeInput = {
+    update: XOR<CasaUpdateWithoutBloqueiosDisponibilidadeInput, CasaUncheckedUpdateWithoutBloqueiosDisponibilidadeInput>
+    create: XOR<CasaCreateWithoutBloqueiosDisponibilidadeInput, CasaUncheckedCreateWithoutBloqueiosDisponibilidadeInput>
+    where?: CasaWhereInput
+  }
+
+  export type CasaUpdateToOneWithWhereWithoutBloqueiosDisponibilidadeInput = {
+    where?: CasaWhereInput
+    data: XOR<CasaUpdateWithoutBloqueiosDisponibilidadeInput, CasaUncheckedUpdateWithoutBloqueiosDisponibilidadeInput>
+  }
+
+  export type CasaUpdateWithoutBloqueiosDisponibilidadeInput = {
+    endereco?: StringFieldUpdateOperationsInput | string
+    numero?: IntFieldUpdateOperationsInput | number
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
+    diretrizes?: StringFieldUpdateOperationsInput | string
+    complemento?: NullableStringFieldUpdateOperationsInput | string | null
+    precoPorNoite?: NullableFloatFieldUpdateOperationsInput | number | null
+    locador?: LocadorUpdateOneRequiredWithoutCasasNestedInput
+    reservas?: ReservaUpdateManyWithoutCasaNestedInput
+    favoritos?: FavoritoUpdateManyWithoutCasaNestedInput
+    imagens?: ImagemCasaUpdateManyWithoutCasaNestedInput
+    conversas?: ConversaUpdateManyWithoutCasaNestedInput
+    avaliacoes?: AvaliacaoUpdateManyWithoutCasaNestedInput
+  }
+
+  export type CasaUncheckedUpdateWithoutBloqueiosDisponibilidadeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    endereco?: StringFieldUpdateOperationsInput | string
+    numero?: IntFieldUpdateOperationsInput | number
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
+    diretrizes?: StringFieldUpdateOperationsInput | string
+    complemento?: NullableStringFieldUpdateOperationsInput | string | null
+    precoPorNoite?: NullableFloatFieldUpdateOperationsInput | number | null
+    locadorId?: IntFieldUpdateOperationsInput | number
+    reservas?: ReservaUncheckedUpdateManyWithoutCasaNestedInput
+    favoritos?: FavoritoUncheckedUpdateManyWithoutCasaNestedInput
+    imagens?: ImagemCasaUncheckedUpdateManyWithoutCasaNestedInput
+    conversas?: ConversaUncheckedUpdateManyWithoutCasaNestedInput
+    avaliacoes?: AvaliacaoUncheckedUpdateManyWithoutCasaNestedInput
+  }
+
   export type CasaCreateWithoutLocadorInput = {
     endereco: string
     numero: number
@@ -10748,6 +19427,10 @@ export namespace Prisma {
     precoPorNoite?: number | null
     reservas?: ReservaCreateNestedManyWithoutCasaInput
     favoritos?: FavoritoCreateNestedManyWithoutCasaInput
+    imagens?: ImagemCasaCreateNestedManyWithoutCasaInput
+    conversas?: ConversaCreateNestedManyWithoutCasaInput
+    bloqueiosDisponibilidade?: BloqueioDisponibilidadeCreateNestedManyWithoutCasaInput
+    avaliacoes?: AvaliacaoCreateNestedManyWithoutCasaInput
   }
 
   export type CasaUncheckedCreateWithoutLocadorInput = {
@@ -10762,6 +19445,10 @@ export namespace Prisma {
     precoPorNoite?: number | null
     reservas?: ReservaUncheckedCreateNestedManyWithoutCasaInput
     favoritos?: FavoritoUncheckedCreateNestedManyWithoutCasaInput
+    imagens?: ImagemCasaUncheckedCreateNestedManyWithoutCasaInput
+    conversas?: ConversaUncheckedCreateNestedManyWithoutCasaInput
+    bloqueiosDisponibilidade?: BloqueioDisponibilidadeUncheckedCreateNestedManyWithoutCasaInput
+    avaliacoes?: AvaliacaoUncheckedCreateNestedManyWithoutCasaInput
   }
 
   export type CasaCreateOrConnectWithoutLocadorInput = {
@@ -10786,6 +19473,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     hospede: HospedeCreateNestedOneWithoutReservasInput
     casa: CasaCreateNestedOneWithoutReservasInput
+    avaliacao?: AvaliacaoCreateNestedOneWithoutReservaInput
   }
 
   export type ReservaUncheckedCreateWithoutLocadorInput = {
@@ -10802,6 +19490,7 @@ export namespace Prisma {
     casaId: number
     createdAt?: Date | string
     updatedAt?: Date | string
+    avaliacao?: AvaliacaoUncheckedCreateNestedOneWithoutReservaInput
   }
 
   export type ReservaCreateOrConnectWithoutLocadorInput = {
@@ -10811,6 +19500,60 @@ export namespace Prisma {
 
   export type ReservaCreateManyLocadorInputEnvelope = {
     data: ReservaCreateManyLocadorInput | ReservaCreateManyLocadorInput[]
+  }
+
+  export type ConversaCreateWithoutLocadorInput = {
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    hospede: HospedeCreateNestedOneWithoutConversasInput
+    casa?: CasaCreateNestedOneWithoutConversasInput
+    mensagens?: MensagemCreateNestedManyWithoutConversaInput
+  }
+
+  export type ConversaUncheckedCreateWithoutLocadorInput = {
+    id?: number
+    hospedeId: number
+    casaId?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    mensagens?: MensagemUncheckedCreateNestedManyWithoutConversaInput
+  }
+
+  export type ConversaCreateOrConnectWithoutLocadorInput = {
+    where: ConversaWhereUniqueInput
+    create: XOR<ConversaCreateWithoutLocadorInput, ConversaUncheckedCreateWithoutLocadorInput>
+  }
+
+  export type ConversaCreateManyLocadorInputEnvelope = {
+    data: ConversaCreateManyLocadorInput | ConversaCreateManyLocadorInput[]
+  }
+
+  export type MensagemCreateWithoutRemetenteLocadorInput = {
+    conteudo: string
+    createdAt?: Date | string
+    lidaPeloHospede?: boolean
+    lidaPeloLocador?: boolean
+    conversa: ConversaCreateNestedOneWithoutMensagensInput
+    remetenteHospede?: HospedeCreateNestedOneWithoutMensagensInput
+  }
+
+  export type MensagemUncheckedCreateWithoutRemetenteLocadorInput = {
+    id?: number
+    conteudo: string
+    createdAt?: Date | string
+    conversaId: number
+    remetenteHospedeId?: number | null
+    lidaPeloHospede?: boolean
+    lidaPeloLocador?: boolean
+  }
+
+  export type MensagemCreateOrConnectWithoutRemetenteLocadorInput = {
+    where: MensagemWhereUniqueInput
+    create: XOR<MensagemCreateWithoutRemetenteLocadorInput, MensagemUncheckedCreateWithoutRemetenteLocadorInput>
+  }
+
+  export type MensagemCreateManyRemetenteLocadorInputEnvelope = {
+    data: MensagemCreateManyRemetenteLocadorInput | MensagemCreateManyRemetenteLocadorInput[]
   }
 
   export type CasaUpsertWithWhereUniqueWithoutLocadorInput = {
@@ -10861,6 +19604,52 @@ export namespace Prisma {
     data: XOR<ReservaUpdateManyMutationInput, ReservaUncheckedUpdateManyWithoutLocadorInput>
   }
 
+  export type ConversaUpsertWithWhereUniqueWithoutLocadorInput = {
+    where: ConversaWhereUniqueInput
+    update: XOR<ConversaUpdateWithoutLocadorInput, ConversaUncheckedUpdateWithoutLocadorInput>
+    create: XOR<ConversaCreateWithoutLocadorInput, ConversaUncheckedCreateWithoutLocadorInput>
+  }
+
+  export type ConversaUpdateWithWhereUniqueWithoutLocadorInput = {
+    where: ConversaWhereUniqueInput
+    data: XOR<ConversaUpdateWithoutLocadorInput, ConversaUncheckedUpdateWithoutLocadorInput>
+  }
+
+  export type ConversaUpdateManyWithWhereWithoutLocadorInput = {
+    where: ConversaScalarWhereInput
+    data: XOR<ConversaUpdateManyMutationInput, ConversaUncheckedUpdateManyWithoutLocadorInput>
+  }
+
+  export type MensagemUpsertWithWhereUniqueWithoutRemetenteLocadorInput = {
+    where: MensagemWhereUniqueInput
+    update: XOR<MensagemUpdateWithoutRemetenteLocadorInput, MensagemUncheckedUpdateWithoutRemetenteLocadorInput>
+    create: XOR<MensagemCreateWithoutRemetenteLocadorInput, MensagemUncheckedCreateWithoutRemetenteLocadorInput>
+  }
+
+  export type MensagemUpdateWithWhereUniqueWithoutRemetenteLocadorInput = {
+    where: MensagemWhereUniqueInput
+    data: XOR<MensagemUpdateWithoutRemetenteLocadorInput, MensagemUncheckedUpdateWithoutRemetenteLocadorInput>
+  }
+
+  export type MensagemUpdateManyWithWhereWithoutRemetenteLocadorInput = {
+    where: MensagemScalarWhereInput
+    data: XOR<MensagemUpdateManyMutationInput, MensagemUncheckedUpdateManyWithoutRemetenteLocadorInput>
+  }
+
+  export type MensagemScalarWhereInput = {
+    AND?: MensagemScalarWhereInput | MensagemScalarWhereInput[]
+    OR?: MensagemScalarWhereInput[]
+    NOT?: MensagemScalarWhereInput | MensagemScalarWhereInput[]
+    id?: IntFilter<"Mensagem"> | number
+    conteudo?: StringFilter<"Mensagem"> | string
+    createdAt?: DateTimeFilter<"Mensagem"> | Date | string
+    conversaId?: IntFilter<"Mensagem"> | number
+    remetenteHospedeId?: IntNullableFilter<"Mensagem"> | number | null
+    remetenteLocadorId?: IntNullableFilter<"Mensagem"> | number | null
+    lidaPeloHospede?: BoolFilter<"Mensagem"> | boolean
+    lidaPeloLocador?: BoolFilter<"Mensagem"> | boolean
+  }
+
   export type ReservaCreateWithoutHospedeInput = {
     dataCheckIn: Date | string
     dataCheckOut: Date | string
@@ -10874,6 +19663,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     casa: CasaCreateNestedOneWithoutReservasInput
     locador: LocadorCreateNestedOneWithoutReservasInput
+    avaliacao?: AvaliacaoCreateNestedOneWithoutReservaInput
   }
 
   export type ReservaUncheckedCreateWithoutHospedeInput = {
@@ -10890,6 +19680,7 @@ export namespace Prisma {
     locadorId: number
     createdAt?: Date | string
     updatedAt?: Date | string
+    avaliacao?: AvaliacaoUncheckedCreateNestedOneWithoutReservaInput
   }
 
   export type ReservaCreateOrConnectWithoutHospedeInput = {
@@ -10919,6 +19710,88 @@ export namespace Prisma {
 
   export type FavoritoCreateManyHospedeInputEnvelope = {
     data: FavoritoCreateManyHospedeInput | FavoritoCreateManyHospedeInput[]
+  }
+
+  export type ConversaCreateWithoutHospedeInput = {
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    locador: LocadorCreateNestedOneWithoutConversasInput
+    casa?: CasaCreateNestedOneWithoutConversasInput
+    mensagens?: MensagemCreateNestedManyWithoutConversaInput
+  }
+
+  export type ConversaUncheckedCreateWithoutHospedeInput = {
+    id?: number
+    locadorId: number
+    casaId?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    mensagens?: MensagemUncheckedCreateNestedManyWithoutConversaInput
+  }
+
+  export type ConversaCreateOrConnectWithoutHospedeInput = {
+    where: ConversaWhereUniqueInput
+    create: XOR<ConversaCreateWithoutHospedeInput, ConversaUncheckedCreateWithoutHospedeInput>
+  }
+
+  export type ConversaCreateManyHospedeInputEnvelope = {
+    data: ConversaCreateManyHospedeInput | ConversaCreateManyHospedeInput[]
+  }
+
+  export type MensagemCreateWithoutRemetenteHospedeInput = {
+    conteudo: string
+    createdAt?: Date | string
+    lidaPeloHospede?: boolean
+    lidaPeloLocador?: boolean
+    conversa: ConversaCreateNestedOneWithoutMensagensInput
+    remetenteLocador?: LocadorCreateNestedOneWithoutMensagensInput
+  }
+
+  export type MensagemUncheckedCreateWithoutRemetenteHospedeInput = {
+    id?: number
+    conteudo: string
+    createdAt?: Date | string
+    conversaId: number
+    remetenteLocadorId?: number | null
+    lidaPeloHospede?: boolean
+    lidaPeloLocador?: boolean
+  }
+
+  export type MensagemCreateOrConnectWithoutRemetenteHospedeInput = {
+    where: MensagemWhereUniqueInput
+    create: XOR<MensagemCreateWithoutRemetenteHospedeInput, MensagemUncheckedCreateWithoutRemetenteHospedeInput>
+  }
+
+  export type MensagemCreateManyRemetenteHospedeInputEnvelope = {
+    data: MensagemCreateManyRemetenteHospedeInput | MensagemCreateManyRemetenteHospedeInput[]
+  }
+
+  export type AvaliacaoCreateWithoutHospedeInput = {
+    nota: number
+    comentario?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    reserva: ReservaCreateNestedOneWithoutAvaliacaoInput
+    casa: CasaCreateNestedOneWithoutAvaliacoesInput
+  }
+
+  export type AvaliacaoUncheckedCreateWithoutHospedeInput = {
+    id?: number
+    nota: number
+    comentario?: string | null
+    reservaId: number
+    casaId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AvaliacaoCreateOrConnectWithoutHospedeInput = {
+    where: AvaliacaoWhereUniqueInput
+    create: XOR<AvaliacaoCreateWithoutHospedeInput, AvaliacaoUncheckedCreateWithoutHospedeInput>
+  }
+
+  export type AvaliacaoCreateManyHospedeInputEnvelope = {
+    data: AvaliacaoCreateManyHospedeInput | AvaliacaoCreateManyHospedeInput[]
   }
 
   export type ReservaUpsertWithWhereUniqueWithoutHospedeInput = {
@@ -10953,6 +19826,54 @@ export namespace Prisma {
     data: XOR<FavoritoUpdateManyMutationInput, FavoritoUncheckedUpdateManyWithoutHospedeInput>
   }
 
+  export type ConversaUpsertWithWhereUniqueWithoutHospedeInput = {
+    where: ConversaWhereUniqueInput
+    update: XOR<ConversaUpdateWithoutHospedeInput, ConversaUncheckedUpdateWithoutHospedeInput>
+    create: XOR<ConversaCreateWithoutHospedeInput, ConversaUncheckedCreateWithoutHospedeInput>
+  }
+
+  export type ConversaUpdateWithWhereUniqueWithoutHospedeInput = {
+    where: ConversaWhereUniqueInput
+    data: XOR<ConversaUpdateWithoutHospedeInput, ConversaUncheckedUpdateWithoutHospedeInput>
+  }
+
+  export type ConversaUpdateManyWithWhereWithoutHospedeInput = {
+    where: ConversaScalarWhereInput
+    data: XOR<ConversaUpdateManyMutationInput, ConversaUncheckedUpdateManyWithoutHospedeInput>
+  }
+
+  export type MensagemUpsertWithWhereUniqueWithoutRemetenteHospedeInput = {
+    where: MensagemWhereUniqueInput
+    update: XOR<MensagemUpdateWithoutRemetenteHospedeInput, MensagemUncheckedUpdateWithoutRemetenteHospedeInput>
+    create: XOR<MensagemCreateWithoutRemetenteHospedeInput, MensagemUncheckedCreateWithoutRemetenteHospedeInput>
+  }
+
+  export type MensagemUpdateWithWhereUniqueWithoutRemetenteHospedeInput = {
+    where: MensagemWhereUniqueInput
+    data: XOR<MensagemUpdateWithoutRemetenteHospedeInput, MensagemUncheckedUpdateWithoutRemetenteHospedeInput>
+  }
+
+  export type MensagemUpdateManyWithWhereWithoutRemetenteHospedeInput = {
+    where: MensagemScalarWhereInput
+    data: XOR<MensagemUpdateManyMutationInput, MensagemUncheckedUpdateManyWithoutRemetenteHospedeInput>
+  }
+
+  export type AvaliacaoUpsertWithWhereUniqueWithoutHospedeInput = {
+    where: AvaliacaoWhereUniqueInput
+    update: XOR<AvaliacaoUpdateWithoutHospedeInput, AvaliacaoUncheckedUpdateWithoutHospedeInput>
+    create: XOR<AvaliacaoCreateWithoutHospedeInput, AvaliacaoUncheckedCreateWithoutHospedeInput>
+  }
+
+  export type AvaliacaoUpdateWithWhereUniqueWithoutHospedeInput = {
+    where: AvaliacaoWhereUniqueInput
+    data: XOR<AvaliacaoUpdateWithoutHospedeInput, AvaliacaoUncheckedUpdateWithoutHospedeInput>
+  }
+
+  export type AvaliacaoUpdateManyWithWhereWithoutHospedeInput = {
+    where: AvaliacaoScalarWhereInput
+    data: XOR<AvaliacaoUpdateManyMutationInput, AvaliacaoUncheckedUpdateManyWithoutHospedeInput>
+  }
+
   export type HospedeCreateWithoutReservasInput = {
     name: string
     email: string
@@ -10964,6 +19885,9 @@ export namespace Prisma {
     matricula: string
     universidade?: string | null
     favoritos?: FavoritoCreateNestedManyWithoutHospedeInput
+    conversas?: ConversaCreateNestedManyWithoutHospedeInput
+    mensagens?: MensagemCreateNestedManyWithoutRemetenteHospedeInput
+    avaliacoesFeitas?: AvaliacaoCreateNestedManyWithoutHospedeInput
   }
 
   export type HospedeUncheckedCreateWithoutReservasInput = {
@@ -10978,6 +19902,9 @@ export namespace Prisma {
     matricula: string
     universidade?: string | null
     favoritos?: FavoritoUncheckedCreateNestedManyWithoutHospedeInput
+    conversas?: ConversaUncheckedCreateNestedManyWithoutHospedeInput
+    mensagens?: MensagemUncheckedCreateNestedManyWithoutRemetenteHospedeInput
+    avaliacoesFeitas?: AvaliacaoUncheckedCreateNestedManyWithoutHospedeInput
   }
 
   export type HospedeCreateOrConnectWithoutReservasInput = {
@@ -10996,6 +19923,10 @@ export namespace Prisma {
     precoPorNoite?: number | null
     locador: LocadorCreateNestedOneWithoutCasasInput
     favoritos?: FavoritoCreateNestedManyWithoutCasaInput
+    imagens?: ImagemCasaCreateNestedManyWithoutCasaInput
+    conversas?: ConversaCreateNestedManyWithoutCasaInput
+    bloqueiosDisponibilidade?: BloqueioDisponibilidadeCreateNestedManyWithoutCasaInput
+    avaliacoes?: AvaliacaoCreateNestedManyWithoutCasaInput
   }
 
   export type CasaUncheckedCreateWithoutReservasInput = {
@@ -11010,6 +19941,10 @@ export namespace Prisma {
     precoPorNoite?: number | null
     locadorId: number
     favoritos?: FavoritoUncheckedCreateNestedManyWithoutCasaInput
+    imagens?: ImagemCasaUncheckedCreateNestedManyWithoutCasaInput
+    conversas?: ConversaUncheckedCreateNestedManyWithoutCasaInput
+    bloqueiosDisponibilidade?: BloqueioDisponibilidadeUncheckedCreateNestedManyWithoutCasaInput
+    avaliacoes?: AvaliacaoUncheckedCreateNestedManyWithoutCasaInput
   }
 
   export type CasaCreateOrConnectWithoutReservasInput = {
@@ -11027,6 +19962,8 @@ export namespace Prisma {
     cidade?: string | null
     estado?: string | null
     casas?: CasaCreateNestedManyWithoutLocadorInput
+    conversas?: ConversaCreateNestedManyWithoutLocadorInput
+    mensagens?: MensagemCreateNestedManyWithoutRemetenteLocadorInput
   }
 
   export type LocadorUncheckedCreateWithoutReservasInput = {
@@ -11040,11 +19977,37 @@ export namespace Prisma {
     cidade?: string | null
     estado?: string | null
     casas?: CasaUncheckedCreateNestedManyWithoutLocadorInput
+    conversas?: ConversaUncheckedCreateNestedManyWithoutLocadorInput
+    mensagens?: MensagemUncheckedCreateNestedManyWithoutRemetenteLocadorInput
   }
 
   export type LocadorCreateOrConnectWithoutReservasInput = {
     where: LocadorWhereUniqueInput
     create: XOR<LocadorCreateWithoutReservasInput, LocadorUncheckedCreateWithoutReservasInput>
+  }
+
+  export type AvaliacaoCreateWithoutReservaInput = {
+    nota: number
+    comentario?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    hospede: HospedeCreateNestedOneWithoutAvaliacoesFeitasInput
+    casa: CasaCreateNestedOneWithoutAvaliacoesInput
+  }
+
+  export type AvaliacaoUncheckedCreateWithoutReservaInput = {
+    id?: number
+    nota: number
+    comentario?: string | null
+    hospedeId: number
+    casaId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AvaliacaoCreateOrConnectWithoutReservaInput = {
+    where: AvaliacaoWhereUniqueInput
+    create: XOR<AvaliacaoCreateWithoutReservaInput, AvaliacaoUncheckedCreateWithoutReservaInput>
   }
 
   export type HospedeUpsertWithoutReservasInput = {
@@ -11069,6 +20032,9 @@ export namespace Prisma {
     matricula?: StringFieldUpdateOperationsInput | string
     universidade?: NullableStringFieldUpdateOperationsInput | string | null
     favoritos?: FavoritoUpdateManyWithoutHospedeNestedInput
+    conversas?: ConversaUpdateManyWithoutHospedeNestedInput
+    mensagens?: MensagemUpdateManyWithoutRemetenteHospedeNestedInput
+    avaliacoesFeitas?: AvaliacaoUpdateManyWithoutHospedeNestedInput
   }
 
   export type HospedeUncheckedUpdateWithoutReservasInput = {
@@ -11083,6 +20049,9 @@ export namespace Prisma {
     matricula?: StringFieldUpdateOperationsInput | string
     universidade?: NullableStringFieldUpdateOperationsInput | string | null
     favoritos?: FavoritoUncheckedUpdateManyWithoutHospedeNestedInput
+    conversas?: ConversaUncheckedUpdateManyWithoutHospedeNestedInput
+    mensagens?: MensagemUncheckedUpdateManyWithoutRemetenteHospedeNestedInput
+    avaliacoesFeitas?: AvaliacaoUncheckedUpdateManyWithoutHospedeNestedInput
   }
 
   export type CasaUpsertWithoutReservasInput = {
@@ -11107,6 +20076,10 @@ export namespace Prisma {
     precoPorNoite?: NullableFloatFieldUpdateOperationsInput | number | null
     locador?: LocadorUpdateOneRequiredWithoutCasasNestedInput
     favoritos?: FavoritoUpdateManyWithoutCasaNestedInput
+    imagens?: ImagemCasaUpdateManyWithoutCasaNestedInput
+    conversas?: ConversaUpdateManyWithoutCasaNestedInput
+    bloqueiosDisponibilidade?: BloqueioDisponibilidadeUpdateManyWithoutCasaNestedInput
+    avaliacoes?: AvaliacaoUpdateManyWithoutCasaNestedInput
   }
 
   export type CasaUncheckedUpdateWithoutReservasInput = {
@@ -11121,6 +20094,10 @@ export namespace Prisma {
     precoPorNoite?: NullableFloatFieldUpdateOperationsInput | number | null
     locadorId?: IntFieldUpdateOperationsInput | number
     favoritos?: FavoritoUncheckedUpdateManyWithoutCasaNestedInput
+    imagens?: ImagemCasaUncheckedUpdateManyWithoutCasaNestedInput
+    conversas?: ConversaUncheckedUpdateManyWithoutCasaNestedInput
+    bloqueiosDisponibilidade?: BloqueioDisponibilidadeUncheckedUpdateManyWithoutCasaNestedInput
+    avaliacoes?: AvaliacaoUncheckedUpdateManyWithoutCasaNestedInput
   }
 
   export type LocadorUpsertWithoutReservasInput = {
@@ -11144,6 +20121,8 @@ export namespace Prisma {
     cidade?: NullableStringFieldUpdateOperationsInput | string | null
     estado?: NullableStringFieldUpdateOperationsInput | string | null
     casas?: CasaUpdateManyWithoutLocadorNestedInput
+    conversas?: ConversaUpdateManyWithoutLocadorNestedInput
+    mensagens?: MensagemUpdateManyWithoutRemetenteLocadorNestedInput
   }
 
   export type LocadorUncheckedUpdateWithoutReservasInput = {
@@ -11157,6 +20136,38 @@ export namespace Prisma {
     cidade?: NullableStringFieldUpdateOperationsInput | string | null
     estado?: NullableStringFieldUpdateOperationsInput | string | null
     casas?: CasaUncheckedUpdateManyWithoutLocadorNestedInput
+    conversas?: ConversaUncheckedUpdateManyWithoutLocadorNestedInput
+    mensagens?: MensagemUncheckedUpdateManyWithoutRemetenteLocadorNestedInput
+  }
+
+  export type AvaliacaoUpsertWithoutReservaInput = {
+    update: XOR<AvaliacaoUpdateWithoutReservaInput, AvaliacaoUncheckedUpdateWithoutReservaInput>
+    create: XOR<AvaliacaoCreateWithoutReservaInput, AvaliacaoUncheckedCreateWithoutReservaInput>
+    where?: AvaliacaoWhereInput
+  }
+
+  export type AvaliacaoUpdateToOneWithWhereWithoutReservaInput = {
+    where?: AvaliacaoWhereInput
+    data: XOR<AvaliacaoUpdateWithoutReservaInput, AvaliacaoUncheckedUpdateWithoutReservaInput>
+  }
+
+  export type AvaliacaoUpdateWithoutReservaInput = {
+    nota?: IntFieldUpdateOperationsInput | number
+    comentario?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    hospede?: HospedeUpdateOneRequiredWithoutAvaliacoesFeitasNestedInput
+    casa?: CasaUpdateOneRequiredWithoutAvaliacoesNestedInput
+  }
+
+  export type AvaliacaoUncheckedUpdateWithoutReservaInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nota?: IntFieldUpdateOperationsInput | number
+    comentario?: NullableStringFieldUpdateOperationsInput | string | null
+    hospedeId?: IntFieldUpdateOperationsInput | number
+    casaId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type HospedeCreateWithoutFavoritosInput = {
@@ -11170,6 +20181,9 @@ export namespace Prisma {
     matricula: string
     universidade?: string | null
     reservas?: ReservaCreateNestedManyWithoutHospedeInput
+    conversas?: ConversaCreateNestedManyWithoutHospedeInput
+    mensagens?: MensagemCreateNestedManyWithoutRemetenteHospedeInput
+    avaliacoesFeitas?: AvaliacaoCreateNestedManyWithoutHospedeInput
   }
 
   export type HospedeUncheckedCreateWithoutFavoritosInput = {
@@ -11184,6 +20198,9 @@ export namespace Prisma {
     matricula: string
     universidade?: string | null
     reservas?: ReservaUncheckedCreateNestedManyWithoutHospedeInput
+    conversas?: ConversaUncheckedCreateNestedManyWithoutHospedeInput
+    mensagens?: MensagemUncheckedCreateNestedManyWithoutRemetenteHospedeInput
+    avaliacoesFeitas?: AvaliacaoUncheckedCreateNestedManyWithoutHospedeInput
   }
 
   export type HospedeCreateOrConnectWithoutFavoritosInput = {
@@ -11202,6 +20219,10 @@ export namespace Prisma {
     precoPorNoite?: number | null
     locador: LocadorCreateNestedOneWithoutCasasInput
     reservas?: ReservaCreateNestedManyWithoutCasaInput
+    imagens?: ImagemCasaCreateNestedManyWithoutCasaInput
+    conversas?: ConversaCreateNestedManyWithoutCasaInput
+    bloqueiosDisponibilidade?: BloqueioDisponibilidadeCreateNestedManyWithoutCasaInput
+    avaliacoes?: AvaliacaoCreateNestedManyWithoutCasaInput
   }
 
   export type CasaUncheckedCreateWithoutFavoritosInput = {
@@ -11216,6 +20237,10 @@ export namespace Prisma {
     precoPorNoite?: number | null
     locadorId: number
     reservas?: ReservaUncheckedCreateNestedManyWithoutCasaInput
+    imagens?: ImagemCasaUncheckedCreateNestedManyWithoutCasaInput
+    conversas?: ConversaUncheckedCreateNestedManyWithoutCasaInput
+    bloqueiosDisponibilidade?: BloqueioDisponibilidadeUncheckedCreateNestedManyWithoutCasaInput
+    avaliacoes?: AvaliacaoUncheckedCreateNestedManyWithoutCasaInput
   }
 
   export type CasaCreateOrConnectWithoutFavoritosInput = {
@@ -11245,6 +20270,9 @@ export namespace Prisma {
     matricula?: StringFieldUpdateOperationsInput | string
     universidade?: NullableStringFieldUpdateOperationsInput | string | null
     reservas?: ReservaUpdateManyWithoutHospedeNestedInput
+    conversas?: ConversaUpdateManyWithoutHospedeNestedInput
+    mensagens?: MensagemUpdateManyWithoutRemetenteHospedeNestedInput
+    avaliacoesFeitas?: AvaliacaoUpdateManyWithoutHospedeNestedInput
   }
 
   export type HospedeUncheckedUpdateWithoutFavoritosInput = {
@@ -11259,6 +20287,9 @@ export namespace Prisma {
     matricula?: StringFieldUpdateOperationsInput | string
     universidade?: NullableStringFieldUpdateOperationsInput | string | null
     reservas?: ReservaUncheckedUpdateManyWithoutHospedeNestedInput
+    conversas?: ConversaUncheckedUpdateManyWithoutHospedeNestedInput
+    mensagens?: MensagemUncheckedUpdateManyWithoutRemetenteHospedeNestedInput
+    avaliacoesFeitas?: AvaliacaoUncheckedUpdateManyWithoutHospedeNestedInput
   }
 
   export type CasaUpsertWithoutFavoritosInput = {
@@ -11283,6 +20314,10 @@ export namespace Prisma {
     precoPorNoite?: NullableFloatFieldUpdateOperationsInput | number | null
     locador?: LocadorUpdateOneRequiredWithoutCasasNestedInput
     reservas?: ReservaUpdateManyWithoutCasaNestedInput
+    imagens?: ImagemCasaUpdateManyWithoutCasaNestedInput
+    conversas?: ConversaUpdateManyWithoutCasaNestedInput
+    bloqueiosDisponibilidade?: BloqueioDisponibilidadeUpdateManyWithoutCasaNestedInput
+    avaliacoes?: AvaliacaoUpdateManyWithoutCasaNestedInput
   }
 
   export type CasaUncheckedUpdateWithoutFavoritosInput = {
@@ -11297,6 +20332,752 @@ export namespace Prisma {
     precoPorNoite?: NullableFloatFieldUpdateOperationsInput | number | null
     locadorId?: IntFieldUpdateOperationsInput | number
     reservas?: ReservaUncheckedUpdateManyWithoutCasaNestedInput
+    imagens?: ImagemCasaUncheckedUpdateManyWithoutCasaNestedInput
+    conversas?: ConversaUncheckedUpdateManyWithoutCasaNestedInput
+    bloqueiosDisponibilidade?: BloqueioDisponibilidadeUncheckedUpdateManyWithoutCasaNestedInput
+    avaliacoes?: AvaliacaoUncheckedUpdateManyWithoutCasaNestedInput
+  }
+
+  export type HospedeCreateWithoutConversasInput = {
+    name: string
+    email: string
+    senha: string
+    cpf: string
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
+    matricula: string
+    universidade?: string | null
+    reservas?: ReservaCreateNestedManyWithoutHospedeInput
+    favoritos?: FavoritoCreateNestedManyWithoutHospedeInput
+    mensagens?: MensagemCreateNestedManyWithoutRemetenteHospedeInput
+    avaliacoesFeitas?: AvaliacaoCreateNestedManyWithoutHospedeInput
+  }
+
+  export type HospedeUncheckedCreateWithoutConversasInput = {
+    id?: number
+    name: string
+    email: string
+    senha: string
+    cpf: string
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
+    matricula: string
+    universidade?: string | null
+    reservas?: ReservaUncheckedCreateNestedManyWithoutHospedeInput
+    favoritos?: FavoritoUncheckedCreateNestedManyWithoutHospedeInput
+    mensagens?: MensagemUncheckedCreateNestedManyWithoutRemetenteHospedeInput
+    avaliacoesFeitas?: AvaliacaoUncheckedCreateNestedManyWithoutHospedeInput
+  }
+
+  export type HospedeCreateOrConnectWithoutConversasInput = {
+    where: HospedeWhereUniqueInput
+    create: XOR<HospedeCreateWithoutConversasInput, HospedeUncheckedCreateWithoutConversasInput>
+  }
+
+  export type LocadorCreateWithoutConversasInput = {
+    name: string
+    email: string
+    senha: string
+    cpf: string
+    endereco: string
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
+    casas?: CasaCreateNestedManyWithoutLocadorInput
+    reservas?: ReservaCreateNestedManyWithoutLocadorInput
+    mensagens?: MensagemCreateNestedManyWithoutRemetenteLocadorInput
+  }
+
+  export type LocadorUncheckedCreateWithoutConversasInput = {
+    id?: number
+    name: string
+    email: string
+    senha: string
+    cpf: string
+    endereco: string
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
+    casas?: CasaUncheckedCreateNestedManyWithoutLocadorInput
+    reservas?: ReservaUncheckedCreateNestedManyWithoutLocadorInput
+    mensagens?: MensagemUncheckedCreateNestedManyWithoutRemetenteLocadorInput
+  }
+
+  export type LocadorCreateOrConnectWithoutConversasInput = {
+    where: LocadorWhereUniqueInput
+    create: XOR<LocadorCreateWithoutConversasInput, LocadorUncheckedCreateWithoutConversasInput>
+  }
+
+  export type CasaCreateWithoutConversasInput = {
+    endereco: string
+    numero: number
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
+    diretrizes: string
+    complemento?: string | null
+    precoPorNoite?: number | null
+    locador: LocadorCreateNestedOneWithoutCasasInput
+    reservas?: ReservaCreateNestedManyWithoutCasaInput
+    favoritos?: FavoritoCreateNestedManyWithoutCasaInput
+    imagens?: ImagemCasaCreateNestedManyWithoutCasaInput
+    bloqueiosDisponibilidade?: BloqueioDisponibilidadeCreateNestedManyWithoutCasaInput
+    avaliacoes?: AvaliacaoCreateNestedManyWithoutCasaInput
+  }
+
+  export type CasaUncheckedCreateWithoutConversasInput = {
+    id?: number
+    endereco: string
+    numero: number
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
+    diretrizes: string
+    complemento?: string | null
+    precoPorNoite?: number | null
+    locadorId: number
+    reservas?: ReservaUncheckedCreateNestedManyWithoutCasaInput
+    favoritos?: FavoritoUncheckedCreateNestedManyWithoutCasaInput
+    imagens?: ImagemCasaUncheckedCreateNestedManyWithoutCasaInput
+    bloqueiosDisponibilidade?: BloqueioDisponibilidadeUncheckedCreateNestedManyWithoutCasaInput
+    avaliacoes?: AvaliacaoUncheckedCreateNestedManyWithoutCasaInput
+  }
+
+  export type CasaCreateOrConnectWithoutConversasInput = {
+    where: CasaWhereUniqueInput
+    create: XOR<CasaCreateWithoutConversasInput, CasaUncheckedCreateWithoutConversasInput>
+  }
+
+  export type MensagemCreateWithoutConversaInput = {
+    conteudo: string
+    createdAt?: Date | string
+    lidaPeloHospede?: boolean
+    lidaPeloLocador?: boolean
+    remetenteHospede?: HospedeCreateNestedOneWithoutMensagensInput
+    remetenteLocador?: LocadorCreateNestedOneWithoutMensagensInput
+  }
+
+  export type MensagemUncheckedCreateWithoutConversaInput = {
+    id?: number
+    conteudo: string
+    createdAt?: Date | string
+    remetenteHospedeId?: number | null
+    remetenteLocadorId?: number | null
+    lidaPeloHospede?: boolean
+    lidaPeloLocador?: boolean
+  }
+
+  export type MensagemCreateOrConnectWithoutConversaInput = {
+    where: MensagemWhereUniqueInput
+    create: XOR<MensagemCreateWithoutConversaInput, MensagemUncheckedCreateWithoutConversaInput>
+  }
+
+  export type MensagemCreateManyConversaInputEnvelope = {
+    data: MensagemCreateManyConversaInput | MensagemCreateManyConversaInput[]
+  }
+
+  export type HospedeUpsertWithoutConversasInput = {
+    update: XOR<HospedeUpdateWithoutConversasInput, HospedeUncheckedUpdateWithoutConversasInput>
+    create: XOR<HospedeCreateWithoutConversasInput, HospedeUncheckedCreateWithoutConversasInput>
+    where?: HospedeWhereInput
+  }
+
+  export type HospedeUpdateToOneWithWhereWithoutConversasInput = {
+    where?: HospedeWhereInput
+    data: XOR<HospedeUpdateWithoutConversasInput, HospedeUncheckedUpdateWithoutConversasInput>
+  }
+
+  export type HospedeUpdateWithoutConversasInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
+    cpf?: StringFieldUpdateOperationsInput | string
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
+    matricula?: StringFieldUpdateOperationsInput | string
+    universidade?: NullableStringFieldUpdateOperationsInput | string | null
+    reservas?: ReservaUpdateManyWithoutHospedeNestedInput
+    favoritos?: FavoritoUpdateManyWithoutHospedeNestedInput
+    mensagens?: MensagemUpdateManyWithoutRemetenteHospedeNestedInput
+    avaliacoesFeitas?: AvaliacaoUpdateManyWithoutHospedeNestedInput
+  }
+
+  export type HospedeUncheckedUpdateWithoutConversasInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
+    cpf?: StringFieldUpdateOperationsInput | string
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
+    matricula?: StringFieldUpdateOperationsInput | string
+    universidade?: NullableStringFieldUpdateOperationsInput | string | null
+    reservas?: ReservaUncheckedUpdateManyWithoutHospedeNestedInput
+    favoritos?: FavoritoUncheckedUpdateManyWithoutHospedeNestedInput
+    mensagens?: MensagemUncheckedUpdateManyWithoutRemetenteHospedeNestedInput
+    avaliacoesFeitas?: AvaliacaoUncheckedUpdateManyWithoutHospedeNestedInput
+  }
+
+  export type LocadorUpsertWithoutConversasInput = {
+    update: XOR<LocadorUpdateWithoutConversasInput, LocadorUncheckedUpdateWithoutConversasInput>
+    create: XOR<LocadorCreateWithoutConversasInput, LocadorUncheckedCreateWithoutConversasInput>
+    where?: LocadorWhereInput
+  }
+
+  export type LocadorUpdateToOneWithWhereWithoutConversasInput = {
+    where?: LocadorWhereInput
+    data: XOR<LocadorUpdateWithoutConversasInput, LocadorUncheckedUpdateWithoutConversasInput>
+  }
+
+  export type LocadorUpdateWithoutConversasInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
+    cpf?: StringFieldUpdateOperationsInput | string
+    endereco?: StringFieldUpdateOperationsInput | string
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
+    casas?: CasaUpdateManyWithoutLocadorNestedInput
+    reservas?: ReservaUpdateManyWithoutLocadorNestedInput
+    mensagens?: MensagemUpdateManyWithoutRemetenteLocadorNestedInput
+  }
+
+  export type LocadorUncheckedUpdateWithoutConversasInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
+    cpf?: StringFieldUpdateOperationsInput | string
+    endereco?: StringFieldUpdateOperationsInput | string
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
+    casas?: CasaUncheckedUpdateManyWithoutLocadorNestedInput
+    reservas?: ReservaUncheckedUpdateManyWithoutLocadorNestedInput
+    mensagens?: MensagemUncheckedUpdateManyWithoutRemetenteLocadorNestedInput
+  }
+
+  export type CasaUpsertWithoutConversasInput = {
+    update: XOR<CasaUpdateWithoutConversasInput, CasaUncheckedUpdateWithoutConversasInput>
+    create: XOR<CasaCreateWithoutConversasInput, CasaUncheckedCreateWithoutConversasInput>
+    where?: CasaWhereInput
+  }
+
+  export type CasaUpdateToOneWithWhereWithoutConversasInput = {
+    where?: CasaWhereInput
+    data: XOR<CasaUpdateWithoutConversasInput, CasaUncheckedUpdateWithoutConversasInput>
+  }
+
+  export type CasaUpdateWithoutConversasInput = {
+    endereco?: StringFieldUpdateOperationsInput | string
+    numero?: IntFieldUpdateOperationsInput | number
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
+    diretrizes?: StringFieldUpdateOperationsInput | string
+    complemento?: NullableStringFieldUpdateOperationsInput | string | null
+    precoPorNoite?: NullableFloatFieldUpdateOperationsInput | number | null
+    locador?: LocadorUpdateOneRequiredWithoutCasasNestedInput
+    reservas?: ReservaUpdateManyWithoutCasaNestedInput
+    favoritos?: FavoritoUpdateManyWithoutCasaNestedInput
+    imagens?: ImagemCasaUpdateManyWithoutCasaNestedInput
+    bloqueiosDisponibilidade?: BloqueioDisponibilidadeUpdateManyWithoutCasaNestedInput
+    avaliacoes?: AvaliacaoUpdateManyWithoutCasaNestedInput
+  }
+
+  export type CasaUncheckedUpdateWithoutConversasInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    endereco?: StringFieldUpdateOperationsInput | string
+    numero?: IntFieldUpdateOperationsInput | number
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
+    diretrizes?: StringFieldUpdateOperationsInput | string
+    complemento?: NullableStringFieldUpdateOperationsInput | string | null
+    precoPorNoite?: NullableFloatFieldUpdateOperationsInput | number | null
+    locadorId?: IntFieldUpdateOperationsInput | number
+    reservas?: ReservaUncheckedUpdateManyWithoutCasaNestedInput
+    favoritos?: FavoritoUncheckedUpdateManyWithoutCasaNestedInput
+    imagens?: ImagemCasaUncheckedUpdateManyWithoutCasaNestedInput
+    bloqueiosDisponibilidade?: BloqueioDisponibilidadeUncheckedUpdateManyWithoutCasaNestedInput
+    avaliacoes?: AvaliacaoUncheckedUpdateManyWithoutCasaNestedInput
+  }
+
+  export type MensagemUpsertWithWhereUniqueWithoutConversaInput = {
+    where: MensagemWhereUniqueInput
+    update: XOR<MensagemUpdateWithoutConversaInput, MensagemUncheckedUpdateWithoutConversaInput>
+    create: XOR<MensagemCreateWithoutConversaInput, MensagemUncheckedCreateWithoutConversaInput>
+  }
+
+  export type MensagemUpdateWithWhereUniqueWithoutConversaInput = {
+    where: MensagemWhereUniqueInput
+    data: XOR<MensagemUpdateWithoutConversaInput, MensagemUncheckedUpdateWithoutConversaInput>
+  }
+
+  export type MensagemUpdateManyWithWhereWithoutConversaInput = {
+    where: MensagemScalarWhereInput
+    data: XOR<MensagemUpdateManyMutationInput, MensagemUncheckedUpdateManyWithoutConversaInput>
+  }
+
+  export type ConversaCreateWithoutMensagensInput = {
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    hospede: HospedeCreateNestedOneWithoutConversasInput
+    locador: LocadorCreateNestedOneWithoutConversasInput
+    casa?: CasaCreateNestedOneWithoutConversasInput
+  }
+
+  export type ConversaUncheckedCreateWithoutMensagensInput = {
+    id?: number
+    hospedeId: number
+    locadorId: number
+    casaId?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ConversaCreateOrConnectWithoutMensagensInput = {
+    where: ConversaWhereUniqueInput
+    create: XOR<ConversaCreateWithoutMensagensInput, ConversaUncheckedCreateWithoutMensagensInput>
+  }
+
+  export type HospedeCreateWithoutMensagensInput = {
+    name: string
+    email: string
+    senha: string
+    cpf: string
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
+    matricula: string
+    universidade?: string | null
+    reservas?: ReservaCreateNestedManyWithoutHospedeInput
+    favoritos?: FavoritoCreateNestedManyWithoutHospedeInput
+    conversas?: ConversaCreateNestedManyWithoutHospedeInput
+    avaliacoesFeitas?: AvaliacaoCreateNestedManyWithoutHospedeInput
+  }
+
+  export type HospedeUncheckedCreateWithoutMensagensInput = {
+    id?: number
+    name: string
+    email: string
+    senha: string
+    cpf: string
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
+    matricula: string
+    universidade?: string | null
+    reservas?: ReservaUncheckedCreateNestedManyWithoutHospedeInput
+    favoritos?: FavoritoUncheckedCreateNestedManyWithoutHospedeInput
+    conversas?: ConversaUncheckedCreateNestedManyWithoutHospedeInput
+    avaliacoesFeitas?: AvaliacaoUncheckedCreateNestedManyWithoutHospedeInput
+  }
+
+  export type HospedeCreateOrConnectWithoutMensagensInput = {
+    where: HospedeWhereUniqueInput
+    create: XOR<HospedeCreateWithoutMensagensInput, HospedeUncheckedCreateWithoutMensagensInput>
+  }
+
+  export type LocadorCreateWithoutMensagensInput = {
+    name: string
+    email: string
+    senha: string
+    cpf: string
+    endereco: string
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
+    casas?: CasaCreateNestedManyWithoutLocadorInput
+    reservas?: ReservaCreateNestedManyWithoutLocadorInput
+    conversas?: ConversaCreateNestedManyWithoutLocadorInput
+  }
+
+  export type LocadorUncheckedCreateWithoutMensagensInput = {
+    id?: number
+    name: string
+    email: string
+    senha: string
+    cpf: string
+    endereco: string
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
+    casas?: CasaUncheckedCreateNestedManyWithoutLocadorInput
+    reservas?: ReservaUncheckedCreateNestedManyWithoutLocadorInput
+    conversas?: ConversaUncheckedCreateNestedManyWithoutLocadorInput
+  }
+
+  export type LocadorCreateOrConnectWithoutMensagensInput = {
+    where: LocadorWhereUniqueInput
+    create: XOR<LocadorCreateWithoutMensagensInput, LocadorUncheckedCreateWithoutMensagensInput>
+  }
+
+  export type ConversaUpsertWithoutMensagensInput = {
+    update: XOR<ConversaUpdateWithoutMensagensInput, ConversaUncheckedUpdateWithoutMensagensInput>
+    create: XOR<ConversaCreateWithoutMensagensInput, ConversaUncheckedCreateWithoutMensagensInput>
+    where?: ConversaWhereInput
+  }
+
+  export type ConversaUpdateToOneWithWhereWithoutMensagensInput = {
+    where?: ConversaWhereInput
+    data: XOR<ConversaUpdateWithoutMensagensInput, ConversaUncheckedUpdateWithoutMensagensInput>
+  }
+
+  export type ConversaUpdateWithoutMensagensInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    hospede?: HospedeUpdateOneRequiredWithoutConversasNestedInput
+    locador?: LocadorUpdateOneRequiredWithoutConversasNestedInput
+    casa?: CasaUpdateOneWithoutConversasNestedInput
+  }
+
+  export type ConversaUncheckedUpdateWithoutMensagensInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    hospedeId?: IntFieldUpdateOperationsInput | number
+    locadorId?: IntFieldUpdateOperationsInput | number
+    casaId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type HospedeUpsertWithoutMensagensInput = {
+    update: XOR<HospedeUpdateWithoutMensagensInput, HospedeUncheckedUpdateWithoutMensagensInput>
+    create: XOR<HospedeCreateWithoutMensagensInput, HospedeUncheckedCreateWithoutMensagensInput>
+    where?: HospedeWhereInput
+  }
+
+  export type HospedeUpdateToOneWithWhereWithoutMensagensInput = {
+    where?: HospedeWhereInput
+    data: XOR<HospedeUpdateWithoutMensagensInput, HospedeUncheckedUpdateWithoutMensagensInput>
+  }
+
+  export type HospedeUpdateWithoutMensagensInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
+    cpf?: StringFieldUpdateOperationsInput | string
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
+    matricula?: StringFieldUpdateOperationsInput | string
+    universidade?: NullableStringFieldUpdateOperationsInput | string | null
+    reservas?: ReservaUpdateManyWithoutHospedeNestedInput
+    favoritos?: FavoritoUpdateManyWithoutHospedeNestedInput
+    conversas?: ConversaUpdateManyWithoutHospedeNestedInput
+    avaliacoesFeitas?: AvaliacaoUpdateManyWithoutHospedeNestedInput
+  }
+
+  export type HospedeUncheckedUpdateWithoutMensagensInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
+    cpf?: StringFieldUpdateOperationsInput | string
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
+    matricula?: StringFieldUpdateOperationsInput | string
+    universidade?: NullableStringFieldUpdateOperationsInput | string | null
+    reservas?: ReservaUncheckedUpdateManyWithoutHospedeNestedInput
+    favoritos?: FavoritoUncheckedUpdateManyWithoutHospedeNestedInput
+    conversas?: ConversaUncheckedUpdateManyWithoutHospedeNestedInput
+    avaliacoesFeitas?: AvaliacaoUncheckedUpdateManyWithoutHospedeNestedInput
+  }
+
+  export type LocadorUpsertWithoutMensagensInput = {
+    update: XOR<LocadorUpdateWithoutMensagensInput, LocadorUncheckedUpdateWithoutMensagensInput>
+    create: XOR<LocadorCreateWithoutMensagensInput, LocadorUncheckedCreateWithoutMensagensInput>
+    where?: LocadorWhereInput
+  }
+
+  export type LocadorUpdateToOneWithWhereWithoutMensagensInput = {
+    where?: LocadorWhereInput
+    data: XOR<LocadorUpdateWithoutMensagensInput, LocadorUncheckedUpdateWithoutMensagensInput>
+  }
+
+  export type LocadorUpdateWithoutMensagensInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
+    cpf?: StringFieldUpdateOperationsInput | string
+    endereco?: StringFieldUpdateOperationsInput | string
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
+    casas?: CasaUpdateManyWithoutLocadorNestedInput
+    reservas?: ReservaUpdateManyWithoutLocadorNestedInput
+    conversas?: ConversaUpdateManyWithoutLocadorNestedInput
+  }
+
+  export type LocadorUncheckedUpdateWithoutMensagensInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
+    cpf?: StringFieldUpdateOperationsInput | string
+    endereco?: StringFieldUpdateOperationsInput | string
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
+    casas?: CasaUncheckedUpdateManyWithoutLocadorNestedInput
+    reservas?: ReservaUncheckedUpdateManyWithoutLocadorNestedInput
+    conversas?: ConversaUncheckedUpdateManyWithoutLocadorNestedInput
+  }
+
+  export type ReservaCreateWithoutAvaliacaoInput = {
+    dataCheckIn: Date | string
+    dataCheckOut: Date | string
+    status: string
+    numeroHospedes?: number | null
+    valorTotal?: number | null
+    observacoes?: string | null
+    valorTotalCalculado?: number | null
+    statusPagamento?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    hospede: HospedeCreateNestedOneWithoutReservasInput
+    casa: CasaCreateNestedOneWithoutReservasInput
+    locador: LocadorCreateNestedOneWithoutReservasInput
+  }
+
+  export type ReservaUncheckedCreateWithoutAvaliacaoInput = {
+    id?: number
+    dataCheckIn: Date | string
+    dataCheckOut: Date | string
+    status: string
+    numeroHospedes?: number | null
+    valorTotal?: number | null
+    observacoes?: string | null
+    valorTotalCalculado?: number | null
+    statusPagamento?: string | null
+    hospedeId: number
+    casaId: number
+    locadorId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ReservaCreateOrConnectWithoutAvaliacaoInput = {
+    where: ReservaWhereUniqueInput
+    create: XOR<ReservaCreateWithoutAvaliacaoInput, ReservaUncheckedCreateWithoutAvaliacaoInput>
+  }
+
+  export type HospedeCreateWithoutAvaliacoesFeitasInput = {
+    name: string
+    email: string
+    senha: string
+    cpf: string
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
+    matricula: string
+    universidade?: string | null
+    reservas?: ReservaCreateNestedManyWithoutHospedeInput
+    favoritos?: FavoritoCreateNestedManyWithoutHospedeInput
+    conversas?: ConversaCreateNestedManyWithoutHospedeInput
+    mensagens?: MensagemCreateNestedManyWithoutRemetenteHospedeInput
+  }
+
+  export type HospedeUncheckedCreateWithoutAvaliacoesFeitasInput = {
+    id?: number
+    name: string
+    email: string
+    senha: string
+    cpf: string
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
+    matricula: string
+    universidade?: string | null
+    reservas?: ReservaUncheckedCreateNestedManyWithoutHospedeInput
+    favoritos?: FavoritoUncheckedCreateNestedManyWithoutHospedeInput
+    conversas?: ConversaUncheckedCreateNestedManyWithoutHospedeInput
+    mensagens?: MensagemUncheckedCreateNestedManyWithoutRemetenteHospedeInput
+  }
+
+  export type HospedeCreateOrConnectWithoutAvaliacoesFeitasInput = {
+    where: HospedeWhereUniqueInput
+    create: XOR<HospedeCreateWithoutAvaliacoesFeitasInput, HospedeUncheckedCreateWithoutAvaliacoesFeitasInput>
+  }
+
+  export type CasaCreateWithoutAvaliacoesInput = {
+    endereco: string
+    numero: number
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
+    diretrizes: string
+    complemento?: string | null
+    precoPorNoite?: number | null
+    locador: LocadorCreateNestedOneWithoutCasasInput
+    reservas?: ReservaCreateNestedManyWithoutCasaInput
+    favoritos?: FavoritoCreateNestedManyWithoutCasaInput
+    imagens?: ImagemCasaCreateNestedManyWithoutCasaInput
+    conversas?: ConversaCreateNestedManyWithoutCasaInput
+    bloqueiosDisponibilidade?: BloqueioDisponibilidadeCreateNestedManyWithoutCasaInput
+  }
+
+  export type CasaUncheckedCreateWithoutAvaliacoesInput = {
+    id?: number
+    endereco: string
+    numero: number
+    cep?: string | null
+    cidade?: string | null
+    estado?: string | null
+    diretrizes: string
+    complemento?: string | null
+    precoPorNoite?: number | null
+    locadorId: number
+    reservas?: ReservaUncheckedCreateNestedManyWithoutCasaInput
+    favoritos?: FavoritoUncheckedCreateNestedManyWithoutCasaInput
+    imagens?: ImagemCasaUncheckedCreateNestedManyWithoutCasaInput
+    conversas?: ConversaUncheckedCreateNestedManyWithoutCasaInput
+    bloqueiosDisponibilidade?: BloqueioDisponibilidadeUncheckedCreateNestedManyWithoutCasaInput
+  }
+
+  export type CasaCreateOrConnectWithoutAvaliacoesInput = {
+    where: CasaWhereUniqueInput
+    create: XOR<CasaCreateWithoutAvaliacoesInput, CasaUncheckedCreateWithoutAvaliacoesInput>
+  }
+
+  export type ReservaUpsertWithoutAvaliacaoInput = {
+    update: XOR<ReservaUpdateWithoutAvaliacaoInput, ReservaUncheckedUpdateWithoutAvaliacaoInput>
+    create: XOR<ReservaCreateWithoutAvaliacaoInput, ReservaUncheckedCreateWithoutAvaliacaoInput>
+    where?: ReservaWhereInput
+  }
+
+  export type ReservaUpdateToOneWithWhereWithoutAvaliacaoInput = {
+    where?: ReservaWhereInput
+    data: XOR<ReservaUpdateWithoutAvaliacaoInput, ReservaUncheckedUpdateWithoutAvaliacaoInput>
+  }
+
+  export type ReservaUpdateWithoutAvaliacaoInput = {
+    dataCheckIn?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataCheckOut?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
+    numeroHospedes?: NullableIntFieldUpdateOperationsInput | number | null
+    valorTotal?: NullableFloatFieldUpdateOperationsInput | number | null
+    observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    valorTotalCalculado?: NullableFloatFieldUpdateOperationsInput | number | null
+    statusPagamento?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    hospede?: HospedeUpdateOneRequiredWithoutReservasNestedInput
+    casa?: CasaUpdateOneRequiredWithoutReservasNestedInput
+    locador?: LocadorUpdateOneRequiredWithoutReservasNestedInput
+  }
+
+  export type ReservaUncheckedUpdateWithoutAvaliacaoInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    dataCheckIn?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataCheckOut?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: StringFieldUpdateOperationsInput | string
+    numeroHospedes?: NullableIntFieldUpdateOperationsInput | number | null
+    valorTotal?: NullableFloatFieldUpdateOperationsInput | number | null
+    observacoes?: NullableStringFieldUpdateOperationsInput | string | null
+    valorTotalCalculado?: NullableFloatFieldUpdateOperationsInput | number | null
+    statusPagamento?: NullableStringFieldUpdateOperationsInput | string | null
+    hospedeId?: IntFieldUpdateOperationsInput | number
+    casaId?: IntFieldUpdateOperationsInput | number
+    locadorId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type HospedeUpsertWithoutAvaliacoesFeitasInput = {
+    update: XOR<HospedeUpdateWithoutAvaliacoesFeitasInput, HospedeUncheckedUpdateWithoutAvaliacoesFeitasInput>
+    create: XOR<HospedeCreateWithoutAvaliacoesFeitasInput, HospedeUncheckedCreateWithoutAvaliacoesFeitasInput>
+    where?: HospedeWhereInput
+  }
+
+  export type HospedeUpdateToOneWithWhereWithoutAvaliacoesFeitasInput = {
+    where?: HospedeWhereInput
+    data: XOR<HospedeUpdateWithoutAvaliacoesFeitasInput, HospedeUncheckedUpdateWithoutAvaliacoesFeitasInput>
+  }
+
+  export type HospedeUpdateWithoutAvaliacoesFeitasInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
+    cpf?: StringFieldUpdateOperationsInput | string
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
+    matricula?: StringFieldUpdateOperationsInput | string
+    universidade?: NullableStringFieldUpdateOperationsInput | string | null
+    reservas?: ReservaUpdateManyWithoutHospedeNestedInput
+    favoritos?: FavoritoUpdateManyWithoutHospedeNestedInput
+    conversas?: ConversaUpdateManyWithoutHospedeNestedInput
+    mensagens?: MensagemUpdateManyWithoutRemetenteHospedeNestedInput
+  }
+
+  export type HospedeUncheckedUpdateWithoutAvaliacoesFeitasInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
+    cpf?: StringFieldUpdateOperationsInput | string
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
+    matricula?: StringFieldUpdateOperationsInput | string
+    universidade?: NullableStringFieldUpdateOperationsInput | string | null
+    reservas?: ReservaUncheckedUpdateManyWithoutHospedeNestedInput
+    favoritos?: FavoritoUncheckedUpdateManyWithoutHospedeNestedInput
+    conversas?: ConversaUncheckedUpdateManyWithoutHospedeNestedInput
+    mensagens?: MensagemUncheckedUpdateManyWithoutRemetenteHospedeNestedInput
+  }
+
+  export type CasaUpsertWithoutAvaliacoesInput = {
+    update: XOR<CasaUpdateWithoutAvaliacoesInput, CasaUncheckedUpdateWithoutAvaliacoesInput>
+    create: XOR<CasaCreateWithoutAvaliacoesInput, CasaUncheckedCreateWithoutAvaliacoesInput>
+    where?: CasaWhereInput
+  }
+
+  export type CasaUpdateToOneWithWhereWithoutAvaliacoesInput = {
+    where?: CasaWhereInput
+    data: XOR<CasaUpdateWithoutAvaliacoesInput, CasaUncheckedUpdateWithoutAvaliacoesInput>
+  }
+
+  export type CasaUpdateWithoutAvaliacoesInput = {
+    endereco?: StringFieldUpdateOperationsInput | string
+    numero?: IntFieldUpdateOperationsInput | number
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
+    diretrizes?: StringFieldUpdateOperationsInput | string
+    complemento?: NullableStringFieldUpdateOperationsInput | string | null
+    precoPorNoite?: NullableFloatFieldUpdateOperationsInput | number | null
+    locador?: LocadorUpdateOneRequiredWithoutCasasNestedInput
+    reservas?: ReservaUpdateManyWithoutCasaNestedInput
+    favoritos?: FavoritoUpdateManyWithoutCasaNestedInput
+    imagens?: ImagemCasaUpdateManyWithoutCasaNestedInput
+    conversas?: ConversaUpdateManyWithoutCasaNestedInput
+    bloqueiosDisponibilidade?: BloqueioDisponibilidadeUpdateManyWithoutCasaNestedInput
+  }
+
+  export type CasaUncheckedUpdateWithoutAvaliacoesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    endereco?: StringFieldUpdateOperationsInput | string
+    numero?: IntFieldUpdateOperationsInput | number
+    cep?: NullableStringFieldUpdateOperationsInput | string | null
+    cidade?: NullableStringFieldUpdateOperationsInput | string | null
+    estado?: NullableStringFieldUpdateOperationsInput | string | null
+    diretrizes?: StringFieldUpdateOperationsInput | string
+    complemento?: NullableStringFieldUpdateOperationsInput | string | null
+    precoPorNoite?: NullableFloatFieldUpdateOperationsInput | number | null
+    locadorId?: IntFieldUpdateOperationsInput | number
+    reservas?: ReservaUncheckedUpdateManyWithoutCasaNestedInput
+    favoritos?: FavoritoUncheckedUpdateManyWithoutCasaNestedInput
+    imagens?: ImagemCasaUncheckedUpdateManyWithoutCasaNestedInput
+    conversas?: ConversaUncheckedUpdateManyWithoutCasaNestedInput
+    bloqueiosDisponibilidade?: BloqueioDisponibilidadeUncheckedUpdateManyWithoutCasaNestedInput
   }
 
   export type ReservaCreateManyCasaInput = {
@@ -11321,6 +21102,38 @@ export namespace Prisma {
     createdAt?: Date | string
   }
 
+  export type ImagemCasaCreateManyCasaInput = {
+    id?: number
+    url: string
+    createdAt?: Date | string
+  }
+
+  export type ConversaCreateManyCasaInput = {
+    id?: number
+    hospedeId: number
+    locadorId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BloqueioDisponibilidadeCreateManyCasaInput = {
+    id?: number
+    dataInicio: Date | string
+    dataFim: Date | string
+    motivo?: string | null
+    createdAt?: Date | string
+  }
+
+  export type AvaliacaoCreateManyCasaInput = {
+    id?: number
+    nota: number
+    comentario?: string | null
+    reservaId: number
+    hospedeId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
   export type ReservaUpdateWithoutCasaInput = {
     dataCheckIn?: DateTimeFieldUpdateOperationsInput | Date | string
     dataCheckOut?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11334,6 +21147,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     hospede?: HospedeUpdateOneRequiredWithoutReservasNestedInput
     locador?: LocadorUpdateOneRequiredWithoutReservasNestedInput
+    avaliacao?: AvaliacaoUpdateOneWithoutReservaNestedInput
   }
 
   export type ReservaUncheckedUpdateWithoutCasaInput = {
@@ -11350,6 +21164,7 @@ export namespace Prisma {
     locadorId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    avaliacao?: AvaliacaoUncheckedUpdateOneWithoutReservaNestedInput
   }
 
   export type ReservaUncheckedUpdateManyWithoutCasaInput = {
@@ -11385,6 +21200,100 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type ImagemCasaUpdateWithoutCasaInput = {
+    url?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ImagemCasaUncheckedUpdateWithoutCasaInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    url?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ImagemCasaUncheckedUpdateManyWithoutCasaInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    url?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ConversaUpdateWithoutCasaInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    hospede?: HospedeUpdateOneRequiredWithoutConversasNestedInput
+    locador?: LocadorUpdateOneRequiredWithoutConversasNestedInput
+    mensagens?: MensagemUpdateManyWithoutConversaNestedInput
+  }
+
+  export type ConversaUncheckedUpdateWithoutCasaInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    hospedeId?: IntFieldUpdateOperationsInput | number
+    locadorId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mensagens?: MensagemUncheckedUpdateManyWithoutConversaNestedInput
+  }
+
+  export type ConversaUncheckedUpdateManyWithoutCasaInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    hospedeId?: IntFieldUpdateOperationsInput | number
+    locadorId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BloqueioDisponibilidadeUpdateWithoutCasaInput = {
+    dataInicio?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataFim?: DateTimeFieldUpdateOperationsInput | Date | string
+    motivo?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BloqueioDisponibilidadeUncheckedUpdateWithoutCasaInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    dataInicio?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataFim?: DateTimeFieldUpdateOperationsInput | Date | string
+    motivo?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BloqueioDisponibilidadeUncheckedUpdateManyWithoutCasaInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    dataInicio?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataFim?: DateTimeFieldUpdateOperationsInput | Date | string
+    motivo?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AvaliacaoUpdateWithoutCasaInput = {
+    nota?: IntFieldUpdateOperationsInput | number
+    comentario?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    reserva?: ReservaUpdateOneRequiredWithoutAvaliacaoNestedInput
+    hospede?: HospedeUpdateOneRequiredWithoutAvaliacoesFeitasNestedInput
+  }
+
+  export type AvaliacaoUncheckedUpdateWithoutCasaInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nota?: IntFieldUpdateOperationsInput | number
+    comentario?: NullableStringFieldUpdateOperationsInput | string | null
+    reservaId?: IntFieldUpdateOperationsInput | number
+    hospedeId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AvaliacaoUncheckedUpdateManyWithoutCasaInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nota?: IntFieldUpdateOperationsInput | number
+    comentario?: NullableStringFieldUpdateOperationsInput | string | null
+    reservaId?: IntFieldUpdateOperationsInput | number
+    hospedeId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type CasaCreateManyLocadorInput = {
     id?: number
     endereco: string
@@ -11413,6 +21322,24 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
+  export type ConversaCreateManyLocadorInput = {
+    id?: number
+    hospedeId: number
+    casaId?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type MensagemCreateManyRemetenteLocadorInput = {
+    id?: number
+    conteudo: string
+    createdAt?: Date | string
+    conversaId: number
+    remetenteHospedeId?: number | null
+    lidaPeloHospede?: boolean
+    lidaPeloLocador?: boolean
+  }
+
   export type CasaUpdateWithoutLocadorInput = {
     endereco?: StringFieldUpdateOperationsInput | string
     numero?: IntFieldUpdateOperationsInput | number
@@ -11424,6 +21351,10 @@ export namespace Prisma {
     precoPorNoite?: NullableFloatFieldUpdateOperationsInput | number | null
     reservas?: ReservaUpdateManyWithoutCasaNestedInput
     favoritos?: FavoritoUpdateManyWithoutCasaNestedInput
+    imagens?: ImagemCasaUpdateManyWithoutCasaNestedInput
+    conversas?: ConversaUpdateManyWithoutCasaNestedInput
+    bloqueiosDisponibilidade?: BloqueioDisponibilidadeUpdateManyWithoutCasaNestedInput
+    avaliacoes?: AvaliacaoUpdateManyWithoutCasaNestedInput
   }
 
   export type CasaUncheckedUpdateWithoutLocadorInput = {
@@ -11438,6 +21369,10 @@ export namespace Prisma {
     precoPorNoite?: NullableFloatFieldUpdateOperationsInput | number | null
     reservas?: ReservaUncheckedUpdateManyWithoutCasaNestedInput
     favoritos?: FavoritoUncheckedUpdateManyWithoutCasaNestedInput
+    imagens?: ImagemCasaUncheckedUpdateManyWithoutCasaNestedInput
+    conversas?: ConversaUncheckedUpdateManyWithoutCasaNestedInput
+    bloqueiosDisponibilidade?: BloqueioDisponibilidadeUncheckedUpdateManyWithoutCasaNestedInput
+    avaliacoes?: AvaliacaoUncheckedUpdateManyWithoutCasaNestedInput
   }
 
   export type CasaUncheckedUpdateManyWithoutLocadorInput = {
@@ -11465,6 +21400,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     hospede?: HospedeUpdateOneRequiredWithoutReservasNestedInput
     casa?: CasaUpdateOneRequiredWithoutReservasNestedInput
+    avaliacao?: AvaliacaoUpdateOneWithoutReservaNestedInput
   }
 
   export type ReservaUncheckedUpdateWithoutLocadorInput = {
@@ -11481,6 +21417,7 @@ export namespace Prisma {
     casaId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    avaliacao?: AvaliacaoUncheckedUpdateOneWithoutReservaNestedInput
   }
 
   export type ReservaUncheckedUpdateManyWithoutLocadorInput = {
@@ -11497,6 +21434,60 @@ export namespace Prisma {
     casaId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ConversaUpdateWithoutLocadorInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    hospede?: HospedeUpdateOneRequiredWithoutConversasNestedInput
+    casa?: CasaUpdateOneWithoutConversasNestedInput
+    mensagens?: MensagemUpdateManyWithoutConversaNestedInput
+  }
+
+  export type ConversaUncheckedUpdateWithoutLocadorInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    hospedeId?: IntFieldUpdateOperationsInput | number
+    casaId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mensagens?: MensagemUncheckedUpdateManyWithoutConversaNestedInput
+  }
+
+  export type ConversaUncheckedUpdateManyWithoutLocadorInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    hospedeId?: IntFieldUpdateOperationsInput | number
+    casaId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MensagemUpdateWithoutRemetenteLocadorInput = {
+    conteudo?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lidaPeloHospede?: BoolFieldUpdateOperationsInput | boolean
+    lidaPeloLocador?: BoolFieldUpdateOperationsInput | boolean
+    conversa?: ConversaUpdateOneRequiredWithoutMensagensNestedInput
+    remetenteHospede?: HospedeUpdateOneWithoutMensagensNestedInput
+  }
+
+  export type MensagemUncheckedUpdateWithoutRemetenteLocadorInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    conteudo?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    conversaId?: IntFieldUpdateOperationsInput | number
+    remetenteHospedeId?: NullableIntFieldUpdateOperationsInput | number | null
+    lidaPeloHospede?: BoolFieldUpdateOperationsInput | boolean
+    lidaPeloLocador?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type MensagemUncheckedUpdateManyWithoutRemetenteLocadorInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    conteudo?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    conversaId?: IntFieldUpdateOperationsInput | number
+    remetenteHospedeId?: NullableIntFieldUpdateOperationsInput | number | null
+    lidaPeloHospede?: BoolFieldUpdateOperationsInput | boolean
+    lidaPeloLocador?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type ReservaCreateManyHospedeInput = {
@@ -11521,6 +21512,34 @@ export namespace Prisma {
     createdAt?: Date | string
   }
 
+  export type ConversaCreateManyHospedeInput = {
+    id?: number
+    locadorId: number
+    casaId?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type MensagemCreateManyRemetenteHospedeInput = {
+    id?: number
+    conteudo: string
+    createdAt?: Date | string
+    conversaId: number
+    remetenteLocadorId?: number | null
+    lidaPeloHospede?: boolean
+    lidaPeloLocador?: boolean
+  }
+
+  export type AvaliacaoCreateManyHospedeInput = {
+    id?: number
+    nota: number
+    comentario?: string | null
+    reservaId: number
+    casaId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
   export type ReservaUpdateWithoutHospedeInput = {
     dataCheckIn?: DateTimeFieldUpdateOperationsInput | Date | string
     dataCheckOut?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11534,6 +21553,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     casa?: CasaUpdateOneRequiredWithoutReservasNestedInput
     locador?: LocadorUpdateOneRequiredWithoutReservasNestedInput
+    avaliacao?: AvaliacaoUpdateOneWithoutReservaNestedInput
   }
 
   export type ReservaUncheckedUpdateWithoutHospedeInput = {
@@ -11550,6 +21570,7 @@ export namespace Prisma {
     locadorId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    avaliacao?: AvaliacaoUncheckedUpdateOneWithoutReservaNestedInput
   }
 
   export type ReservaUncheckedUpdateManyWithoutHospedeInput = {
@@ -11583,6 +21604,128 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     casaId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ConversaUpdateWithoutHospedeInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    locador?: LocadorUpdateOneRequiredWithoutConversasNestedInput
+    casa?: CasaUpdateOneWithoutConversasNestedInput
+    mensagens?: MensagemUpdateManyWithoutConversaNestedInput
+  }
+
+  export type ConversaUncheckedUpdateWithoutHospedeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    locadorId?: IntFieldUpdateOperationsInput | number
+    casaId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mensagens?: MensagemUncheckedUpdateManyWithoutConversaNestedInput
+  }
+
+  export type ConversaUncheckedUpdateManyWithoutHospedeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    locadorId?: IntFieldUpdateOperationsInput | number
+    casaId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MensagemUpdateWithoutRemetenteHospedeInput = {
+    conteudo?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lidaPeloHospede?: BoolFieldUpdateOperationsInput | boolean
+    lidaPeloLocador?: BoolFieldUpdateOperationsInput | boolean
+    conversa?: ConversaUpdateOneRequiredWithoutMensagensNestedInput
+    remetenteLocador?: LocadorUpdateOneWithoutMensagensNestedInput
+  }
+
+  export type MensagemUncheckedUpdateWithoutRemetenteHospedeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    conteudo?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    conversaId?: IntFieldUpdateOperationsInput | number
+    remetenteLocadorId?: NullableIntFieldUpdateOperationsInput | number | null
+    lidaPeloHospede?: BoolFieldUpdateOperationsInput | boolean
+    lidaPeloLocador?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type MensagemUncheckedUpdateManyWithoutRemetenteHospedeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    conteudo?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    conversaId?: IntFieldUpdateOperationsInput | number
+    remetenteLocadorId?: NullableIntFieldUpdateOperationsInput | number | null
+    lidaPeloHospede?: BoolFieldUpdateOperationsInput | boolean
+    lidaPeloLocador?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type AvaliacaoUpdateWithoutHospedeInput = {
+    nota?: IntFieldUpdateOperationsInput | number
+    comentario?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    reserva?: ReservaUpdateOneRequiredWithoutAvaliacaoNestedInput
+    casa?: CasaUpdateOneRequiredWithoutAvaliacoesNestedInput
+  }
+
+  export type AvaliacaoUncheckedUpdateWithoutHospedeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nota?: IntFieldUpdateOperationsInput | number
+    comentario?: NullableStringFieldUpdateOperationsInput | string | null
+    reservaId?: IntFieldUpdateOperationsInput | number
+    casaId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AvaliacaoUncheckedUpdateManyWithoutHospedeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nota?: IntFieldUpdateOperationsInput | number
+    comentario?: NullableStringFieldUpdateOperationsInput | string | null
+    reservaId?: IntFieldUpdateOperationsInput | number
+    casaId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MensagemCreateManyConversaInput = {
+    id?: number
+    conteudo: string
+    createdAt?: Date | string
+    remetenteHospedeId?: number | null
+    remetenteLocadorId?: number | null
+    lidaPeloHospede?: boolean
+    lidaPeloLocador?: boolean
+  }
+
+  export type MensagemUpdateWithoutConversaInput = {
+    conteudo?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lidaPeloHospede?: BoolFieldUpdateOperationsInput | boolean
+    lidaPeloLocador?: BoolFieldUpdateOperationsInput | boolean
+    remetenteHospede?: HospedeUpdateOneWithoutMensagensNestedInput
+    remetenteLocador?: LocadorUpdateOneWithoutMensagensNestedInput
+  }
+
+  export type MensagemUncheckedUpdateWithoutConversaInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    conteudo?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    remetenteHospedeId?: NullableIntFieldUpdateOperationsInput | number | null
+    remetenteLocadorId?: NullableIntFieldUpdateOperationsInput | number | null
+    lidaPeloHospede?: BoolFieldUpdateOperationsInput | boolean
+    lidaPeloLocador?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type MensagemUncheckedUpdateManyWithoutConversaInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    conteudo?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    remetenteHospedeId?: NullableIntFieldUpdateOperationsInput | number | null
+    remetenteLocadorId?: NullableIntFieldUpdateOperationsInput | number | null
+    lidaPeloHospede?: BoolFieldUpdateOperationsInput | boolean
+    lidaPeloLocador?: BoolFieldUpdateOperationsInput | boolean
   }
 
 

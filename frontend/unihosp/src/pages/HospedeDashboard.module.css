@@ -1,81 +1,11 @@
+
 .dashboardContainer {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   background-color: #eef1f5;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Josefin Sans", "Arial", sans-serif;
   color: #343a40;
-}
-
-.dashboardHeader {
-  background: linear-gradient(90deg, #2c3e50 0%, #34495e 100%);
-  color: white;
-  padding: 18px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  height: 70px;
-  box-sizing: border-box;
-}
-
-.dashboardHeader h1 {
-  margin: 0;
-  font-size: 1.9em;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  cursor: pointer;
-  transition: color 0.2s ease;
-}
-.dashboardHeader h1:hover {
-  color: #1abc9c;
-}
-
-.navButton {
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: #f0f0f0;
-  padding: 10px 18px;
-  margin-left: 15px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.25s ease, color 0.25s ease,
-    transform 0.15s ease;
-  font-family: "Josefin Sans", sans-serif;
-  font-weight: 500;
-  font-size: 0.95em;
-}
-
-.navButton:hover {
-  background-color: #1abc9c;
-  color: white;
-  border-color: #1abc9c;
-  transform: translateY(-2px);
-}
-
-.logoutButton {
-  background-color: #e74c3c;
-  color: white;
-  border: none;
-  padding: 10px 18px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background-color 0.2s ease, transform 0.15s ease;
-  font-family: "Josefin Sans", sans-serif;
-  font-size: 0.95em;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-}
-
-.logoutButton:hover {
-  background-color: #c0392b;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(192, 57, 43, 0.3);
 }
 
 .dashboardContent {
@@ -88,355 +18,93 @@
   box-sizing: border-box;
 }
 
-.profileSummary {
-  background-color: #ffffff;
-  padding: 30px 35px;
-  border-radius: 12px;
-  margin-bottom: 35px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  border-left: 5px solid #1abc9c;
-}
-
-.profileSummary h2 {
-  margin-top: 0;
-  color: #2c3e50;
-  font-size: 2.2em;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.profileSummary > p {
-  font-size: 1.15em;
-  color: #525f6f;
-  margin-bottom: 25px;
-}
-
-.profileDetails p {
-  font-size: 1.05em;
-  color: #495057;
-  margin-bottom: 12px;
-  line-height: 1.7;
-}
-
-.profileDetails p strong {
-  color: #2c3e50;
-  margin-right: 8px;
-  font-weight: 600;
-}
-
 .dashboardSection {
   background-color: #ffffff;
-  padding: 30px 35px;
+  padding: 25px 30px;
   border-radius: 12px;
-  margin-bottom: 35px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
 .dashboardSection h3 {
   margin-top: 0;
   color: #34495e;
-  font-size: 1.6em;
+  font-size: 1.7em;
   font-weight: 600;
-  border-bottom: 1px solid #e0e6ed;
+  border-bottom: 1px solid #e7eaf3;
   padding-bottom: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .dashboardSection p {
   color: #525f6f;
   font-size: 1em;
-  line-height: 1.7;
-  margin-bottom: 15px;
+  line-height: 1.65;
+  margin-bottom: 20px;
 }
 
 .actionButton {
   background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
   color: white;
-  padding: 12px 22px;
+  padding: 12px 24px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 1.05em;
+  font-size: 1em;
   font-weight: 600;
   transition: all 0.25s ease-out;
   font-family: "Josefin Sans", sans-serif;
   margin-top: 10px;
   display: inline-block;
   text-decoration: none;
-  box-shadow: 0 3px 6px rgba(26, 188, 156, 0.2);
+  box-shadow: 0 3px 7px rgba(26, 188, 156, 0.25);
 }
 
 .actionButton:hover {
   background: linear-gradient(135deg, #16a085 0%, #138d75 100%);
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 5px 10px rgba(26, 188, 156, 0.3);
+  box-shadow: 0 5px 12px rgba(26, 188, 156, 0.35);
 }
 
-.loading,
-.error {
-  padding: 20px;
-  text-align: center;
-  border-radius: 8px;
-  margin: 20px auto;
-  font-size: 1.05em;
-  max-width: 600px;
-}
-.loading {
-  color: #34495e;
-  font-style: italic;
-  background-color: #e9ecef;
-}
-.error {
-  background-color: #f8d7da;
-  color: #721c24;
-  border: 1px solid #f5c6cb;
-}
-
-.reservasContainer {
-  margin-top: 10px;
-}
-
-.reservasList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 25px;
-}
-
-.reservaCard {
-  background-color: #fdfdfd;
-  padding: 20px 25px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
-  border-left: 5px solid #bdc3c7;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.reservaCard:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-}
-
-.reservaStatusPENDENTE {
-  border-left-color: #f39c12 !important;
-}
-.reservaStatusCONFIRMADA {
-  border-left-color: #2ecc71 !important;
-}
-.reservaStatusCONCLUIDA {
-  border-left-color: #95a5a6 !important;
-}
-.reservaStatusREJEITADA,
-.reservaStatusCANCELADAPELOHOSPEDE,
-.reservaStatusCANCELADAPELOLOCADOR {
-  border-left-color: #e74c3c !important;
-}
-
-.reservaCard h4 {
-  margin-top: 0;
-  margin-bottom: 12px;
-  color: #2c3e50;
-  font-size: 1.2em;
-  font-weight: 600;
-}
-.reservaCard p {
-  font-size: 0.95em;
-  margin-bottom: 8px;
-  color: #525f6f;
-  line-height: 1.6;
-}
-.reservaCard p strong {
-  font-weight: 600;
-  color: #34495e;
-}
-
-.status {
-  padding: 5px 12px;
-  border-radius: 15px;
-  font-weight: 600;
-  font-size: 0.8em;
-  background-color: #95a5a6;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  display: inline-block;
-}
-
-.statusPENDENTE {
-  background-color: #f39c12;
-}
-.statusCONFIRMADA {
-  background-color: #2ecc71;
-}
-.statusCONCLUIDA {
-  background-color: #95a5a6;
-}
-.statusREJEITADA,
-.statusCANCELADAPELOHOSPEDE,
-.statusCANCELADAPELOLOCADOR {
-  background-color: #e74c3c;
-}
-
-.reservaActions {
-  margin-top: 18px;
-  padding-top: 15px;
-  border-top: 1px dashed #e0e6ed;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.actionButtonSecondary,
-.actionButtonDelete {
-  padding: 9px 16px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.9em;
-  font-family: "Josefin Sans", sans-serif;
-  font-weight: 500;
-  transition: background-color 0.2s ease, transform 0.1s ease;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-}
-.actionButtonSecondary:hover,
-.actionButtonDelete:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-}
-
-.actionButtonSecondary {
-  background-color: #5dade2;
-  color: white;
-}
-.actionButtonSecondary:hover {
-  background-color: #3498db;
-}
-
-.actionButtonDelete {
-  background-color: #e74c3c;
-  color: white;
-}
-.actionButtonDelete:hover {
-  background-color: #c0392b;
-}
-
-.favoritosContainer {
-  margin-top: 10px;
-}
-
-.favoritosGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-}
-
-.favoritoCard {
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  border: 1px solid #f0f0f0;
-}
-
-.favoritoCard:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.1);
-}
-
-.favoritoImagem {
-  width: 100%;
-  height: 170px;
-  object-fit: cover;
-  display: block;
-  background-color: #e9ecef;
-}
-
-.favoritoInfo {
-  padding: 20px;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.favoritoInfo h3 {
-  margin-top: 0;
-  margin-bottom: 8px;
-  font-size: 1.25em;
-  color: #2c3e50;
-  font-weight: 600;
-  line-height: 1.3;
-}
-
-.favoritoInfo p {
-  font-size: 0.95em;
-  color: #525f6f;
-  margin-bottom: 18px;
-  flex-grow: 1;
-}
-
-.favoritoActions {
+.sectionHeaderWithToggle {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: auto;
-  padding-top: 12px;
-  border-top: 1px solid #f0f0f0;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e7eaf3;
+  padding-bottom: 15px;
 }
 
-.actionButtonSmall,
-.actionButtonDeleteSmall {
-  padding: 8px 15px;
-  font-size: 0.9em;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  font-family: "Josefin Sans", sans-serif;
-  font-weight: 500;
-  transition: background-color 0.2s ease, transform 0.1s ease;
-  letter-spacing: 0.2px;
-}
-.actionButtonSmall {
-  background-color: #3498db;
-  color: white;
-}
-.actionButtonSmall:hover {
-  background-color: #2980b9;
-  transform: translateY(-1px);
+.sectionHeaderWithToggle h3 {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
-.actionButtonDeleteSmall {
-  background-color: #e74c3c;
-  color: white;
-}
-.actionButtonDeleteSmall:hover {
-  background-color: #c0392b;
-  transform: translateY(-1px);
-}
-
-.actionButtonArchive {
-  padding: 9px 16px;
-  border: none;
-  border-radius: 6px;
+.toggleButton,
+.toggleButtonActive {
+  background-color: transparent;
+  border: 1px solid #ced4da;
+  color: #495057;
+  padding: 8px 16px;
+  margin-left: 10px;
+  border-radius: 20px;
   cursor: pointer;
   font-size: 0.9em;
-  font-family: "Josefin Sans", sans-serif;
   font-weight: 500;
-  transition: background-color 0.2s ease, transform 0.1s ease;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  background-color: #7f8c8d;
-  color: white;
-}
-.actionButtonArchive:hover {
-  background-color: #6c7a7d;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease-in-out;
+  font-family: "Josefin Sans", sans-serif;
 }
 
-.actionButtonArchive:disabled {
-  background-color: #bdc3c7;
-  cursor: not-allowed;
-  color: #7f8c8d;
+.toggleButton:hover {
+  background-color: #e9ecef;
+  border-color: #adb5bd;
+}
+
+.toggleButtonActive {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+  font-weight: 600;
+  box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2);
 }

@@ -16,91 +16,173 @@ model Admin {
 }
 
 model Casa {
-  id            Int        @id @default(autoincrement())
-  endereco      String
-  numero        Int
-  cep           String?
-  cidade        String?
-  estado        String?
-  diretrizes    String
-  complemento   String?
-  precoPorNoite Float?
-  locadorId     Int
-  locador       Locador    @relation(fields: [locadorId], references: [id], onDelete: Cascade)
-  reservas      Reserva[]
-  favoritos     Favorito[]
+  id                       Int                       @id @default(autoincrement())
+  endereco                 String
+  numero                   Int
+  cep                      String?
+  cidade                   String?
+  estado                   String?
+  diretrizes               String
+  complemento              String?
+  precoPorNoite            Float?
+  locadorId                Int
+  locador                  Locador                   @relation(fields: [locadorId], references: [id], onDelete: Cascade)
+  reservas                 Reserva[]
+  favoritos                Favorito[]
+  imagens                  ImagemCasa[]
+  conversas                Conversa[]
+  bloqueiosDisponibilidade BloqueioDisponibilidade[]
+  avaliacoes               Avaliacao[]
 
   @@map("casas")
 }
 
+model ImagemCasa {
+  id        Int      @id @default(autoincrement())
+  url       String
+  casaId    Int
+  casa      Casa     @relation(fields: [casaId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@map("imagens_casa")
+}
+
+model BloqueioDisponibilidade {
+  id         Int      @id @default(autoincrement())
+  dataInicio DateTime
+  dataFim    DateTime
+  motivo     String?
+  casaId     Int
+  casa       Casa     @relation(fields: [casaId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
+
+  @@map("bloqueios_disponibilidade")
+}
+
 model Locador {
-  id       Int       @id @default(autoincrement())
-  name     String
-  email    String    @unique
-  senha    String
-  cpf      String    @unique
-  endereco String
-  cep      String?
-  cidade   String?
-  estado   String?
-  casas    Casa[]
-  reservas Reserva[]
+  id        Int        @id @default(autoincrement())
+  name      String
+  email     String     @unique
+  senha     String
+  cpf       String     @unique
+  endereco  String
+  cep       String?
+  cidade    String?
+  estado    String?
+  casas     Casa[]
+  reservas  Reserva[]
+  conversas Conversa[]
+  mensagens Mensagem[] @relation("MensagensDoLocador")
+  // avaliacoesRecebidas Avaliacao[] @relation("AvaliacoesParaLocador") 
 
   @@map("locadores")
 }
 
 model Hospede {
-  id           Int     @id @default(autoincrement())
-  name         String
-  email        String  @unique
-  senha        String
-  cpf          String  @unique
-  cep          String?
-  cidade       String?
-  estado       String?
-  matricula    String  @unique
-  universidade String?
-
-  reservas  Reserva[]
-  favoritos Favorito[]
+  id               Int         @id @default(autoincrement())
+  name             String
+  email            String      @unique
+  senha            String
+  cpf              String      @unique
+  cep              String?
+  cidade           String?
+  estado           String?
+  matricula        String      @unique
+  universidade     String?
+  reservas         Reserva[]
+  favoritos        Favorito[]
+  conversas        Conversa[]
+  mensagens        Mensagem[]  @relation("MensagensDoHospede")
+  avaliacoesFeitas Avaliacao[] @relation("AvaliacoesFeitasPeloHospede")
 }
 
 model Reserva {
-  id             Int      @id @default(autoincrement())
-  dataCheckIn    DateTime
-  dataCheckOut   DateTime
-  status         String
-  numeroHospedes Int?
-  valorTotal     Float?
-  observacoes    String?
-
+  id                  Int        @id @default(autoincrement())
+  dataCheckIn         DateTime
+  dataCheckOut        DateTime
+  status              String
+  numeroHospedes      Int?
+  valorTotal          Float?
+  observacoes         String?
   valorTotalCalculado Float?
   statusPagamento     String?
-
-  hospedeId Int
-  hospede   Hospede @relation(fields: [hospedeId], references: [id], onDelete: Cascade)
-  casaId    Int
-  casa      Casa    @relation(fields: [casaId], references: [id], onDelete: Cascade)
-  locadorId Int
-  locador   Locador @relation(fields: [locadorId], references: [id], onDelete: Cascade)
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  hospedeId           Int
+  hospede             Hospede    @relation(fields: [hospedeId], references: [id], onDelete: Cascade)
+  casaId              Int
+  casa                Casa       @relation(fields: [casaId], references: [id], onDelete: Cascade)
+  locadorId           Int
+  locador             Locador    @relation(fields: [locadorId], references: [id], onDelete: Cascade)
+  createdAt           DateTime   @default(now())
+  updatedAt           DateTime   @updatedAt
+  avaliacao           Avaliacao?
 
   @@map("reservas")
 }
 
 model Favorito {
-  id Int @id @default(autoincrement())
+  id        Int      @id @default(autoincrement())
+  hospedeId Int
+  hospede   Hospede  @relation(fields: [hospedeId], references: [id], onDelete: Cascade)
+  casaId    Int
+  casa      Casa     @relation(fields: [casaId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([hospedeId, casaId], name: "hospede_casa_favorito_unique")
+  @@map("favoritos")
+}
+
+model Conversa {
+  id        Int        @id @default(autoincrement())
+  hospedeId Int
+  hospede   Hospede    @relation(fields: [hospedeId], references: [id], onDelete: Cascade)
+  locadorId Int
+  locador   Locador    @relation(fields: [locadorId], references: [id], onDelete: Cascade)
+  casaId    Int?
+  casa      Casa?      @relation(fields: [casaId], references: [id], onDelete: SetNull)
+  mensagens Mensagem[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  @@unique([hospedeId, locadorId, casaId])
+  @@map("conversas")
+}
+
+model Mensagem {
+  id        Int      @id @default(autoincrement())
+  conteudo  String
+  createdAt DateTime @default(now())
+
+  conversaId Int
+  conversa   Conversa @relation(fields: [conversaId], references: [id], onDelete: Cascade)
+
+  remetenteHospedeId Int?
+  remetenteHospede   Hospede? @relation("MensagensDoHospede", fields: [remetenteHospedeId], references: [id], onDelete: SetNull)
+
+  remetenteLocadorId Int?
+  remetenteLocador   Locador? @relation("MensagensDoLocador", fields: [remetenteLocadorId], references: [id], onDelete: SetNull)
+
+  lidaPeloHospede Boolean @default(false)
+  lidaPeloLocador Boolean @default(false)
+
+  @@map("mensagens")
+}
+
+model Avaliacao {
+  id         Int     @id @default(autoincrement())
+  nota       Int
+  comentario String?
+
+  reservaId Int     @unique
+  reserva   Reserva @relation(fields: [reservaId], references: [id], onDelete: Cascade)
 
   hospedeId Int
-  hospede   Hospede @relation(fields: [hospedeId], references: [id], onDelete: Cascade)
+  hospede   Hospede @relation("AvaliacoesFeitasPeloHospede", fields: [hospedeId], references: [id], onDelete: Cascade)
 
   casaId Int
   casa   Casa @relation(fields: [casaId], references: [id], onDelete: Cascade)
 
   createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  @@unique([hospedeId, casaId], name: "hospede_casa_favorito_unique")
-  @@map("favoritos")
+  @@map("avaliacoes")
 }

@@ -1,0 +1,132 @@
+.dashboardHeader {
+  background: linear-gradient(90deg, #2c3e50 0%, #34495e 100%);
+  color: white;
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030;
+  height: 65px;
+  box-sizing: border-box;
+  font-family: "Josefin Sans", "Arial", sans-serif;
+}
+
+.logoTitle {
+  margin: 0;
+  font-size: 1.8em;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: flex;
+  align-items: baseline;
+}
+
+.logoTitle:hover {
+  color: #1abc9c;
+  transform: scale(1.02);
+}
+
+.userTypeInTitle {
+  font-size: 0.6em;
+  font-weight: 400;
+  margin-left: 8px;
+  padding: 3px 7px;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  letter-spacing: 0.2px;
+  text-transform: capitalize;
+}
+
+.navLinks {
+  display: flex;
+  gap: 20px;
+}
+
+.navLink {
+  color: #e0e0e0;
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: 500;
+  padding: 8px 0;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1abc9c;
+  transition: width 0.3s ease;
+}
+
+.navLink:hover {
+  color: #ffffff;
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+.logoutButton {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9em;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+  font-family: "Josefin Sans", sans-serif;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logoutButton:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 7px rgba(192, 57, 43, 0.25);
+}
+
+@media (max-width: 768px) {
+  .dashboardHeader {
+    padding: 0 20px;
+    height: 60px;
+  }
+  .logoTitle {
+    font-size: 1.5em;
+  }
+  .userTypeInTitle {
+    font-size: 0.55em;
+    margin-left: 6px;
+  }
+  .navLink {
+    font-size: 0.95em;
+  }
+  .logoutButton {
+    padding: 8px 15px;
+    font-size: 0.85em;
+  }
+}
+
+@media (max-width: 480px) {
+  .navLinks {
+    display: none;
+  }
+   .logoTitle {
+    font-size: 1.3em;
+  }
+  .userTypeInTitle {
+    display: none;
+  }
+}

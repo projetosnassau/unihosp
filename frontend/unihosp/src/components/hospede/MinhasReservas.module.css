@@ -1,0 +1,167 @@
+.loading,
+.error {
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+  margin: 20px 0;
+  font-size: 1.05em;
+  max-width: 100%;
+}
+.loading {
+  color: #34495e;
+  font-style: italic;
+  background-color: #f8f9fa;
+}
+.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+.errorInline {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  border: 1px solid #f5c6cb;
+  text-align: center;
+}
+
+.reservasContainer {
+  margin-top: 10px;
+}
+
+.reservasList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 20px;
+}
+
+.reservaCard {
+  background-color: #fdfdfd;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  border-left: 5px solid #bdc3c7;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.reservaCardLayoutRow {
+  flex-direction: row;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+
+.reservaCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.reservaStatusPENDENTE { border-left-color: #f39c12 !important; }
+.reservaStatusCONFIRMADA { border-left-color: #2ecc71 !important; }
+.reservaStatusCONCLUIDA { border-left-color: #95a5a6 !important; }
+.reservaStatusREJEITADA,
+.reservaStatusCANCELADA_PELO_HOSPEDE,
+.reservaStatusCANCELADA_PELO_LOCADOR {
+  border-left-color: #e74c3c !important;
+}
+
+.casaImageContainerSmall {
+  width: 150px;
+  height: 100px;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #e0e6ed;
+  flex-shrink: 0;
+  margin-bottom: 15px;
+}
+
+.reservaCasaImagem {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.reservaInfo {
+  flex-grow: 1;
+}
+
+.reservaCard h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #2c3e50;
+  font-size: 1.15em;
+  font-weight: 600;
+}
+.reservaCard p {
+  font-size: 0.9em;
+  margin-bottom: 7px;
+  color: #525f6f;
+  line-height: 1.5;
+}
+.reservaCard p strong {
+  font-weight: 600;
+  color: #34495e;
+}
+
+.status {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 0.75em;
+  background-color: #95a5a6;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  line-height: 1.3;
+}
+.statusPENDENTE { background-color: #f39c12; }
+.statusCONFIRMADA { background-color: #2ecc71; }
+.statusCONCLUIDA { background-color: #95a5a6; }
+.statusREJEITADA { background-color: #e74c3c; }
+.statusCANCELADA_PELO_HOSPEDE { background-color: #e74c3c; }
+.statusCANCELADA_PELO_LOCADOR { background-color: #e74c3c; }
+.statusPENDENTE_PAGAMENTO { background-color: #fd7e14; }
+.statusPAGO_SIMULADO { background-color: #20c997; }
+
+.reservaActions {
+  margin-top: 15px;
+  padding-top: 12px;
+  border-top: 1px solid #eef1f5;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.actionButtonSecondary,
+.actionButtonDelete {
+  padding: 9px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 500;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+.actionButtonSecondary:hover,
+.actionButtonDelete:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+.actionButtonSecondary { background-color: #5dade2; color: white; }
+.actionButtonSecondary:hover { background-color: #3498db; }
+.actionButtonDelete { background-color: #e74c3c; color: white; }
+.actionButtonDelete:hover { background-color: #c0392b; }
+.actionButtonDelete:disabled {
+    background-color: #f1b0aa;
+    cursor: not-allowed;
+}

@@ -1,0 +1,155 @@
+
+.dashboardContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #eef1f5;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.dashboardContent {
+  padding: 30px 40px;
+  padding-top: 100px;
+  flex-grow: 1;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.dashboardSection {
+  background-color: #ffffff;
+  padding: 30px 35px;
+  border-radius: 12px;
+  margin-bottom: 35px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.dashboardSection h3 {
+  margin-top: 0;
+  color: #34495e;
+  font-size: 1.8em;
+  font-weight: 600;
+  border-bottom: 1px solid #e0e6ed;
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+}
+
+.profileEditForm {
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.inputGroupAdmin {
+  display: flex;
+  align-items: center;
+  background-color: #f8f9fa;
+  border: 1px solid #dbe0e6;
+  border-radius: 8px;
+  padding: 0px 15px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.inputGroupAdmin:focus-within {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.icon {
+  margin-right: 12px;
+  color: #868e96;
+  font-size: 1.1em;
+}
+
+.formInput {
+  flex-grow: 1;
+  padding: 14px 0px;
+  border: none;
+  background-color: transparent;
+  font-size: 1em;
+  font-family: "Josefin Sans", sans-serif;
+  color: #495057;
+  width: 100%;
+}
+.formInput:focus {
+  outline: none;
+}
+.formInput::placeholder {
+  color: #adb5bd;
+}
+
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #e9ecef;
+}
+
+.actionButton, .cancelButton {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+  transition: all 0.2s ease-out;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.actionButton {
+  background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
+  color: white;
+  box-shadow: 0 2px 5px rgba(26, 188, 156, 0.2);
+}
+.actionButton:hover {
+  background: linear-gradient(135deg, #16a085 0%, #138d75 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(26, 188, 156, 0.3);
+}
+.actionButton:disabled {
+  background: #a3e4d7;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.cancelButton {
+  background-color: #f8f9fa;
+  color: #495057;
+  border: 1px solid #ced4da;
+}
+.cancelButton:hover {
+  background-color: #e9ecef;
+}
+.cancelButton:disabled {
+    background-color: #e9ecef;
+    color: #adb5bd;
+    cursor: not-allowed;
+}
+
+
+.loading {
+}
+.errorMessage, .successMessage {
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  font-size: 0.95em;
+  text-align: center;
+}
+.errorMessage {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+.successMessage {
+  background-color: #d1e7dd;
+  color: #0f5132;
+  border: 1px solid #badbcc;
+}
+

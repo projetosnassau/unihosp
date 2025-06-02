@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import styles from "./AdminPage.module.css";
-
-import GerenciarHospedes from "./components/admin/GerenciarHospede";
-import GerenciarLocadores from "./components/admin/GerenciarLocador";
-import GerenciarCasas from "./components/admin/GerenciarCasa";
-import GerenciarAdmins from "./components/admin/GerenciarAdmin";
-import VerGraficos from "./components/admin/VerGraficos";
+import GerenciarHospedes from "../components/admin/GerenciarHospede";
+import GerenciarLocadores from "../components/admin/GerenciarLocador";
+import GerenciarCasas from "../components/admin/GerenciarCasa";
+import GerenciarAdmins from "../components/admin/GerenciarAdmin";
+import VerGraficos from "../components/admin/VerGraficos";
 
 function AdminPage() {
   const { token, userType, logoutAction } = useAuth();

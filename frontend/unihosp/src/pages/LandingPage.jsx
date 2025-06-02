@@ -1,10 +1,9 @@
-import React from "react";
-import Header from "./components/Header";
-import HeroSection from "./components/HeroSection";
-import Sobre from "./components/Sobre";
-import Servicos from "./components/Serviços";
-import Contato from "./components/Contato";
-import Footer from "./components/Footer";
+import Header from "../components/dashboard/Header";
+import HeroSection from "../components/dashboard/HeroSection";
+import Sobre from "../components/dashboard/Sobre";
+import Servicos from "../components/dashboard/Serviços";
+import Contato from "../components/dashboard/Contato";
+import Footer from "../components/dashboard/Footer";
 
 function LandingPage() {
   return (

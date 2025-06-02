@@ -137,6 +137,22 @@ exports.Prisma.CasaScalarFieldEnum = {
   locadorId: 'locadorId'
 };
 
+exports.Prisma.ImagemCasaScalarFieldEnum = {
+  id: 'id',
+  url: 'url',
+  casaId: 'casaId',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.BloqueioDisponibilidadeScalarFieldEnum = {
+  id: 'id',
+  dataInicio: 'dataInicio',
+  dataFim: 'dataFim',
+  motivo: 'motivo',
+  casaId: 'casaId',
+  createdAt: 'createdAt'
+};
+
 exports.Prisma.LocadorScalarFieldEnum = {
   id: 'id',
   name: 'name',
@@ -186,6 +202,37 @@ exports.Prisma.FavoritoScalarFieldEnum = {
   createdAt: 'createdAt'
 };
 
+exports.Prisma.ConversaScalarFieldEnum = {
+  id: 'id',
+  hospedeId: 'hospedeId',
+  locadorId: 'locadorId',
+  casaId: 'casaId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.MensagemScalarFieldEnum = {
+  id: 'id',
+  conteudo: 'conteudo',
+  createdAt: 'createdAt',
+  conversaId: 'conversaId',
+  remetenteHospedeId: 'remetenteHospedeId',
+  remetenteLocadorId: 'remetenteLocadorId',
+  lidaPeloHospede: 'lidaPeloHospede',
+  lidaPeloLocador: 'lidaPeloLocador'
+};
+
+exports.Prisma.AvaliacaoScalarFieldEnum = {
+  id: 'id',
+  nota: 'nota',
+  comentario: 'comentario',
+  reservaId: 'reservaId',
+  hospedeId: 'hospedeId',
+  casaId: 'casaId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -200,10 +247,15 @@ exports.Prisma.NullsOrder = {
 exports.Prisma.ModelName = {
   Admin: 'Admin',
   Casa: 'Casa',
+  ImagemCasa: 'ImagemCasa',
+  BloqueioDisponibilidade: 'BloqueioDisponibilidade',
   Locador: 'Locador',
   Hospede: 'Hospede',
   Reserva: 'Reserva',
-  Favorito: 'Favorito'
+  Favorito: 'Favorito',
+  Conversa: 'Conversa',
+  Mensagem: 'Mensagem',
+  Avaliacao: 'Avaliacao'
 };
 
 /**

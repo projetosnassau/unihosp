@@ -1,0 +1,59 @@
+.profileSummary {
+  border-left: 5px solid #007bff;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.profileSummary h2 {
+  margin-top: 0;
+  color: #2a3f54;
+  font-size: 2em;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.profileSummary > p {
+  font-size: 1.1em;
+  color: #5a6877;
+  margin-bottom: 20px;
+}
+
+.profileDetails {
+  margin-top: 15px;
+}
+
+.profileDetails p {
+  font-size: 1em;
+  color: #435466;
+  margin-bottom: 10px;
+  line-height: 1.6;
+  display: flex;
+  align-items: baseline;
+}
+
+.profileDetails p strong {
+  color: #2a3f54;
+  margin-right: 8px;
+  font-weight: 600;
+  min-width: 140px;
+}
+
+.loading,
+.error {
+  padding: 20px;
+  text-align: left;
+  border-radius: 6px;
+  margin: 10px 0;
+  font-size: 0.95em;
+}
+.loading {
+  color: #34495e;
+  font-style: italic;
+  background-color: #e9ecef;
+}
+.error {
+  background-color: #fceded;
+  color: #a94442;
+  border: 1px solid #f7c6c5;
+}

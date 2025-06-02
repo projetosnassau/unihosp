@@ -1,0 +1,160 @@
+.loading,
+.errorFeedback {
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+  margin: 20px 0;
+  font-size: 1em;
+}
+.loading {
+  color: #34495e;
+  background-color: #f8f9fa;
+  border: 1px dashed #d1d9e0;
+}
+.errorFeedback {
+  background-color: #fceded;
+  color: #a94442;
+  border: 1px solid #f7c6c5;
+}
+
+.reservasList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 20px;
+}
+
+.reservaCard {
+  background-color: #ffffff;
+  padding: 20px 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+  border-left: 5px solid #bdc3c7;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.reservaCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.09);
+}
+
+.reservaStatusPENDENTE { border-left-color: #f39c12 !important; }
+.reservaStatusCONFIRMADA { border-left-color: #2ecc71 !important; }
+.reservaStatusCONCLUIDA { border-left-color: #95a5a6 !important; }
+.reservaStatusREJEITADA,
+.reservaStatusCANCELADA_PELO_HOSPEDE,
+.reservaStatusCANCELADA_PELO_LOCADOR {
+  border-left-color: #e74c3c !important;
+}
+
+.reservaCard h4 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: #2a3f54;
+  font-size: 1.15em;
+  font-weight: 600;
+}
+.reservaCard p {
+  font-size: 0.9em;
+  margin-bottom: 8px;
+  color: #5a6877;
+  line-height: 1.6;
+}
+.reservaCard p strong {
+  font-weight: 600;
+  color: #34495e;
+}
+
+.status {
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-weight: 500;
+  font-size: 0.75em;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  line-height: 1.2;
+}
+.statusPENDENTE { background-color: #f39c12; }
+.statusCONFIRMADA { background-color: #2ecc71; }
+.statusCONCLUIDA { background-color: #95a5a6; }
+.statusREJEITADA { background-color: #e74c3c; }
+.statusCANCELADA_PELO_HOSPEDE { background-color: #e74c3c; }
+.statusCANCELADA_PELO_LOCADOR { background-color: #e74c3c; }
+.statusPENDENTE_PAGAMENTO { background-color: #fd7e14; }
+.statusPAGO_SIMULADO { background-color: #20c997; }
+.statusPAGO { background-color: #28a745; }
+
+
+.reservaActions {
+  margin-top: 18px;
+  padding-top: 15px;
+  border-top: 1px dashed #dde2e7;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.actionButton,
+.actionButtonSecondary,
+.actionButtonConfirm,
+.actionButtonRejeitar,
+.actionButtonDelete,
+.actionButtonArchive {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.85em;
+  font-family: "Josefin Sans", "Arial", sans-serif;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+  text-transform: capitalize;
+}
+
+.actionButton:hover,
+.actionButtonSecondary:hover,
+.actionButtonConfirm:hover,
+.actionButtonRejeitar:hover,
+.actionButtonDelete:hover,
+.actionButtonArchive:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.12);
+}
+.actionButton:disabled,
+.actionButtonSecondary:disabled,
+.actionButtonConfirm:disabled,
+.actionButtonRejeitar:disabled,
+.actionButtonDelete:disabled,
+.actionButtonArchive:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.actionButtonSecondary { background-color: #5499c7; color: white; }
+.actionButtonSecondary:hover:not(:disabled) { background-color: #347cb5; }
+
+.actionButtonConfirm { background-color: #27ae60; color: white; }
+.actionButtonConfirm:hover:not(:disabled) { background-color: #1e8449; }
+
+.actionButtonRejeitar { background-color: #cb4335; color: white; }
+.actionButtonRejeitar:hover:not(:disabled) { background-color: #b03a2e; }
+
+.actionButtonDelete { background-color: #c0392b; color: white; }
+.actionButtonDelete:hover:not(:disabled) { background-color: #a93226; }
+
+.actionButtonArchive { background-color: #7f8c8d; color: white; }
+.actionButtonArchive:hover:not(:disabled) { background-color: #626f70; }
+
+.noReservasMessage {
+    padding: 20px;
+    text-align: center;
+    color: #6c757d;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    border: 1px dashed #d1d9e0;
+}

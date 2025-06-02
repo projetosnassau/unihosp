@@ -7,7 +7,7 @@ function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.footerContent}>
-        <p className={styles.siteName}>UniHosp</p>
+        <p className={styles.siteName}>UniHostel</p>
         <div className={styles.contactInfo}>
           <a href="mailto:yanlucas2202@gmail.com" className={styles.emailLink}>
             yanlucas2202@gmail.com
@@ -40,7 +40,7 @@ function Footer() {
           </a>
         </div>
         <p className={styles.copyright}>
-          &copy; {currentYear} UniHosp. Todos os direitos reservados.
+          &copy; {currentYear} UniHostel. Todos os direitos reservados.
         </p>
       </div>
     </footer>

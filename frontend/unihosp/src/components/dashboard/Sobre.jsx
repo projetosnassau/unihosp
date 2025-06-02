@@ -5,7 +5,7 @@ function Sobre() {
   return (
     <section id="sobre" className={styles.sobreSection}>
       <div className={styles.container}>
-        <h2 className={styles.sectionTitle}>Sobre a UniHosp</h2>
+        <h2 className={styles.sectionTitle}>Sobre a UniHostel</h2>
         <p className={styles.sectionSubtitle}>
           Conectando estudantes universitários às melhores e mais seguras opções
           de moradia, simplificando a jornada da vida acadêmica.
@@ -14,7 +14,7 @@ function Sobre() {
           <div className={styles.textContainer}>
             <h3 className={styles.textHeading}>Nossa Essência</h3>
             <p className={styles.paragraphText}>
-              A UniHosp nasceu da vivência e dos desafios enfrentados por
+              A UniHostel nasceu da vivência e dos desafios enfrentados por
               estudantes na busca por um lar durante a graduação. Entendemos que
               encontrar o lugar certo para morar é mais do que uma necessidade –
               é fundamental para o bem-estar, segurança e sucesso acadêmico.
@@ -46,7 +46,7 @@ function Sobre() {
           </div>
           <div className={styles.imagePlaceholderWrapper}>
             <div className={styles.imagePlaceholder}>
-              <span>UniHosp</span>
+              <span>UniHostel</span>
               <p>Sua Moradia Universitária Ideal</p>
             </div>
           </div>

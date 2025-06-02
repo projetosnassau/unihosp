@@ -117,7 +117,7 @@ function Header({ isLandingPage }) {
           }
           style={{ cursor: "pointer" }}
         >
-          UniHosp
+          UniHostel
         </h1>
         <ul className={styles.listContainer}>
           <li className={styles.list}>

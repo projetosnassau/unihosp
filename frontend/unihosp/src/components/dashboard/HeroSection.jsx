@@ -11,7 +11,7 @@ function HeroSection() {
       <div className={styles.textContainer}>
         <h1 className={styles.mainHeading}>
           BEM <br />
-          VINDO <br />A UNIHOSP!
+          VINDO <br />A UNIHOSTEL!
         </h1>
         <p className={styles.subHeading}>
           Aqui você vai encontrar o que você tanto aguarda!

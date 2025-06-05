@@ -119,11 +119,14 @@ function RegisterLocadorModal({ isOpen, onClose, onSwitchToLogin }) {
         cidade: "",
         estado: "",
       });
-      // Opcional: fechar modal ou direcionar
-      // setTimeout(() => {
-      //   onClose();
-      //   if (onSwitchToLogin) onSwitchToLogin();
-      // }, 3000);
+      if (onClose) {
+        onClose();
+      }
+
+      if (onSwitchToLogin) {
+        onSwitchToLogin();
+      }
+
     } catch (err) {
       console.error("RegisterLocadorModal: Falha ao cadastrar locador:", err);
       setError(err.message || "Falha ao realizar cadastro. Tente novamente.");

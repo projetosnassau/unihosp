@@ -1,34 +1,33 @@
+
 .loading,
 .error {
-  padding: 20px;
+  padding: 25px;
   text-align: center;
-  border-radius: 8px;
-  margin: 20px 0;
-  font-size: 1.05em;
-  max-width: 100%;
+  border-radius: 12px;
+  margin: 25px 0;
+  font-size: 1.1em;
 }
 .loading {
-  color: #34495e;
+  color: var(--text-link);
   font-style: italic;
-  background-color: #f8f9fa;
+  background-color: var(--background-secondary);
 }
-.error {
-  background-color: #f8d7da;
-  color: #721c24;
-  border: 1px solid #f5c6cb;
+.light-theme .error {
+  background-color: #ffebee;
+  color: #c62828;
+  border: 1px solid #ffcdd2;
+}
+.dark-theme .error {
+  background-color: #422c2e;
+  color: #ff8a80;
+  border: 1px solid #753742;
 }
 .errorInline {
-  background-color: #f8d7da;
-  color: #721c24;
-  padding: 10px;
-  border-radius: 4px;
-  margin-bottom: 15px;
-  border: 1px solid #f5c6cb;
-  text-align: center;
+  margin-bottom: 20px;
 }
 
 .favoritosContainer {
-  margin-top: 10px;
+  margin-top: 20px;
   width: 100%;
 }
 
@@ -36,77 +35,47 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 25px;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 30px;
 }
 
 .favoritoCard {
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.09);
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: var(--card-shadow);
   overflow: hidden;
   display: flex;
-  flex-direction: column; 
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  border: 1px solid #e9ecef;
-  width: calc(33.333% - 17px);
-  min-width: 280px;
-  flex-grow: 0;
-  flex-shrink: 0;
-}
-
-.favoritoCardLayoutRow {
-    flex-direction: row;
-    gap: 15px;
-    align-items: flex-start;
-}
-.favoritoCardLayoutRow .casaImageContainerSmall {
-    width: 120px;
-    height: 90px;
-    margin-bottom: 0;
-    margin-right: 15px;
-}
-.favoritoCardLayoutRow .favoritoInfo {
-    flex-grow: 1;
-}
-
-
-.favoritosGrid > .favoritoCard:only-child {
-  width: 60%;
-  max-width: 450px;
-  margin-left: auto;
-  margin-right: auto;
   flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--border-color);
 }
-.favoritosGrid > .favoritoCard:only-child .favoritoImageContainer {
-    height: 220px;
-}
-
 
 .favoritoCard:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  transform: translateY(-6px) scale(1.03);
 }
 
 .favoritoImageContainer {
   width: 100%;
-  height: 180px;
+  height: 200px;
   overflow: hidden;
-  background-color: #e0e6ed;
+  background-color: var(--background-secondary);
+  position: relative;
 }
-
 
 .favoritoImagem {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.35s ease-out;
+}
+.favoritoCard:hover .favoritoImagem {
+  transform: scale(1.1);
 }
 
 .favoritoInfo {
-  padding: 20px;
+  padding: 20px 25px 25px;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -114,23 +83,23 @@
 
 .favoritoInfo h3 {
   margin-top: 0;
-  margin-bottom: 10px;
-  font-size: 1.2em;
-  color: #2c3e50;
-  font-weight: 600;
-  line-height: 1.35;
+  margin-bottom: 8px;
+  font-size: 1.3em;
+  color: var(--text-primary);
+  font-weight: 700;
+  line-height: 1.4;
+}
+.favoritoInfo .cidadeEstado {
+  font-size: 0.95em;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
 }
 
-.favoritoInfo p {
-  font-size: 0.95em;
-  color: #525f6f;
-  margin-bottom: 10px;
-}
 .favoritoInfo .precoPorNoite {
-  font-size: 1.1em;
+  font-size: 1.15em;
   font-weight: bold;
-  color: #007bff;
-  margin-bottom: 15px;
+  color: var(--header-title-hover-color);
+  margin-bottom: 18px;
 }
 
 .favoritoActions {
@@ -138,61 +107,67 @@
   justify-content: space-between;
   align-items: center;
   margin-top: auto;
-  padding-top: 15px;
-  border-top: 1px solid #e9ecef;
+  padding-top: 18px;
+  border-top: 1.5px solid var(--border-color-light);
 }
 
 .detailsButton, .actionButtonSmall {
-    padding: 8px 15px;
-    font-size: 0.9em;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    font-family: "Josefin Sans", sans-serif;
-    font-weight: 500;
-    transition: background-color 0.2s ease, transform 0.1s ease;
-    letter-spacing: 0.2px;
-    text-decoration: none;
+  padding: 10px 18px;
+  font-size: 0.9em;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  letter-spacing: 0.4px;
+  text-decoration: none;
 }
 .detailsButton:hover, .actionButtonSmall:hover {
-    transform: translateY(-1px);
+  transform: translateY(-1px);
+}
+.detailsButton:active, .actionButtonSmall:active {
+  transform: translateY(0);
+  box-shadow: none;
 }
 
 .detailsButton {
-    background-color: #5dade2;
-    color: white;
+  background-color: var(--text-link);
+  color: var(--background-primary);
 }
 .detailsButton:hover {
-    background-color: #3498db;
+  filter: brightness(85%);
 }
 
 .removeFavoriteButton {
-    background-color: #e74c3c;
-    color: white;
+  border: 1.5px solid #e74c3c;
+  color: #e74c3c;
+  background-color: transparent;
 }
 .removeFavoriteButton:hover {
-    background-color: #c0392b;
+  background-color: rgba(231, 76, 60, 0.1);
+  color: #e74c3c;
+}
+.dark-theme .removeFavoriteButton {
+  border-color: #ff8a80;
+  color: #ff8a80;
+}
+.dark-theme .removeFavoriteButton:hover {
+  background-color: rgba(255, 138, 128, 0.15);
 }
 
 
-@media (max-width: 992px) {
-  .favoritoCard {
-    width: calc(50% - 13px);
-  }
-  .favoritosGrid > .favoritoCard:only-child {
-    width: 75%;
-  }
-}
-
-@media (max-width: 600px) {
-  .favoritoCard {
-    width: 100%;
-  }
-  .favoritosGrid > .favoritoCard:only-child {
-    width: 90%;
-    max-width: 380px;
-  }
+@media (max-width: 680px) {
   .favoritosGrid {
-    justify-content: center;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .favoritoCard {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .favoritoImageContainer {
+    height: 220px;
   }
 }

@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 
 const prisma = new PrismaClient();
 
-export const listarAdmins = async (req, res) => {
+export const listarAdmins = async (req, res) => { 
   try {
     const admins = await prisma.admin.findMany({
       select: { id: true, name: true, email: true },

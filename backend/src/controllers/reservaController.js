@@ -9,6 +9,8 @@ const STATUS_HISTORICO = [
   "CONCLUIDA",
 ];
 
+
+
 const paraDataUTCString = (dateObj) => {
     const d = new Date(dateObj);
     d.setUTCHours(0, 0, 0, 0);

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styles from "./RegisterHospedeModal.module.css";
+import imagem from "../../public/login.png"
+
 
 const UserIcon = () => <span className={styles.icon}>&#128100;</span>;
 const EmailIcon = () => <span className={styles.icon}>&#128231;</span>;
@@ -120,7 +122,7 @@ function RegisterHospedeModal({ isOpen, onClose, onSwitchToLogin }) {
         <div className={styles.modalBody}>
           <div className={styles.illustrationContainer}>
             <img
-              src="https://placehold.co/280x280/E0F2F7/007B8A?text=Ilustração"
+              src={imagem}
               alt="Ilustração Cadastro Hóspede"
               className={styles.illustration}
             />

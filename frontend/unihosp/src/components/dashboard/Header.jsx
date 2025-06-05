@@ -2,24 +2,46 @@ import React, { useState, useEffect } from "react";
 import styles from "./Header.module.css";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useTheme } from "../../context/ThemeContext";
 
 import LoginModal from "../../utils/LoginModal";
 import EscolhaModal from "../../utils/EscolhaModal";
 import RegisterHospedeModal from "../../utils/RegisterHospedeModal";
 import RegisterLocadorModal from "../../utils/RegisterLocadorModal";
 
+const SunIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="5"></circle>
+    <line x1="12" y1="1" x2="12" y2="3"></line>
+    <line x1="12" y1="21" x2="12" y2="23"></line>
+    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+    <line x1="1" y1="12" x2="3" y2="12"></line>
+    <line x1="21" y1="12" x2="23" y2="12"></line>
+    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+  </svg>
+);
+
+const MoonIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+  </svg>
+);
+
+
 function Header({ isLandingPage }) {
   const { isAuthenticated, userType, logoutAction } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+  const { theme, toggleTheme } = useTheme();
 
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
-  const [isUserTypeChoiceModalOpen, setIsUserTypeChoiceModalOpen] =
-    useState(false);
-  const [isRegisterHospedeModalOpen, setIsRegisterHospedeModalOpen] =
-    useState(false);
-  const [isRegisterLocadorModalOpen, setIsRegisterLocadorModalOpen] =
-    useState(false);
+  const [isUserTypeChoiceModalOpen, setIsUserTypeChoiceModalOpen] = useState(false);
+  const [isRegisterHospedeModalOpen, setIsRegisterHospedeModalOpen] = useState(false);
+  const [isRegisterLocadorModalOpen, setIsRegisterLocadorModalOpen] = useState(false);
+
+  const [headerScrolled, setHeaderScrolled] = useState(false);
 
   const closeAllModals = () => {
     setIsLoginModalOpen(false);
@@ -49,6 +71,7 @@ function Header({ isLandingPage }) {
     setIsLoginModalOpen(true);
   };
 
+
   const handleLogout = () => {
     logoutAction();
     navigate("/");
@@ -56,18 +79,16 @@ function Header({ isLandingPage }) {
 
   useEffect(() => {
     const originalBodyOverflow = document.body.style.overflow;
-    if (
-      isLoginModalOpen ||
-      isUserTypeChoiceModalOpen ||
-      isRegisterHospedeModalOpen ||
-      isRegisterLocadorModalOpen
-    ) {
+    const isAnyModalOpen = isLoginModalOpen || isUserTypeChoiceModalOpen || isRegisterHospedeModalOpen || isRegisterLocadorModalOpen;
+    if (isAnyModalOpen) {
       document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = originalBodyOverflow;
+      document.body.style.overflow = originalBodyOverflow || '';
     }
     return () => {
-      document.body.style.overflow = originalBodyOverflow;
+      if (document.body.style.overflow === "hidden") {
+          document.body.style.overflow = originalBodyOverflow || '';
+      }
     };
   }, [
     isLoginModalOpen,
@@ -88,7 +109,10 @@ function Header({ isLandingPage }) {
         top: offsetPosition,
         behavior: "smooth",
       });
-    } else {
+    } else if (sectionId === 'inicio') {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+     else {
       navigate("/");
     }
   };
@@ -97,68 +121,76 @@ function Header({ isLandingPage }) {
     e.preventDefault();
     if (isLandingPage && pathOrId.startsWith("#")) {
       scrollToSection(pathOrId.substring(1));
-    } else if (isLandingPage && pathOrId === "/") {
+    } else if (isLandingPage && (pathOrId === "/" || pathOrId === "#inicio") ) {
       scrollToSection("inicio");
-    } else {
+    }
+     else if (pathOrId === "/") {
+      navigate("/");
+      if (location.pathname === "/") window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    else {
       navigate(pathOrId);
     }
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setHeaderScrolled(true);
+      } else {
+        setHeaderScrolled(false);
+      }
+    };
+    if (isLandingPage) {
+        window.addEventListener('scroll', handleScroll);
+    }
+    return () => {
+      if (isLandingPage) {
+        window.removeEventListener('scroll', handleScroll);
+      }
+    };
+  }, [isLandingPage]);
+
+
   return (
     <>
-      <header className={styles.header}>
+      <header className={`${styles.header} ${isLandingPage && headerScrolled ? styles.headerScrolled : ''}`}>
         <h1
           className={styles.title}
-          onClick={() =>
-            handleNavClick(
-              { preventDefault: () => {} },
-              isLandingPage ? "#inicio" : "/"
-            )
-          }
-          style={{ cursor: "pointer" }}
+          onClick={() => handleNavClick({ preventDefault: () => {} }, isLandingPage ? "#inicio" : "/")}
         >
           UniHostel
         </h1>
         <ul className={styles.listContainer}>
           <li className={styles.list}>
-            <a
-              href={isLandingPage ? "#inicio" : "/"}
-              onClick={(e) =>
-                handleNavClick(e, isLandingPage ? "#inicio" : "/")
-              }
-            >
+            <a href={isLandingPage ? "#inicio" : "/"} onClick={(e) => handleNavClick(e, isLandingPage ? "#inicio" : "/")}>
               Home
             </a>
           </li>
+          {isLandingPage && (
+            <>
+              <li className={styles.list}>
+                <a href="#sobre" onClick={(e) => handleNavClick(e, "#sobre")}>Sobre</a>
+              </li>
+              <li className={styles.list}>
+                <a href="#servicos" onClick={(e) => handleNavClick(e, "#servicos")}>Serviços</a>
+              </li>
+              <li className={styles.list}>
+                <a href="#contato" onClick={(e) => handleNavClick(e, "#contato")}>Contato</a>
+              </li>
+            </>
+          )}
+
+          {}
           <li className={styles.list}>
-            <a
-              href={isLandingPage ? "#sobre" : "/sobre"}
-              onClick={(e) =>
-                handleNavClick(e, isLandingPage ? "#sobre" : "/sobre")
-              }
+            <button 
+              onClick={toggleTheme} 
+              className={styles.themeToggleButton}
+              aria-label={`Mudar para modo ${theme === 'light' ? 'escuro' : 'claro'}`}
+              title={`Mudar para modo ${theme === 'light' ? 'escuro' : 'claro'}`}
             >
-              Sobre
-            </a>
-          </li>
-          <li className={styles.list}>
-            <a
-              href={isLandingPage ? "#servicos" : "/servicos"}
-              onClick={(e) =>
-                handleNavClick(e, isLandingPage ? "#servicos" : "/servicos")
-              }
-            >
-              Serviços
-            </a>
-          </li>
-          <li className={styles.list}>
-            <a
-              href={isLandingPage ? "#contato" : "/contato"}
-              onClick={(e) =>
-                handleNavClick(e, isLandingPage ? "#contato" : "/contato")
-              }
-            >
-              Contato
-            </a>
+              {theme === 'light' ? <MoonIcon /> : <SunIcon />}
+            </button>
           </li>
 
           {isAuthenticated ? (
@@ -218,6 +250,7 @@ function Header({ isLandingPage }) {
         </ul>
       </header>
 
+      {}
       {!isAuthenticated && (
         <>
           <LoginModal

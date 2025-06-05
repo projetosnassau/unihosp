@@ -1,5 +1,7 @@
 import React from "react";
 import styles from "./Sobre.module.css";
+import logo from "../../../public/Logo.png"
+
 
 function Sobre() {
   return (
@@ -46,8 +48,7 @@ function Sobre() {
           </div>
           <div className={styles.imagePlaceholderWrapper}>
             <div className={styles.imagePlaceholder}>
-              <span>UniHostel</span>
-              <p>Sua Moradia Universitária Ideal</p>
+              <img src={logo} />
             </div>
           </div>
         </div>

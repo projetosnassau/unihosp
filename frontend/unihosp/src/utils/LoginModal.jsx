@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./LoginModal.module.css";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import imagemLogin from "../../public/login.png"
 
 const UserIcon = () => <span className={styles.icon}>&#128100;</span>;
 const LockIcon = () => <span className={styles.icon}>&#128274;</span>;
@@ -76,7 +77,7 @@ function LoginModal({ isOpen, onClose, onSwitchToRegister }) {
         <div className={styles.modalBody}>
           <div className={styles.illustrationContainer}>
             <img
-              src="https://placehold.co/280x280/E0F2F7/007B8A?text=Ilustração"
+              src={imagemLogin}
               alt="Ilustração Login"
               className={styles.illustration}
             />

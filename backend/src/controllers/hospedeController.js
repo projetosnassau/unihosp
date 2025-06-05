@@ -3,7 +3,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 const prisma = new PrismaClient();
-
+// SELECT * FROM TABELA
 export const listarHospedes = async (req, res) => {
   try {
     const hospedes = await prisma.hospede.findMany({
@@ -15,7 +15,7 @@ export const listarHospedes = async (req, res) => {
     res.status(500).json({ error: "Erro ao buscar hóspedes" });
   }
 };
-
+// SELECT COLUNA FROM TABELA
 export const buscarHospedePorId = async (req, res) => {
   const { id } = req.params;
   const usuarioLogado = req.usuario;

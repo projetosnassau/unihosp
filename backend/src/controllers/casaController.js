@@ -75,7 +75,7 @@ export const criarCasa = async (req, res) => {
 
   if (
     !endereco ||
-    !numero ||
+    !numero || 
     !diretrizes ||
     !locadorId ||
     precoPorNoite === undefined || precoPorNoite === null || isNaN(parseFloat(precoPorNoite))

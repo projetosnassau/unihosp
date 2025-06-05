@@ -1,8 +1,9 @@
 .sobreSection {
-  padding: 80px 40px;
-  background-color: #ffffff;
+  padding: 70px 40px;
+  background-color: var(--lp-sobre-bg);
   box-sizing: border-box;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Josefin Sans", "Arial", sans-serif;
+  transition: background-color 0.3s ease;
 }
 
 .container {
@@ -13,16 +14,16 @@
 .sectionTitle {
   font-size: 2.6em;
   font-weight: 700;
-  color: #2c3e50;
+  color: var(--lp-sobre-title);
   text-align: center;
   margin-bottom: 15px;
 }
 
 .sectionSubtitle {
   font-size: 1.15em;
-  color: #566573;
+  color: var(--lp-sobre-subtitle);
   text-align: center;
-  margin-bottom: 70px;
+  margin-bottom: 60px;
   max-width: 750px;
   margin-left: auto;
   margin-right: auto;
@@ -34,23 +35,23 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 70px;
+  gap: 60px;
 }
 
 .textContainer {
-  flex: 1.3;
-  max-width: 620px;
+  flex: 1.2;
+  max-width: 600px;
   text-align: left;
 }
 
 .textHeading {
-  font-size: 1.5em;
+  font-size: 1.6em;
   font-weight: 600;
-  color: #34495e;
-  margin-bottom: 15px;
-  margin-top: 30px;
-  padding-bottom: 5px;
-  border-bottom: 2px solid #1abc9c;
+  color: var(--lp-sobre-text-heading);
+  margin-bottom: 18px;
+  margin-top: 25px;
+  padding-bottom: 8px;
+  border-bottom: 3px solid var(--lp-sobre-icon-list);
   display: inline-block;
 }
 .textContainer h3:first-of-type {
@@ -59,38 +60,38 @@
 
 .paragraphText {
   font-size: 1.05em;
-  color: #4a5568;
-  line-height: 1.85;
-  margin-bottom: 20px;
+  color: var(--lp-sobre-paragraph);
+  line-height: 1.8;
+  margin-bottom: 22px;
   font-weight: 400;
 }
 
 .valuesList {
   list-style: none;
   padding-left: 0;
-  margin-top: 15px;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 15px;
 }
 
 .valuesList li {
-  font-size: 1.05em;
-  color: #4a5568;
-  line-height: 1.8;
-  margin-bottom: 10px;
+  font-size: 1em;
+  color: var(--lp-sobre-paragraph);
+  line-height: 1.75;
+  margin-bottom: 12px;
   display: flex;
   align-items: center;
   font-weight: 400;
 }
 
 .valuesList .icon {
-  margin-right: 12px;
-  color: #1abc9c;
-  font-size: 1.2em;
+  margin-right: 15px;
+  color: var(--lp-sobre-icon-list);
+  font-size: 1.3em;
 }
 
 .imagePlaceholderWrapper {
   flex: 1;
-  max-width: 450px;
+  max-width: 420px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -98,28 +99,18 @@
 
 .imagePlaceholder {
   width: 100%;
-  padding-top: 75%;
-  background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: #00796b;
-  font-style: normal;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.07);
-  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
 }
-.imagePlaceholder span {
-  font-size: 2em;
-  font-weight: 600;
-  margin-bottom: 5px;
+.imagePlaceholder img {
+    display: block;
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    border-radius: 8px;
+    margin: 0 auto;
 }
-.imagePlaceholder p {
-  font-size: 1em;
-  font-weight: 300;
-}
+
 
 @media (max-width: 992px) {
   .contentWrapper {
@@ -132,27 +123,17 @@
     text-align: left;
   }
   .textContainer h3 {
-    display: block;
-    text-align: center;
-    border-bottom: none;
-    padding-bottom: 0;
+    text-align: left;
+    display: inline-block;
   }
   .textContainer h3::after {
-    content: "";
-    display: block;
-    width: 60px;
-    height: 2px;
-    background-color: #1abc9c;
-    margin: 10px auto 0 auto;
+    display: none;
   }
 
   .imagePlaceholderWrapper {
-    width: 100%;
-    max-width: 400px;
+    width: 80%;
+    max-width: 350px;
     margin-bottom: 30px;
-  }
-  .imagePlaceholder {
-    padding-top: 60%;
   }
 }
 
@@ -173,11 +154,5 @@
   .paragraphText,
   .valuesList li {
     font-size: 0.95em;
-  }
-  .imagePlaceholder span {
-    font-size: 1.5em;
-  }
-  .imagePlaceholder p {
-    font-size: 0.9em;
   }
 }

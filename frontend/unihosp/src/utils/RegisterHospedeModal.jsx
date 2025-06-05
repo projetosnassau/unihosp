@@ -96,6 +96,15 @@ function RegisterHospedeModal({ isOpen, onClose, onSwitchToLogin }) {
         matricula: "",
         universidade: "",
       });
+
+      if (onClose) {
+        onClose();
+      }
+
+      if (onSwitchToLogin) {
+        onSwitchToLogin();
+      }
+
     } catch (err) {
       setError(err.message || "Falha ao realizar cadastro. Tente novamente.");
     } finally {
